@@ -52,6 +52,7 @@ h4,
 h5,
 h6 {
   font-family: "Raleway", sans-serif;
+  
 }
 
 /*--------------------------------------------------------------
@@ -66,6 +67,7 @@ h6 {
   z-index: 997;
   overflow-y: auto;
 }
+
 
 #header * {
   transition: ease-in-out 0.3s;
@@ -240,6 +242,11 @@ h6 {
   border-radius: 90px; 
   border-image: linear-gradient(to right, red, yellow) 10;
   animation: rotate 2s infinite;
+}
+
+hr {
+  color: #00ffff !important;
+  border: 3px solid;
 }
 
 @keyframes pulse {
@@ -445,6 +452,13 @@ section .container {
   }
 }
 
+.gradient-palheta {
+  background: linear-gradient(#00ffff,#076868);
+      letter-spacing: 3px;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+}
+
 .section-title h2 {
   font-size: 14px;
   font-weight: 500;
@@ -455,6 +469,7 @@ section .container {
   text-transform: uppercase;
   color: #aaaaaa;
   font-family: "Poppins", sans-serif;
+  
 }
 
 .section-title h2::after {
@@ -1237,10 +1252,27 @@ section .container {
   left: 0;
   bottom: 0;
   padding: 15px;
-  text-align: right;
+  text-align: center;
   font-size: 13px;
   color: #fff;
   z-index: 999999;
+}
+
+
+
+.gradient-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: linear-gradient(to right, #076868, #00ffff); /* Cores do gradiente */
+  color: #fff; /* Cor do texto */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.gradient-button:hover {
+  background: linear-gradient(to right, #00ffff, #076868); /* Cores do gradiente quando hover */
 }
 
 @media (max-width: 992px) {
