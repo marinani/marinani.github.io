@@ -194,6 +194,14 @@ h6 {
   }
 }
 
+.img-fluid {
+  border-radius: 50% !important;
+}
+
+.img-fluid :hover {
+  border-radius: 10% !important;
+  transition: border-radius 0.5s; /* Adiciona uma transição suave */
+}
 
 .black-and-white {
  
@@ -202,7 +210,7 @@ h6 {
 
 .black-and-white:hover {
   filter: none; /* Remove o filtro, retornando a cor original da imagem */
-   transition: filter 0.5s; /* Adiciona uma transição suave */
+  transition: filter 0.5s; /* Adiciona uma transição suave */
  
 }
 
@@ -659,7 +667,7 @@ section .container {
 .testimonials .testimonial-item h3 {
   font-size: 18px;
   font-weight: bold;
-  margin: 10px 0 5px 45px;
+  margin: 10px 0 5px 0;
   color: #fff;
 }
 
@@ -1290,4 +1298,75 @@ section .container {
 
 .credits a:hover {
   color: #fff;
+}
+
+/* Magic Share Button */
+
+
+
+.menu{
+  position:relative;
+ width:280px;
+  height:280px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.menu .toggle{
+  position:relative;
+  height:60px;
+  width:60px;
+  /* background: linear-gradient(to right, #076868, #043f3f); */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius:50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#333;
+  font-size:2rem;
+  cursor:pointer;
+  transition:1.25s;
+  z-index:5;
+}
+.menu.active .toggle{
+  transform:rotate(360deg);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.15),
+    0 0 0 2px #333,
+    0 0 0 8px #fff;
+}
+.menu li{
+  position:absolute;
+  left:0;
+  list-style:none;
+  transition:0.5s;
+  transform:rotate(calc(360deg/8 * var(--i)));
+  transform-origin:140px;
+  scale:0;
+  transition-delay: calc(0.05s * var(--i));
+}
+.menu.active li{
+  scale:1;
+}
+
+.menu li a{
+  position:relative;
+  display:flex;
+ transform:rotate(calc(360deg/-8 * var(--i)));
+  width:60px;
+  height:60px;
+  background: linear-gradient(to right, #076868, #726d6d);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  font-size:1.75rem;
+  color:var(--clr);
+   box-shadow:0 3px 4px rgba(0,0,0,0.15);
+  transition:0.5s;
+}
+.menu li:hover a{
+  font-size:2.5rem;
+  box-shadow:0 0 0 2px var(--clr),
+    0 0 0 6px #fff;
 }
