@@ -29,6 +29,19 @@ body::before {
   z-index: -1;
 }
 
+ /* Estilos para o botão fixo */
+  .botao-fixo {
+    position: fixed; /* Torna o botão fixo na tela */
+    left: 15%; /* Define a posição à esquerda */
+    top: 50%; /* Define a posição vertical (centralizada) */
+    transform: translateY(-50%); /* Centraliza verticalmente */
+    background-color: #0000ff; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    padding: 10px 20px; /* Espaçamento interno */
+    border-radius: 50%; /* Adiciona cantos arredondados */
+    cursor: pointer; /* Altera o cursor ao passar o mouse */
+  }
+
 @font-face {
   font-family: 'Mokoto';
   src: url('../fonts/Mokoto-Glitch-Mark-2.woff') format('woff');
@@ -59,6 +72,9 @@ h6 {
   font-family:'Mokoto', sans-serif;
   
 }
+
+
+
 
 /*--------------------------------------------------------------
 # Header
@@ -153,6 +169,7 @@ h6 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
   }
 }
 
@@ -200,6 +217,12 @@ h6 {
   }
 }
 
+
+.img-portfolio {
+  width: 400px; /* Largura da imagem */
+  height: 200px; /* Altura da imagem */
+}
+
 .img-fluid {
   border-radius: 50% !important;
 }
@@ -211,12 +234,14 @@ h6 {
 
 .black-and-white {
  
-  filter: grayscale(100%); /* Transforma a imagem em preto e branco */
+  filter: none; /* Remove o filtro, retornando a cor original da imagem */ 
+  transition: transform 1s; /* Adiciona uma transição suave de 1 segundo */
 }
 
 .black-and-white:hover {
-  filter: none; /* Remove o filtro, retornando a cor original da imagem */
+  filter: grayscale(100%); /* Transforma a imagem em preto e branco */
   transition: filter 0.5s; /* Adiciona uma transição suave */
+  transform: rotate(360deg); /* Rotaciona a imagem em 45 graus quando o mouse passa por cima */
  
 }
 
@@ -699,7 +724,7 @@ section .container {
 }
 
 .testimonials .testimonial-item .testimonial-img {
-  width: 120px;
+  width: 400px;
   border-radius: 50%;
   border: 4px solid #fff;
   margin: 0 auto;
@@ -715,7 +740,7 @@ section .container {
   border-radius: 50%; /* Faz a borda circular */
   border: 10px solid transparent; /* Borda transparente */
   border-image: conic-gradient(#ff6600, #ff3399, #ff0033, #ff3399) 1; /* Gradiente rotacional */
-  animation: pulse 1s infinite;
+  animation: rotate 1s infinite;
 }
 
 @keyframes rotate {
