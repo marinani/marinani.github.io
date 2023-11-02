@@ -1,9 +1,5 @@
 window.addEventListener('DOMContentLoaded', function () {
-    // Seu código JavaScript aqui
-
-    const texto = "Este é um texto em looping.";
-const container = document.getElementById("texto-container");
-
+   
 
   
     const elemento = document.getElementById('elemento');
@@ -51,7 +47,23 @@ const container = document.getElementById("texto-container");
 
 
   const titulo = document.querySelector('h1');
+ // const welcome = document.getElementById('boas-vindas');
   typeWriter(titulo);
+
+  
+//   typeWriter(welcome);
+
+//  const inicio = document.getElementById('inicio');
+
+//   setTimeout(function() {
+   
+//     inicio.classList.remove('hidden');
+
+//     if (!welcome.classList.contains('hidden')) {
+//       welcome.classList.add('hidden');
+//     }
+
+//   }, 3000);
 
   
   const menu=document.querySelector(".menu");
