@@ -101,7 +101,13 @@ h6 {
   line-height: 1;
   font-weight: 700;
   font-family:'Mokoto', sans-serif;
-  /* font-family: "Poppins", sans-serif; */
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0); /* Inicialmente sem sombra */
+  transition: text-shadow 0.3s; /* Adiciona uma transição suave */
+}
+
+
+#header h1:hover {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra ao passar o mouse */
 }
 
 #header h1 a,
@@ -229,7 +235,31 @@ h6 {
 
 .img-fluid :hover {
   border-radius: 10% !important;
-  transition: border-radius 0.5s; /* Adiciona uma transição suave */
+  transition: border-radius 0.5s; 
+}
+
+.imagemportfolio {
+  width: 300px;
+  height: 300px;
+    transition: filter 0.5s;
+    border-radius: 30%;
+    filter: grayscale(100%) blur(5px);
+}
+
+/* Estilo ao passar o mouse sobre a imagem */
+.imagemportfolio  :hover {
+  letter-spacing: 3px;
+  -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transform: scale(1.2); /* Expande a imagem para 120% do tamanho original */
+      filter: none;
+
+}   
+
+
+
+.botaochat:hover {
+  background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
 }
 
 .black-and-white {
@@ -244,6 +274,8 @@ h6 {
   transform: rotate(360deg); /* Rotaciona a imagem em 45 graus quando o mouse passa por cima */
  
 }
+
+
 
 .photo-container {
   position: relative;
@@ -771,6 +803,8 @@ section .container {
 
 
 
+
+
 .welcome {
   display: flex; /* Usa Flexbox para centralização */
   justify-content: center; /* Centraliza horizontalmente */
@@ -1066,6 +1100,7 @@ section .container {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 }
 
 .portfolio .portfolio-wrap .portfolio-info::before {
@@ -1076,8 +1111,8 @@ section .container {
   position: absolute;
   top: 35px;
   left: 35px;
-  border-top: 3px solid #fff;
-  border-left: 3px solid #fff;
+  border-top: 3px solid #00ffff;
+  border-left: 3px solid #00ffff;
   transition: all 0.5s ease 0s;
   z-index: 9994;
 }
@@ -1090,20 +1125,20 @@ section .container {
   position: absolute;
   bottom: 35px;
   right: 35px;
-  border-bottom: 3px solid #fff;
-  border-right: 3px solid #fff;
+  border-bottom: 3px solid #00ffff;
+  border-right: 3px solid #00ffff;
   transition: all 0.5s ease 0s;
   z-index: 9994;
 }
 
 .portfolio .portfolio-wrap .portfolio-info h4 {
   font-size: 20px;
-  color: #fff;
+  color: #00ffff;
   font-weight: 600;
 }
 
 .portfolio .portfolio-wrap .portfolio-info p {
-  color: #ffffff;
+  color: #00ffff;
   font-size: 14px;
   text-transform: uppercase;
   padding: 0;
@@ -1116,7 +1151,7 @@ section .container {
 }
 
 .portfolio .portfolio-wrap .portfolio-links a {
-  color: #fff;
+  color: #00ffff;
   margin: 0 2px;
   font-size: 28px;
   display: inline-block;
@@ -1124,7 +1159,7 @@ section .container {
 }
 
 .portfolio .portfolio-wrap .portfolio-links a:hover {
-  color: #63eda3;
+  color: #00ffff;
 }
 
 .portfolio .portfolio-wrap:hover::before {
@@ -1394,7 +1429,6 @@ section .container {
 }
 
 
-
 .gradient-button {
   display: inline-block;
   padding: 10px 20px;
@@ -1408,6 +1442,29 @@ section .container {
 
 .gradient-button:hover {
   background: linear-gradient(to right, #00ffff, #076868); /* Cores do gradiente quando hover */
+}
+
+
+.button-chat {
+  position: fixed;
+  bottom: 20px; /* Distância do botão a partir do fundo */
+  right: 20px; /* Distância do botão a partir da direita */
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff; /* Cor do texto */
+  border: none;
+  background-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-chat a {
+  border: none;
+}
+
+.button-chat img {
+  width: 80px; /* Largura da imagem */
+  height: 80px; /* Altura da imagem */
 }
 
 @media (max-width: 992px) {
