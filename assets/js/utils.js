@@ -1,10 +1,10 @@
 window.addEventListener('DOMContentLoaded', function () {
    
 
-  
-    const elemento = document.getElementById('elemento');
-    const elementos = document.querySelectorAll('.flutuar');
-  
+  /* Inicio Itens sobre */
+  const elemento = document.getElementById('elemento');
+  const elementos = document.querySelectorAll('.flutuar');
+
   elemento.addEventListener('mouseover', () => {
     elemento.style.transform = 'translateX(50px)'; /* Move o elemento para a direita */
   });
@@ -24,6 +24,10 @@ window.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+   /* Fim Itens sobre */
+
+
+ /* Inicio rotacao imagem preta e branca */
 
   const imagem = document.querySelector('.black-and-white');
 
@@ -35,7 +39,10 @@ window.addEventListener('DOMContentLoaded', function () {
     imagem.classList.remove('rotacionado');
   });
 
+ /* Fim rotacao imagem preta e branca */
 
+
+ const titulo = document.querySelector('h1');
   function typeWriter(elemento) {
     const textoArray = elemento.innerHTML.split('');
     elemento.innerHTML = '';
@@ -45,26 +52,7 @@ window.addEventListener('DOMContentLoaded', function () {
     
   }
 
-
-  const titulo = document.querySelector('h1');
- // const welcome = document.getElementById('boas-vindas');
   typeWriter(titulo);
-
-  
-//   typeWriter(welcome);
-
-//  const inicio = document.getElementById('inicio');
-
-//   setTimeout(function() {
-   
-//     inicio.classList.remove('hidden');
-
-//     if (!welcome.classList.contains('hidden')) {
-//       welcome.classList.add('hidden');
-//     }
-
-//   }, 3000);
-
   
   const menu=document.querySelector(".menu");
   const toggle=document.querySelector(".toggle");

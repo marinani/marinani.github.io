@@ -9,12 +9,27 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-body {
+/* body {
   font-family: "Open Sans", sans-serif;
   background-color: #040404;
   color: #fff;
   position: relative;
   background: transparent;
+} */
+
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #040404;
+  color: #fff;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  min-height: 100vh; /* Garante que o conteúdo ocupe a altura total da tela */
+
 }
 
 body::before {
@@ -135,8 +150,12 @@ h6 {
 }
 
 #header .social-links {
-  margin-top: 40px;
+  margin-top: 20% !important;
+  margin: 0;
+  padding: 0;
   display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
 }
 
 #header .social-links a {
@@ -224,9 +243,62 @@ h6 {
 }
 
 
+
+/* .imagemportfolio {
+  width: 300px; 
+  height: 300px; 
+    transition: filter 0.5s, background 0.5s;
+    border-radius: 30%;
+    filter: grayscale(100%) blur(5px);
+}
+
+
+.imagemportfolio:hover {
+          letter-spacing: 3px;
+  -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transform: scale(1.2);
+      filter: none;
+} */
+
+.imagem-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  filter: none;
+}
+
+.imagemportfolio {
+  width: 100%;
+  height: 100%;
+  transition: filter 0.5s, background 0.5s;
+  border-radius: 30%;
+  filter: grayscale(100%) blur(5px);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  filter: none;
+}
+
+.imagemportfolio:hover + .overlay {
+  display: block;
+}
+
 .img-portfolio {
   width: 400px; /* Largura da imagem */
   height: 200px; /* Altura da imagem */
+}
+
+.img-icon {
+  width: 50px;
+  height: 50px;
 }
 
 .img-fluid {
@@ -237,26 +309,6 @@ h6 {
   border-radius: 10% !important;
   transition: border-radius 0.5s; 
 }
-
-.imagemportfolio {
-  width: 300px;
-  height: 300px;
-    transition: filter 0.5s;
-    border-radius: 30%;
-    filter: grayscale(100%) blur(5px);
-}
-
-/* Estilo ao passar o mouse sobre a imagem */
-.imagemportfolio  :hover {
-  letter-spacing: 3px;
-  -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            transform: scale(1.2); /* Expande a imagem para 120% do tamanho original */
-      filter: none;
-
-}   
-
-
 
 .botaochat:hover {
   background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
@@ -332,6 +384,78 @@ hr {
   }
 }
 
+#elemento {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/*--------------------------------------------------------------
+# Catalogo de Imagens
+--------------------------------------------------------------*/
+
+.catalogo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.item {
+  width: calc(33.33% - 10px);
+  margin-bottom: 20px;
+}
+
+.item img {
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.3s;
+  padding: 10px;
+  filter: grayscale(100%) ; /* imagem preto e branco */
+  /*filter:blur(2px); */  /* deixa opaco */
+}
+
+.item img:hover {
+  transform: scale(1.1);
+  filter:none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  display: none;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.imagem-expandida {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.imagem-expandida img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+/*--------------------------------------------------------------
+# Catalogo de Imagens
+--------------------------------------------------------------*/
+
+
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -341,7 +465,16 @@ hr {
 .navbar {
   padding: 0;
   margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #076868, #00ffff); /* Cores do gradiente */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
 }
+
 
 .navbar ul {
   margin: 0;
@@ -404,7 +537,10 @@ hr {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: #fff;
+  background: linear-gradient(to right, #076868, #00ffff); /* Cores do gradiente */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /**
@@ -1484,30 +1620,42 @@ section .container {
   color: #fff;
 }
 
-/* Magic Share Button */
 
+
+
+/* Magic Share Button */
+.icone-menu {
+  background: linear-gradient(45deg, #00ffff,#076868);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 
 
 .menu{
   position:relative;
- width:280px;
+  width:280px;
   height:280px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+ 
 }
 .menu .toggle{
   position:relative;
   height:60px;
   width:60px;
   /* background: linear-gradient(to right, #076868, #043f3f); */
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1); 
+  /* transparencia */
   border-radius:50%;
   border: 1px solid rgba(255, 255, 255, 0.1);
   display:flex;
   align-items:center;
   justify-content:center;
-  color:#333;
+  color:#FFF;
   font-size:2rem;
   cursor:pointer;
   transition:1.25s;
@@ -1516,8 +1664,8 @@ section .container {
 .menu.active .toggle{
   transform:rotate(360deg);
   box-shadow: 0 6px 8px rgba(0,0,0,0.15),
-    0 0 0 2px #333,
-    0 0 0 8px #fff;
+    0 0 0 2px #00ffff,
+    0 0 0 8px #076868;
 }
 .menu li{
   position:absolute;
