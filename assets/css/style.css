@@ -243,24 +243,6 @@ h6 {
 }
 
 
-
-/* .imagemportfolio {
-  width: 300px; 
-  height: 300px; 
-    transition: filter 0.5s, background 0.5s;
-    border-radius: 30%;
-    filter: grayscale(100%) blur(5px);
-}
-
-
-.imagemportfolio:hover {
-          letter-spacing: 3px;
-  -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            transform: scale(1.2);
-      filter: none;
-} */
-
 .imagem-container {
   position: relative;
   width: 300px;
@@ -310,9 +292,6 @@ h6 {
   transition: border-radius 0.5s; 
 }
 
-.botaochat:hover {
-  background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
-}
 
 .black-and-white {
  
@@ -424,11 +403,14 @@ hr {
   cursor: pointer;
   transition: transform 0.3s;
   filter: grayscale(100%);
+  object-fit: cover; /* Mantém a proporção da imagem e preenche o contêiner */
 }
 
 .item img:hover {
   transform: scale(1.1);
   filter: none;
+  border: 1px solid #00ffff; /* Adiciona uma borda sólida para maior contraste */
+  box-shadow: 5px 5px 10px #076868; /* Adiciona uma sombra */
 }
 
 .overlay {
@@ -454,6 +436,8 @@ hr {
 .imagem-expandida img {
   max-width: 85vh;
   max-height: 85vw;
+  object-fit: cover; /* Mantém a proporção da imagem e preenche o contêiner */
+
 }
 
 /* Adicione uma media query para ajustar o layout em telas menores */
