@@ -52,7 +52,7 @@ window.addEventListener('DOMContentLoaded', function () {
     
   }
 
-  typeWriter(titulo);
+  //typeWriter(titulo);
   
   const menu=document.querySelector(".menu");
   const toggle=document.querySelector(".toggle");
