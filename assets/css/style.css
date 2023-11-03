@@ -434,10 +434,9 @@ hr {
 }
 
 .imagem-expandida img {
-  max-width: 85vh;
-  max-height: 85vw;
-  object-fit: cover; /* Mantém a proporção da imagem e preenche o contêiner */
-
+  max-width: 75vw;
+  max-height: 90vh;
+  border-radius:4%;
 }
 
 /* Adicione uma media query para ajustar o layout em telas menores */
