@@ -348,7 +348,7 @@ h6 {
 
 hr {
   color: #00ffff !important;
-  border: 3px solid;
+  border: 2px solid;
 }
 
 @keyframes pulse {
@@ -431,13 +431,92 @@ hr {
   left: 50%;
   transform: translate(-50%, -50%);
   display: none;
+  z-index: 2; /* Para garantir que a imagem expandida esteja acima do overlay */
 }
+
 
 .imagem-expandida img {
   max-width: 75vw;
   max-height: 90vh;
-  border-radius:4%;
+  border-radius: 4%;
 }
+
+.fundo-imagem {
+  position: absolute;
+  top: -10px; /* Expande o topo */
+  left: -10px; /* Expande a esquerda */
+  right: -10px; /* Expande a direita */
+  bottom: -10px; /* Expande a parte inferior */
+  background: linear-gradient(45deg, #0000ff, #0099cc, #00ffff);
+  background-size: 400% 400%;
+  z-index: -1;
+  animation: girarBorda 4s linear infinite;
+  opacity: 0.9;
+  border-radius: 3%;
+}
+
+@keyframes girarBorda {
+  0% {
+    background-position: 0 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+}
+}
+
+
+
+
+
+.proximo {
+  position: absolute;
+  top: 50%;
+  right:-70px; /* Ajuste a posição do botão conforme necessário */
+  transform: translateY(-50%);
+    letter-spacing: 3px;
+    background: linear-gradient(#076868, #00ffff);
+    letter-spacing: 3px;
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color:#0000006f;/* Cor do texto do botão */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.proximo:hover {
+  background: linear-gradient(#00ffff, #076868);
+  letter-spacing: 3px;
+  -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; /* Cor de fundo ao passar o mouse */
+}
+
+.anterior {
+  position: absolute;
+  top: 50%;
+  left: -70px; /* Ajuste a posição do botão conforme necessário */
+  transform: translateY(-50%);
+  letter-spacing: 3px;
+  background: linear-gradient(#076868,#00ffff);
+  letter-spacing: 3px;
+  -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+  color: #0000006f; /* Cor do texto do botão */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.anterior:hover {
+  background: linear-gradient(#00ffff,#076868);
+  letter-spacing: 3px;
+  -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; /* Cor de fundo ao passar o mouse */
+}
+
+
 
 /* Adicione uma media query para ajustar o layout em telas menores */
 @media (max-width: 768px) {
@@ -452,6 +531,7 @@ hr {
     width: 100%; /* 1 coluna em telas pequenas */
   }
 }
+
 
 /*--------------------------------------------------------------
 # Catalogo de Imagens

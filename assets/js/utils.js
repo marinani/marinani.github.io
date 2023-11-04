@@ -1,17 +1,20 @@
+
 window.addEventListener('DOMContentLoaded', function () {
    
+  // Esconde o preloader
+document.getElementById('preloader').style.display = 'none';
 
   /* Inicio Itens sobre */
   const elemento = document.getElementById('elemento');
   const elementos = document.querySelectorAll('.flutuar');
 
-  elemento.addEventListener('mouseover', () => {
-    elemento.style.transform = 'translateX(50px)'; /* Move o elemento para a direita */
-  });
+  // elemento.addEventListener('mouseover', () => {
+  //   elemento.style.transform = 'translateX(50px)'; /* Move o elemento para a direita */
+  // });
   
-  elemento.addEventListener('mouseout', () => {
-    elemento.style.transform = 'translateX(0)'; /* Retorna o elemento à posição original */
-  });
+  // elemento.addEventListener('mouseout', () => {
+  //   elemento.style.transform = 'translateX(0)'; /* Retorna o elemento à posição original */
+  // });
 
  
   elementos.forEach(teste => {
@@ -52,19 +55,15 @@ window.addEventListener('DOMContentLoaded', function () {
     
   }
 
-  //typeWriter(titulo);
+  typeWriter(titulo);
   
   const menu=document.querySelector(".menu");
   const toggle=document.querySelector(".toggle");
   toggle.addEventListener("click",()=>{
     menu.classList.toggle("active");
   })
+
+  
+
   
   });
-
-  // Quando a janela estiver completamente carregada
-window.addEventListener('load', function() {
-    // Esconde o preloader
-    document.getElementById('preloader').style.display = 'none';
-    
-});
