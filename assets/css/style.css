@@ -468,10 +468,10 @@ hr {
 
 
 
-.proximo {
-  position: absolute;
+.proximo, .anterior {
+  position: fixed;
   top: 50%;
-  right:-70px; /* Ajuste a posição do botão conforme necessário */
+  
   transform: translateY(-50%);
     letter-spacing: 3px;
     background: linear-gradient(#076868, #00ffff);
@@ -485,36 +485,25 @@ hr {
   cursor: pointer;
 }
 
-.proximo:hover {
+
+.proximo {
+  right: -70px;
+}
+
+ .anterior {
+  
+  left: -70px;
+} 
+
+
+
+.proximo:hover, .anterior:hover {
   background: linear-gradient(#00ffff, #076868);
   letter-spacing: 3px;
   -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent; /* Cor de fundo ao passar o mouse */
+  -webkit-text-fill-color: transparent; /* Cor de fundo ao passar o mouse */
 }
 
-.anterior {
-  position: absolute;
-  top: 50%;
-  left: -70px; /* Ajuste a posição do botão conforme necessário */
-  transform: translateY(-50%);
-  letter-spacing: 3px;
-  background: linear-gradient(#076868,#00ffff);
-  letter-spacing: 3px;
-  -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-  color: #0000006f; /* Cor do texto do botão */
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.anterior:hover {
-  background: linear-gradient(#00ffff,#076868);
-  letter-spacing: 3px;
-  -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent; /* Cor de fundo ao passar o mouse */
-}
 
 
 
@@ -778,6 +767,43 @@ section .container {
 }
 
 
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 9999999999;
+  background: #e04e00;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
+
+.back-to-top i {
+  font-size: 28px;
+  color: #000000;
+  line-height: 0;
+}
+
+.back-to-top:hover {
+  background: #ffa200;
+  color: #000000;
+}
+
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+
 /* Estilize o preloader e o GIF de carregamento */
 #preloader {
   position: fixed;
@@ -792,28 +818,10 @@ section .container {
   z-index: 9999; /* Garanta que esteja acima de todo o conteúdo */
 }
 
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid #00ffff;
-  border-top-color: #076868;
-  border-bottom-color: #000000;
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
-  animation: rotate 1s linear infinite;
-  
-}
-
-
-
 #preloader img {
-  width: 500px; /* Largura do GIF de carregamento */
-  height: auto;
+  width: 200px; /* Largura do GIF de carregamento */
+  height: auto;
 }
-
 
 /*--------------------------------------------------------------
 # About

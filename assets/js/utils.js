@@ -4,17 +4,8 @@ window.addEventListener('DOMContentLoaded', function () {
   // Esconde o preloader
 document.getElementById('preloader').style.display = 'none';
 
-  /* Inicio Itens sobre */
-  const elemento = document.getElementById('elemento');
-  const elementos = document.querySelectorAll('.flutuar');
-
-  // elemento.addEventListener('mouseover', () => {
-  //   elemento.style.transform = 'translateX(50px)'; /* Move o elemento para a direita */
-  // });
   
-  // elemento.addEventListener('mouseout', () => {
-  //   elemento.style.transform = 'translateX(0)'; /* Retorna o elemento à posição original */
-  // });
+  const elementos = document.querySelectorAll('.flutuar');
 
  
   elementos.forEach(teste => {
@@ -46,6 +37,10 @@ document.getElementById('preloader').style.display = 'none';
 
 
  const titulo = document.querySelector('h1');
+
+/* Inicio Itens sobre */
+const elemento = document.getElementById('elemento');
+
   function typeWriter(elemento) {
     const textoArray = elemento.innerHTML.split('');
     elemento.innerHTML = '';
