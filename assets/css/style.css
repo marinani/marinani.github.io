@@ -44,6 +44,9 @@ body::before {
   z-index: -1;
 }
 
+
+
+
  /* Estilos para o botão fixo */
   .botao-fixo {
     position: fixed; /* Torna o botão fixo na tela */
@@ -1043,7 +1046,7 @@ section .container {
   width: 150px;
   height: 80px;
   border-radius: 5%;
-  border: 4px solid #0099cc;
+  border: 4px solid #076868;
   margin: 0 auto;
   display: inline-block;
 }
@@ -1073,6 +1076,10 @@ section .container {
   display: none !important;
 }
 
+/* .thumb {
+  display: flex;
+  flex-direction: column; 
+} */
 
 .testimonials .testimonial-item h3 {
   font-size: 20px;
@@ -1089,7 +1096,7 @@ section .container {
 
 .testimonials .testimonial-item .quote-icon-left,
 .testimonials .testimonial-item .quote-icon-right {
-  color: #00ffff;
+  color: #076868;
   font-size: 26px;
 }
 
@@ -1121,11 +1128,11 @@ section .container {
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid #00ffff;
+  border: 1px solid #076868;
 }
 
 .testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #00ffff;
+  background-color: #076868;
 }
 
 @media (min-width: 992px) {
