@@ -88,7 +88,44 @@ h6 {
   
 }
 
+.porta-foto {
+  position: relative;
+}
 
+
+.localImg {
+  width: 300px; /* Largura do GIF de carregamento */
+  height: auto;
+  transition: transform 0.3s; /* Adiciona uma transição suave para a propriedade 'transform' */
+}
+
+.localFoto {
+  width: 100%; 
+  height: auto;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  transition: transform 0.3s; /* Adiciona uma transição suave para a propriedade 'transform' */
+}
+
+.descricao-produto {
+  font-family:'Open Sans', sans-serif;
+  color: white ;
+  font-size: 24px;
+  transition: opacity 0.3s; /* Adiciona uma transição suave para a opacidade */
+  opacity: 0; /* Começa com opacidade 0 para esconder o elemento */
+}
+
+.botao-imagem {
+  position: absolute;
+  bottom: 0%; /* Posiciona verticalmente ao centro */
+  left: 50%; /* Posiciona horizontalmente ao centro */
+  transform: translate(-50%, -50%); /* Centraliza o botão */
+  background-color: #00ffff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
 
 
 /*--------------------------------------------------------------
@@ -998,9 +1035,27 @@ section .container {
   height: 100%;
   border-radius: 50%; /* Faz a borda circular */
   border: 10px solid transparent; /* Borda transparente */
-  border-image: conic-gradient(#ff6600, #ff3399, #ff0033, #ff3399) 1; /* Gradiente rotacional */
-  animation: rotate 1s infinite;
 }
+
+.testimonials .testimonial-item .testimonial-imagem {
+  width: 120px;
+  border-radius: 5%;
+  border: 4px solid #fff;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.testimonial-imagem :before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 5%; /* Faz a borda circular */
+  border: 10px solid transparent; /* Borda transparente */
+}
+
 
 @keyframes rotate {
   0% {
@@ -1015,41 +1070,6 @@ section .container {
   display: none !important;
 }
 
-#boas-vindas {
-  font-size: 48px;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  font-weight: 700;
-  font-family:'Mokoto', sans-serif;
-  background: linear-gradient(to right, #076868, #00ffff); /* Cores do gradiente */
-    letter-spacing: 3px;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-}
-
-
-
-
-
-.welcome {
-  display: flex; /* Usa Flexbox para centralização */
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
-  height: 100vh; /* Torna o elemento tão alto quanto a altura da janela de visualização (viewport) */
-  overflow: hidden; /* Oculta o conteúdo que está fora do container */
-}
-
-.aparecer {
-  transform: translateY(100%); /* Inicialmente, move a imagem para fora da tela */
-  animation: aparecer 2s forwards; /* Aplica a animação "aparecer" por 2 segundos */
-}
-
-@keyframes aparecer {
-  to {
-    transform: translateY(0); /* Move a imagem para cima (0% de deslocamento) */
-  }
-}
 
 .testimonials .testimonial-item h3 {
   font-size: 20px;

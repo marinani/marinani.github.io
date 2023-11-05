@@ -55,9 +55,9 @@
           <li><a class="nav-link active" style="color:white !important;" href="#header">Home</a></li>
           <li><a class="nav-link" href="#about">About</a></li>
           <li><a class="nav-link" href="#resume">Resume</a></li>
-          <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link" href="#projects">Projects</a></li>
+          <!-- <li><a class="nav-link" href="#services">Services</a></li> -->
           <li><a class="nav-link" href="#family">Who are we?</a></li>
-           <!-- <li><a class="nav-link" href="#customers">Customers</a></li> -->
         </ul> 
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -393,8 +393,80 @@
   
 
   <!-- ======= Portfolio Section ======= -->
-  <section id="portfolio" class="portfolio">
-    <div class="container">
+  <section id="projects" class="testimonials section-bg">
+
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>My Projects</h2>
+     
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="porta-foto">
+          <img src="assets/img/portfolio/projeto-1.png" alt="" class="localFoto">
+          <a href="" target="_blank" class="botao-imagem" id="botao-imagem">Preview</a>
+        </div>
+       
+      </div>
+
+     <hr>
+
+      <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img src="assets/img/portfolio/portfolio-0.png" class="testimonial-imagem" alt="" onclick="catalogoSlider('assets/img/portfolio/portfolio-0.png', 'www.github.com/marinani');">
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img src="assets/img/portfolio/portfolio-1.png" class="testimonial-imagem" alt="" onclick="catalogoSlider('assets/img/portfolio/portfolio-1.png', 'www.github.com/marinani');">
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img src="assets/img/portfolio/portfolio-2.png" class="testimonial-imagem" alt="" onclick="catalogoSlider('assets/img/portfolio/portfolio-2.png', 'www.github.com/marinani');">
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img src="assets/img/portfolio/portfolio-3.png" class="testimonial-imagem" alt="" onclick="catalogoSlider('assets/img/portfolio/portfolio-3.png', 'www.github.com/marinani');">
+            </div>
+          </div><!-- End testimonial item -->
+
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img src="assets/img/portfolio/portfolio-4.png" class="testimonial-imagem" alt="" onclick="catalogoSlider('assets/img/portfolio/portfolio-4.png', 'www.github.com/marinani');">
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img src="assets/img/portfolio/portfolio-5.png" class="testimonial-imagem" alt="" onclick="catalogoSlider('assets/img/portfolio/portfolio-5.png', 'www.github.com/marinani');">
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img src="assets/img/portfolio/portfolio-6.png" class="testimonial-imagem" alt="" onclick="catalogoSlider('assets/img/portfolio/portfolio-6.png', 'www.github.com/marinani');">
+            </div>
+          </div><!-- End testimonial item -->
+
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+    </div>
+
+    <!-- <div class="container">
 
       <div class="section-title">
         <h2>Portfolio</h2>
@@ -447,7 +519,7 @@
 
       <div class="imagem-expandida">
         <span class="fechar" onclick="fecharImagem()"></span>
-        <div class="fundo-imagem"></div> <!-- Elemento div para o fundo -->
+        <div class="fundo-imagem"></div> 
         <img id="imagem-expandida" alt="">
         <button class="proximo" onclick="proximaImagem()"> <i class="bi bi-arrow-right-circle" style="font-size: 36px !important;"></i></button>
         <button class="anterior" onclick="anteriorImagem()"> <i class="bi bi-arrow-left-circle" style="font-size: 36px !important"></i></button>
@@ -457,11 +529,55 @@
 
 
       
-    </div>
+    </div> -->
 
 
   </section><!-- End Portfolio Section -->
 
+  <section id="services" class="services">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Experience</h2>
+      </div>
+
+      
+      <div class="row">
+        <div class="col-4">
+          <div id="thumb">
+            <div class="thumb">
+              <a href="#bottom"><img id="bottom" style="height: 98px;" src="assets/img/Icons/HTML 98.png" onclick="imgSlider('assets/img/Icons/HTML 98.png','<h1 style=\'color:orange;\'>HTML</h1> <br/>', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque sunt cumque pariatur sint dignissimos odio sit facilis porro veritatis earum itaque similique voluptatem dolores est ipsum, sequi non temporibus, quae.');"> </a>
+              <a href="#bottom"><img style="height: 98px;" src="assets/img/Icons/Css 98.png" onclick="imgSlider('assets/img/Icons/Css 98.png','<h1 style=\'color:orange;\'>CSS</h1> <br/>','Lorem ipsum dolor sit amet, consectetur adipisicing elit.');"> </a>
+              <a href="#bottom"><img style="height: 98px;" src="assets/img/Icons/JavaScrip 98.png" onclick="imgSlider('assets/img/Icons/JavaScrip 98.png','<h1 style=\'color:orange;\'>Javascript</h1> <br/>','Doloremque sunt cumque pariatur sint dignissimos odio sit facilis porro veritatis');"> </a>
+              <a href="#bottom"><img style="height: 98px;" src="assets/img/Icons/Visual Studio 98.png" onclick="imgSlider('assets/img/Icons/Visual Studio 98.png','<h1 style=\'color:orange;\'>Visual Studio</h1> <br/>','Lorem ipsum dolor sit amet, consectetur adipisicing elit.');"> </a>
+              <a href="#bottom"><img style="height: 98px;" src="assets/img/Icons/Canva 98.png" onclick="imgSlider('assets/img/Icons/Canva 98.png','<h1 style=\'color:orange;\'>Canva</h1> <br/>','Lorem ipsum dolor sit amet, consectetur adipisicing elit.');"> </a>
+              <a href="#bottom"><img style="height: 98px;" src="assets/img/Icons/Lightroom 98.png" onclick="imgSlider('assets/img/Icons/Lightroom 98.png','<h1 style=\'color:orange;\'>Lightroom</h1> <br/>','Lorem ipsum dolor sit amet, consectetur adipisicing elit.');"> </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="row">
+        <div class="col-4">
+          <img src="" alt="" class="localImg">
+        </div>
+        <div class="col-6">
+          <div class="descricao-produto"></div>
+        </div>
+       
+      </div>
+
+
+
+     
+
+ 
+
+
+  </section><!-- End Services Section -->
 
     <!-- ======= Testimonials Section ======= -->
     <section id="family" class="testimonials section-bg">
@@ -568,6 +684,44 @@
   <script src="assets/js/utils.js"></script>
   <script src="assets/js/catalogoFotos.js"></script>
 
+  <script>
+
+function imgSlider(img, nomeproduto, texto){
+  const localImg = document.querySelector('.localImg');
+  const descricao = document.querySelector('.descricao-produto');
+
+  localImg.style.transform = `translateX(${100 * 10}%)`;
+  descricao.style.opacity = 0; /* Esconde a descrição */
+
+  setTimeout(function() {
+    localImg.src = img;
+    descricao.innerHTML = nomeproduto;
+    descricao.innerHTML += texto;
+    // Aplica a transição desejada
+    localImg.style.transform = 'translateX(0)';
+    descricao.style.opacity = 1; /* Mostra a descrição */
+  }, 300); /* Aguarda 300 milissegundos para aplicar a transição após esconder a descrição */
+}
+
+function catalogoSlider(img,link){
+  const foto = document.querySelector('.localFoto');
+  var meuLink = document.getElementById("botao-imagem");
+  foto.style.transform = `translateX(${100 * 20}%)`;
+  //meuLink.textContent = 'Preview';
+  meuLink.classList.add('hidden');
+   //Altere o valor do atributo href
+   meuLink.href = "http://" + link;
+
+  setTimeout(function() {
+    foto.src = img;
+    meuLink.classList.remove('hidden');
+    // Aplica a transição desejada
+    foto.style.transform = 'translateX(0)';
+  }, 300); /* Aguarda 300 milissegundos para aplicar a transição após esconder a descrição */
+}
+
+
+  </script>
 
 </body>
 
