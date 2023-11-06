@@ -1,0 +1,51 @@
+
+.CSharpGradient {
+   
+    background: linear-gradient(#D48DF2,#9130F2,#5058F2);
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+ 
+}
+
+.PythonGradient {
+   
+    background: linear-gradient(#356B8C,#356B8C,#F2E205,#F2AE30);
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+ 
+}
+
+.JavascriptGradient {
+   
+      background: linear-gradient(#594C0C,#8C7814,#BFA41B,#F2CF1D);
+      -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+   
+}
+  
+
+  .CSSGradient {
+   
+    background: linear-gradient(#0511F2,#22A2F2,#38D0F2,#05F2DB);
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+ 
+}
+  
+
+.Html5Gradient {
+   
+    background: linear-gradient(#BF3E21, #F2622E,#F27405, white);
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+ 
+}
+
+.SQLGradient {
+   
+    background: linear-gradient(#D0D6D9,#D0D6D9,#F20505,#BF1F1F,#D0D6D9);
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+ 
+}
+

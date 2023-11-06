@@ -26,6 +26,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+   <link href="assets/css/slider.css" rel="stylesheet">
 
 </head>
 
@@ -48,9 +49,9 @@
       <ul>
         <li><a class="nav-link active" style="color:white !important;" href="#header">Home</a></li>
         <li><a class="nav-link" href="#about">About</a></li>
-        <li><a class="nav-link" href="#resume">Resume</a></li>
+        <li><a class="nav-link" href="#resume">Skills</a></li>
         <li><a class="nav-link" href="#projects">Projects</a></li>
-        <!-- <li><a class="nav-link" href="#services">Services</a></li> -->
+        <li><a class="nav-link" href="#experience">Experiences</a></li>
         <li><a class="nav-link" href="#family">Who are we?</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
@@ -60,7 +61,7 @@
 
 
 
-       <h1 class="gradient-palheta" id="elemento">MARI TECH</h1>
+       <h1 class="gradient-palheta" id="elemento">MARINANI TECH</h1>
       <h2>I'm a <span class="typed" data-typed-items="Developer, Freelancer, Guitarrist, Gamer"></span></h2>
       
       <!-- <nav id="navbar" class="navbar">
@@ -545,7 +546,7 @@
 
   </section><!-- End Portfolio Section -->
 
-  <section id="services" class="services">
+  <section id="experience" class="services">
     <div class="container" data-aos="fade-up">
 
       <div class="section-title">
@@ -556,24 +557,26 @@
      
           <div id="thumb">
             <div class="thumb">
-              <a href="#bottom"><img id="bottom" style="height: 98px;" src="assets/img/Icons/HTML 98.png" onclick="imgSlider('assets/img/Icons/HTML 98.png','<h1 style=\'color:orange;\'>HTML</h1> <br/>', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque sunt cumque pariatur sint dignissimos odio sit facilis porro veritatis earum itaque similique voluptatem dolores est ipsum, sequi non temporibus, quae.');"> </a>
-              <a href="#bottom"><img style="height: 98px;" src="assets/img/Icons/Css 98.png" onclick="imgSlider('assets/img/Icons/Css 98.png','<h1 style=\'color:orange;\'>CSS</h1> <br/>','Lorem ipsum dolor sit amet, consectetur adipisicing elit.');"> </a>
-              <a href="#bottom"><img style="height: 98px;" src="assets/img/Icons/JavaScrip 98.png" onclick="imgSlider('assets/img/Icons/JavaScrip 98.png','<h1 style=\'color:orange;\'>Javascript</h1> <br/>','Doloremque sunt cumque pariatur sint dignissimos odio sit facilis porro veritatis');"> </a>
-              <a href="#bottom"><img style="height: 98px;" src="assets/img/Icons/Visual Studio 98.png" onclick="imgSlider('assets/img/Icons/Visual Studio 98.png','<h1 style=\'color:orange;\'>Visual Studio</h1> <br/>','Lorem ipsum dolor sit amet, consectetur adipisicing elit.');"> </a>
-              <a href="#bottom"><img style="height: 98px;" src="assets/img/Icons/Canva 98.png" onclick="imgSlider('assets/img/Icons/Canva 98.png','<h1 style=\'color:orange;\'>Canva</h1> <br/>','Lorem ipsum dolor sit amet, consectetur adipisicing elit.');"> </a>
-              <a href="#bottom"><img style="height: 98px;" src="assets/img/Icons/Lightroom 98.png" onclick="imgSlider('assets/img/Icons/Lightroom 98.png','<h1 style=\'color:orange;\'>Lightroom</h1> <br/>','Lorem ipsum dolor sit amet, consectetur adipisicing elit.');"> </a>
+              <a href="#bottom"><img src="assets/svg/csharp.svg" onclick="imgSlider('assets/svg/csharp.svg','<h1 class=\'CSharpGradient\'>C#</h1> <br/>', 'CSharp');"> </a>
+              <a href="#bottom"><img src="assets/svg/python.png" onclick="imgSlider('assets/svg/python.png','<h1 class=\'PythonGradient\'>Python</h1> <br/>','Python');"> </a>
+              <a href="#bottom"><img src="assets/svg/javascript.svg" onclick="imgSlider('assets/svg/javascript.svg','<h1 class=\'JavascriptGradient\'>Javascript</h1> <br/>','Javascript');"> </a>
+              <a href="#bottom"><img src="assets/svg/css.svg" onclick="imgSlider('assets/svg/css.svg','<h1 class=\'CSSGradient\'>CSS</h1> <br/>','CSS3');"> </a>
+              <a href="#bottom"><img src="assets/svg/html5.png" onclick="imgSlider('assets/svg/html5.png','<h1 class=\'Html5Gradient\'>HTML5</h1> <br/>','HTML5');"> </a>
+              <a href="#bottom"><img src="assets/svg/mssql.svg" onclick="imgSlider('assets/svg/mssql.svg','<h1 class=\'SQLGradient\'>MSSQL Server</h1> <br/>','MSSQL');"> </a>
             </div>
           </div>
         
 
+  
 
-
+          <br/><br/>
+       <div class="line"></div>
 
       <div class="row">
-        <div class="col-4">
-          <img src="" alt="" class="localImg">
+        <div class="col-md-4">
+          <img src="" class="localImg">
         </div>
-        <div class="col-8">
+        <div class="col-md-8">
           <p class="descricao-produto"></p>
         </div>
        
@@ -685,53 +688,14 @@
   
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
 
   
   <script src="assets/js/main.js"></script>
 
   <script src="assets/js/utils.js"></script>
   <script src="assets/js/catalogoFotos.js"></script>
-
-  <script>
-
-function imgSlider(img, nomeproduto, texto){
-  const localImg = document.querySelector('.localImg');
-  const descricao = document.querySelector('.descricao-produto');
-
-  localImg.style.transform = `translateX(${100 * 10}%)`;
-  descricao.style.opacity = 0; /* Esconde a descrição */
-
-  setTimeout(function() {
-    localImg.src = img;
-    descricao.innerHTML = nomeproduto;
-    descricao.innerHTML += texto;
-    // Aplica a transição desejada
-    localImg.style.transform = 'translateX(0)';
-    descricao.style.opacity = 1; /* Mostra a descrição */
-  }, 300); /* Aguarda 300 milissegundos para aplicar a transição após esconder a descrição */
-}
-
-function catalogoSlider(img,link){
-  const foto = document.querySelector('.localFoto');
-  var meuLink = document.getElementById("botao-imagem");
-  foto.style.transform = `translateX(${100 * 20}%)`;
-  //meuLink.textContent = 'Preview';
-  meuLink.classList.add('hidden');
-   //Altere o valor do atributo href
-   meuLink.href = "https://" + link;
-
-  setTimeout(function() {
-    foto.src = img;
-    meuLink.classList.remove('hidden');
-    // Aplica a transição desejada
-    foto.style.transform = 'translateX(0)';
-  }, 300); /* Aguarda 300 milissegundos para aplicar a transição após esconder a descrição */
-}
-
-
-  </script>
-
+  <script src="assets/js/slider.js"></script>
+  
 </body>
 
 </html>

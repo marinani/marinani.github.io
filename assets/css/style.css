@@ -396,6 +396,14 @@ hr {
   border: 2px solid;
 }
 
+
+.line {
+  color: #00ffff23;
+  border: 2px solid;
+}
+
+
+
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -1091,10 +1099,9 @@ section .container {
   display: none !important;
 }
 
-/* .thumb {
-  display: flex;
-  flex-direction: column; 
-} */
+.thumb img {
+ width: 200px !important;
+}
 
 .testimonials .testimonial-item h3 {
   font-size: 20px;
