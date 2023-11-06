@@ -46,7 +46,6 @@ body::before {
 
 
 
-
  /* Estilos para o botão fixo */
   .botao-fixo {
     position: fixed; /* Torna o botão fixo na tela */
@@ -140,6 +139,8 @@ h6 {
   transition: ease-in-out 0.3s;
   position: relative;
   height: 100vh;
+  
+  background-size: cover;
   display: flex;
   align-items: center;
   z-index: 997;
@@ -247,7 +248,7 @@ h6 {
   left: 0;
   top: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.9);
+  background: transparent;
 }
 
 #header.header-top .social-links,
@@ -256,7 +257,9 @@ h6 {
 }
 
 #header.header-top h1 {
-  margin-right: auto;
+  left: 0;
+  top: 50%;
+  right: 0;
   font-size: 36px;
 }
 
@@ -576,15 +579,27 @@ hr {
 * Desktop Navigation 
 */
 .navbar {
-  padding: 0;
+  /* padding: 0;
   margin-top: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to right, #076868, #00ffff); /* Cores do gradiente */
+  background: linear-gradient(to right, #076868, #00ffff);
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
+  color: transparent; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Defina um valor alto para que o menu fique na parte superior */
+  position: fixed; /* Para manter o menu fixo na parte superior */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(51, 51, 51, 0.7); /* Adicione uma cor de fundo com transparência */
+  color: #fff;
+  padding: 10px 0;
 
 }
 
@@ -1368,6 +1383,48 @@ section .container {
     transform: rotate(360deg);
   }
 }
+
+
+
+/* BG */
+
+#bg {
+  -moz-animation: bg 60s linear infinite;
+  -webkit-animation: bg 60s linear infinite;
+  -o-animation: bg 60s linear infinite;
+  -ms-animation: bg 60s linear infinite;
+  animation: bg 60s linear infinite;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0,0,0);
+  -o-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+  background-color: #b26234;
+  background-image: url("/assets/img/bg.jpg");
+  background-position: bottom left;
+  background-repeat: repeat-x;
+  height: 100%;
+  left: 0;
+  opacity: 1;
+  position: fixed;
+  top: 0;
+}
+@-moz-keyframes bg { 0% { -moz-transform: translate3d(0,0,0); -webkit-transform: translate3d(0,0,0); -o-transform: translate3d(0,0,0); -ms-transform: translate3d(0,0,0); transform: translate3d(0,0,0); } 100% { -moz-transform: translate3d(-2250px,0,0); -webkit-transform: translate3d(-2250px,0,0); -o-transform: translate3d(-2250px,0,0); -ms-transform: translate3d(-2250px,0,0); transform: translate3d(-2250px,0,0); } }
+@-webkit-keyframes bg { 0% { -moz-transform: translate3d(0,0,0); -webkit-transform: translate3d(0,0,0); -o-transform: translate3d(0,0,0); -ms-transform: translate3d(0,0,0); transform: translate3d(0,0,0); } 100% { -moz-transform: translate3d(-2250px,0,0); -webkit-transform: translate3d(-2250px,0,0); -o-transform: translate3d(-2250px,0,0); -ms-transform: translate3d(-2250px,0,0); transform: translate3d(-2250px,0,0); } }
+@-o-keyframes bg { 0% { -moz-transform: translate3d(0,0,0); -webkit-transform: translate3d(0,0,0); -o-transform: translate3d(0,0,0); -ms-transform: translate3d(0,0,0); transform: translate3d(0,0,0); } 100% { -moz-transform: translate3d(-2250px,0,0); -webkit-transform: translate3d(-2250px,0,0); -o-transform: translate3d(-2250px,0,0); -ms-transform: translate3d(-2250px,0,0); transform: translate3d(-2250px,0,0); } }
+@-ms-keyframes bg { 0% { -moz-transform: translate3d(0,0,0); -webkit-transform: translate3d(0,0,0); -o-transform: translate3d(0,0,0); -ms-transform: translate3d(0,0,0); transform: translate3d(0,0,0); } 100% { -moz-transform: translate3d(-2250px,0,0); -webkit-transform: translate3d(-2250px,0,0); -o-transform: translate3d(-2250px,0,0); -ms-transform: translate3d(-2250px,0,0); transform: translate3d(-2250px,0,0); } }
+@keyframes bg { 0% { -moz-transform: translate3d(0,0,0); -webkit-transform: translate3d(0,0,0); -o-transform: translate3d(0,0,0); -ms-transform: translate3d(0,0,0); transform: translate3d(0,0,0); } 100% { -moz-transform: translate3d(-2250px,0,0); -webkit-transform: translate3d(-2250px,0,0); -o-transform: translate3d(-2250px,0,0); -ms-transform: translate3d(-2250px,0,0); transform: translate3d(-2250px,0,0); } }
+
+#bg {
+  background-size: 2250px auto;
+  width: 6750px;
+}
+
 
 /*--------------------------------------------------------------
 # Credits

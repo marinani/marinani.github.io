@@ -105,6 +105,7 @@
 
       let navbar = select('#navbar')
       let header = select('#header')
+      let elementoTexto = select('#elemento')
       let sections = select('section', true)
       let navlinks = select('#navbar .nav-link', true)
 
@@ -123,6 +124,7 @@
 
       if (this.hash == '#header') {
         header.classList.remove('header-top')
+        elementoTexto.classList.remove('hidden')
         sections.forEach((item) => {
           item.classList.remove('section-show')
         })
@@ -131,6 +133,7 @@
 
       if (!header.classList.contains('header-top')) {
         header.classList.add('header-top')
+        elementoTexto.classList.add('hidden')
         setTimeout(function() {
           sections.forEach((item) => {
             item.classList.remove('section-show')
@@ -140,7 +143,7 @@
         }, 350);
       } else {
         sections.forEach((item) => {
-          item.classList.remove('section-show')
+        item.classList.remove('section-show')
         })
         section.classList.add('section-show')
       }
@@ -161,6 +164,7 @@
         let navlinks = select('#navbar .nav-link', true)
 
         header.classList.add('header-top')
+        
 
         navlinks.forEach((item) => {
           if (item.getAttribute('href') == window.location.hash) {

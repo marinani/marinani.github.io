@@ -41,26 +41,38 @@
     <img src="assets/img/code_mind.png" alt="">
   </div> -->
   <!-- ======= Header ======= -->
+  <div id="bg"></div>
+
   <header id="header">
-    
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a class="nav-link active" style="color:white !important;" href="#header">Home</a></li>
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#resume">Resume</a></li>
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <!-- <li><a class="nav-link" href="#services">Services</a></li> -->
+        <li><a class="nav-link" href="#family">Who are we?</a></li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+  </nav>
 
     <div class="container" id="inicio">
 
+
+
        <h1 class="gradient-palheta" id="elemento">MARI TECH</h1>
       <h2>I'm a <span class="typed" data-typed-items="Developer, Freelancer, Guitarrist, Gamer"></span></h2>
-      <!-- <h2>I'm a <span class="typed" data-typed-items="Developer, Freelancer, Guitarrist, Gamer"></span> passionate.</h2> -->
       
-      <nav id="navbar" class="navbar">
+      <!-- <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link active" style="color:white !important;" href="#header">Home</a></li>
           <li><a class="nav-link" href="#about">About</a></li>
           <li><a class="nav-link" href="#resume">Resume</a></li>
           <li><a class="nav-link" href="#projects">Projects</a></li>
-          <!-- <li><a class="nav-link" href="#services">Services</a></li> -->
           <li><a class="nav-link" href="#family">Who are we?</a></li>
         </ul> 
         <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+      </nav> -->
 
       <div class="social-links">
 
@@ -418,13 +430,13 @@
 
           <div class="swiper-slide">
             <div class="testimonial-item">
-              <img src="assets/img/portfolio/projeto-1.png" class="testimonial-imagem" alt="" onclick="catalogoSlider('assets/img/portfolio/projeto-1.png', 'www.github.com/marinani');">
+              <img src="assets/img/portfolio/projeto-1.png" class="testimonial-imagem" alt="" onclick="catalogoSlider('assets/img/portfolio/projeto-1.png', 'marinani.github.io/starbucks-landingpage/');">
             </div>
           </div><!-- End testimonial item -->
 
           <div class="swiper-slide">
             <div class="testimonial-item">
-              <img src="assets/img/portfolio/portfolio-1.png" class="testimonial-imagem" alt="" onclick="catalogoSlider('assets/img/portfolio/portfolio-1.png', 'www.github.com/marinani');">
+              <img src="assets/img/portfolio/projeto-2.png" class="testimonial-imagem" alt="" onclick="catalogoSlider('assets/img/portfolio/projeto-2.png', 'marinani.github.io/portfolio/');">
             </div>
           </div><!-- End testimonial item -->
 
@@ -707,7 +719,7 @@ function catalogoSlider(img,link){
   //meuLink.textContent = 'Preview';
   meuLink.classList.add('hidden');
    //Altere o valor do atributo href
-   meuLink.href = "http://" + link;
+   meuLink.href = "https://" + link;
 
   setTimeout(function() {
     foto.src = img;

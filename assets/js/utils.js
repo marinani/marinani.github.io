@@ -23,14 +23,14 @@ document.getElementById('preloader').style.display = 'none';
 
  /* Inicio rotacao imagem preta e branca */
 
-  const imagem = document.querySelector('.black-and-white');
+  const blackwhiteImg = document.querySelector('.black-and-white');
 
-  imagem.addEventListener('mouseenter', () => {
-    imagem.classList.add('rotacionado');
+  blackwhiteImg.addEventListener('mouseenter', () => {
+    blackwhiteImg.classList.add('rotacionado');
   });
   
-  imagem.addEventListener('mouseleave', () => {
-    imagem.classList.remove('rotacionado');
+  blackwhiteImg.addEventListener('mouseleave', () => {
+    blackwhiteImg.classList.remove('rotacionado');
   });
 
  /* Fim rotacao imagem preta e branca */
