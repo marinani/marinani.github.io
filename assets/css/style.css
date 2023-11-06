@@ -1100,8 +1100,23 @@ section .container {
 }
 
 .thumb img {
- width: 200px !important;
+ width: 150px !important;
 }
+
+/* Adicione uma media query para ajustar o layout em telas menores */
+@media (max-width: 768px) {
+  .thumb img {
+    width: calc(30% - 50px); /* 2 colunas em telas médias */
+  }
+}
+
+/* Adicione outra media query para telas ainda menores */
+@media (max-width: 480px) {
+  .thumb img {
+    width: 80%; /* 1 coluna em telas pequenas */
+  }
+}
+
 
 .testimonials .testimonial-item h3 {
   font-size: 20px;
