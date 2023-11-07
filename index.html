@@ -674,7 +674,7 @@
   
 
   <div class="credits">
-    Made with <i class="bi bi-heart"></i> by <a href="https://marinani.github.io/"> Marinani IT Solutions</a>
+    Designed with <i class="bi bi-heart" style="color:#00ffff;"></i> by <a href="https://marinani.github.io/"> Marinani TECH</a> &#174; <span id="current_date"></span>
   </div>
 
 
@@ -695,6 +695,15 @@
   <script src="assets/js/utils.js"></script>
   <script src="assets/js/catalogoFotos.js"></script>
   <script src="assets/js/slider.js"></script>
+
+  <script>
+    
+    const date = new Date();
+    const year = date.getFullYear();
+    document.getElementById("current_date").innerHTML =  year;
+
+
+  </script>
   
 </body>
 
