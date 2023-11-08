@@ -95,6 +95,7 @@
     this.classList.toggle('bi-x')
   })
 
+  
   /**
    * Scrool with ofset on links with a class name .scrollto
    */

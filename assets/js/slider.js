@@ -49,6 +49,11 @@ function imgSlider(img, nomeproduto, texto){
       meuLink.classList.remove('hidden');
       // Aplica a transição desejada
       foto.style.transform = 'translateX(0)';
-    }, 300); /* Aguarda 300 milissegundos para aplicar a transição após esconder a descrição */
+
+  // Rolagem suave para o final da página
+   window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+
+    }, 200); /* Aguarda 200 milissegundos para aplicar a transição após esconder a descrição */
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   }
   
