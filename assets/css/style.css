@@ -566,6 +566,20 @@ hr {
 --------------------------------------------------------------*/
 
 
+@media (max-width: 768px) {
+  .navbar {
+    background-color: transparent !important;
+  }
+}
+
+/* Adicione outra media query para telas ainda menores */
+@media (max-width: 480px) {
+  .navbar {
+    background-color: transparent !important;
+  }
+}
+
+
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -573,16 +587,6 @@ hr {
 * Desktop Navigation 
 */
 .navbar {
-  /* padding: 0;
-  margin-top: 35px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(to right, #076868, #00ffff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent; */
-
   display: flex;
   justify-content: center;
   align-items: center;
