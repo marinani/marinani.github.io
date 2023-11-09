@@ -1,0 +1,62 @@
+.btn-default {
+    color: #00343a;
+    background-color:#00ffff ;
+}
+
+.btn-hover {
+    color: #00343a;
+    background-color:#3af8ff ;
+}
+
+.btn-active {
+    color: #00343a;
+    background-color:#00e1e2 ;
+}
+
+.btn-disabled {
+    color: #c0feff;
+    background-color:#04585d ;
+}
+
+.btn-outline-default {
+    background-color: transparent;
+    color:#3af8ff;
+    border:  2px solid #3af8ff;
+}
+
+.btn-outline-hover {
+    color:#3af8ff;
+    border:  2px solid #3af8ff;
+    background-color:#00343a;
+}
+
+.btn-outline-active {
+    color:#3af8ff;
+    border:2px solid #3af8ff;
+    background-color:#04585d ;
+}
+
+.btn-outline-disabled {
+    color: rgb(58, 248, 255); border-color: rgb(58, 248, 255);
+    opacity: 50%;
+}
+
+.btn-gradient-default {
+    background: linear-gradient(#3af8ff,#00e1e2);
+    color:#00343a;
+}
+
+.btn-gradient-hover {
+    background: linear-gradient(#81fbff,#00ffff);
+    color:#00343a;
+}
+
+.btn-gradient-active {
+    background: linear-gradient(#00ffff,#00b2b7);
+    color:#00343a;
+}
+
+.btn-gradient-disabled {
+    background: linear-gradient(#008c91,#04585d);
+    color:#00343a;
+}
