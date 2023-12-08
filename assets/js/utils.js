@@ -23,15 +23,15 @@ document.getElementById('preloader').style.display = 'none';
 
  /* Inicio rotacao imagem preta e branca */
 
-  const blackwhiteImg = document.querySelector('.black-and-white');
+  // const blackwhiteImg = document.querySelector('.black-and-white');
 
-  blackwhiteImg.addEventListener('mouseenter', () => {
-    blackwhiteImg.classList.add('rotacionado');
-  });
+  // blackwhiteImg.addEventListener('mouseenter', () => {
+  //   blackwhiteImg.classList.add('rotacionado');
+  // });
   
-  blackwhiteImg.addEventListener('mouseleave', () => {
-    blackwhiteImg.classList.remove('rotacionado');
-  });
+  // blackwhiteImg.addEventListener('mouseleave', () => {
+  //   blackwhiteImg.classList.remove('rotacionado');
+  // });
 
  /* Fim rotacao imagem preta e branca */
 

@@ -350,6 +350,21 @@ h6 {
  
 }
 
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
 
 
 .photo-container {
@@ -1180,6 +1195,30 @@ section .container {
   }
 }
 
+
+.lista-topicos {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.lista-topicos li {
+  text-align: center;
+  margin: 10px;
+}
+
+.lista-topicos img {
+  width: 100px; /* Defina a largura desejada para as imagens */
+  height: 100px; /* Defina a altura desejada para as imagens */
+  border-radius: 50%; /* Cria bordas arredondadas */
+  overflow: hidden;
+}
+
+.lista-topicos p {
+  margin-top: 10px;
+}
+
 /*--------------------------------------------------------------
 # Resume
 --------------------------------------------------------------*/
@@ -1239,6 +1278,18 @@ section .container {
   top: 0;
   background: #00ffff;
   border: 2px solid #00ffff;
+}
+
+.resume .resume-item .vexpro::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  left: -9px;
+  top: 0;
+  background: #000 url("/assets/img/empresas/vexpro.webp") no repeat !important;
+  border: 2px solid black;
 }
 
 /*--------------------------------------------------------------
