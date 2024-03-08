@@ -1,21 +1,11 @@
 /**
-* Template Name: Personal
-* Updated: Sep 18 2023 with Bootstrap v5.3.2
-* Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
+* Template Name: Mariane Ribeiro
+* Updated: March 08 2024 with Bootstrap v5.3.2
 */
 
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-/* body {
-  font-family: "Open Sans", sans-serif;
-  background-color: #040404;
-  color: #fff;
-  position: relative;
-  background: transparent;
-} */
 
 
 body {
@@ -35,7 +25,7 @@ body {
 body::before {
   content: "";
   position: fixed;
-  background: #040404 url("../img/bg.jpg") top right no-repeat;
+  background: #040404 url("../img/code.jpg")  no-repeat;
   background-size: cover;
   left: 0;
   right: 0;
@@ -1015,7 +1005,7 @@ section .container {
   width: 1px;
   height: 10px;
   transition: 0.9s;
-  background-color: #00ffff;
+  background-color:  #00ffff;
 }
 
 /*--------------------------------------------------------------
@@ -1465,7 +1455,7 @@ section .container {
 /* BG */
 
 #bg {
-  -moz-animation: bg 60s linear infinite;
+  /* -moz-animation: bg 60s linear infinite;
   -webkit-animation: bg 60s linear infinite;
   -o-animation: bg 60s linear infinite;
   -ms-animation: bg 60s linear infinite;
@@ -1480,13 +1470,13 @@ section .container {
   -o-transform: translate3d(0,0,0);
   -ms-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
-  background-color: transparent;
-  background-image: url("/assets/img/bg.jpg");
-  background-position: bottom left;
+  background-color: transparent; */
+  background-image: url("/assets/img/code.jpg");
+  background-position: bottom top;
   background-repeat: repeat-x;
   height: 100%;
   left: 0;
-  opacity: 1;
+  opacity: 0.8;
   position: fixed;
   top: 0;
 }
