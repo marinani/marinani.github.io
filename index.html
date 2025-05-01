@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MARINANI DEVELOPER | Desenvolvedora Full Stack</title>
+  <!-- <link rel="icon" href="/images/icon_pwmetricas.svg" type="image/x-icon"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/portfolio.css" />
+ 
+</head>
+<body data-theme="light">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-primaria navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">MARINANI DEVELOPER</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experiencias">Experiências</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Educação</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">Portfólio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato"> Contato</a></li>
+          <li class="nav-item"><span class="nav-link theme-toggle" onclick="toggleTheme()">Dark Mode</span></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero py-5 pt-5 mt-5">
+    <div class="container">
+      <div class="row align-items-center">
+        
+        <!-- Texto e botões à esquerda -->
+        <div class="col-md-7">
+          <p class="text-warning">Olá, meu nome é</p>
+          <h1 class="display-4 fw-bold">Mariane Ribeiro</h1>
+          <p class="lead">
+            Desenvolvedora Full Stack com mais de <strong>9 anos</strong> 
+            de experiência em sistemas web e APIs, utilizando tecnologias como:
+          </p>
+  
+          <!-- Tecnologias -->
+          <div class="mb-4">
+            <span class="badge bg-secondary me-1 mb-1" data-aos="fade-right">C#</span>
+            <span class="badge bg-secondary me-1 mb-1" data-aos="fade-right">.NET</span>
+            <span class="badge bg-secondary me-1 mb-1" data-aos="fade-right">SQL Server</span>
+            <span class="badge bg-secondary me-1 mb-1" data-aos="fade-right">JavaScript</span>
+            <span class="badge bg-secondary me-1 mb-1" data-aos="fade-right">Bootstrap</span>
+            <span class="badge bg-secondary me-1 mb-1" data-aos="fade-right">CI/CD</span>
+            <span class="badge bg-secondary me-1 mb-1" data-aos="fade-right">DevOps</span>
+          </div>
+  
+          <p class="lead">Gosto de transformar desafios em soluções funcionais e eficientes.</p>
+  
+          <!-- Botões -->
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <a href="#contato" class="btn btn-destaque">Fale comigo →</a>
+            <a href="/docs/Curriculo_Mariane_Ribeiro.pdf" class="btn btn-outline-light" download>Baixar CV ⬇</a>
+          </div>
+  
+          <!-- Redes Sociais -->
+          <div class="d-flex gap-3 mt-3">
+            <a href="https://www.linkedin.com/in/marinani-developer" target="_blank" class="text-light fs-4">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="https://github.com/marinani" target="_blank" class="text-light fs-4">
+              <i class="bi bi-github"></i>
+            </a>
+            <a href="https://wa.me/554197649731" target="_blank" class="text-light fs-4">
+              <i class="bi bi-whatsapp"></i>
+            </a>
+            <a href="mailto:marinanideveloper@gmail.com" class="text-light fs-4">
+              <i class="bi bi-envelope-fill"></i>
+            </a>
+          </div>
+        </div>
+  
+        <!-- Imagem à direita -->
+        <div class="col-md-5 text-center mt-4 mt-md-0">
+          <img src="/images/marinani.jpg" alt="Mariane Ribeiro" class="rounded-circle img-fluid">
+        </div>
+  
+      </div>
+    </div>
+  </section>
+
+  <section id="experiencias" class="py-5 bg-light text-light">
+    <div class="container">
+      <p class="text-warning">// Experiências</p>
+      <h2 class="mb-5 text-info">Work Experience</h2>
+  
+      <div class="timeline">
+        <!-- timeline-item 1 -->
+        <div class="timeline-item" data-aos="fade-down">
+          <div class="timeline-icon">
+            <i class="bi bi-briefcase-fill"></i>
+          </div>
+          <div class="timeline-content">
+            <h5>@ Instituto das Cidades Inteligentes (ICI)  — <span class="text-muted">Desenvolvedora Back-end .NET </span></h5>
+            <p>Mar 2021 — Atual</p>
+            <ul>
+              <li><strong>Desenvolvimento e manutenção de sistemas web e APIs em .NET 7+ e EF Core</strong></li>
+              <li>Integração de serviços REST e SOAP</li>
+              <li>Utilização de RabbitMQ para mensageria em projetos internos</li>
+              <li>Implantação de pipelines CI/CD com GitLab e Jenkins</li>
+              <li>Participação ativa em cerimônias ágeis (daily, planning, review)</li>
+              <li>Aplicação de boas práticas de arquitetura, SOLID e Clean Code</li>
+            </ul>
+            <div class="badges">
+              <span class="badge" data-aos="fade-right">C#</span>
+              <span class="badge" data-aos="fade-right">.NET 8</span>
+              <span class="badge" data-aos="fade-right">JavaScript</span>
+              <span class="badge" data-aos="fade-right">GitLab</span>
+              <span class="badge" data-aos="fade-right">HangFire</span>
+              <span class="badge" data-aos="fade-right">RabbitMQ</span>
+            </div>
+          </div>
+        </div>
+  
+        <!-- timeline-item 2 -->
+        <div class="timeline-item" data-aos="fade-down">
+          <div class="timeline-icon">
+            <i class="bi bi-briefcase-fill"></i>
+          </div>
+          <div class="timeline-content">
+            <h5>@ VEXPRO BUSINESS IT – Grupo SPRO  — <span class="text-muted">Desenvolvedora Back-end .NET Core</span></h5>
+            <p>Ago 2020 — Mar 2021</p>
+            <ul>
+              <li>Desenvolvimento de APIs .NET Core</li>
+              <li>Integração contínua com Azure DevOps</li>
+              <li>Participação em squads ágeis</li>
+            </ul>
+            <div class="badges">
+              <span class="badge" data-aos="fade-right">C#</span>
+              <span class="badge" data-aos="fade-right">.NET Core</span>
+              <span class="badge" data-aos="fade-right">Azure DevOps</span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="timeline-item" data-aos="fade-down">
+            <div class="timeline-icon">
+              <i class="bi bi-briefcase-fill"></i>
+            </div>
+            <div class="timeline-content">
+              <h5>@ DBM Contact Center   — <span class="text-muted">Desenvolvedora Back-end .NET</span></h5>
+              <p>Set 2019 — Jul 2020</p>
+              <ul>
+                <li>Desenvolvimento de sistemas e Manutenção de sistemas ASP.NET</li>
+                <li>Gestão de banco de dados SQL Server</li>
+                <li>Automação de processos via scripts e integrações</li>
+              </ul>
+              <div class="badges">
+                <span class="badge" data-aos="fade-right">C#</span>
+                <span class="badge" data-aos="fade-right">.NET</span>
+                <span class="badge" data-aos="fade-right">SQL Server</span>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="timeline-item" data-aos="fade-down">
+            <div class="timeline-icon">
+              <i class="bi bi-briefcase-fill"></i>
+            </div>
+            <div class="timeline-content">
+              <h5>@ Editora Positivo / Aprende Brasil   — <span class="text-muted">Desenvolvedora Back-end .NET</span></h5>
+              <p>Abr 2018 — Set 2019</p>
+              <ul>
+                <li>Desenvolvimento e manutenção de sistemas internos com .NET</li>
+                <li>Integrações REST/SOAP</li>
+                <li>Suporte a banco de dados</li>
+              </ul>
+              <div class="badges">
+                <span class="badge" data-aos="fade-right">C#</span>
+                <span class="badge" data-aos="fade-right">Asp.Net/Vb.Net</span>
+                <span class="badge" data-aos="fade-right">SQL Server</span>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="timeline-item" data-aos="fade-down">
+            <div class="timeline-icon">
+              <i class="bi bi-briefcase-fill"></i>
+            </div>
+            <div class="timeline-content">
+              <h5>@ Stefanini IT Solutions S.A.  — <span class="text-muted">Programadora .NET Júnior</span></h5>
+              <p>Mai 2016 — Abr 2018</p>
+              <ul>
+                <li>Desenvolvimento de sistemas .NET e manutenção de aplicações legadas</li>
+                <li>Participação em projetos de integração de serviços</li>
+                <li>Gestão de banco de dados SQL Server</li>
+              </ul>
+              <div class="badges">
+                <span class="badge" data-aos="fade-right">C#</span>
+                <span class="badge" data-aos="fade-right">Asp.Net/Vb.Net</span>
+                <span class="badge"data-aos="fade-right">SQL Server</span>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="timeline-item" data-aos="fade-down">
+            <div class="timeline-icon">
+              <i class="bi bi-briefcase-fill"></i>
+            </div>
+            <div class="timeline-content">
+              <h5>@ Stefanini IT Solutions S.A.  — <span class="text-muted">Estagiária</span></h5>
+              <p>Mai 2015 — Mai 2016</p>
+              <ul>
+                <li>Desenvolvimento e manutenção de aplicações .NET e banco de dados</li>
+                <li>Participação em integrações e suporte técnico</li>
+              </ul>
+              <div class="badges">
+                <span class="badge" data-aos="fade-right">C#</span>
+                <span class="badge" data-aos="fade-right">Asp.Net/Vb.Net</span>
+                <span class="badge" data-aos="fade-right">SQL Server</span>
+              </div>
+            </div>
+          </div>
+
+
+      </div>
+    </div>
+  </section>
+  
+  <section id="education" class="education-section">
+    <h2 class="section-title">Education</h2>
+  
+    <div class="edu-container">
+      <div class="edu-card" data-aos="fade-up">
+        <img src="/images/empresas/uniasselvi-logo.png" alt="UNIP Logo" class="edu-logo">
+        <div>
+          <h3>Graduação, Análise e Desenvolvimento de Sistemas</h3>
+          <p class="edu-date">Jan 2024 – Dec 2024</p>
+          <p>@ Uniasselvi</p>
+        </div>
+      </div>
+  
+      <div class="edu-card" data-aos="fade-up">
+        <img src="/images/empresas/focus-faculdade.png" alt="Faculdade Focus Logo" class="edu-logo">
+        <div>
+          <h3>Pós Graduação, Engenharia de Software DevOps</h3>
+          <p class="edu-date">Jan 2025 – Jul 2025</p>
+          <p>@ Faculdade Focus</p>
+        </div>
+      </div>
+  
+      <div class="edu-card" data-aos="fade-up">
+        <img src="/images/empresas/dio-logo.png" alt="DIO Logo" class="edu-logo">
+        <div>
+          <h3>Certifications (C#, DevOps, IA, etc.)</h3>
+          <p class="edu-date">2024 – Current</p>
+          <p>@ Digital Innovation One</p>
+          <a href="https://www.dio.me/certificates" target="_blank">Show credential</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+    <!-- Serviços -->
+    <section id="servicos" class="py-5" data-aos="fade-right">
+        <div class="container">
+          <h2 class="text-center mb-4">Serviços</h2>
+          <div class="row text-center">
+            <div class="col-md-4">
+              <h5> Desenvolvimento de API</h5>
+              <p> APIs RESTful com autenticação, segurança e desempenho.</p>
+            </div>
+            <div class="col-md-4">
+              <h5>Sites Institucionais</h5>
+              <p>Sites modernos, responsivos e otimizados para SEO.</p>
+            </div>
+            <div class="col-md-4">
+              <h5>Integração de Sistemas</h5>
+              <p>Integração entre sistemas internos, ERPs, CRMs e serviços externos.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+  <section id="portfolio" class="py-5 bg-light"  data-aos="fade-down">
+    <div class="container">
+      <p class="text-warning">// Destaques</p>
+      <h2 class="mb-5">Projetos em destaque</h2>
+  
+      <!-- Projeto 1 -->
+      <div class="row mb-5 align-items-center">
+        <div class="col-md-5">
+          <img src="/images/projetos/pwmetricas inicial.png" alt="Pw Métricas" class="img-fluid rounded">
+        </div>
+        <div class="col-md-7 mt-4 mt-md-0">
+          <h5 class="text-warning"># Sistema de Métricas</h5>
+          <p>Projeto desenvolvido com C#, .NET 9, SQL Server e arquitetura em camadas para monitoramento de indicadores.</p>
+          <p>Área administrativa com login, autenticação e CRUD de usuários, com alternância de tema claro/escuro.</p>
+          <div class="mb-2">
+            <span class="badge bg-secondary me-1">C#</span>
+            <span class="badge bg-secondary me-1">.NET 9</span>
+            <span class="badge bg-secondary me-1">SQL Server</span>
+            <span class="badge bg-secondary me-1">HTML5</span>
+            <span class="badge bg-secondary me-1">SASS</span>
+            <span class="badge bg-secondary me-1">Javascript/Jquery</span>
+          </div>
+          <a href="#" class="text-decoration-none text-warning fw-semibold">Ver projeto →</a>
+        </div>
+      </div>
+  
+      <!-- Projeto 2 -->
+      <div class="row mb-5 align-items-center flex-md-row-reverse">
+        <div class="col-md-5">
+          <img src="img/projeto2.png" alt="Projeto 2" class="img-fluid rounded">
+        </div>
+        <div class="col-md-7 mt-4 mt-md-0">
+          <h5 class="text-warning"># API de Clonagem FTP</h5>
+          <p>Serviço criado para clonar servidores FTP diariamente, utilizando .NET 7, cron jobs e logs automatizados.</p>
+          <div class="mb-2">
+            <span class="badge bg-secondary me-1">C#</span>
+            <span class="badge bg-secondary me-1">.NET 7</span>
+            <span class="badge bg-secondary me-1">FTP</span>
+          </div>
+          <a href="#" class="text-decoration-none text-warning fw-semibold">Ver projeto →</a>
+        </div>
+      </div>
+  
+      <!-- Projeto 3 -->
+      <div class="row mb-5 align-items-center">
+        <div class="col-md-5">
+          <img src="img/projeto3.png" alt="Projeto 3" class="img-fluid rounded">
+        </div>
+        <div class="col-md-7 mt-4 mt-md-0">
+          <h5 class="text-warning"># PW Midia - Financeiro</h5>
+          <p> Área administrativa de sistema financeiro da empresa Pw Mídia para controle financeiro.</p>
+          <div class="mb-2">
+            <span class="badge bg-secondary me-1">.NET</span>
+            <span class="badge bg-secondary me-1">C#</span>
+            <span class="badge bg-secondary me-1">CSS</span>
+            <span class="badge bg-secondary me-1">SASS</span>
+            <span class="badge bg-secondary me-1">HTML5</span>
+            <span class="badge bg-secondary me-1">Javascript</span>
+            <span class="badge bg-secondary me-1">SQL</span>
+          </div>
+          <a href="#" class="text-decoration-none text-warning fw-semibold">Ver projeto →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+
+
+
+  <!-- Contato -->
+  <section id="contato" class="py-5" data-aos="fade-right">
+    <div class="container">
+      <h2 class="text-center mb-4"> Contato</h2>
+      <form action="mailto:marinanideveloper@gmail.com" method="POST" enctype="text/plain">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <input type="text" class="form-control" placeholder="Nome" name="nome">
+          </div>
+          <div class="col-md-6 mb-3">
+            <input type="email" class="form-control" placeholder="Email" name="email">
+          </div>
+          <div class="col-12 mb-3">
+            <textarea class="form-control" rows="4" placeholder="Mensagem" name="mensagem"></textarea>
+          </div>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-destaque">Enviar</button>
+          <p class="mt-3">Ou fale comigo no <a href="https://wa.me/554197649731" target="_blank">WhatsApp</a></p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="text-center py-4 bg-primaria text-white">
+    <p>&copy; 2025 Mariane Ribeiro. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/utilities.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+</body>
+</html>

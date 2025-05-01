@@ -1,0 +1,217 @@
+:root {
+    --primaria: #053D00;
+    --secundaria: #6893a1;
+    --cinza-claro: #f4f4f4;
+    --texto-escuro: #2E2E2E;
+    --destaque: #A7F205;
+    --destaque-hover: #ADD96C;
+    --bs-light-rgb: 248, 249, 250 !important;
+    --bs-info-rgb: 0,0,0!important;
+    --bs-secondary-rgb: 167,242,5 !important;
+    --bs-warning-rgb: 79,115,2 !important;
+  }
+  [data-theme="dark"] {
+    --primaria: #022601;
+    --secundaria: #697b83;
+    --cinza-claro: black;
+    --texto-escuro: #f1f5f9;
+    --destaque: #A7F205;
+    --destaque-hover: #ADD96C;
+    --bs-light-rgb: 79,115,2 !important;
+    --bs-info-rgb: 255,250,250!important;
+    --bs-secondary-rgb: 167,242,5 !important;
+    --bs-warning-rgb: 173,217,108!important;
+  }
+  body {
+    background-color: var(--cinza-claro);
+    color: var(--texto-escuro);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .bg-primaria {
+    background-color: var(--primaria) !important;
+  }
+  .text-secundaria {
+    color: var(--secundaria);
+  }
+  .btn-destaque {
+    background-color: var(--destaque);
+    color: black;
+  }
+
+
+  
+  .btn-destaque:hover {
+    background-color: var(--destaque-hover);
+    color: black;
+  }
+
+  .theme-toggle {
+    cursor: pointer;
+    color: white;
+    margin-left: 1rem;
+  }
+
+  .bg-light {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.text-center a {
+    text-decoration: none;
+    color: var(--texto-escuro);
+}
+
+.hero {
+    background-color: var(--primaria);
+    color: white;
+    background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .social-icons a:hover {
+    color: var(--destaque); /* ou uma cor de destaque como #fbbf24 */
+    transition: color 0.3s ease;
+  }
+
+
+  .timeline {
+    position: relative;
+    margin-left: 20px;
+    padding-left: 40px;
+    border-left: 3px solid #4F7302;
+  }
+  
+  .timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    background-color: #0D0D0D;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 5px solid transparent;
+    box-shadow: 0 2px 6px white;
+  }
+  
+  .timeline-item:hover {
+    border-left-color: #A7F205;
+  }
+  
+  .timeline-icon {
+    position: absolute;
+    left: -42px;
+    top: 20px;
+    background: black;
+    color: #000;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .timeline-content h5 {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+    color: #A7F205;
+  }
+  
+  .timeline-content p {
+    margin-bottom: 0.8rem;
+    color: #ccc;
+  }
+  
+  .timeline-content ul {
+    padding-left: 1.2rem;
+    list-style-type: disc;
+    color: #ADD96C;
+    margin-bottom: 1rem;
+  }
+  
+  .badges .badge {
+    margin: 5px 5px 0 0;
+    background-color: #A7F205;
+    color: #000;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 6px;
+    display: inline-block;
+  }
+  
+  .text-muted {
+    color: white !important;
+  }
+
+  .bi {
+    color: #A7F205 !important;
+  }
+
+  .bi:hover {
+    color: #ADD96C !important;
+  }
+
+  .img-fluid {
+    max-width: 300px;
+    background: linear-gradient(to right, #4F7302, #ADD96C);
+    padding: 6px;
+    border-radius: 20px !important;
+  }
+
+  .bg-secondary {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-secondary-rgb), var(--bs-bg-opacity)) !important;
+    color: black !important;
+}
+
+.education-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #111;
+    color: #fff;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+  
+  .edu-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .edu-card {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 20px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 20px;
+  }
+  
+  .edu-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: contain;
+    background: #fff;
+  }
+  
+  .edu-card h3 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+  
+  .edu-card p {
+    margin: 4px 0;
+    font-size: 0.95rem;
+  }
+  
+  .edu-card a {
+    font-size: 0.9rem;
+    color: #4fc3f7;
+    text-decoration: none;
+  }
+  
