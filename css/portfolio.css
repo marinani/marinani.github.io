@@ -146,6 +146,42 @@
     color: #ADD96C;
     margin-bottom: 1rem;
   }
+
+  @media (max-width: 768px) {
+    .timeline {
+      margin-left: 0;
+      padding-left: 0;
+      border-left: none;
+    }
+  
+    .timeline-item {
+      padding-left: 0;
+      margin-left: 0;
+      box-shadow: none;
+    }
+  
+    .timeline-icon {
+      position: static;
+      margin: 0 auto 20px auto;
+      display: flex;
+      justify-content: center;
+    }
+  
+    .timeline-content {
+      text-align: center;
+    }
+  
+    .timeline-content h5,
+    .timeline-content p,
+    .timeline-content ul {
+      text-align: left;
+    }
+  
+    .timeline-content ul {
+      padding-left: 1rem;
+    }
+  }
+  
   
   .badges .badge {
     margin: 5px 5px 0 0;
