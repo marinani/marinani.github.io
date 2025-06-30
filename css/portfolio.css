@@ -1,16 +1,4 @@
 :root {
-    --primaria: #053D00;
-    --secundaria: #6893a1;
-    --cinza-claro: #f4f4f4;
-    --texto-escuro: #2E2E2E;
-    --destaque: #A7F205;
-    --destaque-hover: #ADD96C;
-    --bs-light-rgb: 248, 249, 250 !important;
-    --bs-info-rgb: 0,0,0!important;
-    --bs-secondary-rgb: 167,242,5 !important;
-    --bs-warning-rgb: 79,115,2 !important;
-  }
-  [data-theme="dark"] {
     --primaria: #022601;
     --secundaria: #697b83;
     --cinza-claro: black;
@@ -22,46 +10,54 @@
     --bs-secondary-rgb: 167,242,5 !important;
     --bs-warning-rgb: 173,217,108!important;
   }
+
+  /* Remover as definições do data-theme="dark" já que agora será padrão */
+  
   body {
     background-color: var(--cinza-claro);
     color: var(--texto-escuro);
     transition: background-color 0.3s, color 0.3s;
   }
+  
   .bg-primaria {
     background-color: var(--primaria) !important;
   }
+
+/* .bg-gradient-to-r
+ {background: linear-gradient(to bottom, #077a4e, #17b679) !important;} */
+
   .text-secundaria {
     color: var(--secundaria);
   }
+  
   .btn-destaque {
     background-color: var(--destaque);
     color: black;
   }
 
-
-  
   .btn-destaque:hover {
     background-color: var(--destaque-hover);
     color: black;
   }
 
-  .theme-toggle {
+  /* Remover o theme-toggle já que não será mais usado */
+  /* .theme-toggle {
     cursor: pointer;
     color: white;
     margin-left: 1rem;
-  }
+  } */
 
   .bg-light {
     --bs-bg-opacity: 1;
     background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
-}
+  }
 
-.text-center a {
+  .text-center a {
     text-decoration: none;
     color: var(--texto-escuro);
-}
+  }
 
-.hero {
+  .hero {
     background-color: var(--primaria);
     color: white;
     background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
@@ -69,10 +65,9 @@
   }
 
   .social-icons a:hover {
-    color: var(--destaque); /* ou uma cor de destaque como #fbbf24 */
+    color: var(--destaque);
     transition: color 0.3s ease;
   }
-
 
   .timeline {
     position: relative;
@@ -111,7 +106,6 @@
     justify-content: center;
     border: 2px solid #A7F205;
   }
-
 
   .timeline-icon img {
     width: 100%;
@@ -173,7 +167,6 @@
     }
   }
   
-  
   .badges .badge {
     margin: 5px 5px 0 0;
     background-color: #A7F205;
@@ -207,9 +200,9 @@
     --bs-bg-opacity: 1;
     background-color: rgba(var(--bs-secondary-rgb), var(--bs-bg-opacity)) !important;
     color: black !important;
-}
+  }
 
-.education-section {
+  .education-section {
     padding: 60px 20px;
     text-align: center;
     background-color: #111;
@@ -261,11 +254,10 @@
     color: #fff;
     text-decoration: none;
   }
-  
 
   .testimonial-text {
     font-style: italic;
-    color: #555;
+    color: #ccc; /* Mudando de #555 para #ccc para melhor contraste no tema escuro */
   }
   
   .swiper-slide {
@@ -276,14 +268,535 @@
   .card {
     border: none;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Aumentando a sombra para tema escuro */
     max-width: 500px;
+    background-color: #1a1a1a !important; /* Fundo escuro para os cards */
+    color: #fff !important; /* Texto claro para os cards */
   }
-  
 
   .swiper-pagination-bullet-active {
     opacity: var(--swiper-pagination-bullet-opacity, 1);
     background: #A7F205;
+  }
+
+  /* Estilos para a seção Sobre mim */
+#sobre .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
 }
 
+#sobre .skill-badge {
+    background-color: var(--destaque);
+    color: black;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 2px solid var(--destaque);
+    transition: all 0.3s ease;
+}
 
+#sobre .skill-badge:hover {
+    background-color: transparent;
+    color: var(--destaque);
+    border-color: var(--destaque);
+}
+
+#sobre ul li {
+    color: var(--texto-escuro);
+    margin-bottom: 8px;
+}
+
+#sobre ul li strong {
+    color: var(--destaque);
+}
+
+@media (max-width: 768px) {
+    #sobre .col-md-6 {
+        margin-bottom: 30px;
+    }
+}
+
+/* Estilos para a seção de serviços */
+.service-card {
+  background-color: #0a4a1a;
+  border: 2px solid #2d5a3d;
+  border-radius: 12px;
+  padding: 30px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.service-card:hover {
+  border-color: var(--destaque);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(167, 242, 5, 0.2);
+}
+
+.service-card h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.service-card p {
+  color: #e0e0e0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .service-card {
+    margin-bottom: 20px;
+    padding: 25px 15px;
+  }
+}
+
+/* Estilos para a seção Portfolio */
+.portfolio-card {
+    background: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #333;
+    height: 100%;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(167, 242, 5, 0.3);
+    border-color: var(--destaque);
+}
+
+.portfolio-image {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    padding: 20px;
+}
+
+.portfolio-card:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-overlay h5 {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.portfolio-overlay .btn {
+    background-color: var(--destaque);
+    border: none;
+    color: black;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.portfolio-content {
+    padding: 20px;
+}
+
+.portfolio-tech {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.tech-icon {
+    background: #333;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.tech-icon.react {
+    background: #61dafb;
+    color: #000;
+}
+
+.tech-icon.html {
+    background: #e34f26;
+}
+
+.tech-icon.css {
+    background: #1572b6;
+}
+
+.tech-icon.js {
+    background: #f7df1e;
+    color: #000;
+}
+
+.portfolio-content h5 {
+    color: #fff;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.portfolio-meta {
+    color: #999;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.portfolio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.portfolio-tags .tag {
+    background: var(--destaque);
+    color: black;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .portfolio-card {
+        margin-bottom: 20px;
+    }
+    
+    .portfolio-image {
+        height: 150px;
+    }
+    
+    .portfolio-content {
+        padding: 15px;
+    }
+}
+
+/* ===== RESPONSIVIDADE GERAL ===== */
+
+/* Mobile First - Base styles para mobile */
+@media (max-width: 576px) {
+  /* Hero Section */
+  .hero {
+    padding: 40px 0 !important;
+    margin-top: 60px !important;
+  }
+  
+  .hero h1 {
+    font-size: 2rem !important;
+  }
+  
+  .hero h2 {
+    font-size: 1.25rem !important;
+  }
+  
+  .hero .lead {
+    font-size: 1rem !important;
+  }
+  
+  /* Navbar */
+  .navbar-brand {
+    font-size: 1rem !important;
+  }
+  
+  /* Sections padding */
+  section {
+    padding: 40px 0 !important;
+  }
+  
+  /* Títulos */
+  h2 {
+    font-size: 1.75rem !important;
+  }
+  
+  h4 {
+    font-size: 1.25rem !important;
+  }
+  
+  h5 {
+    font-size: 1.1rem !important;
+  }
+}
+
+/* Tablet Portrait */
+@media (max-width: 768px) {
+  /* Sobre mim */
+  #sobre .col-md-6 {
+    margin-bottom: 30px;
+  }
+  
+  #sobre .skills-container {
+    justify-content: center;
+    gap: 6px;
+  }
+  
+  #sobre .skill-badge {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+  
+  /* Experiências e Educação */
+  #experiencias .col-md-6:first-child,
+  #education .col-md-6:first-child {
+    margin-bottom: 40px;
+  }
+  
+  .timeline-item {
+    margin-bottom: 25px;
+    padding: 15px;
+  }
+  
+  .timeline-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .timeline-content h5 {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  .timeline-content ul {
+    padding-left: 1rem;
+  }
+  
+  .timeline-content ul li {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+  }
+  
+  .badges .badge {
+    font-size: 0.7rem;
+    padding: 3px 6px;
+    margin: 3px 3px 0 0;
+  }
+  
+  /* Serviços */
+  .service-card {
+    margin-bottom: 20px;
+    padding: 20px 15px;
+  }
+  
+  .service-card h5 {
+    font-size: 1.1rem;
+  }
+  
+  .service-card p {
+    font-size: 0.9rem;
+  }
+  
+  /* Portfolio */
+  .portfolio-card {
+    margin-bottom: 20px;
+  }
+  
+  .portfolio-image {
+    height: 150px;
+  }
+  
+  .portfolio-content {
+    padding: 15px;
+  }
+  
+  .portfolio-tech {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  
+  .tech-icon {
+    font-size: 0.7rem;
+    padding: 3px 6px;
+  }
+  
+  .portfolio-tags {
+    gap: 4px;
+  }
+  
+  .portfolio-tags .tag {
+    font-size: 0.7rem;
+    padding: 3px 6px;
+  }
+  
+  /* Grid ajustments */
+  .row.g-4 {
+    gap: 1rem !important;
+  }
+}
+
+/* Tablet Landscape */
+@media (max-width: 992px) {
+  /* Portfolio - 2 colunas em tablet landscape */
+  #portfolio .col-md-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  
+  /* Serviços - 2 colunas em tablet landscape */
+  #servicos .col-md-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  
+  .service-card {
+    height: auto;
+    min-height: 200px;
+  }
+}
+
+/* Desktop Small */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+  
+  .timeline-content {
+    padding-right: 10px;
+  }
+}
+
+/* Desktop Large */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+  
+  .portfolio-image {
+    height: 220px;
+  }
+  
+  .service-card {
+    padding: 35px 25px;
+  }
+}
+
+/* ===== AJUSTES ESPECÍFICOS PARA COMPONENTES ===== */
+
+/* Timeline responsivo */
+@media (max-width: 768px) {
+  .timeline {
+    border-left: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  
+  .timeline-item {
+    padding-left: 0;
+    margin-left: 0;
+    box-shadow: none;
+  }
+  
+  .timeline-icon {
+    position: static;
+    margin: 0 auto 15px auto;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #A7F205 !important;
+  }
+  
+  .timeline-content {
+    text-align: center;
+  }
+  
+  .timeline-content h5,
+  .timeline-content p,
+  .timeline-content ul {
+    text-align: left;
+  }
+  
+  .timeline-content ul {
+    padding-left: 1rem;
+  }
+}
+
+/* Skills container responsivo */
+@media (max-width: 576px) {
+  #sobre .skills-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #sobre .skill-badge {
+    margin: 3px 0;
+    width: fit-content;
+  }
+}
+
+/* Portfolio hover em dispositivos touch */
+@media (hover: none) {
+  .portfolio-overlay {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.7);
+    pointer-events: auto;
+  }
+  
+  .portfolio-card:hover {
+    transform: none;
+  }
+}
+
+/* Ajustes para orientação landscape em mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    padding: 20px 0 !important;
+    margin-top: 50px !important;
+  }
+  
+  section {
+    padding: 30px 0 !important;
+  }
+  
+  .timeline-item {
+    margin-bottom: 20px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .navbar,
+  .btn,
+  .portfolio-overlay {
+    display: none !important;
+  }
+  
+  body {
+    color: black !important;
+    background: white !important;
+  }
+  
+  .timeline-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
