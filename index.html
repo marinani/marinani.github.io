@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-  <!-- Swiper CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- Swiper CSS (Mantido caso seja usado em outro lugar, mas o carrossel de clientes será customizado) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <link rel="stylesheet" href="/css/portfolio.css" />
   <link rel="stylesheet" href="/css/custom.css" />
@@ -20,779 +20,550 @@
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg bg-primaria navbar-dark fixed-top">
-  <div class="container">
-    <a class="navbar-brand d-flex align-items-center" href="#">
-      <img src="images/ChatGPT_Image_2_de_jul._de_2025__00_58_52-removebg-preview.png" alt="Logo" style="height:32px;width:32px;margin-right:10px;">
-      <span class="neon-brand">&lt;MARINANI DEVELOPER/&gt;</span>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
-        <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
-        <li class="nav-item"><a class="nav-link" href="#experiencias">Experiências</a></li>
-        <li class="nav-item"><a class="nav-link" href="#education">Educação</a></li>
-        <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
-        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfólio</a></li>
-        <li class="nav-item"><a class="nav-link" href="#testemunhos">Clientes</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
-      </ul>
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="images/ChatGPT_Image_2_de_jul._de_2025__00_58_52-removebg-preview.png" alt="Logo" style="height:32px;width:32px;margin-right:10px;">
+        <span class="neon-brand">&lt;MARINANI DEVELOPER/&gt;</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experiencias">Experiências</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Educação</a></li>
+          <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">Portfólio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testemunhos">Clientes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
   <!-- Hero Section -->
-  <section id="inicio" class="hero py-5 pt-5 mt-5 jarvis-hero">
-  <div class="jarvis-bg"></div>
-  <div class="jarvis-matrix"></div>
-  <div class="container position-relative" style="z-index:2;">
-    <div class="row align-items-center justify-content-between flex-lg-row flex-column-reverse">
-      <div class="col-lg-6 col-md-7 text-lg-start text-center" data-aos="fade-up">
-        <h1 class="display-3 fw-bold mb-3 jarvis-glow">
-          Mariane Ribeiro
-        </h1>
-        <h2 class="mb-4 jarvis-sub" style="font-weight: 400;">Engenheira de Software .NET</h2>
-        <p class="lead mb-4 jarvis-lead">
-          Gosto de transformar desafios em soluções funcionais e eficientes.
-        </p>
-        <div class="d-flex flex-wrap gap-2 justify-content-lg-start justify-content-center mb-4">
-          <a href="/docs/Curriculo_Mariane_Ribeiro.pdf" class="btn btn-outline-light btn-lg jarvis-btn" download>
-            Download Currículo <i class="bi bi-arrow-bar-down"></i>
-          </a>
-        </div>
-        <div class="d-flex gap-4 justify-content-lg-start justify-content-center mt-3 jarvis-icons">
-          <a href="https://www.linkedin.com/in/marinani-developer" target="_blank" class="fs-2" aria-label="LinkedIn">
-            <i class="bi bi-linkedin"></i>
-          </a>
-          <a href="https://github.com/marinani" target="_blank" class="fs-2" aria-label="GitHub">
-            <i class="bi bi-github"></i>
-          </a>
-          <a href="https://wa.me/554197649731" target="_blank" class="fs-2" aria-label="WhatsApp">
-            <i class="bi bi-whatsapp"></i>
-          </a>
-          <a href="mailto:marinanideveloper@gmail.com" class="fs-2" aria-label="E-mail">
-            <i class="bi bi-envelope-fill"></i>
-          </a>
-        </div>
-      </div>
-      <div class="col-lg-6 col-md-5 d-flex justify-content-end align-items-center mb-4 mb-lg-0" data-aos="fade-left">
-        <img src="images/Perfil sem fundo.png" alt="Foto de Mariane Ribeiro, desenvolvedora de software"
-    class="img-fluid rounded-4 hero-foto"
-    style="max-width:340px;width: 100%;height:auto;border-radius:28px;margin-left:auto;display:block;margin-right: -126px;" />
-      </div>
-    </div>
-  </div>
-</section>
-
-    <section id="sobre" class="py-5 bg-light" data-aos="fade-right">
-  <div class="container" style="max-width: 1400px;">
-    
-    <h2 class="mb-5 text-muted text-center">&lt;Sobre mim /&gt;</h2>
-    <div class="sobre-card p-4" style="max-width: 1280px; margin: 0 auto;">
-      <div class="row align-items-start justify-content-center g-0">
-        <!-- Foto à esquerda, mais para cima -->
-        <div class="col-lg-4 col-md-5 d-flex justify-content-center align-items-start" style="padding-top: 0;">
-          <div class="foto-sobre" style="height:auto;">
-            <img src="images/perfil.jpeg" alt="Foto de Mariane Ribeiro, desenvolvedora de software"
-                 style="width:200px; height:260px; max-width:100%; border-radius:22px; border:4px solid var(--destaque); box-shadow:0 0 40px #00bfae33; margin-top:40px; margin-bottom:0; align-self:flex-end;" />
+  <section id="inicio" class="hero jarvis-hero">
+    <div class="jarvis-bg"></div>
+    <div class="jarvis-matrix"></div>
+    <div class="container position-relative hero-content-wrapper" style="z-index:2;">
+      <div class="row align-items-center justify-content-between flex-lg-row flex-column-reverse">
+        <div class="col-lg-6 col-md-7 text-lg-start text-center" data-aos="fade-up">
+          <h1 class="display-3 fw-bold mb-3 jarvis-glow">
+            Mariane Ribeiro
+          </h1>
+          <h2 class="mb-4 jarvis-sub" style="font-weight: 400;">Engenheira de Software .NET</h2>
+          <p class="lead mb-4 jarvis-lead">
+            Gosto de transformar desafios em soluções funcionais e eficientes.
+          </p>
+          <div class="d-flex flex-wrap gap-2 justify-content-lg-start justify-content-center mb-4">
+            <a href="/docs/Curriculo_Mariane_Ribeiro.pdf" class="btn btn-outline-light btn-lg jarvis-btn" download>
+              Download Currículo <i class="bi bi-arrow-bar-down"></i>
+            </a>
+          </div>
+          <div class="d-flex gap-4 justify-content-lg-start justify-content-center mt-3 jarvis-icons">
+            <a href="https://www.linkedin.com/in/marinani-developer" target="_blank" class="fs-2" aria-label="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="https://github.com/marinani" target="_blank" class="fs-2" aria-label="GitHub">
+              <i class="bi bi-github"></i>
+            </a>
+            <a href="https://wa.me/554197649731" target="_blank" class="fs-2" aria-label="WhatsApp">
+              <i class="bi bi-whatsapp"></i>
+            </a>
+            <a href="mailto:marinanideveloper@gmail.com" class="fs-2" aria-label="E-mail">
+              <i class="bi bi-envelope-fill"></i>
+            </a>
           </div>
         </div>
-        <!-- Texto alinhado à imagem -->
-        <div class="col-lg-8 col-md-7 d-flex flex-column justify-content-start">
-          <div class="d-flex flex-column justify-content-center h-100" style="height:100%;">
-            <h4 class="mb-3" style="color:var(--destaque);font-weight:700;letter-spacing:1px;">Quem sou eu...</h4>
-            <div class="sobre-info mb-3" style="font-size:1.15rem;line-height:1.8; color:#fff;">
-              Com 10 anos de experiência na área de engenharia de software, minha jornada tem sido impulsionada pela paixão em resolver problemas complexos e construir produtos que realmente impactam. Atuo desde as fases iniciais de prototipagem e definição de escopo até a implementação, entrega contínua e suporte em produção. Acredito firmemente que a colaboração, a adaptabilidade e a busca incessante por otimização são chaves para o sucesso de qualquer projeto.<br><br>
-              Meu objetivo é ir além do código, compreendendo as necessidades do negócio para entregar soluções que não apenas funcionem, mas que também prosperem e evoluam junto com as demandas do mercado.
+        <div class="col-lg-6 col-md-5 d-flex justify-content-end align-items-center mb-4 mb-lg-0 hero-image-container" data-aos="fade-left">
+          <img src="images/Perfil sem fundo.png" alt="Foto de Mariane Ribeiro, desenvolvedora de software"
+               class="img-fluid hero-foto" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" class="py-5 bg-light" data-aos="fade-right">
+    <div class="container" style="max-width: 1400px;">
+      <h2 class="mb-5 text-muted text-center">&lt;Sobre mim /&gt;</h2>
+      <div class="sobre-card p-4" style="max-width: 1280px; margin: 0 auto;">
+        <div class="row align-items-start justify-content-center g-0">
+          <div class="col-lg-4 col-md-5 d-flex justify-content-center align-items-start" style="padding-top: 0;">
+            <div class="foto-sobre" style="height:auto;">
+              <img src="images/perfil.jpeg" alt="Foto de Mariane Ribeiro, desenvolvedora de software"
+                   style="width:200px; height:260px; max-width:100%; border-radius:22px; border:4px solid var(--destaque); box-shadow:0 0 40px #00bfae33; margin-top:40px; margin-bottom:0; align-self:flex-end;" />
+            </div>
+          </div>
+          <div class="col-lg-8 col-md-7 d-flex flex-column justify-content-start">
+            <div class="d-flex flex-column justify-content-center h-100" style="height:100%;">
+              <h4 class="mb-3" style="color:var(--destaque);font-weight:700;letter-spacing:1px;">Quem sou eu...</h4>
+              <div class="sobre-info mb-3" style="font-size:1.15rem;line-height:1.8; color:#fff;">
+                Com 10 anos de experiência na área de engenharia de software, minha jornada tem sido impulsionada pela paixão em resolver problemas complexos e construir produtos que realmente impactam. Atuo desde as fases iniciais de prototipagem e definição de escopo até a implementação, entrega contínua e suporte em produção. Acredito firmemente que a colaboração, a adaptabilidade e a busca incessante por otimização são chaves para o sucesso de qualquer projeto.<br><br>
+                Meu objetivo é ir além do código, compreendendo as necessidades do negócio para entregar soluções que não apenas funcionem, mas que também prosperem e evoluam junto com as demandas do mercado.
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Valores abaixo da imagem e do texto -->
+        <div class="row mt-3 position-relative">
+          <canvas id="valoresBgCanvas" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
+          <div class="valores-cards-container" style="display:flex;flex-direction:row;justify-content:center;gap:2rem;padding:0 0 2rem 0;max-width:1200px;margin:0 auto;z-index:1;position:relative;">
+            <div class="valor-card card">
+              <div class="card-content">
+                <h3 style="margin-top:0;font-size:1.35rem;color:#00ffc3;">Qualidade</h3>
+                <p style="font-size:1rem;color:#cfd8dc;line-height:1.5;">Compromisso com código limpo, testável e manutenível.</p>
+              </div>
+            </div>
+            <div class="valor-card card">
+              <div class="card-content">
+                <h3 style="margin-top:0;font-size:1.35rem;color:#00ffc3;">Inovação</h3>
+                <p style="font-size:1rem;color:#cfd8dc;line-height:1.5;">Curiosidade em novas tecnologias e metodologias para entregar o melhor.</p>
+              </div>
+            </div>
+            <div class="valor-card card">
+              <div class="card-content">
+                <h3 style="margin-top:0;font-size:1.35rem;color:#00ffc3;">Colaboração</h3>
+                <p style="font-size:1rem;color:#cfd8dc;line-height:1.5;">Acredito que os melhores resultados vêm do trabalho em equipe e comunicação transparente.</p>
+              </div>
+            </div>
+            <div class="valor-card card">
+              <div class="card-content">
+                <h3 style="margin-top:0;font-size:1.35rem;color:#00ffc3;">Entrega de Valor</h3>
+                <p style="font-size:1rem;color:#cfd8dc;line-height:1.5;">Foco em gerar impacto real e soluções que atendam aos objetivos do cliente.</p>
+              </div>
+            </div>
+            <div class="valor-card card">
+              <div class="card-content">
+                <h3 style="margin-top:0;font-size:1.35rem;color:#00ffc3;">Aprendizado Contínuo</h3>
+                <p style="font-size:1rem;color:#cfd8dc;line-height:1.5;">O mundo da tecnologia muda rapidamente, e estou sempre me atualizando.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Skills com ícones -->
+        <div class="row mt-4">
+          <div class="col-12">
+            <h4 class="skills-title mb-3 text-center" style="color:var(--destaque);font-weight:600;">Habilidades & Ferramentas</h4>
+            <div class="skills-container justify-content-center flex-wrap" style="gap:18px 22px;">
+              <span class="skill-badge">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="skill-icon" title="C#" />
+                C#
+              </span>
+              <span class="skill-badge">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="skill-icon" title="JavaScript" />
+                JavaScript
+              </span>
+              <span class="skill-badge">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="skill-icon" title="Node.js" />
+                Node.js
+              </span>
+              <span class="skill-badge">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular" class="skill-icon" title="Angular" />
+                Angular
+              </span>
+              <span class="skill-badge">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rabbitmq/rabbitmq-original.svg" alt="RabbitMQ" class="skill-icon" title="RabbitMQ" />
+                RabbitMQ
+              </span>
+              <span class="skill-badge">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" class="skill-icon" title="Azure" />
+                Azure
+              </span>
+              <span class="skill-badge">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="CI/CD" class="skill-icon" title="CI/CD" />
+                CI/CD
+              </span>
+              <span class="skill-badge">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devops/devops-original.svg" alt="DevOps" class="skill-icon" title="DevOps" />
+                DevOps
+              </span>
+              <span class="skill-badge">
+                <i class="bi bi-diagram-3" title="Microsserviços"></i>
+                Microsserviços
+              </span>
+              <span class="skill-badge">
+                <i class="bi bi-link-45deg" title="APIs RESTful"></i>
+                APIs RESTful
+              </span>
+              <span class="skill-badge">
+                <i class="bi bi-kanban" title="Agile/Scrum"></i>
+                Agile/Scrum
+              </span>
+              <span class="skill-badge">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" class="skill-icon" title="SQL" />
+                SQL
+              </span>
+              <span class="skill-badge">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="skill-icon" title="Git" />
+                Git/GitHub
+              </span>
             </div>
           </div>
         </div>
       </div>
-      <!-- Valores abaixo da imagem e do texto -->
-      <div class="row mt-3 position-relative">
-  <canvas id="valoresBgCanvas" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
-  <div class="valores-cards-container" style="display:flex;flex-direction:row;justify-content:center;gap:2rem;padding:0 0 2rem 0;max-width:1200px;margin:0 auto;z-index:1;position:relative;">
-    <div class="valor-card card"
-      style="background:linear-gradient(145deg,#243b55,#141e30);padding:2rem;border-radius:20px;position:relative;overflow:hidden;opacity:0;transform:scale(0.9) translateY(50px);box-shadow:0 15px 30px rgba(0,0,0,0.3);transition:transform 0.4s;">
-      <div class="card-content">
-        <h3 style="margin-top:0;font-size:1.35rem;color:#00ffc3;">Qualidade</h3>
-        <p style="font-size:1rem;color:#cfd8dc;line-height:1.5;">Compromisso com código limpo, testável e manutenível.</p>
-      </div>
     </div>
-    <div class="valor-card card"
-      style="background:linear-gradient(145deg,#243b55,#141e30);padding:2rem;border-radius:20px;position:relative;overflow:hidden;opacity:0;transform:scale(0.9) translateY(50px);box-shadow:0 15px 30px rgba(0,0,0,0.3);transition:transform 0.4s;">
-      <div class="card-content">
-        <h3 style="margin-top:0;font-size:1.35rem;color:#00ffc3;">Inovação</h3>
-        <p style="font-size:1rem;color:#cfd8dc;line-height:1.5;">Curiosidade em novas tecnologias e metodologias para entregar o melhor.</p>
-      </div>
-    </div>
-    <div class="valor-card card"
-      style="background:linear-gradient(145deg,#243b55,#141e30);padding:2rem;border-radius:20px;position:relative;overflow:hidden;opacity:0;transform:scale(0.9) translateY(50px);box-shadow:0 15px 30px rgba(0,0,0,0.3);transition:transform 0.4s;">
-      <div class="card-content">
-        <h3 style="margin-top:0;font-size:1.35rem;color:#00ffc3;">Colaboração</h3>
-        <p style="font-size:1rem;color:#cfd8dc;line-height:1.5;">Acredito que os melhores resultados vêm do trabalho em equipe e comunicação transparente.</p>
-      </div>
-    </div>
-    <div class="valor-card card"
-      style="background:linear-gradient(145deg,#243b55,#141e30);padding:2rem;border-radius:20px;position:relative;overflow:hidden;opacity:0;transform:scale(0.9) translateY(50px);box-shadow:0 15px 30px rgba(0,0,0,0.3);transition:transform 0.4s;">
-      <div class="card-content">
-        <h3 style="margin-top:0;font-size:1.35rem;color:#00ffc3;">Entrega de Valor</h3>
-        <p style="font-size:1rem;color:#cfd8dc;line-height:1.5;">Foco em gerar impacto real e soluções que atendam aos objetivos do cliente.</p>
-      </div>
-    </div>
-    <div class="valor-card card"
-      style="background:linear-gradient(145deg,#243b55,#141e30);padding:2rem;border-radius:20px;position:relative;overflow:hidden;opacity:0;transform:scale(0.9) translateY(50px);box-shadow:0 15px 30px rgba(0,0,0,0.3);transition:transform 0.4s;">
-      <div class="card-content">
-        <h3 style="margin-top:0;font-size:1.35rem;color:#00ffc3;">Aprendizado Contínuo</h3>
-        <p style="font-size:1rem;color:#cfd8dc;line-height:1.5;">O mundo da tecnologia muda rapidamente, e estou sempre me atualizando.</p>
-      </div>
-    </div>
-  </div>
-</div>
-      <!-- Skills com ícones -->
-      <div class="row mt-4">
-        <div class="col-12">
-          <h4 class="skills-title mb-3 text-center" style="color:var(--destaque);font-weight:600;">Habilidades & Ferramentas</h4>
-          <div class="skills-container justify-content-center flex-wrap" style="gap:18px 22px;">
-            <span class="skill-badge" style="color:#fff;">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="skill-icon" title="C#" style="width:28px;height:28px;vertical-align:middle;margin-right:6px;" />
-              C#
-            </span>
-            <span class="skill-badge" style="color:#fff;">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="skill-icon" title="JavaScript" style="width:28px;height:28px;vertical-align:middle;margin-right:6px;" />
-              JavaScript
-            </span>
-            <span class="skill-badge" style="color:#fff;">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="skill-icon" title="Node.js" style="width:28px;height:28px;vertical-align:middle;margin-right:6px;" />
-              Node.js
-            </span>
-            <span class="skill-badge" style="color:#fff;">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular" class="skill-icon" title="Angular" style="width:28px;height:28px;vertical-align:middle;margin-right:6px;" />
-              Angular
-            </span>
-            <span class="skill-badge" style="color:#fff;">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rabbitmq/rabbitmq-original.svg" alt="RabbitMQ" class="skill-icon" title="RabbitMQ" style="width:28px;height:28px;vertical-align:middle;margin-right:6px;" />
-              RabbitMQ
-            </span>
-            <span class="skill-badge" style="color:#fff;">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" class="skill-icon" title="Azure" style="width:28px;height:28px;vertical-align:middle;margin-right:6px;" />
-              Azure
-            </span>
-            <span class="skill-badge" style="color:#fff;">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="CI/CD" class="skill-icon" title="CI/CD" style="width:28px;height:28px;vertical-align:middle;margin-right:6px;" />
-              CI/CD
-            </span>
-            <span class="skill-badge" style="color:#fff;">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devops/devops-original.svg" alt="DevOps" class="skill-icon" title="DevOps" style="width:28px;height:28px;vertical-align:middle;margin-right:6px;" />
-              DevOps
-            </span>
-            <span class="skill-badge" style="color:#fff;">
-              <i class="bi bi-diagram-3" style="font-size: 1.5rem; vertical-align:middle; margin-right:6px; color:var(--destaque);"></i>
-              Microsserviços
-            </span>
-            <span class="skill-badge" style="color:#fff;">
-              <i class="bi bi-link-45deg" style="font-size: 1.5rem; vertical-align:middle; margin-right:6px; color:var(--destaque);"></i>
-              APIs RESTful
-            </span>
-            <span class="skill-badge" style="color:#fff;">
-              <i class="bi bi-kanban" style="font-size: 1.5rem; vertical-align:middle; margin-right:6px; color:var(--destaque);"></i>
-              Agile/Scrum
-            </span>
-            <span class="skill-badge" style="color:#fff;">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" class="skill-icon" title="SQL" style="width:28px;height:28px;vertical-align:middle;margin-right:6px;" />
-              SQL
-            </span>
-            <span class="skill-badge" style="color:#fff;">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="skill-icon" title="Git" style="width:28px;height:28px;vertical-align:middle;margin-right:6px;" />
-              Git/GitHub
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-    <section id="experiencias" class="py-5 bg-secundaria text-light text-center">
-  <div class="container">
-    <p class="text-warning">&lt;Experiências /&gt;</p>
-    <h2 class="mb-5 text-info">Experiência Profissional</h2>
-    <div class="exp-card-container" style="display:flex;flex-wrap:wrap;gap:2.5rem;justify-content:center;">
-      <!-- Exemplo de card de experiência -->
-      <div class="exp-card card-exp-glow" data-role="Engenheira de Software .Net" data-company="Pw Métricas (Grupo Pw)" data-period="Abr 2025 — Atual">
-        <h3>Engenheira de Software .Net</h3>
-        <h4>Pw Métricas (Grupo Pw)</h4>
-        <p class="exp-period">Abr 2025 — Atual</p>
-        <ul>
-          <li>Desenvolvimento e manutenção nos sistemas com .Net Core 9</li>
-          <li>Integrações com RESTful APIs</li>
-          <li>Implementação com CI/CD pipelines com GitHub Actions and Azure Services</li>
-          <li>Aplicação de boas práticas arquiteturais, SOLID e Clean Code</li>
-        </ul>
-        <div class="exp-badges">
-          <span class="badge">C#</span>
-          <span class="badge">.NET 9</span>
-          <span class="badge">Sql Server</span>
-          <span class="badge">JavaScript</span>
-          <span class="badge">Azure Services</span>
+  <section id="experiencias" class="py-5 bg-secundaria text-light text-center">
+    <div class="container">
+      <p class="text-warning">&lt;Experiências /&gt;</p>
+      <h2 class="mb-5 text-info">Experiência Profissional</h2>
+      <div class="exp-card-container">
+        <!-- Exemplo de card de experiência -->
+        <div class="exp-card" data-role="Engenheira de Software .Net" data-company="Pw Métricas (Grupo Pw)" data-period="Abr 2025 — Atual">
+          <h3>Engenheira de Software .Net</h3>
+          <h4>Pw Métricas (Grupo Pw)</h4>
+          <p class="exp-period">Abr 2025 — Atual</p>
+          <ul>
+            <li>Desenvolvimento e manutenção nos sistemas com .Net Core 9</li>
+            <li>Integrações com RESTful APIs</li>
+            <li>Implementação com CI/CD pipelines com GitHub Actions and Azure Services</li>
+            <li>Aplicação de boas práticas arquiteturais, SOLID e Clean Code</li>
+          </ul>
+          <div class="exp-badges">
+            <span class="badge">C#</span>
+            <span class="badge">.NET 9</span>
+            <span class="badge">Sql Server</span>
+            <span class="badge">JavaScript</span>
+            <span class="badge">Azure Services</span>
+          </div>
+          <div class="glow"></div>
         </div>
-        <div class="glow"></div>
-      </div>
-      <div class="exp-card card-exp-glow" data-role="Engenheira de Software .NET Core" data-company="Instituto das Cidades Inteligentes (ICI)" data-period="Mar 2021 — Atual">
-        <h3>Engenheira de Software .NET Core</h3>
-        <h4>Instituto das Cidades Inteligentes (ICI)</h4>
-        <p class="exp-period">Mar 2021 — Atual</p>
-        <ul>
-          <li>Desenvolvimento e manutenção de sistemas web e APIs em .NET 7+ e EF Core</li>
-          <li>Integração de serviços REST e SOAP</li>
-          <li>Uso de RabbitMQ para mensageria em projetos internos</li>
-          <li>Implementação de pipelines CI/CD com GitLab e Jenkins</li>
-          <li>Participação ativa em cerimônias ágeis (daily, planning, review)</li>
-          <li>Aplicação de boas práticas arquiteturais, SOLID e Clean Code</li>
-        </ul>
-        <div class="exp-badges">
-          <span class="badge">C#</span>
-          <span class="badge">.NET 8</span>
-          <span class="badge">JavaScript</span>
-          <span class="badge">GitLab</span>
-          <span class="badge">HangFire</span>
-          <span class="badge">RabbitMQ</span>
+        <div class="exp-card" data-role="Engenheira de Software .NET Core" data-company="Instituto das Cidades Inteligentes (ICI)" data-period="Mar 2021 — Atual">
+          <h3>Engenheira de Software .NET Core</h3>
+          <h4>Instituto das Cidades Inteligentes (ICI)</h4>
+          <p class="exp-period">Mar 2021 — Atual</p>
+          <ul>
+            <li>Desenvolvimento e manutenção de sistemas web e APIs em .NET 7+ e EF Core</li>
+            <li>Integração de serviços REST e SOAP</li>
+            <li>Uso de RabbitMQ para mensageria em projetos internos</li>
+            <li>Implementação de pipelines CI/CD com GitLab e Jenkins</li>
+            <li>Participação ativa em cerimônias ágeis (daily, planning, review)</li>
+            <li>Aplicação de boas práticas arquiteturais, SOLID e Clean Code</li>
+          </ul>
+          <div class="exp-badges">
+            <span class="badge">C#</span>
+            <span class="badge">.NET 8</span>
+            <span class="badge">JavaScript</span>
+            <span class="badge">GitLab</span>
+            <span class="badge">HangFire</span>
+            <span class="badge">RabbitMQ</span>
+          </div>
+          <div class="glow"></div>
         </div>
-        <div class="glow"></div>
-      </div>
-      <div class="exp-card card-exp-glow" data-role="Desenvolvedora Back-end .NET Core" data-company="VEXPRO BUSINESS IT – Grupo SPRO" data-period="Ago 2020 — Mar 2021">
-        <h3>Desenvolvedora Back-end .NET Core</h3>
-        <h4>VEXPRO BUSINESS IT – Grupo SPRO</h4>
-        <p class="exp-period">Ago 2020 — Mar 2021</p>
-        <ul>
-          <li>Desenvolvimento de APIs .NET Core</li>
-          <li>Integração contínua com Azure DevOps</li>
-          <li>Participação em squads ágeis</li>
-        </ul>
-        <div class="exp-badges">
-          <span class="badge">C#</span>
-          <span class="badge">.NET Core</span>
-          <span class="badge">Azure DevOps</span>
+        <div class="exp-card" data-role="Desenvolvedora Back-end .NET Core" data-company="VEXPRO BUSINESS IT – Grupo SPRO" data-period="Ago 2020 — Mar 2021">
+          <h3>Desenvolvedora Back-end .NET Core</h3>
+          <h4>VEXPRO BUSINESS IT – Grupo SPRO</h4>
+          <p class="exp-period">Ago 2020 — Mar 2021</p>
+          <ul>
+            <li>Desenvolvimento de APIs .NET Core</li>
+            <li>Integração contínua com Azure DevOps</li>
+            <li>Participação em squads ágeis</li>
+          </ul>
+          <div class="exp-badges">
+            <span class="badge">C#</span>
+            <span class="badge">.NET Core</span>
+            <span class="badge">Azure DevOps</span>
+          </div>
+          <div class="glow"></div>
         </div>
-        <div class="glow"></div>
-      </div>
-      <div class="exp-card card-exp-glow" data-role="Desenvolvedora Back-end .NET" data-company="DBM Contact Center" data-period="Set 2019 — Jul 2020">
-        <h3>Desenvolvedora Back-end .NET</h3>
-        <h4>DBM Contact Center</h4>
-        <p class="exp-period">Set 2019 — Jul 2020</p>
-        <ul>
-          <li>Desenvolvimento de sistemas e manutenção de sistemas ASP.NET</li>
-          <li>Gerenciamento de banco de dados SQL Server</li>
-          <li>Automação de processos via scripts e integrações</li>
-        </ul>
-        <div class="exp-badges">
-          <span class="badge">C#</span>
-          <span class="badge">.NET</span>
-          <span class="badge">SQL Server</span>
+        <div class="exp-card" data-role="Desenvolvedora Back-end .NET" data-company="DBM Contact Center" data-period="Set 2019 — Jul 2020">
+          <h3>Desenvolvedora Back-end .NET</h3>
+          <h4>DBM Contact Center</h4>
+          <p class="exp-period">Set 2019 — Jul 2020</p>
+          <ul>
+            <li>Desenvolvimento de sistemas e manutenção de sistemas ASP.NET</li>
+            <li>Gerenciamento de banco de dados SQL Server</li>
+            <li>Automação de processos via scripts e integrações</li>
+          </ul>
+          <div class="exp-badges">
+            <span class="badge">C#</span>
+            <span class="badge">.NET</span>
+            <span class="badge">SQL Server</span>
+          </div>
+          <div class="glow"></div>
         </div>
-        <div class="glow"></div>
-      </div>
-      <div class="exp-card card-exp-glow" data-role="Back-end .NET Developer" data-company="Editora Positivo / Aprende Brasil" data-period="Abr 2018 — Set 2019">
-        <h3>Back-end .NET Developer</h3>
-        <h4>Editora Positivo / Aprende Brasil</h4>
-        <p class="exp-period">Abr 2018 — Set 2019</p>
-        <ul>
-          <li>Desenvolvimento e manutenção de sistemas internos com .NET</li>
-          <li>Integrações REST/SOAP</li>
-          <li>Suporte a banco de dados</li>
-        </ul>
-        <div class="exp-badges">
-          <span class="badge">C#</span>
-          <span class="badge">Asp.Net/Vb.Net</span>
-          <span class="badge">SQL Server</span>
+        <div class="exp-card" data-role="Back-end .NET Developer" data-company="Editora Positivo / Aprende Brasil" data-period="Abr 2018 — Set 2019">
+          <h3>Back-end .NET Developer</h3>
+          <h4>Editora Positivo / Aprende Brasil</h4>
+          <p class="exp-period">Abr 2018 — Set 2019</p>
+          <ul>
+            <li>Desenvolvimento e manutenção de sistemas internos com .NET</li>
+            <li>Integrações REST/SOAP</li>
+            <li>Suporte a banco de dados</li>
+          </ul>
+          <div class="exp-badges">
+            <span class="badge">C#</span>
+            <span class="badge">Asp.Net/Vb.Net</span>
+            <span class="badge">SQL Server</span>
+          </div>
+          <div class="glow"></div>
         </div>
-        <div class="glow"></div>
-      </div>
-      <div class="exp-card card-exp-glow" data-role="Desenvolvedora .NET Junior" data-company="Stefanini IT Solutions S.A." data-period="Mai 2016 — Abr 2018">
-        <h3>Desenvolvedora .NET Junior</h3>
-        <h4>Stefanini IT Solutions S.A.</h4>
-        <p class="exp-period">Mai 2016 — Abr 2018</p>
-        <ul>
-          <li>Desenvolvimento de sistemas .NET e manutenção de aplicações legadas</li>
-          <li>Participação em projetos de integração de serviços</li>
-          <li>Gerenciamento de banco de dados SQL Server</li>
-        </ul>
-        <div class="exp-badges">
-          <span class="badge">C#</span>
-          <span class="badge">Asp.Net/Vb.Net</span>
-          <span class="badge">SQL Server</span>
+        <div class="exp-card" data-role="Desenvolvedora .NET Junior" data-company="Stefanini IT Solutions S.A." data-period="Mai 2016 — Abr 2018">
+          <h3>Desenvolvedora .NET Junior</h3>
+          <h4>Stefanini IT Solutions S.A.</h4>
+          <p class="exp-period">Mai 2016 — Abr 2018</p>
+          <ul>
+            <li>Desenvolvimento de sistemas .NET e manutenção de aplicações legadas</li>
+            <li>Participação em projetos de integração de serviços</li>
+            <li>Gerenciamento de banco de dados SQL Server</li>
+          </ul>
+          <div class="exp-badges">
+            <span class="badge">C#</span>
+            <span class="badge">Asp.Net/Vb.Net</span>
+            <span class="badge">SQL Server</span>
+          </div>
+          <div class="glow"></div>
         </div>
-        <div class="glow"></div>
-      </div>
-      <div class="exp-card card-exp-glow" data-role="Estagiária" data-company="Stefanini IT Solutions S.A." data-period="Mai 2015 — Mai 2016">
-        <h3>Estagiária</h3>
-        <h4>Stefanini IT Solutions S.A.</h4>
-        <p class="exp-period">Mai 2015 — Mai 2016</p>
-        <ul>
-          <li>Desenvolvimento e manutenção de aplicações e bancos de dados .NET</li>
-          <li>Participação em integrações e suporte técnico</li>
-        </ul>
-        <div class="exp-badges">
-          <span class="badge">C#</span>
-          <span class="badge">Asp.Net/Vb.Net</span>
-          <span class="badge">SQL Server</span>
+        <div class="exp-card" data-role="Estagiária" data-company="Stefanini IT Solutions S.A." data-period="Mai 2015 — Mai 2016">
+          <h3>Estagiária</h3>
+          <h4>Stefanini IT Solutions S.A.</h4>
+          <p class="exp-period">Mai 2015 — Mai 2016</p>
+          <ul>
+            <li>Desenvolvimento e manutenção de aplicações e bancos de dados .NET</li>
+            <li>Participação em integrações e suporte técnico</li>
+          </ul>
+          <div class="exp-badges">
+            <span class="badge">C#</span>
+            <span class="badge">Asp.Net/Vb.Net</span>
+            <span class="badge">SQL Server</span>
+          </div>
+          <div class="glow"></div>
         </div>
-        <div class="glow"></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
   
-<section id="education" class="py-5 bg-light text-center">
-  <div class="container">
-    <p class="text-warning">&lt;Educação /&gt;</p>
-    <h2 class="mb-5 text-info">Formação Acadêmica</h2>
-    <div class="edu-card-container">
-      <div class="edu-card card-exp-glow">
-        <div class="edu-header">
-          <div class="edu-logo-wrap">
-            <img src="/images/empresas/focus-faculdade.png" alt="Faculdade Focus" class="edu-logo" />
+  <section id="education" class="py-5 bg-light text-center">
+    <div class="container">
+      <p class="text-warning">&lt;Educação /&gt;</p>
+      <h2 class="mb-5 text-info">Formação Acadêmica</h2>
+      <div class="edu-card-container">
+        <div class="edu-card">
+          <div class="edu-header">
+            <div class="edu-logo-wrap">
+              <img src="/images/empresas/focus-faculdade.png" alt="Faculdade Focus" class="edu-logo" />
+            </div>
+            <div class="edu-info">
+              <h3>Pós-graduação, Engenharia DevOps</h3>
+              <h4>Faculdade Focus</h4>
+              <p class="edu-period">Jan 2025 — Jul 2025</p>
+            </div>
           </div>
-          <div class="edu-info">
-            <h3>Pós-graduação, Engenharia DevOps</h3>
-            <h4>Faculdade Focus</h4>
-            <p class="edu-period">Jan 2025 — Jul 2025</p>
+          <ul>
+            <li>Especialização em práticas DevOps e SRE</li>
+            <li>Automação de infraestrutura e deployment</li>
+            <li>Monitoramento e observabilidade de sistemas</li>
+            <li>Containerização e orquestração</li>
+          </ul>
+          <div class="exp-badges">
+            <span class="badge">DevOps</span>
+            <span class="badge">CI/CD</span>
+            <span class="badge">Docker</span>
+            <span class="badge">Kubernetes</span>
+            <span class="badge">Terraform</span>
           </div>
+          <div class="glow"></div>
         </div>
-        <ul>
-          <li>Especialização em práticas DevOps e SRE</li>
-          <li>Automação de infraestrutura e deployment</li>
-          <li>Monitoramento e observabilidade de sistemas</li>
-          <li>Containerização e orquestração</li>
-        </ul>
-        <div class="exp-badges">
-          <span class="badge">DevOps</span>
-          <span class="badge">CI/CD</span>
-          <span class="badge">Docker</span>
-          <span class="badge">Kubernetes</span>
-          <span class="badge">Terraform</span>
-        </div>
-        <div class="glow"></div>
-      </div>
-      <div class="edu-card card-exp-glow">
-        <div class="edu-header">
-          <div class="edu-logo-wrap">
-            <img src="/images/empresas/uniasselvi-logo.png" alt="Uniasselvi - Leonardo da Vinci" class="edu-logo" />
+        <div class="edu-card">
+          <div class="edu-header">
+            <div class="edu-logo-wrap">
+              <img src="/images/empresas/uniasselvi-logo.png" alt="Uniasselvi - Leonardo da Vinci" class="edu-logo" />
+            </div>
+            <div class="edu-info">
+              <h3>Graduação, Análise e Desenvolvimento de Sistemas</h3>
+              <h4>Uniasselvi - Leonardo da Vinci</h4>
+              <p class="edu-period">Jan 2024 — Dez 2024</p>
+            </div>
           </div>
-          <div class="edu-info">
-            <h3>Graduação, Análise e Desenvolvimento de Sistemas</h3>
-            <h4>Uniasselvi - Leonardo da Vinci</h4>
-            <p class="edu-period">Jan 2024 — Dez 2024</p>
+          <ul>
+            <li>Fundamentos de programação e algoritmos</li>
+            <li>Desenvolvimento web e mobile</li>
+            <li>Banco de dados e modelagem</li>
+            <li>Engenharia de software e metodologias ágeis</li>
+          </ul>
+          <div class="exp-badges">
+            <span class="badge">Algoritmos</span>
+            <span class="badge">Desenvolvimento Web</span>
+            <span class="badge">Banco de Dados</span>
+            <span class="badge">Agile</span>
           </div>
+          <div class="glow"></div>
         </div>
-        <ul>
-          <li>Fundamentos de programação e algoritmos</li>
-          <li>Desenvolvimento web e mobile</li>
-          <li>Banco de dados e modelagem</li>
-          <li>Engenharia de software e metodologias ágeis</li>
-        </ul>
-        <div class="exp-badges">
-          <span class="badge">Algoritmos</span>
-          <span class="badge">Desenvolvimento Web</span>
-          <span class="badge">Banco de Dados</span>
-          <span class="badge">Agile</span>
-        </div>
-        <div class="glow"></div>
       </div>
     </div>
-  </div>
-</section>
-  
+  </section>
 
-    <!-- Serviços -->
-    <section id="servicos" class="py-5 bg-primaria text-center" data-aos="fade-right">
-  <div class="container">
-    <p class="text-warning">&lt;Serviços /&gt;</p>
-    <h2 class="mb-5 text-muted">Tipos de serviços que desenvolvo...</h2>
-    <div class="valores-cards-container" style="display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;gap:2rem;padding:0 0 2rem 0;max-width:1200px;margin:0 auto;z-index:1;position:relative;">
-      <div class="valor-card card">
-        <div class="card-content">
-          <h3 style="margin-top:0;font-size:1.35rem;color:#00ffc3;">Prototipagem & Escopo</h3>
-          <p style="font-size:1rem;color:#cfd8dc;line-height:1.5;">Transformo ideias em requisitos claros e protótipos interativos. Ajudo a validar conceitos, definir funcionalidades e traçar o roadmap técnico para o seu projeto.</p>
+  <!-- Serviços -->
+  <section id="servicos" class="py-5 bg-primaria text-center" data-aos="fade-right">
+    <div class="container">
+      <p class="text-warning">&lt;Serviços /&gt;</p>
+      <h2 class="mb-5 text-muted">Tipos de serviços que desenvolvo...</h2>
+      <div class="valores-cards-container">
+        <div class="valor-card card">
+          <div class="card-content">
+            <h3>Prototipagem & Escopo</h3>
+            <p>Transformo ideias em requisitos claros e protótipos interativos. Ajudo a validar conceitos, definir funcionalidades e traçar o roadmap técnico para o seu projeto.</p>
+          </div>
         </div>
-      </div>
-      <div class="valor-card card">
-        <div class="card-content">
-          <h3 style="margin-top:0;font-size:1.35rem;color:#00ffc3;">Desenvolvimento de Software</h3>
-          <p style="font-size:1rem;color:#cfd8dc;line-height:1.5;">Construção de aplicações web e backend robustas, escaláveis e de alta performance. Experiência em diversas linguagens e frameworks, focada em código limpo e manutenível.</p>
+        <div class="valor-card card">
+          <div class="card-content">
+            <h3>Desenvolvimento de Software</h3>
+            <p>Construção de aplicações web e backend robustas, escaláveis e de alta performance. Experiência em diversas linguagens e frameworks, focada em código limpo e manutenível.</p>
+          </div>
         </div>
-      </div>
-      <div class="valor-card card">
-        <div class="card-content">
-          <h3 style="margin-top:0;font-size:1.35rem;color:#00ffc3;">Entrega Contínua (CI/CD)</h3>
-          <p style="font-size:1rem;color:#cfd8dc;line-height:1.5;">Implemento pipelines de CI/CD para automatizar o ciclo de vida do software, garantindo entregas rápidas, seguras e frequentes. Menos erros, mais agilidade.</p>
+        <div class="valor-card card">
+          <div class="card-content">
+            <h3>Entrega Contínua (CI/CD)</h3>
+            <p>Implemento pipelines de CI/CD para automatizar o ciclo de vida do software, garantindo entregas rápidas, seguras e frequentes. Menos erros, mais agilidade.</p>
+          </div>
         </div>
-      </div>
-      <div class="valor-card card">
-        <div class="card-content">
-          <h3 style="margin-top:0;font-size:1.35rem;color:#00ffc3;">Integrações de Sistemas</h3>
-          <p style="font-size:1rem;color:#cfd8dc;line-height:1.5;">Conecto diferentes sistemas e APIs, criando fluxos de dados eficientes e garantindo a comunicação fluida entre suas plataformas e serviços externos.</p>
+        <div class="valor-card card">
+          <div class="card-content">
+            <h3>Integrações de Sistemas</h3>
+            <p>Conecto diferentes sistemas e APIs, criando fluxos de dados eficientes e garantindo a comunicação fluida entre suas plataformas e serviços externos.</p>
+          </div>
         </div>
-      </div>
-      <div class="valor-card card">
-        <div class="card-content">
-          <h3 style="margin-top:0;font-size:1.35rem;color:#00ffc3;">Operações & DevOps</h3>
-          <p style="font-size:1rem;color:#cfd8dc;line-height:1.5;">Otimizo a infraestrutura, automatizo processos de deployment e monitoramento, e implemento práticas DevOps/SRE para garantir a estabilidade, segurança e performance da sua aplicação em produção.</p>
+        <div class="valor-card card">
+          <div class="card-content">
+            <h3>Operações & DevOps</h3>
+            <p>Otimizo a infraestrutura, automatizo processos de deployment e monitoramento, e implemento práticas DevOps/SRE para garantir a estabilidade, segurança e performance da sua aplicação em produção.</p>
+          </div>
         </div>
-      </div>
-      <div class="valor-card card">
-        <div class="card-content">
-          <h3 style="margin-top:0;font-size:1.35rem;color:#00ffc3;">Consultoria Técnica</h3>
-          <p style="font-size:1rem;color:#cfd8dc;line-height:1.5;">Ofereço orientação estratégica e técnica para equipes de desenvolvimento, auxiliando na escolha de tecnologias, arquitetura de sistemas e melhores práticas de engenharia.</p>
+        <div class="valor-card card">
+          <div class="card-content">
+            <h3>Consultoria Técnica</h3>
+            <p>Ofereço orientação estratégica e técnica para equipes de desenvolvimento, auxiliando na escolha de tecnologias, arquitetura de sistemas e melhores práticas de engenharia.</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
   <section id="portfolio" class="py-5 bg-secundaria text-center" data-aos="fade-down">
-  <div class="container portfolio-cards-flip">
-    <p class="text-warning">&lt;Portfolio /&gt;</p>
-    <h2 class="mb-5">Projetos em Destaque</h2>
-    <div class="portfolio-flip-container">
-      <!-- Projeto 1 -->
-      <div class="flip-card">
-        <div class="face face1">
-          <div class="content">
-            <img src="/images/projetos/pwmetricas inicial.png" alt="Sistema de Métricas">
-            <h3>Sistema de Métricas</h3>
-            <div class="flip-overlay">
-              <p>Loja virtual responsiva com integração de pagamento, dashboard de métricas e relatórios customizados.</p>
-              <a href="http://app.pwmetricas.com.br/" target="_blank">Ver mais</a>
+    <div class="container portfolio-cards-flip">
+      <p class="text-warning">&lt;Portfolio /&gt;</p>
+      <h2 class="mb-5">Projetos em Destaque</h2>
+      <div class="portfolio-flip-container">
+        <!-- Projeto 1 -->
+        <div class="flip-card">
+          <div class="face face1">
+            <div class="content">
+              <img src="/images/projetos/pwmetricas inicial.png" alt="Sistema de Métricas">
+              <h3>Sistema de Métricas</h3>
+              <div class="flip-overlay">
+                <p>Loja virtual responsiva com integração de pagamento, dashboard de métricas e relatórios customizados.</p>
+                <a href="http://app.pwmetricas.com.br/" target="_blank">Ver mais</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <!-- Projeto 2 -->
-      <div class="flip-card">
-        <div class="face face1">
-          <div class="content">
-            <img src="/images/projetos/ame-site-landingpage.png" alt="AME - Landing Page">
-            <h3>AME - Landing Page</h3>
-            <div class="flip-overlay">
-              <p>Site institucional moderno, responsivo, com formulário de contato e integração com redes sociais.</p>
-              <a href="https://amecwb.com/" target="_blank">Ver mais</a>
+        <!-- Projeto 2 -->
+        <div class="flip-card">
+          <div class="face face1">
+            <div class="content">
+              <img src="/images/projetos/ame-site-landingpage.png" alt="AME - Landing Page">
+              <h3>AME - Landing Page</h3>
+              <div class="flip-overlay">
+                <p>Site institucional moderno, responsivo, com formulário de contato e integração com redes sociais.</p>
+                <a href="https://amecwb.com/" target="_blank">Ver mais</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <!-- Projeto 3 -->
-      <div class="flip-card">
-        <div class="face face1">
-          <div class="content">
-            <img src="/images/projetos/marketing-digital-leads.png" alt="Marketing Digital Leads">
-            <h3>Marketing Digital Leads</h3>
-            <div class="flip-overlay">
-              <p>Landing page para captação de leads, integração com ferramentas de marketing e analytics.</p>
-              <a href="https://marinani.github.io/painel-marketing-digital/" target="_blank">Ver mais</a>
+        <!-- Projeto 3 -->
+        <div class="flip-card">
+          <div class="face face1">
+            <div class="content">
+              <img src="/images/projetos/marketing-digital-leads.png" alt="Marketing Digital Leads">
+              <h3>Marketing Digital Leads</h3>
+              <div class="flip-overlay">
+                <p>Landing page para captação de leads, integração com ferramentas de marketing e analytics.</p>
+                <a href="https://marinani.github.io/painel-marketing-digital/" target="_blank">Ver mais</a>
+              </div>
             </div>
           </div>
         </div>
+        <!-- Adicione mais projetos conforme necessário -->
       </div>
-      <!-- Adicione mais projetos conforme necessário -->
     </div>
-  </div>
-</section>
-  
-
+  </section>
 
   <section id="testemunhos" class="py-5 bg-primaria text-center">
-  <div class="testimonials">
-    <div class="testimonial-inner">
-      <h2>O que meus clientes dizem</h2>
-      <div class="border"></div>
-      <div class="row">
-        <!-- Cards originais -->
-        <div class="col">
-          <div class="testimonial">
-            <div class="testimonial-cover" style="background-image: url('/images/projetos/pwmetricas inicial.png');"></div>
-            <img src="/images/testemunhas/dyego-pw.jpeg" alt="Dyego Pessoa">
-            <div class="name">Dyego Pessoa</div>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <p>Demonstrou profissionalismo e entregou muito mais que foi falado e provou que sabe o que faz!</p>
-          </div>
-        </div>
-        <div class="col">
-          <div class="testimonial">
-            <div class="testimonial-cover" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80');"></div>
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Pereira">
-            <div class="name">Carlos Pereira</div>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-            <p>O sistema ficou perfeito, superou minhas expectativas.</p>
-          </div>
-        </div>
-        <div class="col">
-          <div class="testimonial">
-            <div class="testimonial-cover" style="background-image: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80');"></div>
-            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Maria Oliveira">
-            <div class="name">Maria Oliveira</div>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <p>Muito atenciosa, resolveu problemas que outros não conseguiram.</p>
-          </div>
-        </div>
-        <div class="col">
-          <div class="testimonial">
-            <div class="testimonial-cover" style="background-image: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80');"></div>
-            <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="João Silva">
-            <div class="name">João Silva</div>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <p>Entrega rápida e comunicação excelente. Recomendo para qualquer projeto!</p>
-          </div>
-        </div>
-        <!-- Duplicação dos cards para efeito de loop infinito -->
-        <div class="col">
-          <div class="testimonial">
-            <div class="testimonial-cover" style="background-image: url('/images/projetos/pwmetricas inicial.png');"></div>
-            <img src="/images/testemunhas/dyego-pw.jpeg" alt="Dyego Pessoa">
-            <div class="name">Dyego Pessoa</div>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <p>Demonstrou profissionalismo e entregou muito mais que foi falado e provou que sabe o que faz!</p>
-          </div>
-        </div>
-        <div class="col">
-          <div class="testimonial">
-            <div class="testimonial-cover" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80');"></div>
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Pereira">
-            <div class="name">Carlos Pereira</div>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-            <p>O sistema ficou perfeito, superou minhas expectativas.</p>
-          </div>
-        </div>
-        <div class="col">
-          <div class="testimonial">
-            <div class="testimonial-cover" style="background-image: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80');"></div>
-            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Maria Oliveira">
-            <div class="name">Maria Oliveira</div>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <p>Muito atenciosa, resolveu problemas que outros não conseguiram.</p>
-          </div>
-        </div>
-        <div class="col">
-          <div class="testimonial">
-            <div class="testimonial-cover" style="background-image: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80');"></div>
-            <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="João Silva">
-            <div class="name">João Silva</div>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <p>Entrega rápida e comunicação excelente. Recomendo para qualquer projeto!</p>
-          </div>
+    <div class="testimonials">
+      <div class="testimonial-inner">
+        <h2>O que meus clientes dizem</h2>
+        <div class="border"></div>
+        <div class="clientes-carousel-root">
+          <!-- O conteúdo do carrossel será renderizado aqui pelo JavaScript -->
         </div>
       </div>
     </div>
-  </div>
-</section>
-  
+  </section>
 
-<!-- Sessão Contato -->
-<section id="contato" class="py-5 bg-light">
-  <div class="container" style="max-width: 700px;">
-    <h2 class="mb-4 text-center" style="color:var(--destaque);font-weight:700;">Entre em contato</h2>
-    <form action="https://formspree.io/f/yourformid" method="POST" class="contact-form p-4 rounded-4 shadow" style="background:#fff;">
-      <div class="mb-3">
-        <label for="nome" class="form-label">Nome</label>
-        <input type="text" class="form-control" id="nome" name="nome" required>
+  <!-- Sessão Contato -->
+  <section id="contato" class="py-5 bg-light">
+    <div class="container" style="max-width: 700px;">
+      <h2 class="mb-4 text-center" style="color:var(--destaque);font-weight:700;">Entre em contato</h2>
+      <form action="https://formspree.io/f/yourformid" method="POST" class="contact-form p-4 rounded-4 shadow">
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome</label>
+          <input type="text" class="form-control" id="nome" name="nome" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">E-mail</label>
+          <input type="email" class="form-control" id="email" name="_replyto" required>
+        </div>
+        <div class="mb-3">
+          <label for="mensagem" class="form-label">Mensagem</label>
+          <textarea class="form-control" id="mensagem" name="mensagem" rows="5" required></textarea>
+        </div>
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+        </div>
+      </form>
+      <div class="text-center mt-4">
+        <a href="mailto:marinanideveloper@gmail.com" class="me-3" aria-label="E-mail"><i class="bi bi-envelope-fill"></i></a>
+        <a href="https://wa.me/554197649731" class="me-3" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        <a href="https://www.linkedin.com/in/marinani-developer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
       </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">E-mail</label>
-        <input type="email" class="form-control" id="email" name="_replyto" required>
-      </div>
-      <div class="mb-3">
-        <label for="mensagem" class="form-label">Mensagem</label>
-        <textarea class="form-control" id="mensagem" name="mensagem" rows="5" required></textarea>
-      </div>
-      <div class="d-grid">
-        <button type="submit" class="btn btn-primary" style="background:var(--destaque);color:#0a192f;font-weight:600;border:none;">Enviar mensagem</button>
-      </div>
-    </form>
-    <div class="text-center mt-4">
-      <a href="mailto:marinanideveloper@gmail.com" class="me-3" style="color:var(--destaque);font-size:1.5rem;"><i class="bi bi-envelope-fill"></i></a>
-      <a href="https://wa.me/554197649731" class="me-3" style="color:var(--destaque);font-size:1.5rem;"><i class="bi bi-whatsapp"></i></a>
-      <a href="https://www.linkedin.com/in/marinani-developer" style="color:var(--destaque);font-size:1.5rem;"><i class="bi bi-linkedin"></i></a>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- Rodapé -->
   <footer class="text-center py-4 bg-primaria text-white">
-    <p>&copy; 2025 Mariane Ribeiro. 
-      Todos os direitos reservados.</p>
+    <p>&copy; 2025 Mariane Ribeiro. Todos os direitos reservados.</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="js/utilities.js"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <!-- Removendo jQuery e Faker.js se não forem estritamente necessários para outras funcionalidades -->
+  <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/faker@5.5.3/dist/faker.min.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> -->
+
+  <script src="js/utilities.js"></script>
   <script src="/js/custom.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/faker@5.5.3/dist/faker.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <script>
-  AOS.init();
-  const swiper = new Swiper(".mySwiper", {
-    loop: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    autoplay: {
-      delay: 5000,
-    },
-  });
-
-  // Clientes Carousel Effect (Vanilla JS, no Angular)
-  (function () {
-    const testimonials = [
-      {
-        hero: "/images/testemunhas/dyego-pw.jpeg",
-        title: "Demonstrou profissionalismo e entregou muito mais que foi falado e provou que sabe o que faz!",
-        author: "Dyego Pessoa",
-        role: "CEO - Pw Mídia/Pw Métricas",
-        avatar: "/images/testemunhas/dyego-pw.jpeg"
+    AOS.init();
+    // Swiper initialization (se houver um elemento .mySwiper no HTML)
+    const swiper = new Swiper(".mySwiper", {
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
       },
-      // Adicione mais depoimentos reais aqui, exemplo:
-      // {
-      //   hero: "/images/testemunhas/user2-160x160.jpg",
-      //   title: "O sistema ficou perfeito, superou minhas expectativas.",
-      //   author: "Carlos Pereira",
-      //   role: "Analista de TI",
-      //   avatar: "/images/testemunhas/user2-160x160.jpg"
-      // }
-    ];
-
-    const root = document.getElementById('clientes-carousel-root');
-    if (!root) return;
-
-    let active = 0;
-    const magicNumber = 3;
-    const amount = testimonials.length;
-
-    function getPos(i) {
-      let pos = i - active;
-      if (active >= amount - magicNumber && i <= magicNumber) {
-        pos = i + (amount - active);
-      } else if (active <= magicNumber && i >= amount - magicNumber) {
-        pos = 0 - (amount - i + active);
-      }
-      return pos;
-    }
-
-    function render() {
-      root.innerHTML = `
-        <ul class="clientes-carousel-track" style="list-style:none;padding:0;margin:0;">
-          ${testimonials.map((t, i) => `
-            <li class="clientes-card"
-                data-pos="${getPos(i)}"
-                data-gone="${getPos(i) < 0 && getPos(i) !== 0 ? 'true' : ''}"
-                data-coming="${getPos(i) > 0 && getPos(i) !== 0 ? 'true' : ''}">
-              <img class="clientes-card__hero" src="${t.hero}" alt="${t.author}">
-              <div class="clientes-card__content-mark">
-                <article class="clientes-card__content">
-                  <h1 class="clientes-card__title">${t.title}</h1>
-                  <h2 class="clientes-card__author">${t.author}${t.role ? ' - ' + t.role : ''}</h2>
-                </article>
-              </div>
-              <img class="clientes-card__avatar" src="${t.avatar}" alt="${t.author}">
-            </li>
-          `).join('')}
-        </ul>
-        <div class="clientes-carousel-actions">
-          <button type="button" aria-label="Anterior" id="clientes-carousel-prev">
-            <svg viewBox="0 0 24 24"><path fill="#fff" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"/></svg>
-          </button>
-          <button type="button" aria-label="Próximo" id="clientes-carousel-next">
-            <svg viewBox="0 0 24 24"><path fill="#fff" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
-          </button>
-        </div>
-      `;
-      document.getElementById('clientes-carousel-prev').onclick = () => {
-        active = (active - 1 + amount) % amount;
-        render();
-      };
-      document.getElementById('clientes-carousel-next').onclick = () => {
-        active = (active + 1) % amount;
-        render();
-      };
-    }
-    render();
-  })();
-
-  // Card tab switching logic for clientes card
-  document.addEventListener("DOMContentLoaded", function () {
-    const card = document.querySelector(".card[data-state]");
-    if (!card) return;
-    const buttons = card.querySelectorAll(".card-buttons button");
-    const sections = card.querySelectorAll(".card-section");
-    buttons.forEach((btn) => {
-      btn.addEventListener("click", function () {
-        const targetSection = btn.getAttribute("data-section");
-        const section = card.querySelector(targetSection);
-        if (targetSection !== "#about") {
-          card.classList.add("is-active");
-        } else {
-          card.classList.remove("is-active");
-        }
-        card.setAttribute("data-state", targetSection);
-        sections.forEach((s) => s.classList.remove("is-active"));
-        buttons.forEach((b) => b.classList.remove("is-active"));
-        btn.classList.add("is-active");
-        section.classList.add("is-active");
-      });
+      autoplay: {
+        delay: 5000,
+      },
     });
-  });
-</script>
+
+    // O carrossel de clientes foi movido e refatorado em custom.js
+    // A lógica de tab switching para o card de clientes foi movida para custom.js
+  </script>
 </body>
 </html>
