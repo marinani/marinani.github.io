@@ -904,15 +904,45 @@
 /* Desktop Large */
 @media (min-width: 1400px) {
   .container {
-    max-width: 1320px;
+    max-width: 1600px;
   }
-  
+  .hero-content-wrapper {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+  .portfolio-flip-container {
+    max-width: 1500px;
+    gap: 3.5rem;
+  }
+  .valores-cards-container {
+    max-width: 1400px;
+    gap: 3rem;
+  }
   .portfolio-image {
-    height: 220px;
+    height: 260px;
   }
-  
   .service-card {
-    padding: 35px 25px;
+    padding: 40px 32px;
+  }
+}
+
+@media (min-width: 1800px) {
+  .container {
+    max-width: 1920px;
+  }
+  .hero-content-wrapper {
+    max-width: 1920px;
+  }
+  .portfolio-flip-container {
+    max-width: 1800px;
+    gap: 4.5rem;
+  }
+  .valores-cards-container {
+    max-width: 1700px;
+    gap: 4rem;
+  }
+  .portfolio-image {
+    height: 320px;
   }
 }
 
