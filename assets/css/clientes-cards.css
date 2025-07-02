@@ -1,0 +1,207 @@
+/* === Estilo especial para os cards da sessão clientes (testemunhos) === */
+
+.clientes-carousel-root {
+  background: linear-gradient(135deg, var(--primaria, #0a192f) 60%, var(--secundaria, #112240) 100%);
+  border-radius: 28px;
+  box-shadow: 0 8px 40px 0 rgba(100,255,218,0.10), 0 1.5px 0 0 #00bfae33;
+  padding: 48px 0 36px 0;
+  margin: 0 auto 2rem auto;
+  max-width: 900px;
+  position: relative;
+  z-index: 2;
+  overflow: hidden; /* Adicionado para conter o track do carrossel */
+}
+
+.clientes-carousel-track-wrapper {
+  overflow: hidden; /* Garante que apenas o track seja rolado */
+}
+
+.clientes-carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* Transição suave para o carrossel */
+  list-style: none; /* Remove marcadores de lista */
+  padding: 0;
+  margin: 0;
+}
+
+.clientes-card {
+  flex: 0 0 auto; /* Permite que os cards tenham seu próprio tamanho e não se estiquem */
+  width: 340px; /* Largura fixa para os cards no carrossel, ajuste conforme necessário */
+  margin: 0 15px; /* Espaçamento entre os cards */
+  position: relative;
+  background-color: var(--card-background-color, #1a2332);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  padding: 2rem;
+  text-align: center;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(100,255,218,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* Garante que os cards tenham altura igual na linha */
+}
+
+.clientes-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.clientes-card__hero {
+  width: 100%;
+  height: 150px; /* Altura da imagem de fundo do testemunho */
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.clientes-card__avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--destaque);
+  box-shadow: 0 0 15px rgba(100,255,218,0.4);
+  margin: -60px auto 1rem auto; /* Posiciona o avatar sobre a imagem de herói */
+  position: relative;
+  z-index: 10;
+}
+
+.clientes-card__content-mark {
+  background-color: var(--secundaria); /* Fundo para o conteúdo do texto */
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.clientes-card__title {
+  color: var(--destaque);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.clientes-card__author {
+  color: var(--texto-escuro);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  flex-grow: 1; /* Permite que o parágrafo ocupe o espaço restante */
+  opacity: 0.8;
+}
+
+.clientes-carousel-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 2rem;
+}
+
+.clientes-carousel-actions button {
+  background-color: var(--destaque);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(100,255,218,0.3);
+}
+
+.clientes-carousel-actions button:hover {
+  background-color: var(--destaque-hover);
+}
+
+.clientes-carousel-actions button svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Shine effect - Mantido para os cards de testemunho, mas agora aplicado a .clientes-card */
+.clientes-card .shine {
+  border-radius: inherit;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity .5s;
+}
+.clientes-card:hover .shine {
+  opacity: 1;
+}
+.clientes-card .background {
+  border-radius: inherit;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.clientes-card .tiles .tile {
+  position: absolute;
+  background-color: var(--card-tile-color, rgba(16,185,129,0.05));
+  opacity: 0.7;
+  border-radius: 4px;
+}
+.clientes-card .line {
+  position: absolute;
+  background-color: var(--card-line-color, #2A2B2C);
+  opacity: 0.2;
+  border-radius: 2px;
+}
+.clientes-card .line-1 { top: 18%; left: 10%; width: 80%; height: 2px; }
+.clientes-card .line-2 { top: 50%; left: 10%; width: 80%; height: 2px; }
+.clientes-card .line-3 { top: 82%; left: 10%; width: 80%; height: 2px; }
+
+
+@media (max-width: 768px) {
+  .clientes-carousel-root {
+    padding: 30px 0 20px 0;
+    margin: 0 auto 1.5rem auto;
+  }
+  .clientes-card {
+    width: 280px; /* Ajuste a largura para telas menores */
+    margin: 0 10px;
+    padding: 1.5rem;
+  }
+  .clientes-card__hero {
+    height: 120px;
+  }
+  .clientes-card__avatar {
+    width: 60px;
+    height: 60px;
+    margin: -40px auto 0.8rem auto;
+  }
+  .clientes-card__title {
+    font-size: 1rem;
+  }
+  .clientes-card__author {
+    font-size: 0.8rem;
+  }
+  .clientes-carousel-actions {
+    gap: 15px;
+    margin-top: 1.5rem;
+  }
+  .clientes-carousel-actions button {
+    width: 35px;
+    height: 35px;
+  }
+  .clientes-carousel-actions button svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .clientes-card {
+    width: 90vw; /* Ocupa quase toda a largura da viewport */
+    margin: 0 auto; /* Centraliza o card */
+  }
+}

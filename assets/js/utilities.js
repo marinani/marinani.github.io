@@ -69,32 +69,42 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Lazy loading para imagens (com fallback)
-    const images = document.querySelectorAll('img[data-src]'); // Seleciona apenas imagens com data-src
+    // Nota: O atributo loading="lazy" no HTML é a forma nativa e preferencial.
+    // Este script pode ser mantido como um fallback para navegadores mais antigos.
+    const images = document.querySelectorAll('img[loading="lazy"]'); // Seleciona imagens com loading="lazy"
     if ('IntersectionObserver' in window) {
         const imageObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
-                    if (img.dataset.src) {
-                        img.src = img.dataset.src;
+                    // Se a imagem já tem um src, não precisa fazer nada (já foi carregada nativamente ou antes)
+                    if (!img.src) {
+                        // Se a imagem não tem src, mas tem um data-src (para lazy loading customizado)
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                        }
+                        // Remove a classe 'lazy' se usada para efeitos visuais de placeholder
                         img.classList.remove('lazy');
-                        observer.unobserve(img);
                     }
+                    observer.unobserve(img);
                 }
             });
         });
 
         images.forEach(img => {
-            img.classList.add('lazy');
+            // Adiciona a classe 'lazy' apenas se ainda não tiver src (para efeitos visuais)
+            if (!img.src) {
+              img.classList.add('lazy');
+            }
             imageObserver.observe(img);
         });
     } else {
-        // Fallback: carrega todas as imagens imediatamente
+        // Fallback: carrega todas as imagens imediatamente para navegadores sem IntersectionObserver
         images.forEach(img => {
-            if (img.dataset.src) {
+            if (!img.src && img.dataset.src) { // Só carrega se não tiver src e tiver data-src
                 img.src = img.dataset.src;
-                img.classList.remove('lazy');
             }
+            img.classList.remove('lazy');
         });
     }
     
@@ -106,9 +116,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function debounce(func, wait) {
         let timeout;
         return function executedFunction(...args) {
-            const later = () => {
-                clearTimeout(timeout);
-                func(...args);
+            const context = this;
+            const later = () => { // 'later' function defined here
+                func.apply(context, args);
             };
             clearTimeout(timeout);
             timeout = setTimeout(later, wait);

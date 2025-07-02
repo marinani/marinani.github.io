@@ -4,25 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MARINANI DEVELOPER | Desenvolvedora Full Stack</title>
-  <!-- <link rel="icon" href="/images/icon_pwmetricas.svg" type="image/x-icon"> -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-  <!-- Swiper CSS (Mantido caso seja usado em outro lugar, mas o carrossel de clientes será customizado) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-  <link rel="stylesheet" href="/css/portfolio.css" />
-  <link rel="stylesheet" href="/css/custom.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/clientes-cards.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
 </head>
 <body data-theme="light">
 
-  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg bg-primaria navbar-dark fixed-top">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="images/ChatGPT_Image_2_de_jul._de_2025__00_58_52-removebg-preview.png" alt="Logo" style="height:32px;width:32px;margin-right:10px;">
+        <!-- Adicionada a classe 'navbar-logo' para estilização via CSS externo -->
+        <img src="assets/src/images/logo.png" alt="Logo" class="navbar-logo">
         <span class="neon-brand">&lt;MARINANI DEVELOPER/&gt;</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,13 +35,11 @@
           <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
           <li class="nav-item"><a class="nav-link" href="#portfolio">Portfólio</a></li>
           <li class="nav-item"><a class="nav-link" href="#testemunhos">Clientes</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
-        </ul>
+          </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
   <section id="inicio" class="hero jarvis-hero">
     <div class="jarvis-bg"></div>
     <div class="jarvis-matrix"></div>
@@ -58,7 +54,7 @@
             Gosto de transformar desafios em soluções funcionais e eficientes.
           </p>
           <div class="d-flex flex-wrap gap-2 justify-content-lg-start justify-content-center mb-4">
-            <a href="/docs/Curriculo_Mariane_Ribeiro.pdf" class="btn btn-outline-light btn-lg jarvis-btn" download>
+            <a href="assets/src/docs/Curriculo_Mariane_Ribeiro.pdf" class="btn btn-outline-light btn-lg jarvis-btn" download>
               Download Currículo <i class="bi bi-arrow-bar-down"></i>
             </a>
           </div>
@@ -78,8 +74,9 @@
           </div>
         </div>
         <div class="col-lg-6 col-md-5 d-flex justify-content-end align-items-center mb-4 mb-lg-0 hero-image-container" data-aos="fade-left">
-          <img src="images/Perfil sem fundo.png" alt="Foto de Mariane Ribeiro, desenvolvedora de software"
-               class="img-fluid hero-foto" />
+          <!-- Adicionado loading="lazy" para otimização de carregamento -->
+          <img src="assets/src/images/Perfil sem fundo.png" alt="Foto de Mariane Ribeiro, desenvolvedora de software"
+               class="img-fluid hero-foto" loading="lazy" />
         </div>
       </div>
     </div>
@@ -87,66 +84,70 @@
 
   <section id="sobre" class="py-5 bg-light" data-aos="fade-right">
     <div class="container" style="max-width: 1400px;">
-      <h2 class="mb-5 text-muted text-center">&lt;Sobre mim /&gt;</h2>
-      <div class="sobre-card p-4" style="max-width: 1280px; margin: 0 auto;">
+      <h2 class="mb-5 text-info text-center">&lt;Sobre mim /&gt;</h2>
+      <!-- Removidos estilos inline e adicionada classe 'sobre-card-wrapper' para estilização via CSS externo -->
+      <div class="sobre-card p-4 sobre-card-wrapper">
         <div class="row align-items-start justify-content-center g-0">
-          <div class="col-lg-4 col-md-5 d-flex justify-content-center align-items-start" style="padding-top: 0;">
-            <div class="foto-sobre" style="height:auto;">
-              <img src="images/perfil.jpeg" alt="Foto de Mariane Ribeiro, desenvolvedora de software"
-                   style="width:200px; height:260px; max-width:100%; border-radius:22px; border:4px solid var(--destaque); box-shadow:0 0 40px #00bfae33; margin-top:40px; margin-bottom:0; align-self:flex-end;" />
+          <div class="col-12 d-flex flex-column justify-content-start">
+            <h4 class="mb-3" style="color:var(--destaque);font-weight:700;letter-spacing:1px;">Quem sou eu...</h4>
+            <!-- Removidos estilos inline e adicionada classe 'about-profile-img' para estilização via CSS externo -->
+            <div class="sobre-info mb-3" style="font-size:1.15rem;line-height:1.8; color:#fff;">
+              <!-- Adicionado loading="lazy" para otimização de carregamento e classe 'about-profile-img' -->
+              <img src="assets/src/images/perfil.jpeg" alt="Foto de Mariane Ribeiro, desenvolvedora de software"
+                   class="about-profile-img" loading="lazy" />
+              Com 10 anos de experiência na área de engenharia de software, minha jornada tem sido impulsionada pela paixão em resolver problemas complexos e construir produtos que realmente impactam. Atuo desde as fases iniciais de prototipagem e definição de escopo até a implementação, entrega contínua e suporte em produção. Acredito firmemente que a colaboração, a adaptabilidade e a busca incessante por otimização são chaves para o sucesso de qualquer projeto.<br><br>
+              Meu objetivo é ir além do código, compreendendo as necessidades do negócio para entregar soluções que não apenas funcionem, mas que também prosperem e evoluam junto com as demandas do mercado.
+              <div style="clear:both;"></div>
             </div>
-          </div>
-          <div class="col-lg-8 col-md-7 d-flex flex-column justify-content-start">
-            <div class="d-flex flex-column justify-content-center h-100" style="height:100%;">
-              <h4 class="mb-3" style="color:var(--destaque);font-weight:700;letter-spacing:1px;">Quem sou eu...</h4>
-              <div class="sobre-info mb-3" style="font-size:1.15rem;line-height:1.8; color:#fff;">
-                Com 10 anos de experiência na área de engenharia de software, minha jornada tem sido impulsionada pela paixão em resolver problemas complexos e construir produtos que realmente impactam. Atuo desde as fases iniciais de prototipagem e definição de escopo até a implementação, entrega contínua e suporte em produção. Acredito firmemente que a colaboração, a adaptabilidade e a busca incessante por otimização são chaves para o sucesso de qualquer projeto.<br><br>
-                Meu objetivo é ir além do código, compreendendo as necessidades do negócio para entregar soluções que não apenas funcionem, mas que também prosperem e evoluam junto com as demandas do mercado.
-              </div>
+            <div class="d-flex justify-content-center mt-4">
+              <button type="button" class="btn btn-primary btn-lg contact-modal-trigger jarvis-btn" data-bs-toggle="modal" data-bs-target="#contactModal">
+                SOLICITAR ORÇAMENTO
+              </button>
             </div>
           </div>
         </div>
-        <!-- Valores abaixo da imagem e do texto -->
+
         <div class="row mt-3 position-relative">
-          <canvas id="valoresBgCanvas" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
-          <div class="valores-cards-container" style="display:flex;flex-direction:row;justify-content:center;gap:2rem;padding:0 0 2rem 0;max-width:1200px;margin:0 auto;z-index:1;position:relative;">
+          <canvas id="valoresBgCanvas" class="valores-canvas-bg"></canvas>
+          <!-- Removidos estilos inline e adicionada classe 'valores-cards-wrapper' para estilização via CSS externo -->
+          <div class="valores-cards-container valores-cards-wrapper">
             <div class="valor-card card">
               <div class="card-content">
-                <h3 style="margin-top:0;font-size:1.35rem;color:#00ffc3;">Qualidade</h3>
-                <p style="font-size:1rem;color:#cfd8dc;line-height:1.5;">Compromisso com código limpo, testável e manutenível.</p>
+                <h3>Qualidade</h3>
+                <p>Compromisso com código limpo, testável e manutenível.</p>
               </div>
             </div>
             <div class="valor-card card">
               <div class="card-content">
-                <h3 style="margin-top:0;font-size:1.35rem;color:#00ffc3;">Inovação</h3>
-                <p style="font-size:1rem;color:#cfd8dc;line-height:1.5;">Curiosidade em novas tecnologias e metodologias para entregar o melhor.</p>
+                <h3>Inovação</h3>
+                <p>Curiosidade em novas tecnologias e metodologias para entregar o melhor.</p>
               </div>
             </div>
             <div class="valor-card card">
               <div class="card-content">
-                <h3 style="margin-top:0;font-size:1.35rem;color:#00ffc3;">Colaboração</h3>
-                <p style="font-size:1rem;color:#cfd8dc;line-height:1.5;">Acredito que os melhores resultados vêm do trabalho em equipe e comunicação transparente.</p>
+                <h3>Colaboração</h3>
+                <p>Acredito que os melhores resultados vêm do trabalho em equipe e comunicação transparente.</p>
               </div>
             </div>
             <div class="valor-card card">
               <div class="card-content">
-                <h3 style="margin-top:0;font-size:1.35rem;color:#00ffc3;">Entrega de Valor</h3>
-                <p style="font-size:1rem;color:#cfd8dc;line-height:1.5;">Foco em gerar impacto real e soluções que atendam aos objetivos do cliente.</p>
+                <h3>Entrega de Valor</h3>
+                <p>Foco em gerar impacto real e soluções que não apenas funcionem, mas que também prosperem e evoluam junto com as demandas do mercado.</p>
               </div>
             </div>
             <div class="valor-card card">
               <div class="card-content">
-                <h3 style="margin-top:0;font-size:1.35rem;color:#00ffc3;">Aprendizado Contínuo</h3>
-                <p style="font-size:1rem;color:#cfd8dc;line-height:1.5;">O mundo da tecnologia muda rapidamente, e estou sempre me atualizando.</p>
+                <h3>Aprendizado Contínuo</h3>
+                <p>O mundo da tecnologia muda rapidamente, e estou sempre me atualizando.</p>
               </div>
             </div>
           </div>
         </div>
-        <!-- Skills com ícones -->
         <div class="row mt-4">
-          <div class="col-12">
-            <h4 class="skills-title mb-3 text-center" style="color:var(--destaque);font-weight:600;">Habilidades & Ferramentas</h4>
-            <div class="skills-container justify-content-center flex-wrap" style="gap:18px 22px;">
+          <div class="col-12 skills-canvas-wrapper">
+            <canvas id="skillsBgCanvas" class="skills-canvas-bg"></canvas>
+            <h4 class="skills-title mb-3 text-center text-info">Habilidades & Ferramentas</h4>
+            <div class="skills-container justify-content-center flex-wrap">
               <span class="skill-badge">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="skill-icon" title="C#" />
                 C#
@@ -208,10 +209,8 @@
 
   <section id="experiencias" class="py-5 bg-secundaria text-light text-center">
     <div class="container">
-      <p class="text-warning">&lt;Experiências /&gt;</p>
-      <h2 class="mb-5 text-info">Experiência Profissional</h2>
+      <h2 class="mb-5 text-info">&lt;Minhas Experiências /&gt;</h2>
       <div class="exp-card-container">
-        <!-- Exemplo de card de experiência -->
         <div class="exp-card" data-role="Engenheira de Software .Net" data-company="Pw Métricas (Grupo Pw)" data-period="Abr 2025 — Atual">
           <h3>Engenheira de Software .Net</h3>
           <h4>Pw Métricas (Grupo Pw)</h4>
@@ -338,13 +337,12 @@
   
   <section id="education" class="py-5 bg-light text-center">
     <div class="container">
-      <p class="text-warning">&lt;Educação /&gt;</p>
-      <h2 class="mb-5 text-info">Formação Acadêmica</h2>
+      <h2 class="mb-5 text-info">&lt;Minha Formação Acadêmica /&gt;</h2>
       <div class="edu-card-container">
         <div class="edu-card">
           <div class="edu-header">
             <div class="edu-logo-wrap">
-              <img src="/images/empresas/focus-faculdade.png" alt="Faculdade Focus" class="edu-logo" />
+              <img src="assets/src/images/empresas/focus-faculdade.png" alt="Faculdade Focus Logo" class="edu-logo" />
             </div>
             <div class="edu-info">
               <h3>Pós-graduação, Engenharia DevOps</h3>
@@ -370,7 +368,7 @@
         <div class="edu-card">
           <div class="edu-header">
             <div class="edu-logo-wrap">
-              <img src="/images/empresas/uniasselvi-logo.png" alt="Uniasselvi - Leonardo da Vinci" class="edu-logo" />
+              <img src="assets/src/images/empresas/uniasselvi-logo.png" alt="Uniasselvi - Leonardo da Vinci Logo" class="edu-logo" />
             </div>
             <div class="edu-info">
               <h3>Graduação, Análise e Desenvolvimento de Sistemas</h3>
@@ -396,46 +394,44 @@
     </div>
   </section>
 
-  <!-- Serviços -->
   <section id="servicos" class="py-5 bg-primaria text-center" data-aos="fade-right">
     <div class="container">
-      <p class="text-warning">&lt;Serviços /&gt;</p>
-      <h2 class="mb-5 text-muted">Tipos de serviços que desenvolvo...</h2>
+      <h2 class="mb-5 text-info">&lt;Meus Serviços /&gt;</h2>
       <div class="valores-cards-container">
         <div class="valor-card card">
           <div class="card-content">
             <h3>Prototipagem & Escopo</h3>
-            <p>Transformo ideias em requisitos claros e protótipos interativos. Ajudo a validar conceitos, definir funcionalidades e traçar o roadmap técnico para o seu projeto.</p>
+            <p>Transformo ideias em requisitos claros e protótipos interativos.</p>
           </div>
         </div>
         <div class="valor-card card">
           <div class="card-content">
             <h3>Desenvolvimento de Software</h3>
-            <p>Construção de aplicações web e backend robustas, escaláveis e de alta performance. Experiência em diversas linguagens e frameworks, focada em código limpo e manutenível.</p>
+            <p>Construção de aplicações web e backend robustas, escaláveis e de alta performance.</p>
           </div>
         </div>
         <div class="valor-card card">
           <div class="card-content">
             <h3>Entrega Contínua (CI/CD)</h3>
-            <p>Implemento pipelines de CI/CD para automatizar o ciclo de vida do software, garantindo entregas rápidas, seguras e frequentes. Menos erros, mais agilidade.</p>
+            <p>Implemento pipelines de CI/CD para automatizar o ciclo de vida do software.</p>
           </div>
         </div>
         <div class="valor-card card">
           <div class="card-content">
             <h3>Integrações de Sistemas</h3>
-            <p>Conecto diferentes sistemas e APIs, criando fluxos de dados eficientes e garantindo a comunicação fluida entre suas plataformas e serviços externos.</p>
+            <p>Conecto diferentes sistemas e APIs, criando fluxos de dados eficientes.</p>
           </div>
         </div>
         <div class="valor-card card">
           <div class="card-content">
             <h3>Operações & DevOps</h3>
-            <p>Otimizo a infraestrutura, automatizo processos de deployment e monitoramento, e implemento práticas DevOps/SRE para garantir a estabilidade, segurança e performance da sua aplicação em produção.</p>
+            <p>Otimizo a infraestrutura, automatizo processos de deployment e monitoramento.</p>
           </div>
         </div>
         <div class="valor-card card">
           <div class="card-content">
             <h3>Consultoria Técnica</h3>
-            <p>Ofereço orientação estratégica e técnica para equipes de desenvolvimento, auxiliando na escolha de tecnologias, arquitetura de sistemas e melhores práticas de engenharia.</p>
+            <p>Ofereço orientação estratégica e técnica para equipes de desenvolvimento.</p>
           </div>
         </div>
       </div>
@@ -443,114 +439,129 @@
   </section>
 
   <section id="portfolio" class="py-5 bg-secundaria text-center" data-aos="fade-down">
-    <div class="container portfolio-cards-flip">
-      <p class="text-warning">&lt;Portfolio /&gt;</p>
-      <h2 class="mb-5">Projetos em Destaque</h2>
-      <div class="portfolio-flip-container">
-        <!-- Projeto 1 -->
-        <div class="flip-card">
-          <div class="face face1">
-            <div class="content">
-              <img src="/images/projetos/pwmetricas inicial.png" alt="Sistema de Métricas">
-              <h3>Sistema de Métricas</h3>
-              <div class="flip-overlay">
-                <p>Loja virtual responsiva com integração de pagamento, dashboard de métricas e relatórios customizados.</p>
-                <a href="http://app.pwmetricas.com.br/" target="_blank">Ver mais</a>
-              </div>
+    <div class="container portfolio-cards-container">
+      <h2 class="mb-5 text-info">&lt;Meus Projetos em Destaque /&gt;</h2>
+      
+      <div class="portfolio-card">
+        <a href="http://app.pwmetricas.com.br/" target="_blank" class="hero-image-container">
+          <img class="hero-image" src="assets/src/images/projetos/pwmetricas inicial.png" alt="Sistema de Métricas - Pw Métricas" loading="lazy">
+        </a>
+        <main class="main-content">
+          <h3><a href="http://app.pwmetricas.com.br/" target="_blank">Sistema de Métricas</a></h3>
+          <p class="description">Plataforma para gestão e análise de métricas de desempenho, com dashboards customizáveis e relatórios detalhados.</p>
+          <div class="flex-row">
+            <div class="tech-stack">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C# Icon" class="small-icon"/>
+              <span class="tech-name">C# .NET</span>
             </div>
+            <p class="project-date">Julº2023</p>
           </div>
+        </main>
+        <div class="card-attribute">
+          <p class="attribute-text">Ver mais em <span><a href="http://app.pwmetricas.com.br/" target="_blank">Pw Métricas</a></span></p>
         </div>
-        <!-- Projeto 2 -->
-        <div class="flip-card">
-          <div class="face face1">
-            <div class="content">
-              <img src="/images/projetos/ame-site-landingpage.png" alt="AME - Landing Page">
-              <h3>AME - Landing Page</h3>
-              <div class="flip-overlay">
-                <p>Site institucional moderno, responsivo, com formulário de contato e integração com redes sociais.</p>
-                <a href="https://amecwb.com/" target="_blank">Ver mais</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Projeto 3 -->
-        <div class="flip-card">
-          <div class="face face1">
-            <div class="content">
-              <img src="/images/projetos/marketing-digital-leads.png" alt="Marketing Digital Leads">
-              <h3>Marketing Digital Leads</h3>
-              <div class="flip-overlay">
-                <p>Landing page para captação de leads, integração com ferramentas de marketing e analytics.</p>
-                <a href="https://marinani.github.io/painel-marketing-digital/" target="_blank">Ver mais</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Adicione mais projetos conforme necessário -->
       </div>
+
+      <div class="portfolio-card">
+        <a href="https://amecwb.com/" target="_blank" class="hero-image-container">
+          <img class="hero-image" src="assets/src/images/projetos/ame-site-landingpage.png" alt="AME - Landing Page" loading="lazy">
+        </a>
+        <main class="main-content">
+          <h3><a href="https://amecwb.com/" target="_blank">AME - Landing Page</a></h3>
+          <p class="description">Site institucional moderno e responsivo, focado na apresentação de serviços e captação de leads.</p>
+          <div class="flex-row">
+            <div class="tech-stack">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5 Icon" class="small-icon"/>
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3 Icon" class="small-icon"/>
+              <span class="tech-name">HTML/CSS/JS</span>
+            </div>
+            <p class="project-date">Dezº2022</p>
+          </div>
+        </main>
+        <div class="card-attribute">
+          <p class="attribute-text">Ver mais em <span><a href="https://amecwb.com/" target="_blank">AME CWB</a></span></p>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <a href="https://marinani.github.io/painel-marketing-digital/" target="_blank" class="hero-image-container">
+          <img class="hero-image" src="assets/src/images/projetos/marketing-digital-leads.png" alt="Marketing Digital Leads" loading="lazy">
+        </a>
+        <main class="main-content">
+          <h3><a href="https://marinani.github.io/painel-marketing-digital/" target="_blank">Marketing Digital Leads</a></h3>
+          <p class="description">Landing page otimizada para captação de leads, com integração de formulários e analytics.</p>
+          <div class="flex-row">
+            <div class="tech-stack">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5 Icon" class="small-icon"/>
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3 Icon" class="small-icon"/>
+              <span class="tech-name">HTML/CSS/JS</span>
+            </div>
+            <p class="project-date">Novº2022</p>
+          </div>
+        </main>
+        <div class="card-attribute">
+          <p class="attribute-text">Ver mais em <span><a href="https://marinani.github.io/painel-marketing-digital/" target="_blank">GitHub Pages</a></span></p>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <section id="testemunhos" class="py-5 bg-primaria text-center">
-    <div class="testimonials">
-      <div class="testimonial-inner">
-        <h2>O que meus clientes dizem</h2>
-        <div class="border"></div>
-        <div class="clientes-carousel-root">
-          <!-- O conteúdo do carrossel será renderizado aqui pelo JavaScript -->
-        </div>
-      </div>
-    </div>
-  </section>
+  <section id="testemunhos" class="py-5 bg-primaria text-light">
+  <div class="container text-center">
+    <h2 class="text-info mb-5">&lt;Clientes & Testemunhos /&gt;</h2>
+    <div class="clientes-carousel-root"></div>
+  </div>
+</section>
 
-  <!-- Sessão Contato -->
-  <section id="contato" class="py-5 bg-light">
-    <div class="container" style="max-width: 700px;">
-      <h2 class="mb-4 text-center" style="color:var(--destaque);font-weight:700;">Entre em contato</h2>
-      <form action="https://formspree.io/f/yourformid" method="POST" class="contact-form p-4 rounded-4 shadow">
-        <div class="mb-3">
-          <label for="nome" class="form-label">Nome</label>
-          <input type="text" class="form-control" id="nome" name="nome" required>
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">E-mail</label>
-          <input type="email" class="form-control" id="email" name="_replyto" required>
-        </div>
-        <div class="mb-3">
-          <label for="mensagem" class="form-label">Mensagem</label>
-          <textarea class="form-control" id="mensagem" name="mensagem" rows="5" required></textarea>
-        </div>
-        <div class="d-grid">
-          <button type="submit" class="btn btn-primary">Enviar mensagem</button>
-        </div>
-      </form>
-      <div class="text-center mt-4">
-        <a href="mailto:marinanideveloper@gmail.com" class="me-3" aria-label="E-mail"><i class="bi bi-envelope-fill"></i></a>
-        <a href="https://wa.me/554197649731" class="me-3" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
-        <a href="https://www.linkedin.com/in/marinani-developer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-      </div>
-    </div>
-  </section>
 
-  <!-- Rodapé -->
   <footer class="text-center py-4 bg-primaria text-white">
     <p>&copy; 2025 Mariane Ribeiro. Todos os direitos reservados.</p>
   </footer>
+
+  <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content contact-modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="contactModalLabel">Solicitar Orçamento</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="contactForm">
+            <div class="mb-3">
+              <label for="modalNome" class="form-label">Nome*</label>
+              <input type="text" class="form-control" id="modalNome" required>
+            </div>
+            <div class="mb-3">
+              <label for="modalEmail" class="form-label">E-mail*</label>
+              <input type="email" class="form-control" id="modalEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="modalTelefone" class="form-label">Telefone (opcional)</label>
+              <input type="tel" class="form-control" id="modalTelefone">
+            </div>
+            <div class="mb-3">
+              <label for="modalMensagem" class="form-label">Mensagem*</label>
+              <textarea class="form-control" id="modalMensagem" rows="5" required></textarea>
+            </div>
+            <div class="d-grid gap-2">
+              <button type="button" class="btn btn-success" id="sendWhatsapp">Enviar por WhatsApp</button>
+              <button type="button" class="btn btn-info" id="sendEmail">Enviar por E-mail</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
-  <!-- Removendo jQuery e Faker.js se não forem estritamente necessários para outras funcionalidades -->
-  <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/faker@5.5.3/dist/faker.min.js"></script> -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> -->
-
-  <script src="js/utilities.js"></script>
-  <script src="/js/custom.js"></script>
+  <script src="assets/js/utilities.js"></script>
+  <script src="assets/js/custom.js"></script>
   <script>
     AOS.init();
-    // Swiper initialization (se houver um elemento .mySwiper no HTML)
     const swiper = new Swiper(".mySwiper", {
       loop: true,
       pagination: {
@@ -561,9 +572,6 @@
         delay: 5000,
       },
     });
-
-    // O carrossel de clientes foi movido e refatorado em custom.js
-    // A lógica de tab switching para o card de clientes foi movida para custom.js
   </script>
 </body>
 </html>
