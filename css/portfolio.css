@@ -406,6 +406,7 @@
 
   .img-fluid {
     max-width: 300px;
+    background: linear-gradient(to right, var(--destaque), var(--destaque-hover));
     padding: 6px;
     border-radius: 20px !important;
   }
