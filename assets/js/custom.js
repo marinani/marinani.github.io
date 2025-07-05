@@ -1,490 +1,417 @@
-// === Custom JS migrated from index.html ===
+// === Custom JS migrado de index.html ===
 
-// Card entrance animation (valores)
 document.addEventListener('DOMContentLoaded', function () {
+
+  // Animação de entrada dos cards de valores (se a biblioteca anime.js estiver disponível)
   if (typeof anime !== "undefined") {
+    // Existing animation for .valor-card
     anime({
       targets: '.valor-card',
       opacity: [0, 1],
       scale: [0.9, 1],
       translateY: [50, 0],
-      // Reduzido o delay para um aparecimento mais rápido e a duração para uma animação mais ágil.
-      delay: anime.stagger(100), // Era 200, agora 100ms de atraso entre cada card
-      duration: 800, // Era 1200, agora 800ms de duração para cada card
+      delay: anime.stagger(100), // 100ms de atraso entre cada card
+      duration: 800, // 800ms de duração para cada card
+      easing: 'easeOutElastic(1, .8)'
+    });
+
+    // New animation for other card types
+    anime({
+      targets: [
+        '.principle-card',
+        '.exp-card',
+        '.skill-category-card',
+        '.service-card',
+        '.portfolio-card',
+        '.clientes-card'
+      ],
+      opacity: [0, 1],
+      scale: [0.9, 1],
+      translateY: [50, 0],
+      delay: anime.stagger(200), // Delay entre cada card
+      duration: 1200, // Duração da animação
       easing: 'easeOutElastic(1, .8)'
     });
   }
 
-  // Particle canvas background for valores cards
-  const valoresCanvas = document.getElementById('valoresBgCanvas');
-  if (valoresCanvas) {
-    const container = document.querySelector('.valores-cards-container');
-    const ctx = valoresCanvas.getContext('2d');
+  // Binary Code Cascade Effect for the #inicio section
+  const jarvisMatrixCanvas = document.querySelector('.jarvis-matrix-canvas');
+  if (jarvisMatrixCanvas) {
+    const ctx = jarvisMatrixCanvas.getContext('2d');
     let width, height;
-    let particles = [];
+    const characters = '01'; // Binary characters
+    const fontSize = 16;
+    let columns;
+    let drops = [];
 
-    function resizeValoresCanvas() {
-      const rect = container.getBoundingClientRect();
-      width = valoresCanvas.width = rect.width;
-      height = valoresCanvas.height = rect.height;
-      // Recalcula as posições das partículas ao redimensionar
-      particles = [];
-      for (let i = 0; i < 40; i++) {
-        particles.push({
-          x: Math.random() * width,
-          y: Math.random() * height,
-          r: Math.random() * 2 + 1,
-          dx: (Math.random() - 0.5) * 0.5,
-          dy: (Math.random() - 0.5) * 0.5
-        });
+    // Function to resize the canvas and reinitialize drops
+    function resizeJarvisMatrixCanvas() {
+      width = jarvisMatrixCanvas.width = window.innerWidth;
+      height = jarvisMatrixCanvas.height = window.innerHeight;
+      columns = Math.floor(width / fontSize);
+
+      drops = [];
+      for (let i = 0; i < columns; i++) {
+        drops[i] = 1; // Start drops at the top of each column
       }
     }
-    window.addEventListener('resize', resizeValoresCanvas);
-    resizeValoresCanvas();
 
-    function animateValores() {
-      ctx.clearRect(0, 0, width, height);
-      for (let p of particles) {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = '#00ffc3';
-        ctx.fill();
-        p.x += p.dx;
-        p.y += p.dy;
-        if (p.x < 0 || p.x > width) p.dx *= -1;
-        if (p.y < 0 || p.y > height) p.dy *= -1;
+    // Event listener for window resize with debounce for performance
+    window.addEventListener('resize', debounce(resizeJarvisMatrixCanvas, 250));
+    resizeJarvisMatrixCanvas(); // Initial resize
+
+    // Animation loop for the binary cascade
+    function animateJarvisMatrix() {
+      // Semi-transparent black rectangle to fade out previous frames
+      ctx.fillStyle = 'rgba(10, 25, 47, 0.05)'; // Using primary background color with low opacity
+      ctx.fillRect(0, 0, width, height);
+
+      ctx.fillStyle = '#00ffc3'; // Green color for the binary code
+      ctx.font = `${fontSize}px monospace`; // Monospace font for consistent character width
+
+      // Loop through each column
+      for (let i = 0; i < drops.length; i++) {
+        // Get a random binary character
+        const text = characters.charAt(Math.floor(Math.random() * characters.length));
+        // Draw the character at the current drop position
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        // If the drop reaches the bottom, reset it to the top with a random chance
+        if (drops[i] * fontSize * 0.8 > height && Math.random() > 0.975) { // 2.5% chance to reset, adjusted threshold
+          drops[i] = 0;
+        }
+
+        // Move the drop down slower and with a nonuniform speed
+        // Each drop will move between 0.1 and 0.6 units per frame (0.1 + random value up to 0.5)
+        drops[i] += (Math.random() * 0.5) + 0.1;
       }
-      requestAnimationFrame(animateValores);
-    }
-    animateValores();
-  }
 
-  // Particle canvas background for skills cards
-  const skillsCanvas = document.getElementById('skillsBgCanvas');
-  if (skillsCanvas) {
-    const container = document.querySelector('.skills-canvas-wrapper'); // Usar o wrapper para o container
-    const ctx = skillsCanvas.getContext('2d');
-    let width, height;
-    let particles = [];
-
-    function resizeSkillsCanvas() {
-      const rect = container.getBoundingClientRect();
-      width = skillsCanvas.width = rect.width;
-      height = skillsCanvas.height = rect.height;
-      particles = [];
-      for (let i = 0; i < 30; i++) { // Menos partículas para o canvas de habilidades
-        particles.push({
-          x: Math.random() * width,
-          y: Math.random() * height,
-          r: Math.random() * 1.5 + 0.5, // Partículas menores
-          dx: (Math.random() - 0.5) * 0.3, // Movimento mais lento
-          dy: (Math.random() - 0.5) * 0.3
-        });
-      }
+      requestAnimationFrame(animateJarvisMatrix); // Loop the animation
     }
-    window.addEventListener('resize', resizeSkillsCanvas);
-    resizeSkillsCanvas();
-
-    function animateSkills() {
-      ctx.clearRect(0, 0, width, height);
-      for (let p of particles) {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(100, 255, 218, 0.3)'; // Cor do destaque com transparência
-        ctx.fill();
-        p.x += p.dx;
-        p.y += p.dy;
-        if (p.x < 0 || p.x > width) p.dx *= -1;
-        if (p.y < 0 || p.y > height) p.dy *= -1;
-      }
-      requestAnimationFrame(animateSkills);
-    }
-    animateSkills();
+    animateJarvisMatrix(); // Start the binary cascade animation
   }
 
 
-  // Consolidated Glow effect for cards (exp-card, edu-card, valor-card)
-  // Removido '.skill-badge' deste seletor para desativar o efeito de ponteiro na seção "Sobre".
-  document.querySelectorAll('.exp-card, .edu-card, .valor-card').forEach(card => {
-    // Adiciona .glow se não existir
-    if (!card.querySelector('.glow')) {
-      const glow = document.createElement('div');
-      glow.className = 'glow';
-      card.appendChild(glow);
-    }
-    const glow = card.querySelector('.glow');
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      card.style.setProperty('--x', `${x}px`);
-      card.style.setProperty('--y', `${y}px`);
-    });
-    card.addEventListener('mouseleave', () => {
-      // Nenhuma ação específica de reset para o brilho, pois a opacidade é controlada via CSS.
-    });
-  });
-
-  // Clientes Carousel Effect (Vanilla JS) - Refatorado e simplificado
-  (function () {
-    const testimonials = [
-      {
-        hero: "assets/src/images/projetos/pwmetricas inicial.png",
-        title: "Demonstrou profissionalismo e entregou muito mais que foi falado e provou que sabe o que faz!",
-        author: "Dyego Pessoa",
-        role: "CEO - Pw Mídia/Pw Métricas",
-        avatar: "assets/src/images/testemunhas/dyego-pw.jpeg"
-      },
-      {
-        hero: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
-        title: "O sistema ficou perfeito, superou minhas expectativas.",
-        author: "Carlos Pereira",
-        role: "Analista de TI",
-        avatar: "https://randomuser.me/api/portraits/men/32.jpg"
-      },
-      {
-        hero: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80",
-        title: "Muito atenciosa, resolveu problemas que outros não conseguiram.",
-        author: "Maria Oliveira",
-        role: "Gerente de Projeto",
-        avatar: "https://randomuser.me/api/portraits/women/44.jpg"
-      },
-      {
-        hero: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80",
-        title: "Entrega rápida e comunicação excelente. Recomendo para qualquer projeto!",
-        author: "João Silva",
-        role: "Empreendedor",
-        avatar: "https://randomuser.me/api/portraits/men/65.jpg"
-      }
-    ];
-
-    const root = document.querySelector('.clientes-carousel-root'); // Seleciona a div vazia
-    if (!root) return;
-
-    let activeIndex = 0;
-    const amount = testimonials.length;
-    let track; // Variável para o elemento track
-
-    function renderCarousel() {
-      root.innerHTML = `
-        <div class="clientes-carousel-track-wrapper">
-          <ul class="clientes-carousel-track">
-            ${testimonials.map((t, i) => `
-              <li class="clientes-card" data-index="${i}">
-                <img class="clientes-card__hero" src="${t.hero}" alt="Imagem do projeto de ${t.author}" loading="lazy">
-                <img class="clientes-card__avatar" src="${t.avatar}" alt="Avatar de ${t.author}" loading="lazy">
-                <div class="clientes-card__content-mark">
-                  <article class="clientes-card__content">
-                    <h1 class="clientes-card__title">${t.title}</h1>
-                    <h2 class="clientes-card__author">${t.author}${t.role ? ' - ' + t.role : ''}</h2>
-                  </article>
-                </div>
-              </li>
-            `).join('')}
-          </ul>
-        </div>
-        <div class="clientes-carousel-actions">
-          <button type="button" aria-label="Anterior" id="clientes-carousel-prev">
-            <svg viewBox="0 0 24 24"><path fill="#fff" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"/></svg>
-          </button>
-          <button type="button" aria-label="Próximo" id="clientes-carousel-next">
-            <svg viewBox="0 0 24 24"><path fill="#fff" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
-          </button>
-        </div>
-      `;
-
-      track = root.querySelector('.clientes-carousel-track');
-
-      const prevButton = document.getElementById('clientes-carousel-prev');
-      const nextButton = document.getElementById('clientes-carousel-next');
-
-      if (prevButton) {
-        prevButton.onclick = () => {
-          activeIndex = (activeIndex - 1 + amount) % amount;
-          updateCarouselPosition();
-        };
-      }
-      if (nextButton) {
-        nextButton.onclick = () => {
-          activeIndex = (activeIndex + 1) % amount;
-          updateCarouselPosition();
-        };
-      }
-
-      updateCarouselPosition(); // Define a posição inicial
-    }
-
-    function updateCarouselPosition() {
-      if (!track) return;
-
-      // Calcula a largura total dos cards mais o espaçamento
-      const card = track.querySelector('.clientes-card');
-      if (!card) return;
-
-      const cardStyle = window.getComputedStyle(card);
-      const cardWidth = card.offsetWidth;
-      const cardMarginRight = parseFloat(cardStyle.marginRight);
-      const totalCardWidth = cardWidth + cardMarginRight;
-
-      const offset = -activeIndex * totalCardWidth;
-      track.style.transform = `translateX(${offset}px)`;
-    }
-
-    // Inicializa o carrossel
-    renderCarousel();
-
-    // Atualiza a posição ao redimensionar a janela
-    window.addEventListener('resize', updateCarouselPosition);
-
-  })();
-
-  // === Hero Foto Silhouette Neon Outline ===
-  // Reintroduzindo a lógica do canvas para o contorno da silhueta
-  const heroFoto = document.querySelector('#inicio .hero-foto');
-  const heroImageContainer = document.querySelector('#inicio .hero-image-container');
-
-  if (heroFoto && heroImageContainer) {
-    function drawSilhouetteOutline() {
-      // Remove canvas anterior se houver
-      const oldCanvas = document.getElementById('hero-foto-outline-canvas');
-      if (oldCanvas) oldCanvas.remove();
-
-      // Certifica-se de que a imagem esteja completamente carregada antes de tentar desenhá-la
-      if (!heroFoto.complete || heroFoto.naturalWidth === 0 || heroFoto.naturalHeight === 0) {
-        heroFoto.onload = () => drawSilhouetteOutline(); // Tenta novamente quando a imagem carregar
+  // Particle Background for sections with cards
+  class ParticleBackground {
+    constructor(canvasId, particleCount = 60, particleColor = 'rgba(100, 255, 218, 0.2)') {
+      this.canvas = document.getElementById(canvasId);
+      if (!this.canvas) {
+        console.warn(`Canvas with ID '${canvasId}' not found. Particle background will not be initialized.`);
         return;
       }
+      this.ctx = this.canvas.getContext('2d');
+      this.particles = [];
+      this.particleCount = particleCount;
+      this.particleColor = particleColor;
+      this.animationFrameId = null; // To store the animation frame ID for cancellation
 
-      // Obtém as dimensões e posição renderizadas reais do elemento da imagem
-      const rect = heroFoto.getBoundingClientRect();
+      this.resize = this.resize.bind(this); // Bind 'this' context
+      this.animate = this.animate.bind(this); // Bind 'this' context
 
-      // Cria um canvas com as mesmas dimensões renderizadas da imagem
-      const canvas = document.createElement('canvas');
-      canvas.id = 'hero-foto-outline-canvas';
-      canvas.width = rect.width;
-      canvas.height = rect.height;
+      this.resize();
+      // Add a resize listener with debounce
+      window.addEventListener('resize', debounce(this.resize, 250));
 
-      // Posiciona o canvas absolutamente em relação ao seu contêiner (hero-image-container)
-      canvas.style.position = 'absolute';
-      // Calcula a posição em relação ao heroImageContainer
-      // Assumindo que heroImageContainer é o offsetParent e está posicionado (relative/absolute/fixed)
-      canvas.style.left = (rect.left - heroImageContainer.getBoundingClientRect().left) + 'px';
-      canvas.style.top = (rect.top - heroImageContainer.getBoundingClientRect().top) + 'px';
-      canvas.style.pointerEvents = 'none'; // Não interfere com eventos do mouse
-      canvas.style.zIndex = -1; // Fica atrás da imagem
-
-      // Garante que o contêiner da imagem é relativamente posicionado
-      if (heroImageContainer.style.position === '' || heroImageContainer.style.position === 'static') {
-        heroImageContainer.style.position = 'relative';
-      }
-
-      // Insere o canvas ANTES da imagem (para ficar atrás)
-      heroImageContainer.insertBefore(canvas, heroFoto);
-
-      const ctx = canvas.getContext('2d');
-
-      // --- Simula object-fit: cover para desenhar no canvas ---
-      const imgNaturalWidth = heroFoto.naturalWidth;
-      const imgNaturalHeight = heroFoto.naturalHeight;
-      const canvasWidth = canvas.width;
-      const canvasHeight = canvas.height;
-
-      let sx, sy, sWidth, sHeight; // Retângulo de origem na imagem original
-      let dx, dy, dWidth, dHeight; // Retângulo de destino no canvas
-
-      const imageAspectRatio = imgNaturalWidth / imgNaturalHeight;
-      const canvasAspectRatio = canvasWidth / canvasHeight;
-
-      if (imageAspectRatio > canvasAspectRatio) {
-        // A imagem é mais larga que o canvas, então corta esquerda/direita
-        sHeight = imgNaturalHeight;
-        sWidth = imgNaturalHeight * canvasAspectRatio;
-        sx = (imgNaturalWidth - sWidth) / 2;
-        sy = 0;
-      } else {
-        // A imagem é mais alta que o canvas, então corta topo/base
-        sWidth = imgNaturalWidth;
-        sHeight = imgNaturalWidth / canvasAspectRatio;
-        sx = 0;
-        sy = (imgNaturalHeight - sHeight) / 2;
-      }
-
-      dx = 0;
-      dy = 0;
-      dWidth = canvasWidth;
-      dHeight = canvasHeight;
-
-      // Desenha a imagem no canvas com a simulação de object-fit: cover
-      ctx.drawImage(heroFoto, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
-
-      // Pega os dados dos pixels da imagem desenhada
-      const imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-      const { data, width, height } = imageData;
-
-      // Cria uma máscara para marcar pixels opacos
-      const mask = [];
-      for (let y = 0; y < height; y++) {
-        mask[y] = [];
-        for (let x = 0; x < width; x++) {
-          const idx = (y * width + x) * 4;
-          // Considera um pixel opaco se o canal alpha for maior que um certo limiar
-          mask[y][x] = data[idx + 3] > 32; // Ajuste o limiar conforme necessário (ex: 0 para qualquer transparência)
-        }
-      }
-
-      // Detecta pixels de borda (contorno)
-      const edgePoints = [];
-      function isEdge(x, y) {
-        if (!mask[y] || !mask[y][x]) return false; // Não é um pixel da silhueta ou fora dos limites
-        for (let dy = -1; dy <= 1; dy++) {
-          for (let dx = -1; dx <= 1; dx++) {
-            if (dx === 0 && dy === 0) continue; // Pula o próprio pixel
-            const nx = x + dx, ny = y + dy;
-            // Se um pixel vizinho estiver fora dos limites ou for transparente, é uma borda
-            if (nx < 0 || ny < 0 || nx >= width || ny >= height || !mask[ny] || !mask[ny][nx]) {
-              return true;
+      // Observe the section for intersection to start/stop animation
+      const section = this.canvas.parentElement;
+      if (section) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              if (!this.animationFrameId) { // Start animation only if not already running
+                this.animate();
+              }
+            } else {
+              if (this.animationFrameId) { // Stop animation if not visible
+                cancelAnimationFrame(this.animationFrameId);
+                this.animationFrameId = null;
+              }
             }
-          }
-        }
-        return false;
+          });
+        }, { threshold: 0.1 }); // Trigger when 10% of the section is visible
+        observer.observe(section);
+      } else {
+        // If no parent section, start animation immediately
+        this.animate();
       }
-
-      for (let y = 0; y < height; y++) {
-        for (let x = 0; x < width; x++) {
-          if (isEdge(x, y)) {
-            edgePoints.push([x, y]);
-          }
-        }
-      }
-
-      // Limpa o canvas e desenha o contorno neon
-      ctx.clearRect(0, 0, width, height);
-      ctx.save();
-      ctx.shadowColor = '#00ffc3'; // Cor do brilho neon
-      ctx.shadowBlur = 12; // Intensidade do brilho
-      ctx.strokeStyle = '#64ffda'; // Cor da linha do contorno
-      ctx.lineWidth = 2.5; // Espessura da linha
-      ctx.beginPath();
-      for (let i = 0; i < edgePoints.length; i++) {
-        const [x, y] = edgePoints[i];
-        ctx.moveTo(x, y);
-        ctx.lineTo(x + 0.5, y + 0.5); // Desenha um pequeno segmento para cada ponto de borda
-      }
-      ctx.stroke();
-      ctx.restore();
     }
 
-    // Função debounce (já existe em utilities.js, mas mantida aqui para auto-contenção desta seção)
-    // Esta função debounce é necessária para o event listener de redimensionamento abaixo
-    function debounce(func, delay) {
-      let timeout;
-      return function(...args) {
-        const context = this;
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(context, args), delay);
+    resize() {
+      const parent = this.canvas.parentElement;
+      if (parent) {
+        this.width = this.canvas.width = parent.clientWidth;
+        this.height = this.canvas.height = parent.clientHeight;
+      } else {
+        this.width = this.canvas.width = window.innerWidth;
+        this.height = this.canvas.height = window.innerHeight;
+      }
+      this.particles = [];
+      for (let i = 0; i < this.particleCount; i++) {
+        this.particles.push(this.createParticle());
+      }
+    }
+
+    createParticle() {
+      return {
+        x: Math.random() * this.width,
+        y: Math.random() * this.height,
+        r: Math.random() * 2 + 1, // Radius
+        dx: (Math.random() - 0.5) * 0.5, // Speed X
+        dy: (Math.random() - 0.5) * 0.5 // Speed Y
       };
     }
 
-    // Desenho inicial ou redesenho no carregamento da imagem
-    if (heroFoto.complete && heroFoto.naturalWidth > 0 && heroFoto.naturalHeight > 0) {
-      drawSilhouetteOutline();
-    } else {
-      heroFoto.onload = drawSilhouetteOutline;
+    drawParticle(p) {
+      this.ctx.beginPath();
+      this.ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      this.ctx.fillStyle = this.particleColor;
+      this.ctx.fill();
     }
 
-    // Redesenha ao redimensionar a janela (ajusta o tamanho do canvas)
-    window.addEventListener('resize', debounce(drawSilhouetteOutline, 200));
+    updateParticle(p) {
+      p.x += p.dx;
+      p.y += p.dy;
+
+      // Bounce off edges
+      if (p.x < 0 || p.x > this.width) p.dx *= -1;
+      if (p.y < 0 || p.y > this.height) p.dy *= -1;
+    }
+
+    animate() {
+      this.ctx.clearRect(0, 0, this.width, this.height);
+      for (let p of this.particles) {
+        this.drawParticle(p);
+        this.updateParticle(p);
+      }
+      this.animationFrameId = requestAnimationFrame(this.animate);
+    }
   }
 
-  // === Lógica para o formulário de contato da modal ===
-  const contactModal = document.getElementById('contactModal');
-  if (contactModal) {
-    const sendWhatsappBtn = document.getElementById('sendWhatsapp');
-    const sendEmailBtn = document.getElementById('sendEmail');
-    const contactForm = document.getElementById('contactForm');
+  // Initialize ParticleBackground for each relevant section
+  new ParticleBackground('sobreBgCanvas', 60, 'rgba(100, 255, 218, 0.2)'); // Existing 'Sobre' section
+  new ParticleBackground('formacaoBgCanvas', 60, 'rgba(100, 255, 218, 0.2)');
+  new ParticleBackground('skillsBgCanvas', 60, 'rgba(100, 255, 218, 0.2)');
+  new ParticleBackground('experienciasBgCanvas', 60, 'rgba(100, 255, 218, 0.2)');
+  new ParticleBackground('servicosBgCanvas', 60, 'rgba(100, 255, 218, 0.2)');
+  new ParticleBackground('portfolioBgCanvas', 60, 'rgba(100, 255, 218, 0.2)');
+  new ParticleBackground('clientesBgCanvas', 60, 'rgba(100, 255, 218, 0.2)');
 
-    // Função para coletar os dados do formulário
+
+  // Efeito de rolagem suave para links de navegação
+  document.querySelectorAll('a.nav-link[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // Fecha o menu hamburguer após clicar em um item (apenas para dispositivos móveis)
+  const navbarCollapse = document.getElementById('navbarNav');
+  if (navbarCollapse) {
+    const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+    document.querySelectorAll('#navbarNav .nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (navbarCollapse.classList.contains('show')) {
+          bsCollapse.hide();
+        }
+      });
+    });
+  }
+
+  // Ativação do AOS (Animate On Scroll)
+  AOS.init({
+    duration: 1200, // Duração da animação em ms
+    once: true,     // Animar apenas uma vez ao rolar para baixo
+    mirror: false,  // Se os elementos devem animar de volta ao rolar para cima
+  });
+
+  // Configuração do Swiper para o carrossel de clientes (testemunhos)
+  const swiperClientes = new Swiper('.swiper-container-clientes', {
+    slidesPerView: 1, // Exibe 1 slide por vez em telas muito pequenas
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: '.swiper-pagination-clientes',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next-clientes',
+      prevEl: '.swiper-button-prev-clientes',
+    },
+    breakpoints: {
+      // Quando a largura da janela for >= 768px
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 30,
+      },
+      // Quando a largura da janela for >= 992px
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 40,
+      },
+      // Quando a largura da janela for >= 1200px
+      1200: {
+        slidesPerView: 4, // 4 cards em telas maiores
+        spaceBetween: 40,
+      }
+    }
+  });
+
+
+  // Lógica para o formulário de contato dentro da modal
+  const contactFormModal = document.getElementById('contactFormModal');
+  const formMessageModal = document.getElementById('formMessageModal');
+
+  if (contactFormModal) {
+    const sendWhatsappModalBtn = document.getElementById('sendWhatsappModal');
+    const sendEmailModalBtn = document.getElementById('sendEmailModal');
+
+    // Function to display messages (success/error)
+    function displayMessage(message, isSuccess) {
+      formMessageModal.textContent = message;
+      formMessageModal.style.color = isSuccess ? '#28a745' : '#dc3545'; // Green for success, red for error
+      formMessageModal.style.display = 'block';
+      setTimeout(() => {
+        formMessageModal.style.display = 'none';
+      }, 5000); // Hide message after 5 seconds
+    }
+
+    // Function to get form data
     function getFormData() {
       const nome = document.getElementById('modalNome').value;
       const email = document.getElementById('modalEmail').value;
       const telefone = document.getElementById('modalTelefone').value;
-      const mensagem = document.getElementById('modalMensagem').value; // Novo campo de mensagem
-
+      const mensagem = document.getElementById('modalMensagem').value;
       return { nome, email, telefone, mensagem };
     }
 
-    // Função para validar o formulário
-    function validateForm() {
-      const { nome, email, mensagem } = getFormData();
-      if (!nome || !email || !mensagem) {
-        // Substituído alert() por uma mensagem no console ou uma UI de feedback personalizada
-        console.error('Por favor, preencha todos os campos obrigatórios (Nome, E-mail, Mensagem).');
-        // Você pode adicionar aqui uma lógica para exibir uma mensagem de erro na UI
+    // Function to validate form data
+    function validateForm(data) {
+      if (!data.nome || !data.email || !data.mensagem) {
+        displayMessage('Por favor, preencha todos os campos obrigatórios (Nome, E-mail, Mensagem).', false);
         return false;
       }
-      // Validação de e-mail básica
+      // Basic email validation
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        // Substituído alert() por uma mensagem no console ou uma UI de feedback personalizada
-        console.error('Por favor, insira um endereço de e-mail válido.');
-        // Você pode adicionar aqui uma lógica para exibir uma mensagem de erro na UI
+      if (!emailRegex.test(data.email)) {
+        displayMessage('Por favor, insira um e-mail válido.', false);
         return false;
       }
       return true;
     }
 
-    // Evento para enviar por WhatsApp
-    if (sendWhatsappBtn) {
-      sendWhatsappBtn.addEventListener('click', function() {
-        if (!validateForm()) return;
-
-        const formData = getFormData();
-        const message = `Olá, meu nome é ${formData.nome}.%0A%0A` +
-                        `Meu e-mail é: ${formData.email}%0A` +
-                        `Telefone: ${formData.telefone || 'Não informado'}%0A%0A` +
-                        `Mensagem: ${formData.mensagem}%0A%0A` +
-                        `Gostaria de solicitar um orçamento.`;
-        
-        // Número de telefone para o WhatsApp (substitua pelo seu número)
-        const whatsappNumber = '554197649731'; // Exemplo: 55 para Brasil, 41 para DDD, e o número
-
-        window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
-        // Fecha a modal após o envio
-        const modalInstance = bootstrap.Modal.getInstance(contactModal);
-        if (modalInstance) modalInstance.hide();
-        contactForm.reset(); // Limpa o formulário após o envio
+    // WhatsApp send logic
+    if (sendWhatsappModalBtn) {
+      sendWhatsappModalBtn.addEventListener('click', () => {
+        const data = getFormData();
+        if (validateForm(data)) {
+          const whatsappMessage = `Olá, meu nome é ${data.nome}. Meu e-mail é ${data.email}. ${data.telefone ? `Meu telefone é ${data.telefone}.` : ''}\n\n${data.mensagem}\n\n*Solicitação de Orçamento*`;
+          const whatsappUrl = `https://wa.me/5541999999999?text=${encodeURIComponent(whatsappMessage)}`;
+          window.open(whatsappUrl, '_blank');
+          displayMessage('Mensagem para WhatsApp gerada! Por favor, envie-a.', true);
+          contactFormModal.reset();
+          // Optionally close modal after sending
+          const contactModal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
+          if (contactModal) contactModal.hide();
+        }
       });
     }
 
-    // Evento para enviar por E-mail
-    if (sendEmailBtn) {
-      sendEmailBtn.addEventListener('click', function() {
-        if (!validateForm()) return;
+    // Email send logic
+    if (sendEmailModalBtn) {
+      sendEmailModalBtn.addEventListener('click', () => {
+        const data = getFormData();
+        if (validateForm(data)) {
+          const subject = encodeURIComponent('Solicitação de Orçamento - Portfólio');
+          const body = encodeURIComponent(`Olá Mariane,\n\nMeu nome é ${data.nome}.\nMeu e-mail é ${data.email}.\n${data.telefone ? `Meu telefone é ${data.telefone}.\n` : ''}\n${data.mensagem}\n\nAtenciosamente,\n${data.nome}`);
+          const mailtoUrl = `mailto:marinanideveloper@gmail.com?subject=${subject}&body=${body}`;
+          window.location.href = mailtoUrl;
+          displayMessage('E-mail gerado! Por favor, envie-o pelo seu cliente de e-mail.', true);
+          contactFormModal.reset();
+          // Optionally close modal after sending
+          const contactModal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
+          if (contactModal) contactModal.hide();
+        }
+      });
+    }
+  }
 
-        const formData = getFormData();
-        const subject = encodeURIComponent('Solicitação de Orçamento - Portfólio');
-        const body = encodeURIComponent(
-          `Olá, meu nome é ${formData.nome}.\n\n` +
-          `Meu e-email é: ${formData.email}\n` +
-          `Telefone: ${formData.telefone || 'Não informado'}\n\n` +
-          `Mensagem: ${formData.mensagem}\n\n` +
-          `Gostaria de solicitar um orçamento.`
-        );
-        
-        // Seu endereço de e-mail (substitua pelo seu e-mail)
-        const yourEmail = 'marinanideveloper@gmail.com'; 
 
-        window.open(`mailto:${yourEmail}?subject=${subject}&body=${body}`, '_blank');
-        // Fecha a modal após o envio
-        const modalInstance = bootstrap.Modal.getInstance(contactModal);
-        if (modalInstance) modalInstance.hide();
-        contactForm.reset(); // Limpa o formulário após o envio
+  // Lógica do carrossel para cards de clientes (versão manual)
+  const carouselTrack = document.querySelector('.clientes-carousel-track');
+  const prevButton = document.querySelector('.clientes-carousel-button.prev');
+  const nextButton = document.querySelector('.clientes-carousel-button.next');
+  const cards = document.querySelectorAll('.clientes-card');
+
+  if (carouselTrack && cards.length > 0) {
+    let currentCarouselIndex = 0;
+    let cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(cards[0]).marginRight); // Largura do card + margem
+
+    // Função para atualizar a posição do carrossel e o estado dos botões
+    function updateCarouselPosition() {
+      carouselTrack.style.transform = `translateX(-${currentCarouselIndex * cardWidth}px)`;
+
+      // Atualiza o estado dos botões (habilitado/desabilitado)
+      const trackWrapper = carouselTrack.parentElement;
+      const visibleCardsCount = cardWidth > 0 ? Math.floor(trackWrapper.clientWidth / cardWidth) : 0;
+      const maxIndex = Math.max(0, cards.length - visibleCardsCount); // Índice máximo para rolagem
+
+      if (prevButton) {
+        prevButton.disabled = currentCarouselIndex === 0;
+      }
+      if (nextButton) {
+        nextButton.disabled = currentCarouselIndex >= maxIndex;
+      }
+    }
+
+    // Chama a função de atualização ao carregar e ao redimensionar
+    window.addEventListener('load', updateCarouselPosition);
+    window.addEventListener('resize', debounce(() => {
+      cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(cards[0]).marginRight); // Recalcula a largura do card
+      // Ajusta o índice atual para não exceder o novo limite visível
+      const trackWrapper = carouselTrack.parentElement;
+      const visibleCardsCount = cardWidth > 0 ? Math.floor(trackWrapper.clientWidth / cardWidth) : 0;
+      const maxIndex = Math.max(0, cards.length - visibleCardsCount);
+      currentCarouselIndex = Math.min(currentCarouselIndex, maxIndex);
+      updateCarouselPosition(); // Atualiza a posição e o estado dos botões
+    }, 250));
+
+    // Adiciona listeners para os botões de navegação do carrossel
+    if (prevButton) {
+      prevButton.addEventListener('click', () => {
+        currentCarouselIndex = Math.max(0, currentCarouselIndex - 1);
+        updateCarouselPosition();
       });
     }
 
-    // Opcional: Limpar formulário ao fechar a modal
-    contactModal.addEventListener('hidden.bs.modal', function () {
-      contactForm.reset();
-    });
+    if (nextButton) {
+      nextButton.addEventListener('click', () => {
+        const trackWrapper = carouselTrack.parentElement;
+        const visibleCardsCount = cardWidth > 0 ? Math.floor(trackWrapper.clientWidth / cardWidth) : 0;
+        const maxIndex = Math.max(0, cards.length - visibleCardsCount);
+
+        currentCarouselIndex = Math.min(maxIndex, currentCarouselIndex + 1);
+        updateCarouselPosition();
+      });
+    }
   }
 });
+
+// Função debounce para otimizar o evento de redimensionamento
+function debounce(func, delay) {
+  let timeout;
+  return function() {
+    const context = this;
+    const args = arguments;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(context, args), delay);
+  };
+}

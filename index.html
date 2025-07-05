@@ -7,7 +7,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <link rel="shortcut icon" href="assets/src/images/favicon.ico" type="image/x-icon">
+  <!-- Favicon em formato SVG como data URI, usando o mesmo SVG da logo e a cor de destaque -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 745 745'%3E%3Cpath d='M39,472L173,590l2-285L372,473,571,305l-1,285L705,469l1-456L373,299,40,13Zm48-15,41,37V204L372,414,616,203l1,291,42-36-2-346L374,354,88,112Zm130-66-2,238L328,732l2-55-70-61,2-25,66,60V612l-66-64-1-118ZM416,728l-2-50,71-63-1-21-68,57V610l68-61V432l46-41-2,236Z' fill='%2364ffda'/%3E%3C/svg%3E" type="image/svg+xml">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
@@ -19,433 +20,790 @@
 
   <nav class="navbar navbar-expand-lg bg-primaria navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="#">
-        <!-- Adicionada a classe 'navbar-logo' para estilização via CSS externo -->
+      <a class="navbar-brand d-flex align-items-center" href="#inicio">
         <svg class="navbar-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 745 745">
     <defs>
       <style>
         .cls-1 {
-          fill-rule: evenodd;
-        }
+          fill-rule: evenodd;}
       </style>
     </defs>
-    <path
-      id="Preenchimento_de_Cor_1"
-      data-name="Preenchimento de Cor 1"
-      class="cls-1"
-      d="M39,472L173,590l2-285L372,473,571,305l-1,285L705,469l1-456L373,299,40,13Zm48-15,41,37V204L372,414,616,203l1,291,42-36-2-346L374,354,88,112Zm130-66-2,238L328,732l2-55-70-61,2-25,66,60V612l-66-64-1-118ZM416,728l-2-50,71-63-1-21-68,57V610l68-61V432l46-41-2,236Z"
-    />
+    <path id="Preenchimento_de_Cor_1" data-name="Preenchimento de Cor 1" class="cls-1" d="M39,472L173,590l2-285L372,473,571,305l-1,285L705,469l1-456L373,299,40,13Zm48-15,41,37V204L372,414,616,203l1,291,42-36-2-346L374,354,88,112Zm130-66-2,238L328,732l2-55-70-61,2-25,66,60V612l-66-64-1-118ZM416,728l-2-50,71-63-1-21-68,57V610l68-61V432l46-41-2,236Z"></path>
   </svg>
-        <span class="neon-brand">&lt;MARINANI DEVELOPER/&gt;</span>
+        <span class="neon-brand"> MARINANI DEVELOPER</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
-          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
-          <li class="nav-item"><a class="nav-link" href="#experiencias">Experiências</a></li>
-          <li class="nav-item"><a class="nav-link" href="#education">Educação</a></li>
-          <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
-          <li class="nav-item"><a class="nav-link" href="#portfolio">Portfólio</a></li>
-          <li class="nav-item"><a class="nav-link" href="#testemunhos">Clientes</a></li>
-          </ul>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#inicio">Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#sobre">Sobre</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#formacao">Formação</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#skills">Habilidades</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#experiencias">Experiências</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#servicos">Serviços</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#portfolio">Portfólio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#clientes">Clientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contato">Contato</a>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>
 
   <section id="inicio" class="hero jarvis-hero">
-    <div class="jarvis-bg"></div>
-    <div class="jarvis-matrix"></div>
-    <div class="container position-relative hero-content-wrapper" style="z-index:2;">
-      <div class="row align-items-center justify-content-between flex-lg-row flex-column-reverse">
-        <div class="col-lg-6 col-md-7 text-lg-start text-center" data-aos="fade-up">
-          <h1 class="display-3 fw-bold mb-3 jarvis-glow">
-            Mariane Ribeiro
-          </h1>
-          <h2 class="mb-4 jarvis-sub" style="font-weight: 400;">Engenheira de Software .NET</h2>
-          <p class="lead mb-4 jarvis-lead">
-            Gosto de transformar desafios em soluções funcionais e eficientes.
-          </p>
-          <div class="d-flex flex-wrap gap-2 justify-content-lg-start justify-content-center mb-4">
-            <a href="assets/src/docs/Curriculo_Mariane_Ribeiro.pdf" class="btn btn-outline-light btn-lg jarvis-btn" download>
-              Download Currículo <i class="bi bi-arrow-bar-down"></i>
-            </a>
-          </div>
-          <div class="d-flex gap-4 justify-content-lg-start justify-content-center mt-3 jarvis-icons">
-            <a href="https://www.linkedin.com/in/marinani-developer" target="_blank" class="fs-2" aria-label="LinkedIn">
-              <i class="bi bi-linkedin"></i>
-            </a>
-            <a href="https://github.com/marinani" target="_blank" class="fs-2" aria-label="GitHub">
-              <i class="bi bi-github"></i>
-            </a>
-            <a href="https://wa.me/554197649731" target="_blank" class="fs-2" aria-label="WhatsApp">
-              <i class="bi bi-whatsapp"></i>
-            </a>
-            <a href="mailto:marinanideveloper@gmail.com" class="fs-2" aria-label="E-mail">
-              <i class="bi bi-envelope-fill"></i>
-            </a>
+    <!-- Canvas para o efeito de código binário (já presente e funcional) -->
+    <canvas class="jarvis-matrix-canvas"></canvas>
+    <div class="container hero-content-wrapper">
+      <div class="row align-items-center justify-content-between">
+        <!-- Coluna para Nome, Subtítulos, Botão e Ícones Sociais -->
+        <div class="col-lg-6 text-center text-lg-start">
+          <!-- Aumentando o tamanho da fonte para maior destaque -->
+          <h1 class="display-1 jarvis-glow fw-bold" data-aos="fade-down" data-aos-duration="1000">Mariane Ribeiro</h1>
+          <h2 class="jarvis-sub" data-aos="fade-down" data-aos-delay="200" data-aos-duration="1000">Engenheira de Software .NET</h2>
+          <p class="lead jarvis-lead" data-aos="fade-down" data-aos-delay="400" data-aos-duration="1000">Gosto de transformar desafios em soluções funcionais e eficientes.</p>
+          <a href="#" class="btn btn-outline-light jarvis-btn mt-3" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
+            Download Currículo <i class="bi bi-download ms-2"></i>
+          </a>
+          <!-- Ícones de redes sociais com alinhamento ajustado para centralizar em telas pequenas e à esquerda em telas grandes -->
+          <div class="d-flex gap-3 mt-3 social-icons justify-content-center justify-content-lg-start" data-aos="fade-up" data-aos-delay="800" data-aos-duration="1000">
+            <a href="https://www.linkedin.com/in/mariane-ribei-dev/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin fs-2"></i></a>
+            <a href="https://github.com/Mariane-Ribeiro" target="_blank" aria-label="GitHub"><i class="fab fa-github fs-2"></i></a>
+            <a href="https://wa.me/5541999999999" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp fs-2"></i></a>
+            <!-- Ajustado para usar a classe 'fas' do Font Awesome para consistência e alinhamento -->
+            <a href="mailto:marinanideveloper@gmail.com" aria-label="Email"><i class="fas fa-envelope fs-2"></i></a>
           </div>
         </div>
-        <div class="col-lg-6 col-md-5 d-flex justify-content-end align-items-center mb-4 mb-lg-0 hero-image-container" data-aos="fade-left">
-          <!-- Adicionado loading="lazy" para otimização de carregamento -->
-          <img src="assets/src/images/Perfil sem fundo.png" alt="Foto de Mariane Ribeiro, desenvolvedora de software"
-               class="img-fluid hero-foto" loading="lazy" />
+        <!-- Coluna para a Imagem de Perfil -->
+        <div class="col-lg-5 d-flex justify-content-center hero-image-container" data-aos="fade-left" data-aos-duration="1000">
+          <img src="assets/src/images/Perfil sem fundo.png" alt="Mariane Ribeiro" class="img-fluid hero-foto">
         </div>
       </div>
     </div>
   </section>
 
-  <section id="sobre" class="py-5 bg-light" data-aos="fade-right">
-    <div class="container" style="max-width: 1400px;">
-      <h2 class="mb-5 text-info text-center">&lt;Sobre mim /&gt;</h2>
-      <!-- Removidos estilos inline e adicionada classe 'sobre-card-wrapper' para estilização via CSS externo -->
-      <div class="sobre-card p-4 sobre-card-wrapper">
-        <div class="row align-items-start justify-content-center g-0">
-          <div class="col-12 d-flex flex-column justify-content-start">
-            <h4 class="mb-3" style="color:var(--destaque);font-weight:700;letter-spacing:1px;">Quem sou eu...</h4>
-            <!-- Removidos estilos inline e adicionada classe 'about-profile-img' para estilização via CSS externo -->
-            <div class="sobre-info mb-3" style="font-size:1.15rem;line-height:1.8; color:#fff;">
-              <!-- Adicionado loading="lazy" para otimização de carregamento e classe 'about-profile-img' -->
-              <img src="assets/src/images/perfil.jpeg" alt="Foto de Mariane Ribeiro, desenvolvedora de software"
-                   class="about-profile-img" loading="lazy" />
-              Com 10 anos de experiência na área de engenharia de software, minha jornada tem sido impulsionada pela paixão em resolver problemas complexos e construir produtos que realmente impactam. Atuo desde as fases iniciais de prototipagem e definição de escopo até a implementação, entrega contínua e suporte em produção. Acredito firmemente que a colaboração, a adaptabilidade e a busca incessante por otimização são chaves para o sucesso de qualquer projeto.<br><br>
-              Meu objetivo é ir além do código, compreendendo as necessidades do negócio para entregar soluções que não apenas funcionem, mas que também prosperem e evoluam junto com as demandas do mercado.
-              <div style="clear:both;"></div>
-            </div>
-            <div class="d-flex justify-content-center mt-4">
-              <button type="button" class="btn btn-primary btn-lg contact-modal-trigger jarvis-btn" data-bs-toggle="modal" data-bs-target="#contactModal">
-                SOLICITAR ORÇAMENTO
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="row mt-3 position-relative">
-          <canvas id="valoresBgCanvas" class="valores-canvas-bg"></canvas>
-          <!-- Removidos estilos inline e adicionada classe 'valores-cards-wrapper' para estilização via CSS externo -->
-          <div class="valores-cards-container valores-cards-wrapper">
-            <div class="valor-card card">
-              <div class="card-content">
-                <h3>Qualidade</h3>
-                <p>Compromisso com código limpo, testável e manutenível.</p>
-              </div>
-            </div>
-            <div class="valor-card card">
-              <div class="card-content">
-                <h3>Inovação</h3>
-                <p>Curiosidade em novas tecnologias e metodologias para entregar o melhor.</p>
-              </div>
-            </div>
-            <div class="valor-card card">
-              <div class="card-content">
-                <h3>Colaboração</h3>
-                <p>Acredito que os melhores resultados vêm do trabalho em equipe e comunicação transparente.</p>
-              </div>
-            </div>
-            <div class="valor-card card">
-              <div class="card-content">
-                <h3>Entrega de Valor</h3>
-                <p>Foco em gerar impacto real e soluções que não apenas funcionem, mas que também prosperem e evoluam junto com as demandas do mercado.</p>
-              </div>
-            </div>
-            <div class="valor-card card">
-              <div class="card-content">
-                <h3>Aprendizado Contínuo</h3>
-                <p>O mundo da tecnologia muda rapidamente, e estou sempre me atualizando.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row mt-4">
-          <div class="col-12 skills-canvas-wrapper">
-            <canvas id="skillsBgCanvas" class="skills-canvas-bg"></canvas>
-            <h4 class="skills-title mb-3 text-center text-info">Habilidades & Ferramentas</h4>
-            <div class="skills-container justify-content-center flex-wrap">
-              <span class="skill-badge">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="skill-icon" title="C#" />
-                C#
-              </span>
-              <span class="skill-badge">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="skill-icon" title="JavaScript" />
-                JavaScript
-              </span>
-              <span class="skill-badge">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="skill-icon" title="Node.js" />
-                Node.js
-              </span>
-              <span class="skill-badge">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular" class="skill-icon" title="Angular" />
-                Angular
-              </span>
-              <span class="skill-badge">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rabbitmq/rabbitmq-original.svg" alt="RabbitMQ" class="skill-icon" title="RabbitMQ" />
-                RabbitMQ
-              </span>
-              <span class="skill-badge">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" class="skill-icon" title="Azure" />
-                Azure
-              </span>
-              <span class="skill-badge">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="CI/CD" class="skill-icon" title="CI/CD" />
-                CI/CD
-              </span>
-              <span class="skill-badge">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devops/devops-original.svg" alt="DevOps" class="skill-icon" title="DevOps" />
-                DevOps
-              </span>
-              <span class="skill-badge">
-                <i class="bi bi-diagram-3" title="Microsserviços"></i>
-                Microsserviços
-              </span>
-              <span class="skill-badge">
-                <i class="bi bi-link-45deg" title="APIs RESTful"></i>
-                APIs RESTful
-              </span>
-              <span class="skill-badge">
-                <i class="bi bi-kanban" title="Agile/Scrum"></i>
-                Agile/Scrum
-              </span>
-              <span class="skill-badge">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" class="skill-icon" title="SQL" />
-                SQL
-              </span>
-              <span class="skill-badge">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="skill-icon" title="Git" />
-                Git/GitHub
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="experiencias" class="py-5 bg-secundaria text-light text-center">
+  <section id="sobre" class="py-5">
+    <canvas id="sobreBgCanvas" class="card-section-bg-canvas"></canvas> <!-- Canvas para o efeito de partículas -->
     <div class="container">
-      <h2 class="mb-5 text-info">&lt;Minhas Experiências /&gt;</h2>
-      <div class="exp-card-container">
-        <div class="exp-card" data-role="Engenheira de Software .Net" data-company="Pw Métricas (Grupo Pw)" data-period="Abr 2025 — Atual">
-          <h3>Engenheira de Software .Net</h3>
-          <h4>Pw Métricas (Grupo Pw)</h4>
-          <p class="exp-period">Abr 2025 — Atual</p>
-          <ul>
-            <li>Desenvolvimento e manutenção nos sistemas com .Net Core 9</li>
-            <li>Integrações com RESTful APIs</li>
-            <li>Implementação com CI/CD pipelines com GitHub Actions and Azure Services</li>
-            <li>Aplicação de boas práticas arquiteturais, SOLID e Clean Code</li>
-          </ul>
-          <div class="exp-badges">
-            <span class="badge">C#</span>
-            <span class="badge">.NET 9</span>
-            <span class="badge">Sql Server</span>
-            <span class="badge">JavaScript</span>
-            <span class="badge">Azure Services</span>
+      <h2 class="text-center mb-5" data-aos="fade-up">Sobre Mim</h2>
+      <div class="sobre-card-wrapper">
+        <div class="sobre-card" data-aos="zoom-in" data-aos-delay="200">
+          <!-- Conteúdo principal da seção Sobre Mim -->
+          <div class="row align-items-start"> <!-- Usando row para alinhar imagem e texto -->
+            <div class="col-md-4 d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
+              <!-- Imagem de perfil -->
+              <img src="assets/src/images/perfil.jpeg" alt="Mariane Ribeiro" class="img-fluid about-profile-img">
+            </div>
+            <div class="col-md-8">
+              <!-- Texto inicial -->
+              <h4 class="mt-3 mt-md-0">Desenvolvedora Full Stack com Foco em Resultados</h4>
+              <p class="sobre-info">
+                Sou uma desenvolvedora Full Stack apaixonada por criar soluções robustas e eficientes. Minha jornada na programação começou com o desejo de transformar ideias complexas em aplicações funcionais e intuitivas.
+              </p>
+              <p class="sobre-info">
+                Com experiência em diversas tecnologias, busco constantemente aprimorar minhas habilidades e aplicar as melhores práticas de desenvolvimento para entregar produtos de alta qualidade. Sou proativa, colaborativa e sempre em busca de novos desafios.
+              </p>
+            </div>
           </div>
-          <div class="glow"></div>
-        </div>
-        <div class="exp-card" data-role="Engenheira de Software .NET Core" data-company="Instituto das Cidades Inteligentes (ICI)" data-period="Mar 2021 — Atual">
-          <h3>Engenheira de Software .NET Core</h3>
-          <h4>Instituto das Cidades Inteligentes (ICI)</h4>
-          <p class="exp-period">Mar 2021 — Atual</p>
-          <ul>
-            <li>Desenvolvimento e manutenção de sistemas web e APIs em .NET 7+ e EF Core</li>
-            <li>Integração de serviços REST e SOAP</li>
-            <li>Uso de RabbitMQ para mensageria em projetos internos</li>
-            <li>Implementação de pipelines CI/CD com GitLab e Jenkins</li>
-            <li>Participação ativa em cerimônias ágeis (daily, planning, review)</li>
-            <li>Aplicação de boas práticas arquiteturais, SOLID e Clean Code</li>
-          </ul>
-          <div class="exp-badges">
-            <span class="badge">C#</span>
-            <span class="badge">.NET 8</span>
-            <span class="badge">JavaScript</span>
-            <span class="badge">GitLab</span>
-            <span class="badge">HangFire</span>
-            <span class="badge">RabbitMQ</span>
+
+           <!-- Meus Princípios -->
+          <div class="sobre-detalhes mt-4">
+            <h5 class="mb-3">Meus Princípios</h5>
+            <div class="row g-3"> <!-- Usando grid do Bootstrap para os cards de princípios -->
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="principle-card">
+                  <i class="bi bi-check-circle-fill text-info me-2"></i> <!-- Ícone para Qualidade -->
+                  <div>
+                    <h6>Qualidade</h6>
+                    <p>Compromisso com código limpo, testável e manutenível.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="principle-card">
+                  <i class="bi bi-lightbulb-fill text-info me-2"></i> <!-- Ícone para Inovação -->
+                  <div>
+                    <h6>Inovação</h6>
+                    <p>Curiosidade em novas tecnologias e metodologias para entregar o melhor.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="principle-card">
+                  <i class="bi bi-people-fill text-info me-2"></i> <!-- Ícone para Colaboração -->
+                  <div>
+                    <h6>Colaboração</h6>
+                    <p>Acredito que os melhores resultados vêm do trabalho em equipe e comunicação transparente.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="principle-card">
+                  <i class="bi bi-award-fill text-info me-2"></i> <!-- Ícone para Entrega de Valor (ajustado) -->
+                  <div>
+                    <h6>Entrega de Valor</h6>
+                    <p>Foco em gerar impacto real e soluções que não apenas funcionem, mas que também prosperem e evoluam junto com as demandas do mercado.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="principle-card">
+                  <i class="bi bi-book-fill text-info me-2"></i> <!-- Ícone para Aprendizado Contínuo -->
+                  <div>
+                    <h6>Aprendizado Contínuo</h6>
+                    <p>O mundo da tecnologia muda rapidamente, e estou sempre me atualizando.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="principle-card">
+                  <i class="bi bi-tools text-info me-2"></i> <!-- Ícone para Resolução de Problemas -->
+                  <div>
+                    <h6>Resolução de Problemas</h6>
+                    <p>Visão analítica para identificar desafios e dedicação em construir soluções eficazes e duradouras.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="glow"></div>
         </div>
-        <div class="exp-card" data-role="Desenvolvedora Back-end .NET Core" data-company="VEXPRO BUSINESS IT – Grupo SPRO" data-period="Ago 2020 — Mar 2021">
-          <h3>Desenvolvedora Back-end .NET Core</h3>
-          <h4>VEXPRO BUSINESS IT – Grupo SPRO</h4>
-          <p class="exp-period">Ago 2020 — Mar 2021</p>
-          <ul>
-            <li>Desenvolvimento de APIs .NET Core</li>
-            <li>Integração contínua com Azure DevOps</li>
-            <li>Participação em squads ágeis</li>
-          </ul>
-          <div class="exp-badges">
-            <span class="badge">C#</span>
-            <span class="badge">.NET Core</span>
-            <span class="badge">Azure DevOps</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Formação Acadêmica -->
+  <section id="formacao" class="py-5">
+    <canvas id="formacaoBgCanvas" class="card-section-bg-canvas"></canvas>
+    <div class="container">
+      <h2 class="text-center mb-5 text-info" data-aos="fade-up">Formação Acadêmica</h2>
+
+      <h4 class="text-center mb-4 text-info" data-aos="fade-up">Cursos e Graduações</h4>
+      <div class="row g-4 justify-content-center">
+        <!-- Pós-graduação, Engenharia DevOps -->
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="exp-card">
+                <div class="exp-card-header">
+                  <div class="exp-logo-wrap">
+                    <img src="https://placehold.co/60x60/0a192f/64ffda?text=FO" alt="Logo Faculdade Focus" class="exp-logo">
+                  </div>
+                  <div class="exp-info">
+                    <h3>Pós-graduação, Engenharia DevOps</h3>
+                    <h4>Faculdade Focus</h4>
+                    <p class="exp-period">Jan 2025 — Jul 2025</p>
+                  </div>
+                </div>
+                <ul>
+                  <li>Especialização em práticas DevOps e SRE</li>
+                  <li>Automação de infraestrutura e deployment</li>
+                  <li>Monitoramento e observabilidade de sistemas</li>
+                  <li>Containerização e orquestração</li>
+                </ul>
+                <div class="exp-badges">
+                  <span class="badge">DevOps</span>
+                  <span class="badge">CI/CD</span>
+                  <span class="badge">Docker</span>
+                  <span class="badge">Kubernetes</span>
+                  <span class="badge">Terraform</span>
+                </div>
+              </div>
+        </div>
+
+        <!-- Graduação, Análise e Desenvolvimento de Sistemas -->
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="exp-card">
+                <div class="exp-card-header">
+                  <div class="exp-logo-wrap">
+                    <img src="https://placehold.co/60x60/0a192f/64ffda?text=UA" alt="Logo Uniasselvi" class="exp-logo">
+                  </div>
+                  <div class="exp-info">
+                    <h3>Graduação, Análise e Desenvolvimento de Sistemas</h3>
+                    <h4>Uniasselvi - Leonardo da Vinci</h4>
+                    <p class="exp-period">Jan 2024 — Dez 2024</p>
+                  </div>
+                </div>
+                <ul>
+                  <li>Fundamentos de programação e algoritmos</li>
+                  <li>Desenvolvimento web e mobile</li>
+                  <li>Banco de dados e modelagem</li>
+                  <li>Engenharia de software e metodologias ágeis</li>
+                </ul>
+                <div class="exp-badges">
+                  <span class="badge">Algoritmos</span>
+                  <span class="badge">Desenvolvimento Web</span>
+                  <span class="badge">Banco de Dados</span>
+                  <span class="badge">Agile</span>
+                </div>
+              </div>
+        </div>
+
+        <!-- Novo Card de Formação 3 -->
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+          <div class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-logo-wrap">
+                  <img src="https://placehold.co/60x60/0a192f/64ffda?text=UD" alt="Logo Udemy" class="exp-logo">
+                </div>
+                <div class="exp-info">
+                  <h3>Curso de Desenvolvimento Web Completo</h3>
+                  <h4>Udemy</h4>
+                  <p class="exp-period">Jan 2023 — Mar 2023</p>
+                </div>
+              </div>
+              <ul>
+                <li>HTML5, CSS3, JavaScript</li>
+                <li>Node.js, Express.js, MongoDB</li>
+                <li>Desenvolvimento responsivo</li>
+                <li>APIs RESTful</li>
+              </ul>
+              <div class="exp-badges">
+                <span class="badge">HTML</span>
+                <span class="badge">CSS</span>
+                <span class="badge">JavaScript</span>
+                <span class="badge">Node.js</span>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <h4 class="text-center mb-4 mt-5 text-info" data-aos="fade-up">Certificações</h4>
+      <div class="row g-4 justify-content-center">
+        <!-- Certificação 1 -->
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+          <div class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-logo-wrap">
+                  <img src="https://placehold.co/60x60/0a192f/64ffda?text=MS" alt="Logo Microsoft" class="exp-logo">
+                </div>
+                <div class="exp-info">
+                  <h3>Microsoft Certified: Azure Developer Associate</h3>
+                  <h4>Microsoft</h4>
+                  <p class="exp-period">Abr 2024</p>
+                </div>
+              </div>
+              <ul>
+                <li>Desenvolvimento de soluções no Azure</li>
+                <li>Implementação de serviços de computação</li>
+                <li>Monitoramento e otimização de soluções Azure</li>
+              </ul>
+              <div class="exp-badges">
+                <span class="badge">Azure</span>
+                <span class="badge">Cloud</span>
+                <span class="badge">DevOps</span>
+              </div>
+            </div>
+        </div>
+
+        <!-- Certificação 2 -->
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+          <div class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-logo-wrap">
+                  <img src="https://placehold.co/60x60/0a192f/64ffda?text=AW" alt="Logo AWS" class="exp-logo">
+                </div>
+                <div class="exp-info">
+                  <h3>AWS Certified Solutions Architect – Associate</h3>
+                  <h4>Amazon Web Services (AWS)</h4>
+                  <p class="exp-period">Mar 2023</p>
+                </div>
+              </div>
+              <ul>
+                <li>Design de arquiteturas escaláveis e resilientes na AWS</li>
+                <li>Implementação de sistemas distribuídos</li>
+                <li>Segurança e gerenciamento de custos na nuvem</li>
+              </ul>
+              <div class="exp-badges">
+                <span class="badge">AWS</span>
+                <span class="badge">Cloud Computing</span>
+                <span class="badge">Arquitetura</span>
+              </div>
+            </div>
+        </div>
+
+        <!-- Certificação 3 -->
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+          <div class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-logo-wrap">
+                  <img src="https://placehold.co/60x60/0a192f/64ffda?text=SC" alt="Logo Scrum.org" class="exp-logo">
+                </div>
+                <div class="exp-info">
+                  <h3>Professional Scrum Master™ I (PSM I)</h3>
+                  <h4>Scrum.org</h4>
+                  <p class="exp-period">Fev 2022</p>
+                </div>
+              </div>
+              <ul>
+                <li>Compreensão profunda do framework Scrum</li>
+                <li>Facilitação de eventos Scrum</li>
+                <li>Remoção de impedimentos para a equipe</li>
+              </ul>
+              <div class="exp-badges">
+                <span class="badge">Scrum</span>
+                <span class="badge">Agile</span>
+                <span class="badge">Gestão de Projetos</span>
+              </div>
+            </div>
+        </div>
+
+        <!-- Certificação 4 -->
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="400">
+          <div class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-logo-wrap">
+                  <img src="https://placehold.co/60x60/0a192f/64ffda?text=GO" alt="Logo Google" class="exp-logo">
+                </div>
+                <div class="exp-info">
+                  <h3>Google IT Support Professional Certificate</h3>
+                  <h4>Google</h4>
+                  <p class="exp-period">Jan 2021</p>
+                </div>
+              </div>
+              <ul>
+                <li>Fundamentos de TI</li>
+                <li>Redes de computadores</li>
+                <li>Sistemas operacionais</li>
+              </ul>
+              <div class="exp-badges">
+                <span class="badge">TI</span>
+                <span class="badge">Suporte</span>
+                <span class="badge">Redes</span>
+              </div>
+            </div>
+        </div>
+
+        <!-- Certificação 5 -->
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="500">
+          <div class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-logo-wrap">
+                  <img src="https://placehold.co/60x60/0a192f/64ffda?text=OR" alt="Logo Oracle" class="exp-logo">
+                </div>
+                <div class="exp-info">
+                  <h3>Oracle Certified Associate, Java SE 8 Programmer</h3>
+                  <h4>Oracle</h4>
+                  <p class="exp-period">Dez 2020</p>
+                </div>
+              </div>
+              <ul>
+                <li>Fundamentos da linguagem Java</li>
+                <li>Programação orientada a objetos</li>
+                <li>Tratamento de exceções e APIs Java</li>
+              </ul>
+              <div class="exp-badges">
+                <span class="badge">Java</span>
+                <span class="badge">Programação</span>
+                <span class="badge">Oracle</span>
+              </div>
+            </div>
+        </div>
+
+        <!-- Certificação 6 -->
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="600">
+          <div class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-logo-wrap">
+                  <img src="https://placehold.co/60x60/0a192f/64ffda?text=CS" alt="Logo Cisco" class="exp-logo">
+                </div>
+                <div class="exp-info">
+                  <h3>CCNA Routing and Switching</h3>
+                  <h4>Cisco Networking Academy</h4>
+                  <p class="exp-period">Set 2019</p>
+                </div>
+              </div>
+              <ul>
+                <li>Configuração de roteadores e switches</li>
+                <li>Protocolos de roteamento</li>
+                <li>Segurança de rede</li>
+              </ul>
+              <div class="exp-badges">
+                <span class="badge">Redes</span>
+                <span class="badge">Cisco</span>
+                <span class="badge">Infraestrutura</span>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Habilidades e Ferramentas -->
+  <section id="skills" class="py-5">
+    <canvas id="skillsBgCanvas" class="card-section-bg-canvas"></canvas>
+    <div class="container">
+      <h2 class="text-center mb-5 text-info" data-aos="fade-up">Habilidades e Ferramentas</h2>
+      <div class="row g-4 justify-content-center">
+
+        <!-- Coluna de Linguagens -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="skill-category-card">
+            <h4 class="skill-category-title">LINGUAGENS <i class="bi bi-code-slash"></i></h4>
+            <div class="skill-item">
+              <img src="https://placehold.co/30x30/0a192f/64ffda?text=JS" alt="JavaScript Logo" class="skill-icon">
+              <span class="skill-name">JavaScript</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <img src="https://placehold.co/30x30/0a192f/64ffda?text=PY" alt="Python Logo" class="skill-icon">
+              <span class="skill-name">Python</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 80%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <img src="https://placehold.co/30x30/0a192f/64ffda?text=JV" alt="Java Logo" class="skill-icon">
+              <span class="skill-name">Java</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 70%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <img src="https://placehold.co/30x30/0a192f/64ffda?text=HT" alt="HTML5 Logo" class="skill-icon">
+              <span class="skill-name">HTML5</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+            </div>
           </div>
-          <div class="glow"></div>
         </div>
-        <div class="exp-card" data-role="Desenvolvedora Back-end .NET" data-company="DBM Contact Center" data-period="Set 2019 — Jul 2020">
-          <h3>Desenvolvedora Back-end .NET</h3>
-          <h4>DBM Contact Center</h4>
-          <p class="exp-period">Set 2019 — Jul 2020</p>
-          <ul>
-            <li>Desenvolvimento de sistemas e manutenção de sistemas ASP.NET</li>
+
+        <!-- Coluna de Frameworks -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="skill-category-card">
+            <h4 class="skill-category-title">FRAMEWORKS <i class="bi bi-stack"></i></h4>
+            <div class="skill-item">
+              <img src="https://placehold.co/30x30/0a192f/64ffda?text=RT" alt="React Logo" class="skill-icon">
+              <span class="skill-name">React</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <img src="https://placehold.co/30x30/0a192f/64ffda?text=ND" alt="Node.js Logo" class="skill-icon">
+              <span class="skill-name">Node.js</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 75%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <img src="https://placehold.co/30x30/0a192f/64ffda?text=AG" alt="Angular Logo" class="skill-icon">
+              <span class="skill-name">Angular</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 65%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <img src="https://placehold.co/30x30/0a192f/64ffda?text=VU" alt="Vue.js Logo" class="skill-icon">
+              <span class="skill-name">Vue.js</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 60%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna de Ferramentas -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+          <div class="skill-category-card">
+            <h4 class="skill-category-title">FERRAMENTAS <i class="bi bi-tools"></i></h4>
+            <div class="skill-item">
+              <img src="https://placehold.co/30x30/0a192f/64ffda?text=GT" alt="Git Logo" class="skill-icon">
+              <span class="skill-name">Git</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <img src="https://placehold.co/30x30/0a192f/64ffda?text=DC" alt="Docker Logo" class="skill-icon">
+              <span class="skill-name">Docker</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 80%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <img src="https://placehold.co/30x30/0a192f/64ffda?text=AW" alt="AWS Logo" class="skill-icon">
+              <span class="skill-name">AWS</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 70%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <img src="https://placehold.co/30x30/0a192f/64ffda?text=MG" alt="MongoDB Logo" class="skill-icon">
+              <span class="skill-name">MongoDB</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 65%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna de Soft Skills -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+          <div class="skill-category-card">
+            <h4 class="skill-category-title">SOFT SKILLS <i class="bi bi-lightbulb"></i></h4>
+            <div class="skill-item">
+              <img src="https://placehold.co/30x30/0a192f/64ffda?text=LD" alt="Liderança Icon" class="skill-icon">
+              <span class="skill-name">Liderança</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <img src="https://placehold.co/30x30/0a192f/64ffda?text=IN" alt="Inovação Icon" class="skill-icon">
+              <span class="skill-name">Inovação</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <img src="https://placehold.co/30x30/0a192f/64ffda?text=CM" alt="Comunicação Icon" class="skill-icon">
+              <span class="skill-name">Comunicação</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <img src="https://placehold.co/30x30/0a192f/64ffda?text=AD" alt="Adaptabilidade Icon" class="skill-icon">
+              <span class="skill-name">Adaptabilidade</span>
+              <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 80%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Experiências -->
+  <section id="experiencias" class="py-5">
+    <canvas id="experienciasBgCanvas" class="card-section-bg-canvas"></canvas>
+    <div class="container">
+      <h2 class="text-center mb-5 text-info" data-aos="fade-up">Minhas Experiências</h2>
+      <div class="row g-4 justify-content-center"> <!-- Reintroduzindo o layout de grade -->
+
+        <!-- Experiência 1: Engenheira de Software .Net - Pw Métricas -->
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+          <div class="exp-card">
+            <div class="exp-card-header">
+              <div class="exp-logo-wrap">
+                <img src="https://placehold.co/60x60/0a192f/64ffda?text=PM" alt="Logo Pw Métricas" class="exp-logo">
+              </div>
+              <div class="exp-info">
+                <h3>Engenheira de Software .Net</h3>
+                <h4>Pw Métricas (Grupo Pw)</h4>
+                <p class="exp-period">Abr 2025 — Atual</p>
+              </div>
+            </div>
+            <ul>
+              <li>Desenvolvimento e manutenção nos sistemas com .Net Core 9</li>
+              <li>Integrações com RESTful APIs</li>
+              <li>Implementação com CI/CD pipelines com GitHub Actions and Azure Services</li>
+              <li>Aplicação de boas práticas arquiteturais, SOLID e Clean Code</li>
+            </ul>
+            <div class="exp-badges">
+              <span class="badge">C#</span>
+              <span class="badge">.NET 9</span>
+              <span class="badge">Sql Server</span>
+              <span class="badge">JavaScript</span>
+              <span class="badge">Azure Services</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experiência 2: Engenheira de Software .NET Core - ICI -->
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+          <div class="exp-card">
+            <div class="exp-card-header">
+              <div class="exp-logo-wrap">
+                <img src="https://placehold.co/60x60/0a192f/64ffda?text=ICI" alt="Logo ICI" class="exp-logo">
+              </div>
+              <div class="exp-info">
+                <h3>Engenheira de Software .NET Core</h3>
+                <h4>Instituto das Cidades Inteligentes (ICI)</h4>
+                <p class="exp-period">Mar 2021 — Atual</p>
+              </div>
+            </div>
+            <ul>
+              <li>Desenvolvimento e manutenção de sistemas web e APIs em .NET 7+ e EF Core</li>
+              <li>Integração de serviços REST e SOAP</li>
+              <li>Uso de RabbitMQ para mensageria em projetos internos</li>
+              <li>Implementação de pipelines CI/CD com GitLab e Jenkins</li>
+              <li>Participação ativa em cerimônias ágeis (daily, planning, review)</li>
+              <li>Aplicação de boas práticas arquiteturais, SOLID e Clean Code</li>
+            </ul>
+            <div class="exp-badges">
+              <span class="badge">C#</span>
+              <span class="badge">.NET 8</span>
+              <span class="badge">JavaScript</span>
+              <span class="badge">GitLab</span>
+              <span class="badge">HangFire</span>
+              <span class="badge">RabbitMQ</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experiência 3: Desenvolvedora Back-end .NET Core - VEXPRO -->
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+          <div class="exp-card">
+            <div class="exp-card-header">
+              <div class="exp-logo-wrap">
+                <img src="https://placehold.co/60x60/0a192f/64ffda?text=VX" alt="Logo VEXPRO" class="exp-logo">
+              </div>
+              <div class="exp-info">
+                <h3>Desenvolvedora Back-end .NET Core</h3>
+                <h4>VEXPRO BUSINESS IT – Grupo SPRO</h4>
+                <p class="exp-period">Ago 2020 — Mar 2021</p>
+              </div>
+            </div>
+            <ul>
+              <li>Desenvolvimento de APIs .NET Core</li>
+              <li>Integração contínua com Azure DevOps</li>
+              <li>Participação em squads ágeis</li>
+            </ul>
+            <div class="exp-badges">
+              <span class="badge">C#</span>
+              <span class="badge">.NET Core</span>
+              <span class="badge">Azure DevOps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experiência 4: Desenvolvedora Back-end .NET - DBM Contact Center -->
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="400">
+          <div class="exp-card">
+            <div class="exp-card-header">
+              <div class="exp-logo-wrap">
+                <img src="https://placehold.co/60x60/0a192f/64ffda?text=DBM" alt="Logo DBM" class="exp-logo">
+              </div>
+              <div class="exp-info">
+                <h3>Desenvolvedora Back-end .NET</h3>
+                <h4>DBM Contact Center</h4>
+                <p class="exp-period">Set 2019 — Jul 2020</p>
+              </div>
+            </div>
+            <ul>
+              <li>Desenvolvimento de sistemas e manutenção de sistemas ASP.NET</li>
+              <li>Gerenciamento de banco de dados SQL Server</li>
+              <li>Automação de processos via scripts e integrações</li>
+            </ul>
+            <div class="exp-badges">
+              <span class="badge">C#</span>
+              <span class="badge">.NET</span>
+              <span class="badge">SQL Server</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experiência 5: Back-end .NET Developer - Editora Positivo -->
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="500">
+          <div class="exp-card">
+            <div class="exp-card-header">
+              <div class="exp-logo-wrap">
+                <img src="https://placehold.co/60x60/0a192f/64ffda?text=EP" alt="Logo Editora Positivo" class="exp-logo">
+              </div>
+              <div class="exp-info">
+                <h3>Back-end .NET Developer</h3>
+                <h4>Editora Positivo / Aprende Brasil</h4>
+                <p class="exp-period">Abr 2018 — Set 2019</p>
+              </div>
+            </div>
+            <ul>
+              <li>Desenvolvimento e manutenção de sistemas internos com .NET</li>
+              <li>Integrações REST/SOAP</li>
+              <li>Suporte a banco de dados</li>
+            </ul>
+            <div class="exp-badges">
+              <span class="badge">C#</span>
+              <span class="badge">Asp.Net/Vb.Net</span>
+              <span class="badge">SQL Server</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experiência 6: Desenvolvedora .NET Junior - Stefanini -->
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="600">
+          <div class="exp-card">
+            <div class="exp-card-header">
+              <div class="exp-logo-wrap">
+                <img src="https://placehold.co/60x60/0a192f/64ffda?text=ST" alt="Logo Stefanini" class="exp-logo">
+              </div>
+              <div class="exp-info">
+                <h3>Desenvolvedora .NET Junior</h3>
+                <h4>Stefanini IT Solutions S.A.</h4>
+                <p class="exp-period">Mai 2016 — Abr 2018</p>
+              </div>
+            </div>
+            <ul>
+              <li>Desenvolvimento de sistemas .NET e manutenção de aplicações legadas</li>
+              <li>Participação em projetos de integração de serviços</li>
+              <li>Gerenciamento de banco de dados SQL Server</li>
+            </ul>
+            <div class="exp-badges">
+              <span class="badge">C#</span>
+              <span class="badge">Asp.Net/Vb.Net</span>
+              <span class="badge">SQL Server</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experiência 7: Estagiária - Stefanini -->
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="700">
+          <div class="exp-card">
+            <div class="exp-card-header">
+              <div class="exp-logo-wrap">
+                <img src="https://placehold.co/60x60/0a192f/64ffda?text=ST" alt="Logo Stefanini" class="exp-logo">
+              </div>
+              <div class="exp-info">
+                <h3>Estagiária</h3>
+                <h4>Stefanini IT Solutions S.A.</h4>
+                <p class="exp-period">Mai 2015 — Mai 2016</p>
+              </div>
+            </div>
+            <ul>
+              <li>Desenvolvimento e manutenção de aplicações e bancos de dados .NET</li>
+              <li>Participação em integrações e suporte técnico</li>
             <li>Gerenciamento de banco de dados SQL Server</li>
-            <li>Automação de processos via scripts e integrações</li>
-          </ul>
-          <div class="exp-badges">
-            <span class="badge">C#</span>
-            <span class="badge">.NET</span>
-            <span class="badge">SQL Server</span>
-          </div>
-          <div class="glow"></div>
-        </div>
-        <div class="exp-card" data-role="Back-end .NET Developer" data-company="Editora Positivo / Aprende Brasil" data-period="Abr 2018 — Set 2019">
-          <h3>Back-end .NET Developer</h3>
-          <h4>Editora Positivo / Aprende Brasil</h4>
-          <p class="exp-period">Abr 2018 — Set 2019</p>
-          <ul>
-            <li>Desenvolvimento e manutenção de sistemas internos com .NET</li>
-            <li>Integrações REST/SOAP</li>
-            <li>Suporte a banco de dados</li>
-          </ul>
-          <div class="exp-badges">
-            <span class="badge">C#</span>
-            <span class="badge">Asp.Net/Vb.Net</span>
-            <span class="badge">SQL Server</span>
-          </div>
-          <div class="glow"></div>
-        </div>
-        <div class="exp-card" data-role="Desenvolvedora .NET Junior" data-company="Stefanini IT Solutions S.A." data-period="Mai 2016 — Abr 2018">
-          <h3>Desenvolvedora .NET Junior</h3>
-          <h4>Stefanini IT Solutions S.A.</h4>
-          <p class="exp-period">Mai 2016 — Abr 2018</p>
-          <ul>
-            <li>Desenvolvimento de sistemas .NET e manutenção de aplicações legadas</li>
-            <li>Participação em projetos de integração de serviços</li>
-            <li>Gerenciamento de banco de dados SQL Server</li>
-          </ul>
-          <div class="exp-badges">
-            <span class="badge">C#</span>
-            <span class="badge">Asp.Net/Vb.Net</span>
-            <span class="badge">SQL Server</span>
-          </div>
-          <div class="glow"></div>
-        </div>
-        <div class="exp-card" data-role="Estagiária" data-company="Stefanini IT Solutions S.A." data-period="Mai 2015 — Mai 2016">
-          <h3>Estagiária</h3>
-          <h4>Stefanini IT Solutions S.A.</h4>
-          <p class="exp-period">Mai 2015 — Mai 2016</p>
-          <ul>
-            <li>Desenvolvimento e manutenção de aplicações e bancos de dados .NET</li>
-            <li>Participação em integrações e suporte técnico</li>
-          </ul>
-          <div class="exp-badges">
-            <span class="badge">C#</span>
-            <span class="badge">Asp.Net/Vb.Net</span>
-            <span class="badge">SQL Server</span>
-          </div>
-          <div class="glow"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <section id="education" class="py-5 bg-light text-center">
-    <div class="container">
-      <h2 class="mb-5 text-info">&lt;Minha Formação Acadêmica /&gt;</h2>
-      <div class="edu-card-container">
-        <div class="edu-card">
-          <div class="edu-header">
-            <div class="edu-logo-wrap">
-              <img src="assets/src/images/empresas/focus-faculdade.png" alt="Faculdade Focus Logo" class="edu-logo" />
-            </div>
-            <div class="edu-info">
-              <h3>Pós-graduação, Engenharia DevOps</h3>
-              <h4>Faculdade Focus</h4>
-              <p class="edu-period">Jan 2025 — Jul 2025</p>
+            </ul>
+            <div class="exp-badges">
+              <span class="badge">C#</span>
+              <span class="badge">Asp.Net/Vb.Net</span>
+              <span class="badge">SQL Server</span>
             </div>
           </div>
-          <ul>
-            <li>Especialização em práticas DevOps e SRE</li>
-            <li>Automação de infraestrutura e deployment</li>
-            <li>Monitoramento e observabilidade de sistemas</li>
-            <li>Containerização e orquestração</li>
-          </ul>
-          <div class="exp-badges">
-            <span class="badge">DevOps</span>
-            <span class="badge">CI/CD</span>
-            <span class="badge">Docker</span>
-            <span class="badge">Kubernetes</span>
-            <span class="badge">Terraform</span>
-          </div>
-          <div class="glow"></div>
         </div>
-        <div class="edu-card">
-          <div class="edu-header">
-            <div class="edu-logo-wrap">
-              <img src="assets/src/images/empresas/uniasselvi-logo.png" alt="Uniasselvi - Leonardo da Vinci Logo" class="edu-logo" />
-            </div>
-            <div class="edu-info">
-              <h3>Graduação, Análise e Desenvolvimento de Sistemas</h3>
-              <h4>Uniasselvi - Leonardo da Vinci</h4>
-              <p class="edu-period">Jan 2024 — Dez 2024</p>
-            </div>
-          </div>
-          <ul>
-            <li>Fundamentos de programação e algoritmos</li>
-            <li>Desenvolvimento web e mobile</li>
-            <li>Banco de dados e modelagem</li>
-            <li>Engenharia de software e metodologias ágeis</li>
-          </ul>
-          <div class="exp-badges">
-            <span class="badge">Algoritmos</span>
-            <span class="badge">Desenvolvimento Web</span>
-            <span class="badge">Banco de Dados</span>
-            <span class="badge">Agile</span>
-          </div>
-          <div class="glow"></div>
-        </div>
+
       </div>
     </div>
   </section>
 
-  <section id="servicos" class="py-5 bg-primaria text-center" data-aos="fade-right">
+  <!-- Seção Serviços -->
+  <section id="servicos" class="py-5">
+    <canvas id="servicosBgCanvas" class="card-section-bg-canvas"></canvas>
     <div class="container">
-      <h2 class="mb-5 text-info">&lt;Meus Serviços /&gt;</h2>
-      <div class="valores-cards-container">
-        <div class="valor-card card">
-          <div class="card-content">
-            <h3>Prototipagem & Escopo</h3>
+      <h2 class="text-center mb-5 text-info" data-aos="fade-up">Meus Serviços</h2>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-card">
+            <h5>Prototipagem & Escopo</h5>
             <p>Transformo ideias em requisitos claros e protótipos interativos.</p>
           </div>
         </div>
-        <div class="valor-card card">
-          <div class="card-content">
-            <h3>Desenvolvimento de Software</h3>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-card">
+            <h5>Desenvolvimento de Software</h5>
             <p>Construção de aplicações web e backend robustas, escaláveis e de alta performance.</p>
           </div>
         </div>
-        <div class="valor-card card">
-          <div class="card-content">
-            <h3>Entrega Contínua (CI/CD)</h3>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-card">
+            <h5>Entrega Contínua (CI/CD)</h5>
             <p>Implemento pipelines de CI/CD para automatizar o ciclo de vida do software.</p>
           </div>
         </div>
-        <div class="valor-card card">
-          <div class="card-content">
-            <h3>Integrações de Sistemas</h3>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-card">
+            <h5>Integrações de Sistemas</h5>
             <p>Conecto diferentes sistemas e APIs, criando fluxos de dados eficientes.</p>
           </div>
         </div>
-        <div class="valor-card card">
-          <div class="card-content">
-            <h3>Operações & DevOps</h3>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+          <div class="service-card">
+            <h5>Operações & DevOps</h5>
             <p>Otimizo a infraestrutura, automatizo processos de deployment e monitoramento.</p>
           </div>
         </div>
-        <div class="valor-card card">
-          <div class="card-content">
-            <h3>Consultoria Técnica</h3>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+          <div class="service-card">
+            <h5>Consultoria Técnica</h5>
             <p>Ofereço orientação estratégica e técnica para equipes de desenvolvimento.</p>
           </div>
         </div>
@@ -453,98 +811,468 @@
     </div>
   </section>
 
-  <section id="portfolio" class="py-5 bg-secundaria text-center" data-aos="fade-down">
-    <div class="container portfolio-cards-container">
-      <h2 class="mb-5 text-info">&lt;Meus Projetos em Destaque /&gt;</h2>
-      
-      <div class="portfolio-card">
-        <a href="http://app.pwmetricas.com.br/" target="_blank" class="hero-image-container">
-          <img class="hero-image" src="assets/src/images/projetos/pwmetricas inicial.png" alt="Sistema de Métricas - Pw Métricas" loading="lazy">
-        </a>
-        <main class="main-content">
-          <h3><a href="http://app.pwmetricas.com.br/" target="_blank">Sistema de Métricas</a></h3>
-          <p class="description">Plataforma para gestão e análise de métricas de desempenho, com dashboards customizáveis e relatórios detalhados.</p>
-          <div class="flex-row">
-            <div class="tech-stack">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C# Icon" class="small-icon"/>
-              <span class="tech-name">C# .NET</span>
+  <!-- Seção Portfólio -->
+  <section id="portfolio" class="py-5 bg-primaria">
+    <canvas id="portfolioBgCanvas" class="card-section-bg-canvas"></canvas>
+    <div class="container">
+      <h2 class="text-center mb-5 text-info" data-aos="fade-up">Portfólio</h2>
+      <div class="row g-4 justify-content-center portfolio-cards-container">
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="portfolio-card">
+            <div class="portfolio-image">
+              <img src="https://placehold.co/400x200/0a192f/64ffda?text=E-commerce+Moderno" alt="E-commerce Moderno">
+              <div class="portfolio-overlay">
+                <h5>E-commerce Moderno</h5>
+                <a href="#" class="btn btn-primary">Ver Projeto</a>
+              </div>
             </div>
-            <p class="project-date">Julº2023</p>
-          </div>
-        </main>
-        <div class="card-attribute">
-          <p class="attribute-text">Ver mais em <span><a href="http://app.pwmetricas.com.br/" target="_blank">Pw Métricas</a></span></p>
-        </div>
-      </div>
-
-      <div class="portfolio-card">
-        <a href="https://amecwb.com/" target="_blank" class="hero-image-container">
-          <img class="hero-image" src="assets/src/images/projetos/ame-site-landingpage.png" alt="AME - Landing Page" loading="lazy">
-        </a>
-        <main class="main-content">
-          <h3><a href="https://amecwb.com/" target="_blank">AME - Landing Page</a></h3>
-          <p class="description">Site institucional moderno e responsivo, focado na apresentação de serviços e captação de leads.</p>
-          <div class="flex-row">
-            <div class="tech-stack">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5 Icon" class="small-icon"/>
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3 Icon" class="small-icon"/>
-              <span class="tech-name">HTML/CSS/JS</span>
+            <div class="portfolio-content">
+              <h5>E-commerce Moderno</h5>
+              <div class="portfolio-tech">
+                <span class="tech-icon react">React</span>
+                <span class="tech-icon js">JS</span>
+                <span class="tech-icon html">HTML</span>
+                <span class="tech-icon css">CSS</span>
+              </div>
+              <div class="portfolio-meta">
+                <span class="project-date">2023</span> | <span class="attribute-text">Web Design</span>
+              </div>
+              <div class="portfolio-tags">
+                <span class="tag">#frontend</span>
+                <span class="tag">#e-commerce</span>
+                <span class="tag">#responsivo</span>
+              </div>
             </div>
-            <p class="project-date">Dezº2022</p>
           </div>
-        </main>
-        <div class="card-attribute">
-          <p class="attribute-text">Ver mais em <span><a href="https://amecwb.com/" target="_blank">AME CWB</a></span></p>
         </div>
-      </div>
-
-      <div class="portfolio-card">
-        <a href="https://marinani.github.io/painel-marketing-digital/" target="_blank" class="hero-image-container">
-          <img class="hero-image" src="assets/src/images/projetos/marketing-digital-leads.png" alt="Marketing Digital Leads" loading="lazy">
-        </a>
-        <main class="main-content">
-          <h3><a href="https://marinani.github.io/painel-marketing-digital/" target="_blank">Marketing Digital Leads</a></h3>
-          <p class="description">Landing page otimizada para captação de leads, com integração de formulários e analytics.</p>
-          <div class="flex-row">
-            <div class="tech-stack">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5 Icon" class="small-icon"/>
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3 Icon" class="small-icon"/>
-              <span class="tech-name">HTML/CSS/JS</span>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="portfolio-card">
+            <div class="portfolio-image">
+              <img src="https://placehold.co/400x200/0a192f/64ffda?text=Sistema+de+Gestão" alt="Sistema de Gestão">
+              <div class="portfolio-overlay">
+                <h5>Sistema de Gestão</h5>
+                <a href="#" class="btn btn-primary">Ver Projeto</a>
+              </div>
             </div>
-            <p class="project-date">Novº2022</p>
+            <div class="portfolio-content">
+              <h5>Sistema de Gestão</h5>
+              <div class="portfolio-tech">
+                <span class="tech-icon"><i class="bi bi-file-earmark-code-fill"></i> .NET</span>
+                <span class="tech-icon react">React</span>
+                <span class="tech-icon"><i class="bi bi-database-fill"></i> SQL</span>
+              </div>
+              <div class="portfolio-meta">
+                <span class="project-date">2022</span> | <span class="attribute-text">Back-end</span>
+              </div>
+              <div class="portfolio-tags">
+                <span class="tag">#backend</span>
+                <span class="tag">#api</span>
+                <span class="tag">#database</span>
+              </div>
+            </div>
           </div>
-        </main>
-        <div class="card-attribute">
-          <p class="attribute-text">Ver mais em <span><a href="https://marinani.github.io/painel-marketing-digital/" target="_blank">GitHub Pages</a></span></p>
         </div>
-      </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+          <div class="portfolio-card">
+            <div class="portfolio-image">
+              <img src="https://placehold.co/400x200/0a192f/64ffda?text=Aplicativo+Mobile" alt="Aplicativo Mobile">
+              <div class="portfolio-overlay">
+                <h5>Aplicativo Mobile</h5>
+                <a href="#" class="btn btn-primary">Ver Projeto</a>
+              </div>
+            </div>
+            <div class="portfolio-content">
+              <h5>Aplicativo Mobile</h5>
+              <div class="portfolio-tech">
+                <span class="tech-icon react">React Native</span>
+                <span class="tech-icon js">JS</span>
+                <span class="tech-icon"><i class="bi bi-fire"></i> Firebase</span>
+              </div>
+              <div class="portfolio-meta">
+                <span class="project-date">2021</span> | <span class="attribute-text">Mobile</span>
+              </div>
+              <div class="portfolio-tags">
+                <span class="tag">#mobile</span>
+                <span class="tag">#reactnative</span>
+                <span class="tag">#firebase</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+          <div class="portfolio-card">
+            <div class="portfolio-image">
+              <img src="https://placehold.co/400x200/0a192f/64ffda?text=Website+Institucional" alt="Website Institucional">
+              <div class="portfolio-overlay">
+                <h5>Website Institucional</h5>
+                <a href="#" class="btn btn-primary">Ver Projeto</a>
+              </div>
+            </div>
+            <div class="portfolio-content">
+              <h5>Website Institucional</h5>
+              <div class="portfolio-tech">
+                <span class="tech-icon html">HTML</span>
+                <span class="tech-icon css">CSS</span>
+                <span class="tech-icon js">JS</span>
+              </div>
+              <div class="portfolio-meta">
+                <span class="project-date">2020</span> | <span class="attribute-text">Web Design</span>
+              </div>
+              <div class="portfolio-tags">
+                <span class="tag">#frontend</span>
+                <span class="tag">#website</span>
+                <span class="tag">#design</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <!-- Novos Projetos Backend -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="500">
+          <div class="portfolio-card">
+            <div class="portfolio-image">
+              <img src="https://placehold.co/400x200/0a192f/64ffda?text=API+de+Microserviços" alt="API de Microserviços">
+              <div class="portfolio-overlay">
+                <h5>API de Microserviços</h5>
+                <a href="#" class="btn btn-primary">Ver Projeto</a>
+              </div>
+            </div>
+            <div class="portfolio-content">
+              <h5>API de Microserviços</h5>
+              <div class="portfolio-tech">
+                <span class="tech-icon"><i class="bi bi-file-earmark-code-fill"></i> .NET Core</span>
+                <span class="tech-icon"><i class="bi bi-database-fill"></i> SQL Server</span>
+                <span class="tech-icon">Docker</span>
+              </div>
+              <div class="portfolio-meta">
+                <span class="project-date">2024</span> | <span class="attribute-text">Back-end</span>
+              </div>
+              <div class="portfolio-tags">
+                <span class="tag">#backend</span>
+                <span class="tag">#microserviços</span>
+                <span class="tag">#api</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="600">
+          <div class="portfolio-card">
+            <div class="portfolio-image">
+              <img src="https://placehold.co/400x200/0a192f/64ffda?text=Sistema+de+Autenticação" alt="Sistema de Autenticação">
+              <div class="portfolio-overlay">
+                <h5>Sistema de Autenticação</h5>
+                <a href="#" class="btn btn-primary">Ver Projeto</a>
+              </div>
+            </div>
+            <div class="portfolio-content">
+              <h5>Sistema de Autenticação</h5>
+              <div class="portfolio-tech">
+                <span class="tech-icon">Node.js</span>
+                <span class="tech-icon">Express.js</span>
+                <span class="tech-icon">MongoDB</span>
+              </div>
+              <div class="portfolio-meta">
+                <span class="project-date">2023</span> | <span class="attribute-text">Back-end</span>
+              </div>
+              <div class="portfolio-tags">
+                <span class="tag">#backend</span>
+                <span class="tag">#autenticação</span>
+                <span class="tag">#api</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="700">
+          <div class="portfolio-card">
+            <div class="portfolio-image">
+              <img src="https://placehold.co/400x200/0a192f/64ffda?text=Gateway+de+Pagamentos" alt="Gateway de Pagamentos">
+              <div class="portfolio-overlay">
+                <h5>Gateway de Pagamentos</h5>
+                <a href="#" class="btn btn-primary">Ver Projeto</a>
+              </div>
+            </div>
+            <div class="portfolio-content">
+              <h5>Gateway de Pagamentos</h5>
+              <div class="portfolio-tech">
+                <span class="tech-icon">Java</span>
+                <span class="tech-icon">Spring Boot</span>
+                <span class="tech-icon"><i class="bi bi-database-fill"></i> PostgreSQL</span>
+              </div>
+              <div class="portfolio-meta">
+                <span class="project-date">2022</span> | <span class="attribute-text">Back-end</span>
+              </div>
+              <div class="portfolio-tags">
+                <span class="tag">#backend</span>
+                <span class="tag">#pagamentos</span>
+                <span class="tag">#api</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="800">
+          <div class="portfolio-card">
+            <div class="portfolio-image">
+              <img src="https://placehold.co/400x200/0a192f/64ffda?text=Serviço+de+Filas" alt="Serviço de Filas">
+              <div class="portfolio-overlay">
+                <h5>Serviço de Filas</h5>
+                <a href="#" class="btn btn-primary">Ver Projeto</a>
+              </div>
+            </div>
+            <div class="portfolio-content">
+              <h5>Serviço de Filas</h5>
+              <div class="portfolio-tech">
+                <span class="tech-icon">Python</span>
+                <span class="tech-icon">Flask</span>
+                <span class="tech-icon">RabbitMQ</span>
+              </div>
+              <div class="portfolio-meta">
+                <span class="project-date">2021</span> | <span class="attribute-text">Back-end</span>
+              </div>
+              <div class="portfolio-tags">
+                <span class="tag">#backend</span>
+                <span class="tag">#mensageria</span>
+                <span class="tag">#api</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
-  <section id="testemunhos" class="py-5 bg-primaria text-light">
-  <div class="container text-center">
-    <h2 class="text-info mb-5">&lt;Clientes & Testemunhos /&gt;</h2>
-    <div class="clientes-carousel-root"></div>
-  </div>
-</section>
+  <!-- Seção Clientes -->
+  <section id="clientes" class="py-5">
+    <canvas id="clientesBgCanvas" class="card-section-bg-canvas"></canvas>
+    <div class="clientes-carousel-root">
+      <h2 class="text-center mb-5 text-info" data-aos="fade-up">O que meus clientes dizem</h2>
+      <div class="clientes-carousel-track-wrapper">
+        <ul class="clientes-carousel-track">
+          <li class="clientes-card" data-aos="zoom-in" data-aos-delay="100">
+            <div class="card-header">
+              <img src="https://placehold.co/60x60/64ffda/0a192f?text=C1" alt="Cliente 1" class="client-avatar">
+              <div class="client-info">
+                <div class="client-name">Ana Costa</div>
+                <div class="client-title">CEO, Tech Solutions</div>
+              </div>
+            </div>
+            <p class="testimonial-text">"A Mariane superou nossas expectativas! O sistema desenvolvido é robusto, intuitivo e foi entregue no prazo. Profissionalismo e qualidade impecáveis."</p>
+            <div class="rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+          </li>
+          <li class="clientes-card" data-aos="zoom-in" data-aos-delay="200">
+            <div class="card-header">
+              <img src="https://placehold.co/60x60/64ffda/0a192f?text=C2" alt="Cliente 2" class="client-avatar">
+              <div class="client-info">
+                <div class="client-name">Bruno Lima</div>
+                <div class="client-title">Diretor de Marketing, InovaCorp</div>
+              </div>
+            </div>
+            <p class="testimonial-text">"Excelente trabalho! O site ficou moderno, responsivo e com uma performance incrível. A comunicação foi clara e o suporte pós-entrega, excepcional."</p>
+            <div class="rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+          </li>
+          <li class="clientes-card" data-aos="zoom-in" data-aos-delay="300">
+            <div class="card-header">
+              <img src="https://placehold.co/60x60/64ffda/0a192f?text=C3" alt="Cliente 3" class="client-avatar">
+              <div class="client-info">
+                <div class="client-name">Carla Santos</div>
+                <div class="client-title">Fundadora, Startup Verde</div>
+              </div>
+            </div>
+            <p class="testimonial-text">"A Mariane é uma parceira essencial. Ela compreendeu perfeitamente nossas necessidades e entregou um aplicativo que superou todas as expectativas."</p>
+            <div class="rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+          </li>
+          <li class="clientes-card" data-aos="zoom-in" data-aos-delay="400">
+            <div class="card-header">
+              <img src="https://placehold.co/60x60/0a192f/64ffda?text=C4" alt="Cliente 4" class="client-avatar">
+              <div class="client-info">
+                <div class="client-name">Daniel Rocha</div>
+                <div class="client-title">Gerente de Projetos, Global Corp</div>
+              </div>
+            </div>
+            <p class="testimonial-text">"Profissionalismo e dedicação definem o trabalho da Mariane. Ela transformou nossa visão em realidade com um software de alta qualidade."</p>
+            <div class="rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+          </li>
+          <!-- Novos 10 clientes/amigos -->
+          <li class="clientes-card" data-aos="zoom-in" data-aos-delay="500">
+            <div class="card-header">
+              <img src="https://placehold.co/60x60/64ffda/0a192f?text=C5" alt="Cliente 5" class="client-avatar">
+              <div class="client-info">
+                <div class="client-name">Fernanda Oliveira</div>
+                <div class="client-title">Analista de Sistemas, DataCorp</div>
+              </div>
+            </div>
+            <p class="testimonial-text">"A Mariane tem um conhecimento técnico impressionante e uma capacidade de resolver problemas que poucos têm. Recomendo!"</p>
+            <div class="rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+          </li>
+          <li class="clientes-card" data-aos="zoom-in" data-aos-delay="600">
+            <div class="card-header">
+              <img src="https://placehold.co/60x60/0a192f/64ffda?text=C6" alt="Cliente 6" class="client-avatar">
+              <div class="client-info">
+                <div class="client-name">Gustavo Pereira</div>
+                <div class="client-title">Empreendedor, StartUp X</div>
+              </div>
+            </div>
+            <p class="testimonial-text">"Desde o planejamento até a entrega, a Mariane foi impecável. O produto final superou as expectativas e o suporte foi excelente."</p>
+            <div class="rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+          </li>
+          <li class="clientes-card" data-aos="zoom-in" data-aos-delay="700">
+            <div class="card-header">
+              <img src="https://placehold.co/60x60/64ffda/0a192f?text=C7" alt="Cliente 7" class="client-avatar">
+              <div class="client-info">
+                <div class="client-name">Helena Souza</div>
+                <div class="client-title">Gerente de Produto, Inovatech</div>
+              </div>
+            </div>
+            <p class="testimonial-text">"Trabalhar com a Mariane foi um prazer. Ela é muito organizada, atenta aos detalhes e entregou um código de altíssima qualidade."</p>
+            <div class="rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+          </li>
+          <li class="clientes-card" data-aos="zoom-in" data-aos-delay="800">
+            <div class="card-header">
+              <img src="https://placehold.co/60x60/0a192f/64ffda?text=C8" alt="Cliente 8" class="client-avatar">
+              <div class="client-info">
+                <div class="client-name">Igor Mendes</div>
+                <div class="client-title">CTO, Soluções Digitais</div>
+              </div>
+            </div>
+            <p class="testimonial-text">"A capacidade da Mariane de entender as necessidades do negócio e traduzi-las em soluções técnicas eficazes é notável."</p>
+            <div class="rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+          </li>
+          <li class="clientes-card" data-aos="zoom-in" data-aos-delay="900">
+            <div class="card-header">
+              <img src="https://placehold.co/60x60/64ffda/0a192f?text=C9" alt="Cliente 9" class="client-avatar">
+              <div class="client-info">
+                <div class="client-name">Juliana Costa</div>
+                <div class="client-title">Desenvolvedora Sênior, CodeMaster</div>
+              </div>
+            </div>
+            <p class="testimonial-text">"Como colega de profissão, posso atestar a excelência da Mariane. Seu código é sempre bem estruturado e fácil de entender."</p>
+            <div class="rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+          </li>
+          <li class="clientes-card" data-aos="zoom-in" data-aos-delay="1000">
+            <div class="card-header">
+              <img src="https://placehold.co/60x60/0a192f/64ffda?text=C10" alt="Cliente 10" class="client-avatar">
+              <div class="client-info">
+                <div class="client-name">Lucas Almeida</div>
+                <div class="client-title">Arquiteto de Software, FutureDev</div>
+              </div>
+            </div>
+            <p class="testimonial-text">"A Mariane é uma profissional completa. Sua visão arquitetural e a habilidade de implementar soluções complexas são impressionantes."</p>
+            <div class="rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+          </li>
+          <li class="clientes-card" data-aos="zoom-in" data-aos-delay="1100">
+            <div class="card-header">
+              <img src="https://placehold.co/60x60/64ffda/0a192f?text=C11" alt="Cliente 11" class="client-avatar">
+              <div class="client-info">
+                <div class="client-name">Mariana Rocha</div>
+                <div class="client-title">UX/UI Designer, Creative Minds</div>
+              </div>
+            </div>
+            <p class="testimonial-text">"A Mariane transforma designs em realidade com precisão e atenção aos detalhes. É um prazer trabalhar com ela."</p>
+            <div class="rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+          </li>
+          <li class="clientes-card" data-aos="zoom-in" data-aos-delay="1200">
+            <div class="card-header">
+              <img src="https://placehold.co/60x60/0a192f/64ffda?text=C12" alt="Cliente 12" class="client-avatar">
+              <div class="client-info">
+                <div class="client-name">Nuno Fernandes</div>
+                <div class="client-title">Consultor de TI, Global Tech</div>
+              </div>
+            </div>
+            <p class="testimonial-text">"A eficiência e a proatividade da Mariane em cada projeto são admiráveis. Ela é uma peça chave em qualquer equipe."</p>
+            <div class="rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+          </li>
+          <li class="clientes-card" data-aos="zoom-in" data-aos-delay="1300">
+            <div class="card-header">
+              <img src="https://placehold.co/60x60/64ffda/0a192f?text=C13" alt="Cliente 13" class="client-avatar">
+              <div class="client-info">
+                <div class="client-name">Olívia Gomes</div>
+                <div class="client-title">Especialista em QA, Quality Assured</div>
+              </div>
+            </div>
+            <p class="testimonial-text">"O código da Mariane é sempre de alta qualidade e com poucos bugs, o que facilita muito o trabalho de QA."</p>
+            <div class="rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+          </li>
+          <li class="clientes-card" data-aos="zoom-in" data-aos-delay="1400">
+            <div class="card-header">
+              <img src="https://placehold.co/60x60/0a192f/64ffda?text=C14" alt="Cliente 14" class="client-avatar">
+              <div class="client-info">
+                <div class="client-name">Pedro Santos</div>
+                <div class="client-title">Desenvolvedor Front-end, PixelPerfect</div>
+              </div>
+            </div>
+            <p class="testimonial-text">"A Mariane é uma excelente back-end, sempre fornecendo APIs robustas e bem documentadas, facilitando a integração."</p>
+            <div class="rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="clientes-carousel-navigation">
+        <button class="clientes-carousel-button prev-button"><i class="bi bi-chevron-left"></i></button>
+        <button class="clientes-carousel-button next-button"><i class="bi bi-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
 
+  <!-- Seção Contato -->
+  <section id="contato" class="py-5 bg-secundaria">
+    <div class="container">
+      <h2 class="text-center mb-5 text-info" data-aos="fade-up">Entre em Contato</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <p class="lead mb-4" data-aos="fade-up" data-aos-delay="100">
+            Tem um projeto em mente ou gostaria de solicitar um orçamento? Clique no botão abaixo para iniciar uma conversa!
+          </p>
+          <button type="button" class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#contactModal" data-aos="fade-up" data-aos-delay="200">
+            <i class="bi bi-chat-dots me-2"></i> Estabelecer Conexão
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <footer class="text-center py-4 bg-primaria text-white">
-    <p>&copy; 2025 Mariane Ribeiro. Todos os direitos reservados.</p>
-  </footer>
-
+  <!-- Modal de Contato -->
   <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content contact-modal-content">
+      <div class="modal-content bg-secundaria text-texto-escuro">
         <div class="modal-header">
-          <h5 class="modal-title" id="contactModalLabel">Solicitar Orçamento</h5>
+          <h5 class="modal-title text-info" id="contactModalLabel">Solicitar Orçamento</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form id="contactForm">
+          <p class="text-center mb-4">Preencha os campos abaixo para que possamos entender sua necessidade e enviar um orçamento.</p>
+          <form id="contactFormModal">
             <div class="mb-3">
-              <label for="modalNome" class="form-label">Nome*</label>
+              <label for="modalNome" class="form-label">Nome Completo*</label>
               <input type="text" class="form-control" id="modalNome" required>
             </div>
             <div class="mb-3">
@@ -559,15 +1287,34 @@
               <label for="modalMensagem" class="form-label">Mensagem*</label>
               <textarea class="form-control" id="modalMensagem" rows="5" required></textarea>
             </div>
-            <div class="d-grid gap-2">
-              <button type="button" class="btn btn-success" id="sendWhatsapp">Enviar por WhatsApp</button>
-              <button type="button" class="btn btn-info" id="sendEmail">Enviar por E-mail</button>
+            <div class="d-grid gap-2 mt-4">
+              <button type="button" class="btn btn-success" id="sendWhatsappModal">
+                <i class="fab fa-whatsapp me-2"></i> Enviar por WhatsApp
+              </button>
+              <button type="button" class="btn btn-info" id="sendEmailModal">
+                <i class="fas fa-envelope me-2"></i> Enviar por E-mail
+              </button>
             </div>
+            <!-- Mensagem de sucesso/erro para o formulário na modal -->
+            <div id="formMessageModal" class="mt-3 text-center" style="display: none;"></div>
           </form>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Footer -->
+  <footer class="bg-primaria text-center py-4">
+    <div class="container">
+      <p class="mb-0 text-muted">&copy; 2024 Mariane Ribeiro. Todos os direitos reservados.</p>
+      <div class="social-icons mt-2">
+        <a href="https://www.linkedin.com/in/mariane-ribeiro-dev/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin fs-4 mx-2"></i></a>
+        <a href="https://github.com/Mariane-Ribeiro" target="_blank" aria-label="GitHub"><i class="fab fa-github fs-4 mx-2"></i></a>
+        <a href="https://wa.me/5541999999999" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp fs-4 mx-2"></i></a>
+        <a href="mailto:marinanideveloper@gmail.com" aria-label="Email"><i class="bi bi-envelope-fill fs-4 mx-2"></i></a>
+      </div>
+    </div>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -576,16 +1323,10 @@
   <script src="assets/js/utilities.js"></script>
   <script src="assets/js/custom.js"></script>
   <script>
-    AOS.init();
-    const swiper = new Swiper(".mySwiper", {
-      loop: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      autoplay: {
-        delay: 5000,
-      },
+    // Inicializa a biblioteca AOS para animações de scroll
+    AOS.init({
+      once: true,
+      duration: 800,
     });
   </script>
 </body>
