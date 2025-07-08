@@ -51,6 +51,7 @@ a:hover, .btn-link:hover {
     height: 50px;
     fill: var(--destaque);
     margin-left: -10px; /* Ajuste fino para centralizar o logo */
+    margin-right: 10px; /* Adiciona espaço entre logo e título */
 }
 
 /* Estilo da imagem do herói com contorno neon */
@@ -65,17 +66,6 @@ a:hover, .btn-link:hover {
     filter: drop-shadow(0 0 12px rgba(0,191,174,1)) drop-shadow(0 0 24px rgba(0,191,174,0.8));
 }
 
-/* Estilo para o texto da marca com efeito neon */
-.neon-brand{
-  margin-left: 10px;
-  color: var(--destaque); /* Garante que a cor seja a de destaque */
-  letter-spacing: 2px;
-  text-shadow:
-    0 0 12px #5ce1e6,
-    0 0 32px #00bfae,
-    0 0 2px #fff;
-  animation: jarvis-glow 2.5s ease-in-out infinite alternate;
-}
 
 /* ===== SEÇÃO SOBRE (VISUAL TECH) ===== */
 #sobre {
@@ -398,33 +388,83 @@ a:hover, .btn-link:hover {
   .sobre-info-list li, .sobre-principios-list li {
     justify-content: center;
   }
+  /* Centraliza os cards de educação em telas menores */
+  .sobre-educacao-container {
+    align-items: center;
+  }
+  .sobre-edu-item {
+    width: 90%; /* Garante que o item ocupe a maior parte da largura */
+    margin: 0 auto; /* Centraliza o item individualmente */
+  }
 }
 
 /* ===== EFEITO HOVER DA NAVBAR ===== */
+/* Estilização aprimorada da barra de navegação */
+.navbar {
+  background: linear-gradient(135deg, var(--primaria) 80%, var(--secundaria) 100%); /* Gradiente sutil */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  padding: 0.5rem 1.5rem; /* Reduz o preenchimento para tornar a barra menor */
+  border-bottom: 1px solid rgba(100,255,218,0.1); /* Linha sutil na parte inferior */
+}
+
+.navbar-brand {
+  font-weight: 700; /* Título mais ousado */
+  font-size: 1.2rem; /* Reduz o tamanho da fonte para se adequar à barra menor */
+  color: var(--destaque); /* Cor neon principal */
+  text-shadow:
+    0 0 6px rgba(100, 255, 218, 0.5), /* Brilho interno suave */
+    0 0 10px rgba(100, 255, 218, 0.8), /* Brilho externo */
+    0 0 14px rgba(100, 255, 218, 0.5); /* Brilho extra */
+  transition: text-shadow 0.3s ease; /* Transição para o efeito hover */
+}
+
+.navbar-brand:hover {
+  text-shadow:
+    0 0 8px rgba(0, 191, 174, 0.7),
+    0 0 15px rgba(0, 191, 174, 1),
+    0 0 20px rgba(0, 191, 174, 0.7);
+}
+
+
 .navbar-nav .nav-link {
   position: relative;
   color: var(--texto-escuro);
   transition: color 0.18s;
   z-index: 1;
   background: none;
-  font-weight: 500;
+  font-weight: 600; /* Links mais ousados */
+  margin-left: 6px; /* Espaço entre os links, ajustado para menor */
+  padding: 0.3rem 0.7rem; /* Aumenta a área clicável, ajustado para menor */
+  border-radius: 8px; /* Bordas arredondadas nos links */
+  font-size: 0.9rem; /* Reduz o tamanho da fonte dos links */
 }
+
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus {
   color: var(--destaque);
+  background-color: rgba(100,255,218,0.1); /* Feedback visual no hover */
 }
+
 .navbar-nav .nav-link::after {
   content: '';
   display: block;
   position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--destaque), var(--destaque-hover));
-  border-radius: 2px;
+  left: 0;
+  right: 0;
+  bottom: -3px; /* Move a linha do efeito hover um pouco para baixo, ajustado para menor */
+  height: 2px; /* Aumenta a espessura da linha, ajustado para menor */
+  background: linear-gradient(90deg, var(--destaque), var(--destaque-hover)); /* Gradiente para a linha */
+  border-radius: 3px; /* Bordas arredondadas na linha */
   transform: scaleX(0);
   transition: transform 0.22s cubic-bezier(.77,0,.18,1);
   z-index: 0;
 }
+
+.navbar-nav .nav-link:not(.active)::after {
+  opacity: 0 !important;
+  transform: scaleX(0) !important;
+}
+
 .navbar-nav .nav-link:hover::after,
 .navbar-nav .nav-link:focus::after {
   transform: scaleX(1);
@@ -434,18 +474,24 @@ a:hover, .btn-link:hover {
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link.active:focus {
   color: var(--destaque) !important;
-  font-weight: 700;
+  background-color: rgba(100,255,218,0.2) !important; /* Background mais destacado para o link ativo */
 }
+
 .navbar-nav .nav-link.active::after {
   content: '';
   display: block;
   position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 2.5px;
+  left: 0;
+  right: 0;
+  bottom: -3px; /* Ajustado para menor */
+  height: 2.5px; /* Ajustado para menor */
   background: linear-gradient(90deg, var(--destaque), var(--destaque-hover));
-  border-radius: 2px;
+  /* Ajuste para remover o highlight ao clicar */
+  border-radius: 3px;
   transform: scaleX(1) !important;
   opacity: 1 !important;
+  box-shadow: 0 0 8px rgba(100,255,218,0.6); /* Adiciona uma sombra sutil para destacar o link ativo */
+
   transition: none !important;
   z-index: 1;
   pointer-events: none;
@@ -454,85 +500,115 @@ a:hover, .btn-link:hover {
 /* Garante que apenas o ativo mostra a linha, mesmo se hover sair */
 .navbar-nav .nav-link:not(.active)::after {
   opacity: 0 !important;
+  transform-origin: left;
   transform: scaleX(0) !important;
+}
+
+/* Media queries para responsividade da navbar */
+@media (max-width: 991.98px) {
+  .navbar {
+    padding: 0.5rem 1rem; /* Mais compacto em telas menores */
+  }
+  .navbar-brand {
+    font-size: 1.1rem; /* Reduz ainda mais o tamanho da fonte do nome */
+  }
+  .navbar-nav .nav-link {
+    font-size: 0.85rem; /* Reduz o tamanho da fonte dos links */
+    margin-left: 0; /* Remove margem lateral */
+    padding: 0.4rem 0.5rem; /* Ajusta padding */
+    text-align: center; /* Centraliza links no menu colapsado */
+  }
+  .navbar-nav {
+    padding-top: 0.5rem; /* Espaçamento superior para links no menu colapsado */
+  }
+  .navbar-toggler {
+    padding: 0.25rem 0.5rem; /* Ajusta padding do botão do hamburguer */
+    font-size: 0.8rem; /* Reduz tamanho da fonte do ícone do hamburguer */
+  }
+  .navbar-toggler-icon {
+    width: 1em; /* Ajusta tamanho do ícone do hamburguer */
+    height: 1em;
+  }
 }
 
 
 /* Hero/Início estilizado */
 #inicio.hero {
-  background: linear-gradient(135deg, var(--primaria) 60%, var(--secundaria) 100%);
-  min-height: 100vh; /* Garante que a seção cubra toda a altura da viewport */
-  display: flex;
-  align-items: center;
-  padding-top:50px;
-  padding-bottom:1px;
   position: relative;
-  overflow: hidden;
-}
-
-#inicio .display-3, #inicio .display-4 {
-  color: var(--destaque);
-  letter-spacing: 2px;
-  text-shadow: 0 4px 32px rgba(100,255,218,0.12);
-  animation: fadeInDown 1.2s cubic-bezier(.77,0,.18,1) both;
-}
-
-#inicio h2 {
-  color: #8892b0;
-  font-weight: 400;
-  animation: fadeInUp 1.2s 0.2s both;
-}
-
-#inicio .lead {
-  color: var(--texto-escuro);
-  font-size: 1.3rem;
-  animation: fadeInUp 1.2s 0.4s both;
-}
-
-#inicio .btn-outline-light {
-  border-color: var(--destaque);
-  color: var(--destaque);
-  font-weight: 600;
-  background: rgba(10,25,47,0.2);
-  box-shadow: 0 0 16px 0 #00bfae44;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-}
-#inicio .btn-outline-light:hover {
-  background: var(--destaque);
-  color: var(--primaria);
-  box-shadow: 0 0 16px 0 #5ce1e699; /* Sombra simplificada */
-}
-
-#inicio .fs-2 i {
-  color: var(--destaque);
-  text-shadow: 0 0 8px #00bfae66;
-  transition: color 0.2s, text-shadow 0.2s;
-}
-#inicio .fs-2 i:hover {
-  color: var(--destaque-hover);
-  text-shadow: 0 0 16px #00bfae;
-}
-
-/* Animações */
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-40px);}
-  to { opacity: 1; transform: translateY(0);}
-}
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(40px);}
-  to { opacity: 1; transform: translateY(0);}
-}
-
-/* EFEITO JARVIS HERO + FUNDO ANIMADO */
-.jarvis-hero {
-  position: relative;
-  min-height: 90vh;
+  min-height: 100vh; /* Mantido para ocupar a altura total da viewport */
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: hidden; /* Mantido para evitar que a próxima seção apareça */
   background: radial-gradient(ellipse at 50% 40%, #112240 0%, #0a192f 80%);
   box-shadow: 0 0 80px 0 #00bfae33 inset;
+  padding-top: 70px; /* Adicionado para compensar a navbar fixa em desktop */
+  padding-bottom: 20px; /* Adicionado para espaço na parte inferior */
+}
+
+/* In your assets/css/main.css */
+@media (max-width: 767.98px) { /* For small devices */
+    #inicio .display-1 {
+        font-size: 3rem; /* Adjust as needed */
+        white-space: nowrap; /* Ensure it stays on one line */
+        overflow: hidden; /* Hide overflow if it still occurs */
+        text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) { /* For medium devices */
+    #inicio .display-1 {
+        font-size: 4rem; /* Adjust as needed */
+        white-space: nowrap;
+    }
+}
+
+/* Ajuste para o nome em telas muito pequenas */
+@media (max-width: 576px) { /* Extra small devices (phones) */
+    #inicio .display-1 {
+        font-size: 2.5rem; /* Reduz ainda mais o tamanho da fonte */
+    }
+}
+
+
+#inicio .display-1 {
+    white-space: nowrap; /* Apply nowrap by default as well */
+}
+
+/* Ajustes para telas menores (mobile) */
+@media (max-width: 991.98px) {
+  #inicio.hero {
+    padding-top: 60px; /* Ajuste para a navbar em mobile */
+    padding-bottom: 15px; /* Ajuste para mobile */
+    /* Você pode adicionar mais ajustes de fonte ou imagem aqui se o conteúdo ainda estiver grande demais */
+  }
+
+  /* Ajustes de fonte para títulos e texto principal em mobile */
+  #inicio.hero .display-1 {
+    font-size: 3.5rem; /* Reduz o tamanho do h1 para mobile */
+  }
+
+  #inicio.hero .jarvis-sub {
+    font-size: 1.5rem; /* Reduz o tamanho do h2 para mobile */
+  }
+
+  #inicio.hero .lead.jarvis-lead {
+    font-size: 1rem; /* Reduz o tamanho do parágrafo para mobile */
+  }
+
+  /* Ajustes para a imagem de perfil em mobile */
+  #inicio.hero .hero-foto {
+    max-width: 70%; /* Reduz a largura da imagem para ocupar menos espaço */
+    height: auto; /* Mantém a proporção */
+  }
+
+  /* Centraliza o texto e os ícones sociais em mobile */
+  #inicio.hero .hero-content-wrapper .text-lg-start {
+    text-align: center !important;
+  }
+  #inicio.hero .social-icons.justify-content-lg-start {
+    justify-content: center !important;
+  }
 }
 
 /* Fundo de linhas de circuito animado (desativado/removido) */
@@ -544,7 +620,7 @@ a:hover, .btn-link:hover {
   background:
     radial-gradient(circle at 50% 40%, rgba(100,255,218,0.10) 0%, transparent 70%);
   animation: none;
-}
+} /* Remove o efeito de brilho de fundo do jarvis-hero */
 
 /* Efeito de brilho para o texto principal */
 .jarvis-glow {
@@ -636,11 +712,34 @@ a:hover, .btn-link:hover {
   position: absolute;
   top: 0; left: 0;
   opacity: 0.18;
-  filter: blur(0.5px);
+  filter: blur(0.2px); /* Reduz o desfoque para tornar os caracteres mais nítidos */
   pointer-events: none;
   z-index: 0; /* Adicionado z-index: 0 para o próprio canvas */
 }
 
+/* Estilização da cascata com cores neon e brilho */
+.jarvis-matrix-canvas {
+  /* Mantém as propriedades básicas */
+  /* ... */
+
+  /* Adiciona o efeito neon */
+  color: #64ffda; /* Cor neon principal */
+  text-shadow:
+    0 0 5px rgba(100, 255, 218, 0.5), /* Brilho interno suave */
+    0 0 10px rgba(100, 255, 218, 0.8), /* Brilho externo */
+    0 0 15px rgba(100, 255, 218, 0.5); /* Brilho extra */
+  /* Aumenta a intensidade do brilho ao longo do tempo */
+  animation: neon-matrix-glow 2s infinite alternate;
+}
+
+@keyframes neon-matrix-glow {
+  from {
+    text-shadow: 0 0 3px rgba(100, 255, 218, 0.3), 0 0 7px rgba(100, 255, 218, 0.5), 0 0 10px rgba(100, 255, 218, 0.3);
+  }
+  to {
+    text-shadow: 0 0 8px rgba(100, 255, 218, 0.7), 0 0 15px rgba(100, 255, 218, 0.9), 0 0 20px rgba(100, 255, 218, 0.5);
+  }
+}
 /* Cards de Experiência */
 .exp-card-container {
   display: flex;
@@ -802,7 +901,8 @@ a:hover, .btn-link:hover {
 }
 @media (max-width: 900px) {
   .exp-card {
-    width: 100%; /* Ocupa a largura total em telas menores */
+    width: 90%; /* Ocupa a maior parte da largura em telas menores */
+    margin: 0 auto; /* Centraliza o card individualmente */
     max-width: 340px; /* Limite de largura para não ficar muito grande em tablets */
   }
   .exp-card-container {
@@ -843,91 +943,120 @@ a:hover, .btn-link:hover {
   border-color: var(--destaque);
 }
 
-.skill-category-title {
+.skill-category-card h5 { /* Ajustado para h5 diretamente */
   color: var(--destaque);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.3rem; /* Aumentado o tamanho da fonte */
   margin-bottom: 1.5rem;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.7rem; /* Aumentado o espaçamento entre ícone e texto */
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px; /* Aumentado o espaçamento entre letras */
+  text-shadow: 0 0 8px rgba(100,255,218,0.3); /* Sombra sutil para o título */
 }
 
-.skill-category-title i {
-  font-size: 1.3rem;
+.skill-category-card h5 i {
+  font-size: 1.6rem; /* Aumentado o tamanho do ícone */
   color: var(--destaque);
 }
 
-.skill-item {
+.skill-list {
+  list-style: none; /* Remove marcadores de lista padrão */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column; /* Itens em coluna */
+  gap: 0.8rem; /* Espaçamento entre os itens da lista */
+}
+
+.skill-list li {
+  background-color: var(--primaria); /* Fundo para cada item da habilidade */
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center; /* Alinha o conteúdo verticalmente */
+  justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+  gap: 0.5rem; /* Espaçamento entre o ícone e o texto */
+  color: var(--texto-escuro);
+  font-size: 1rem;
+  font-weight: 500;
+  border: 1px solid rgba(100,255,218,0.08); /* Borda sutil */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.skill-list li:hover {
+  background-color: rgba(10,25,47,0.7); /* Escurece no hover */
+  border-color: var(--destaque-hover);
+}
+
+.skill-list li .skill-icon { /* Estilo para o ícone dentro do item da lista */
+  width: 30px; /* Largura fixa para o círculo do ícone */
+  height: 30px; /* Altura fixa para o círculo do ícone */
+  border-radius: 50%; /* Torna o ícone circular */
+  background-color: var(--destaque); /* Cor de fundo do círculo */
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
-  gap: 0.8rem;
-}
-
-.skill-icon {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  object-fit: contain;
-  background-color: var(--primaria); /* Fundo para o ícone */
-  padding: 4px;
-  box-shadow: 0 0 5px rgba(100,255,218,0.3);
-  flex-shrink: 0; /* Impede que o ícone encolha */
-}
-
-.skill-name {
-  color: var(--texto-escuro);
-  font-weight: 500;
-  flex-grow: 1; /* Permite que o nome ocupe o espaço restante */
-}
-
-.skill-bar-bg {
-  width: 100%;
-  height: 8px;
-  background-color: rgba(100,255,218,0.1);
-  border-radius: 4px;
-  overflow: hidden;
-  margin-left: auto; /* Empurra a barra para a direita */
-  flex-shrink: 0;
-  max-width: 100px; /* Largura máxima para a barra */
-}
-
-.skill-bar-fill {
-  height: 100%;
-  background-color: var(--destaque);
-  border-radius: 4px;
-  transition: width 0.5s ease-in-out;
+  justify-content: center;
+  flex-shrink: 0; /* Evita que o círculo encolha */
+  font-size: 1rem; /* Tamanho do ícone dentro do círculo */
+  color: var(--primaria); /* Cor do ícone */
 }
 
 /* Ajustes para responsividade */
-@media (max-width: 768px) {
+@media (max-width: 992px) { /* Ajuste para tablets */
+  .skill-category-card {
+    padding: 1.2rem;
+  }
+  .skill-category-card h5 {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+  .skill-category-card h5 i {
+    font-size: 1.5rem;
+  }
+  .skill-list {
+    gap: 0.6rem;
+  }
+  .skill-list li {
+    font-size: 0.85rem;
+    padding: 0.6rem 0.8rem;
+  }
+  .skill-list li .skill-icon {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) { /* Ajuste para mobile */
   .skill-category-card {
     padding: 1rem;
   }
 
-  .skill-category-title {
-    font-size: 1rem;
+  .skill-category-card h5 {
+    font-size: 1.1rem;
     margin-bottom: 1rem;
   }
 
-  .skill-icon {
-    width: 25px;
-    height: 25px;
+  .skill-category-card h5 i {
+    font-size: 1.4rem;
   }
 
-  .skill-name {
-    font-size: 0.9rem;
+  .skill-list {
+    gap: 0.5rem;
   }
 
-  .skill-bar-bg {
-    max-width: 80px;
+  .skill-list li {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.7rem;
+  }
+
+  .skill-list li .skill-icon {
+    font-size: 1.4rem;
   }
 }
+
 
 /* Cards de Serviços */
 #servicos {
@@ -944,14 +1073,14 @@ a:hover, .btn-link:hover {
 }
 
 .service-card {
-  background: rgba(17,34,64,0.9);
+  background: var(--secundaria); /* Alterado para var(--secundaria) */
   border-radius: 16px;
-  padding: 2.5rem 1.8rem;
+  padding: 1.5rem; /* Ajustado para 1.5rem */
   text-align: center;
   box-shadow: 0 8px 30px rgba(0,0,0,0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid rgba(100,255,218,0.1);
-  min-height: 200px; /* Altura mínima para alinhamento */
+  height: 100%; /* Adicionado para consistência de altura */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -959,16 +1088,33 @@ a:hover, .btn-link:hover {
 }
 
 .service-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-5px); /* Ajustado para -5px */
   box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 0 20px rgba(100,255,218,0.4);
   border-color: var(--destaque);
 }
 
 .service-card h5 {
   color: var(--destaque);
-  font-weight: 600;
-  margin-bottom: 1rem;
+  font-weight: 700; /* Alterado para 700 */
+  margin-bottom: 1.5rem; /* Ajustado para 1.5rem */
   font-size: 1.3rem;
+  display: flex; /* Adicionado para alinhar ícone e texto */
+  align-items: center; /* Alinha verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  gap: 0.7rem; /* Espaçamento entre ícone e texto */
+}
+
+.service-card .service-icon { /* Estilo para o ícone dentro do card de serviço */
+  width: 30px; /* Largura fixa para o círculo do ícone */
+  height: 30px; /* Altura fixa para o círculo do ícone */
+  border-radius: 50%; /* Torna o ícone circular */
+  background-color: var(--destaque); /* Cor de fundo do círculo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* Evita que o círculo encolha */
+  font-size: 1rem; /* Tamanho do ícone dentro do círculo */
+  color: var(--primaria); /* Cor do ícone */
 }
 
 .service-card p {
@@ -1137,6 +1283,8 @@ a:hover, .btn-link:hover {
 
 @media (max-width: 768px) {
   .portfolio-card {
+    width: 90%; /* Ocupa a maior parte da largura em telas menores */
+    margin: 0 auto; /* Centraliza o card individualmente */
     max-width: 340px; /* Limite de largura para não ficar muito grande em tablets */
   }
 }
@@ -1168,6 +1316,55 @@ a:hover, .btn-link:hover {
   letter-spacing: 1.5px;
   text-shadow: 0 0 16px #00bfae33;
 }
+
+/* Estilos para o bloco de informações de contato */
+.contact-info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  background: var(--secundaria); /* Fundo para o bloco de informações */
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  border: 1px solid rgba(100,255,218,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-info-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 25px rgba(100,255,218,0.5);
+}
+
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centraliza o conteúdo */
+  color: var(--texto-escuro);
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-item:hover {
+  color: var(--destaque);
+}
+
+.contact-item .contact-icon {
+  font-size: 1.5rem;
+  color: var(--destaque);
+  margin-right: 1rem;
+  width: 30px; /* Largura fixa para alinhar ícones */
+  text-align: center;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.contact-item:hover .contact-icon {
+  transform: scale(1.1);
+  color: var(--destaque-hover);
+}
+
 
 .contact-form {
   background: var(--secundaria);
@@ -1219,13 +1416,14 @@ a:hover, .btn-link:hover {
 .contact-form .btn-info {
   background-color: var(--destaque);
   border-color: var(--destaque);
-  color: var(--primaria); /* Cor do texto para contraste */
+  color: var(--primaria);
+  box-shadow: none; /* Remove brilho extra para os botões internos do modal */
 }
 
 .contact-form .btn-info:hover {
   background-color: var(--destaque-hover);
   border-color: var(--destaque-hover);
-  box-shadow: 0 4px 15px rgba(100,255,218,0.4);
+  box-shadow: none;
 }
 
 /* Modal Styling */
@@ -1237,6 +1435,8 @@ a:hover, .btn-link:hover {
   border-radius: 16px;
   border: 1px solid rgba(100,255,218,0.1);
   box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  background-color: var(--secundaria); /* Garante que o modal use a cor secundária */
+  color: var(--texto-escuro); /* Cor do texto dentro do modal */
 }
 
 .modal-header {
@@ -1245,11 +1445,38 @@ a:hover, .btn-link:hover {
 
 .modal-title {
   font-weight: 600;
+  color: var(--destaque); /* Título do modal com cor de destaque */
 }
 
 .btn-close-white {
   filter: invert(1) brightness(2); /* Makes the close button white/light */
 }
+
+/* Ajustes para os botões dentro do modal */
+#contactModal .btn-success {
+  background-color: #25d366; /* Cor do WhatsApp */
+  border-color: #25d366;
+}
+
+#contactModal .btn-success:hover {
+  background-color: #1da851;
+  border-color: #1da851;
+  box-shadow: 0 4px 15px rgba(37,211,102,0.4);
+}
+
+#contactModal .btn-info {
+  background-color: var(--destaque);
+  border-color: var(--destaque);
+  color: var(--primaria);
+  box-shadow: none; /* Remove brilho extra para os botões internos do modal */
+}
+
+.contact-form .btn-info:hover {
+  background-color: var(--destaque-hover);
+  border-color: var(--destaque-hover);
+  box-shadow: none;
+}
+
 
 /* Footer */
 footer {

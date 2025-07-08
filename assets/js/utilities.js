@@ -1,34 +1,50 @@
 // Responsividade JavaScript
 document.addEventListener('DOMContentLoaded', function() {
-    
+
+    // Função debounce para otimizar o evento de redimensionamento
+    // Reutilizada do custom.js ou definida localmente para garantir disponibilidade
+    function debounce(func, delay) {
+      let timeout;
+      return function() {
+        const context = this;
+        const args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), delay);
+      };
+    }
+
     // Ajuste automático de altura para cards
     function adjustCardHeights() {
         const serviceCards = document.querySelectorAll('.service-card');
         const portfolioCards = document.querySelectorAll('.portfolio-card');
-        
+        const clientCards = document.querySelectorAll('.clientes-card'); // Adicionado para clientes
+
         // Reset heights
-        [...serviceCards, ...portfolioCards].forEach(card => {
+        [...serviceCards, ...portfolioCards, ...clientCards].forEach(card => {
             card.style.height = 'auto';
         });
-        
-        // Ajustar apenas em desktop
+
+        // Ajustar apenas em desktop (ou telas maiores que 768px)
         if (window.innerWidth >= 768) {
             adjustRowHeights(serviceCards);
             adjustRowHeights(portfolioCards);
+            adjustRowHeights(clientCards); // Ajusta a altura dos cards de clientes também
         }
     }
-    
+
     function adjustRowHeights(cards) {
         const rows = [];
         let currentRow = [];
         let currentTop = null;
-        
+
         cards.forEach(card => {
             const rect = card.getBoundingClientRect();
+            // Agrupa cards que estão na mesma linha (top similar)
             if (currentTop === null || Math.abs(rect.top - currentTop) < 10) {
                 currentRow.push(card);
                 currentTop = rect.top;
             } else {
+                // Se o card atual não está na mesma linha, salva a linha anterior e começa uma nova
                 if (currentRow.length > 0) {
                     rows.push(currentRow);
                 }
@@ -36,11 +52,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentTop = rect.top;
             }
         });
-        
+
+        // Adiciona a última linha
         if (currentRow.length > 0) {
             rows.push(currentRow);
         }
-        
+
+        // Para cada linha, encontra a altura máxima e aplica a todos os cards daquela linha
         rows.forEach(row => {
             const maxHeight = Math.max(...row.map(card => card.offsetHeight));
             row.forEach(card => {
@@ -50,8 +68,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Inicializa o ajuste de altura ao carregar e redimensionar a página
+    // Usando debounce para otimizar o evento de resize
     adjustCardHeights();
-    window.addEventListener('resize', adjustCardHeights);
+    window.addEventListener('resize', debounce(adjustCardHeights, 250)); // Aplicando debounce
 
     // === NAV ACTIVE SECTION INDICATOR ===
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link[href^="#"]');
@@ -60,7 +79,11 @@ document.addEventListener('DOMContentLoaded', function() {
       .filter(Boolean);
 
     function onScrollSpy() {
-      const scrollPos = window.scrollY + document.querySelector('.navbar').offsetHeight + 32;
+      const navbar = document.querySelector('.navbar');
+      // Verifica se a navbar existe antes de tentar acessar offsetHeight
+      const navbarHeight = navbar ? navbar.offsetHeight : 0;
+      const scrollPos = window.scrollY + navbarHeight + 32; // Adiciona um offset para ativar antes
+
       let currentSectionId = null;
 
       // Encontra a seção atual visível
@@ -77,6 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
       navLinks.forEach(link => {
         if (link.getAttribute('href') === '#' + currentSectionId) {
           link.classList.add('active');
+          link.blur(); // Remove o foco do link
         } else {
           link.classList.remove('active');
         }
@@ -85,22 +109,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', onScrollSpy, { passive: true });
     onScrollSpy(); // Chama uma vez ao carregar para definir a seção inicial
-});
 
-// Neon brand letter-by-letter animation
-document.addEventListener('DOMContentLoaded', function () {
-  const neonBrand = document.querySelector('.neon-brand');
-  if (neonBrand && !neonBrand.classList.contains('neon-letters-ready')) {
-    const text = neonBrand.textContent;
-    neonBrand.innerHTML = '';
-    for (let i = 0; i < text.length; i++) {
-      const span = document.createElement('span');
-      span.className = 'neon-letter';
-      span.textContent = text[i];
-      span.style.animationDelay = `${i * 0.05}s`;
-      neonBrand.appendChild(span);
-    }
-    neonBrand.classList.add('neon-letters-ready');
-  }
+    // Ajustar alturas novamente após a rolagem, para garantir que as posições estejam corretas após qualquer ajuste dinâmico do layout
+    // Adicionado um pequeno atraso para garantir que o layout esteja estável
+    setTimeout(adjustCardHeights, 100);
 });
-

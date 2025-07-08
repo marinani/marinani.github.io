@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', function () {
         '.portfolio-card',
         '.clientes-card'
       ],
-      opacity: [0, 1],
-      scale: [0.9, 1],
-      translateY: [50, 0],
-      delay: anime.stagger(200), // Delay entre cada card
+      opacity: [0, 1], // Começa invisível e termina visível
+      scale: [0.95, 1], // Inicia ligeiramente menor e volta ao tamanho normal
+      translateY: [20, 0], // Desliza de 20px abaixo para a posição final
+      delay: anime.stagger(150), // Ajuste no atraso para uma animação mais ágil
       duration: 1200, // Duração da animação
       easing: 'easeOutElastic(1, .8)'
     });
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (jarvisMatrixCanvas) {
     const ctx = jarvisMatrixCanvas.getContext('2d');
     let width, height;
-    const characters = '01'; // Binary characters
+    const characters = '01';
     const fontSize = 16;
     let columns;
     let drops = [];
@@ -62,22 +62,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Animation loop for the binary cascade
     function animateJarvisMatrix() {
-      // Semi-transparent black rectangle to fade out previous frames
-      ctx.fillStyle = 'rgba(10, 25, 47, 0.05)'; // Using primary background color with low opacity
+      ctx.fillStyle = 'rgba(10, 25, 47, 0.05)';
       ctx.fillRect(0, 0, width, height);
 
-      ctx.fillStyle = '#00ffc3'; // Green color for the binary code
-      ctx.font = `${fontSize}px monospace`; // Monospace font for consistent character width
+      ctx.fillStyle = '#00ffc3';
+      ctx.font = `${fontSize}px monospace`;
 
-      // Loop through each column
       for (let i = 0; i < drops.length; i++) {
-        // Get a random binary character
         const text = characters.charAt(Math.floor(Math.random() * characters.length));
-        // Draw the character at the current drop position
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-        // If the drop reaches the bottom, reset it to the top with a random chance
-        if (drops[i] * fontSize * 0.8 > height && Math.random() > 0.975) { // 2.5% chance to reset, adjusted threshold
+        if (drops[i] * fontSize > height && Math.random() > 0.975) { // 2.5% chance to reset
           drops[i] = 0;
         }
 
@@ -229,43 +224,6 @@ document.addEventListener('DOMContentLoaded', function () {
     mirror: false,  // Se os elementos devem animar de volta ao rolar para cima
   });
 
-  // Configuração do Swiper para o carrossel de clientes (testemunhos)
-  const swiperClientes = new Swiper('.swiper-container-clientes', {
-    slidesPerView: 1, // Exibe 1 slide por vez em telas muito pequenas
-    spaceBetween: 20,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.swiper-pagination-clientes',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next-clientes',
-      prevEl: '.swiper-button-prev-clientes',
-    },
-    breakpoints: {
-      // Quando a largura da janela for >= 768px
-      768: {
-        slidesPerView: 2,
-        spaceBetween: 30,
-      },
-      // Quando a largura da janela for >= 992px
-      992: {
-        slidesPerView: 3,
-        spaceBetween: 40,
-      },
-      // Quando a largura da janela for >= 1200px
-      1200: {
-        slidesPerView: 4, // 4 cards em telas maiores
-        spaceBetween: 40,
-      }
-    }
-  });
-
-
   // Lógica para o formulário de contato dentro da modal
   const contactFormModal = document.getElementById('contactFormModal');
   const formMessageModal = document.getElementById('formMessageModal');
@@ -293,35 +251,19 @@ document.addEventListener('DOMContentLoaded', function () {
       return { nome, email, telefone, mensagem };
     }
 
-    // Function to validate form data
-    function validateForm(data) {
-      if (!data.nome || !data.email || !data.mensagem) {
-        displayMessage('Por favor, preencha todos os campos obrigatórios (Nome, E-mail, Mensagem).', false);
-        return false;
-      }
-      // Basic email validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(data.email)) {
-        displayMessage('Por favor, insira um e-mail válido.', false);
-        return false;
-      }
-      return true;
-    }
-
     // WhatsApp send logic
     if (sendWhatsappModalBtn) {
       sendWhatsappModalBtn.addEventListener('click', () => {
         const data = getFormData();
-        if (validateForm(data)) {
-          const whatsappMessage = `Olá, meu nome é ${data.nome}. Meu e-mail é ${data.email}. ${data.telefone ? `Meu telefone é ${data.telefone}.` : ''}\n\n${data.mensagem}\n\n*Solicitação de Orçamento*`;
-          const whatsappUrl = `https://wa.me/5541999999999?text=${encodeURIComponent(whatsappMessage)}`;
-          window.open(whatsappUrl, '_blank');
-          displayMessage('Mensagem para WhatsApp gerada! Por favor, envie-a.', true);
-          contactFormModal.reset();
-          // Optionally close modal after sending
-          const contactModal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
-          if (contactModal) contactModal.hide();
-        }
+        // Removed form validation as per user request
+        const whatsappMessage = `Olá, meu nome é ${data.nome}. Meu e-mail é ${data.email}. ${data.telefone ? `Meu telefone é ${data.telefone}.` : ''}\n\n${data.mensagem}\n\n*Solicitação de Orçamento*`;
+        const whatsappUrl = `https://wa.me/5541999999999?text=${encodeURIComponent(whatsappMessage)}`;
+        window.open(whatsappUrl, '_blank');
+        displayMessage('Mensagem para WhatsApp gerada! Por favor, envie-a.', true);
+        contactFormModal.reset();
+        // Optionally close modal after sending
+        const contactModal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
+        if (contactModal) contactModal.hide();
       });
     }
 
@@ -329,80 +271,23 @@ document.addEventListener('DOMContentLoaded', function () {
     if (sendEmailModalBtn) {
       sendEmailModalBtn.addEventListener('click', () => {
         const data = getFormData();
-        if (validateForm(data)) {
-          const subject = encodeURIComponent('Solicitação de Orçamento - Portfólio');
-          const body = encodeURIComponent(`Olá Mariane,\n\nMeu nome é ${data.nome}.\nMeu e-mail é ${data.email}.\n${data.telefone ? `Meu telefone é ${data.telefone}.\n` : ''}\n${data.mensagem}\n\nAtenciosamente,\n${data.nome}`);
-          const mailtoUrl = `mailto:marinanideveloper@gmail.com?subject=${subject}&body=${body}`;
-          window.location.href = mailtoUrl;
-          displayMessage('E-mail gerado! Por favor, envie-o pelo seu cliente de e-mail.', true);
-          contactFormModal.reset();
-          // Optionally close modal after sending
-          const contactModal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
-          if (contactModal) contactModal.hide();
-        }
+        // Removed form validation as per user request
+        const subject = encodeURIComponent('Solicitação de Orçamento - Portfólio');
+        const body = encodeURIComponent(`Olá Mariane,\n\nMeu nome é ${data.nome}.\nMeu e-mail é ${data.email}.\n${data.telefone ? `Meu telefone é ${data.telefone}.\n` : ''}\n${data.mensagem}\n\nAtenciosamente,\n${data.nome}`);
+        const mailtoUrl = `mailto:marinanideveloper@gmail.com?subject=${subject}&body=${body}`;
+        window.location.href = mailtoUrl;
+        displayMessage('E-mail gerado! Por favor, envie-o pelo seu cliente de e-mail.', true);
+        contactFormModal.reset();
+        // Optionally close modal after sending
+        const contactModal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
+        if (contactModal) contactModal.hide();
       });
     }
   }
 
+  // Removida toda a lógica do carrossel manual para a seção de clientes,
+  // pois agora ela usa um layout de grade estático.
 
-  // Lógica do carrossel para cards de clientes (versão manual)
-  const carouselTrack = document.querySelector('.clientes-carousel-track');
-  const prevButton = document.querySelector('.clientes-carousel-button.prev');
-  const nextButton = document.querySelector('.clientes-carousel-button.next');
-  const cards = document.querySelectorAll('.clientes-card');
-
-  if (carouselTrack && cards.length > 0) {
-    let currentCarouselIndex = 0;
-    let cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(cards[0]).marginRight); // Largura do card + margem
-
-    // Função para atualizar a posição do carrossel e o estado dos botões
-    function updateCarouselPosition() {
-      carouselTrack.style.transform = `translateX(-${currentCarouselIndex * cardWidth}px)`;
-
-      // Atualiza o estado dos botões (habilitado/desabilitado)
-      const trackWrapper = carouselTrack.parentElement;
-      const visibleCardsCount = cardWidth > 0 ? Math.floor(trackWrapper.clientWidth / cardWidth) : 0;
-      const maxIndex = Math.max(0, cards.length - visibleCardsCount); // Índice máximo para rolagem
-
-      if (prevButton) {
-        prevButton.disabled = currentCarouselIndex === 0;
-      }
-      if (nextButton) {
-        nextButton.disabled = currentCarouselIndex >= maxIndex;
-      }
-    }
-
-    // Chama a função de atualização ao carregar e ao redimensionar
-    window.addEventListener('load', updateCarouselPosition);
-    window.addEventListener('resize', debounce(() => {
-      cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(cards[0]).marginRight); // Recalcula a largura do card
-      // Ajusta o índice atual para não exceder o novo limite visível
-      const trackWrapper = carouselTrack.parentElement;
-      const visibleCardsCount = cardWidth > 0 ? Math.floor(trackWrapper.clientWidth / cardWidth) : 0;
-      const maxIndex = Math.max(0, cards.length - visibleCardsCount);
-      currentCarouselIndex = Math.min(currentCarouselIndex, maxIndex);
-      updateCarouselPosition(); // Atualiza a posição e o estado dos botões
-    }, 250));
-
-    // Adiciona listeners para os botões de navegação do carrossel
-    if (prevButton) {
-      prevButton.addEventListener('click', () => {
-        currentCarouselIndex = Math.max(0, currentCarouselIndex - 1);
-        updateCarouselPosition();
-      });
-    }
-
-    if (nextButton) {
-      nextButton.addEventListener('click', () => {
-        const trackWrapper = carouselTrack.parentElement;
-        const visibleCardsCount = cardWidth > 0 ? Math.floor(trackWrapper.clientWidth / cardWidth) : 0;
-        const maxIndex = Math.max(0, cards.length - visibleCardsCount);
-
-        currentCarouselIndex = Math.min(maxIndex, currentCarouselIndex + 1);
-        updateCarouselPosition();
-      });
-    }
-  }
 });
 
 // Função debounce para otimizar o evento de redimensionamento

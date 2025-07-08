@@ -1,32 +1,19 @@
 /* === Estilo especial para os cards da sessão clientes (testemunhos) === */
 
-.clientes-carousel-root {
-  /* Removido o background, box-shadow e border para que não haja um "card de fundo" */
-  border-radius: 28px;
-  padding: 48px 0 36px 0;
-  margin: 0 auto 2rem auto;
-  max-width: 1100px; /* Ajustado para permitir mais cards na linha */
-  position: relative;
-  z-index: 2;
-  overflow: hidden; /* Adicionado para conter o track do carrossel */
-}
-
-.clientes-carousel-track-wrapper {
-  overflow: hidden; /* Garante que apenas o track seja rolado */
-}
-
-.clientes-carousel-track {
-  display: flex;
-  transition: transform 0.5s ease-in-out; /* Transição suave para o carrossel */
-  list-style: none; /* Remove marcadores de lista */
-  padding: 0;
-  margin: 0;
+/* Removido o estilo de carrossel para um layout de grade */
+.clientes-carousel-root,
+.clientes-carousel-track-wrapper,
+.clientes-carousel-track,
+.clientes-carousel-navigation,
+.clientes-carousel-button {
+  /* Estas classes não são mais usadas para um carrossel, mas podem ser mantidas se houver
+     outros elementos que as utilizem ou para evitar quebras de layout inesperadas
+     se o HTML ainda as referenciar de alguma forma.
+     Neste caso, elas foram removidas do HTML para simplificar. */
 }
 
 .clientes-card {
-  flex: 0 0 auto; /* Permite que os cards tenham seu próprio tamanho e não se estiquem */
-  width: 250px; /* Largura reduzida para caber 4 cards */
-  margin-right: 20px; /* Espaçamento entre os cards */
+  /* Ajustado para se adequar a um layout de grade Bootstrap */
   background: var(--secundaria);
   border-radius: 18px;
   padding: 2em;
@@ -38,6 +25,9 @@
   flex-direction: column;
   justify-content: space-between;
   text-align: left;
+  /* Removido flex-basis e margin-right específicos para carrossel,
+     agora o Bootstrap col e g-4 gerenciam o layout e espaçamento. */
+  width: 100%; /* Garante que o card ocupe a largura total da coluna */
 }
 
 .clientes-card:hover {
@@ -121,98 +111,22 @@
   margin-right: 2px;
 }
 
-/* Estilos dos botões de navegação do carrossel */
-.clientes-carousel-navigation {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
-  padding: 0 20px;
-  z-index: 10;
-}
-
-.clientes-carousel-button {
-  background-color: rgba(100,255,218,0.8);
-  border: none;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5em;
-  color: var(--primaria);
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(100,255,218,0.3);
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.clientes-carousel-button:hover {
-  background-color: var(--destaque);
-  transform: scale(1.1);
-}
-
-.clientes-carousel-button:active {
-  transform: scale(0.95);
-}
-
 /* Media queries para responsividade dos cards de clientes */
 @media (max-width: 992px) {
-  .clientes-carousel-root {
-    max-width: 700px; /* Ajuste para tablets */
-    padding: 36px 0 24px 0;
-  }
   .clientes-card {
-    width: 300px; /* Volta para 2 cards por linha em tablets */
-    margin-right: 15px;
     padding: 1.5em;
-  }
-  .clientes-carousel-navigation {
-    padding: 0 10px;
-  }
-  .clientes-carousel-button {
-    width: 40px;
-    height: 40px;
-    font-size: 1.3em;
   }
 }
 
 @media (max-width: 768px) {
-  .clientes-carousel-root {
-    max-width: 90%; /* Ajuste para mobile */
-    border-radius: 18px;
-    padding: 24px 0 18px 0;
-  }
   .clientes-card {
-    width: 85vw; /* Ocupa a maior parte da largura da viewport em mobile */
-    max-width: 320px; /* Limite para mobile */
-    margin-right: 15px;
     padding: 1.2em;
     min-height: 250px;
-  }
-  .clientes-carousel-navigation {
-    top: auto;
-    bottom: 0;
-    transform: none;
-    position: relative;
-    margin-top: 1.5rem;
-    padding: 0;
-    justify-content: center;
-    gap: 1rem;
-  }
-  .clientes-carousel-button {
-    width: 35px;
-    height: 35px;
-    font-size: 1.2em;
   }
 }
 
 @media (max-width: 480px) {
   .clientes-card {
-    width: 90vw;
-    margin-right: 10px;
+    margin-right: 0; /* Garante que não haja margem extra em telas muito pequenas */
   }
 }
