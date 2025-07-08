@@ -29,268 +29,149 @@ document.addEventListener('DOMContentLoaded', function () {
       scale: [0.95, 1], // Inicia ligeiramente menor e volta ao tamanho normal
       translateY: [20, 0], // Desliza de 20px abaixo para a posição final
       delay: anime.stagger(150), // Ajuste no atraso para uma animação mais ágil
-      duration: 1200, // Duração da animação
-      easing: 'easeOutElastic(1, .8)'
+      duration: 1200, // Duração da
+      easing: 'easeOutQuad'
     });
   }
 
-  // Binary Code Cascade Effect for the #inicio section
-  const jarvisMatrixCanvas = document.querySelector('.jarvis-matrix-canvas');
-  if (jarvisMatrixCanvas) {
-    const ctx = jarvisMatrixCanvas.getContext('2d');
-    let width, height;
-    const characters = '01';
-    const fontSize = 16;
-    let columns;
-    let drops = [];
+  // Lógica para o formulário de contato e modal
+  const contactFormModal = document.getElementById('contactForm');
+  const sendWhatsappModalBtn = document.getElementById('sendWhatsappModalBtn');
+  const sendEmailModalBtn = document.getElementById('sendEmailModalBtn');
+  const modalFormMessage = document.getElementById('modalFormMessage');
 
-    // Function to resize the canvas and reinitialize drops
-    function resizeJarvisMatrixCanvas() {
-      width = jarvisMatrixCanvas.width = window.innerWidth;
-      height = jarvisMatrixCanvas.height = window.innerHeight;
-      columns = Math.floor(width / fontSize);
-
-      drops = [];
-      for (let i = 0; i < columns; i++) {
-        drops[i] = 1; // Start drops at the top of each column
-      }
-    }
-
-    // Event listener for window resize with debounce for performance
-    window.addEventListener('resize', debounce(resizeJarvisMatrixCanvas, 250));
-    resizeJarvisMatrixCanvas(); // Initial resize
-
-    // Animation loop for the binary cascade
-    function animateJarvisMatrix() {
-      ctx.fillStyle = 'rgba(10, 25, 47, 0.05)';
-      ctx.fillRect(0, 0, width, height);
-
-      ctx.fillStyle = '#00ffc3';
-      ctx.font = `${fontSize}px monospace`;
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = characters.charAt(Math.floor(Math.random() * characters.length));
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if (drops[i] * fontSize > height && Math.random() > 0.975) { // 2.5% chance to reset
-          drops[i] = 0;
-        }
-
-        // Move the drop down slower and with a nonuniform speed
-        // Each drop will move between 0.1 and 0.6 units per frame (0.1 + random value up to 0.5)
-        drops[i] += (Math.random() * 0.5) + 0.1;
-      }
-
-      requestAnimationFrame(animateJarvisMatrix); // Loop the animation
-    }
-    animateJarvisMatrix(); // Start the binary cascade animation
+  // Função para coletar dados do formulário
+  function getFormData() {
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const telefone = document.getElementById('telefone').value;
+    const mensagem = document.getElementById('mensagem').value;
+    return { nome, email, telefone, mensagem };
   }
 
-
-  // Particle Background for sections with cards
-  class ParticleBackground {
-    constructor(canvasId, particleCount = 60, particleColor = 'rgba(100, 255, 218, 0.2)') {
-      this.canvas = document.getElementById(canvasId);
-      if (!this.canvas) {
-        console.warn(`Canvas with ID '${canvasId}' not found. Particle background will not be initialized.`);
-        return;
-      }
-      this.ctx = this.canvas.getContext('2d');
-      this.particles = [];
-      this.particleCount = particleCount;
-      this.particleColor = particleColor;
-      this.animationFrameId = null; // To store the animation frame ID for cancellation
-
-      this.resize = this.resize.bind(this); // Bind 'this' context
-      this.animate = this.animate.bind(this); // Bind 'this' context
-
-      this.resize();
-      // Add a resize listener with debounce
-      window.addEventListener('resize', debounce(this.resize, 250));
-
-      // Observe the section for intersection to start/stop animation
-      const section = this.canvas.parentElement;
-      if (section) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              if (!this.animationFrameId) { // Start animation only if not already running
-                this.animate();
-              }
-            } else {
-              if (this.animationFrameId) { // Stop animation if not visible
-                cancelAnimationFrame(this.animationFrameId);
-                this.animationFrameId = null;
-              }
-            }
-          });
-        }, { threshold: 0.1 }); // Trigger when 10% of the section is visible
-        observer.observe(section);
-      } else {
-        // If no parent section, start animation immediately
-        this.animate();
-      }
-    }
-
-    resize() {
-      const parent = this.canvas.parentElement;
-      if (parent) {
-        this.width = this.canvas.width = parent.clientWidth;
-        this.height = this.canvas.height = parent.clientHeight;
-      } else {
-        this.width = this.canvas.width = window.innerWidth;
-        this.height = this.canvas.height = window.innerHeight;
-      }
-      this.particles = [];
-      for (let i = 0; i < this.particleCount; i++) {
-        this.particles.push(this.createParticle());
-      }
-    }
-
-    createParticle() {
-      return {
-        x: Math.random() * this.width,
-        y: Math.random() * this.height,
-        r: Math.random() * 2 + 1, // Radius
-        dx: (Math.random() - 0.5) * 0.5, // Speed X
-        dy: (Math.random() - 0.5) * 0.5 // Speed Y
-      };
-    }
-
-    drawParticle(p) {
-      this.ctx.beginPath();
-      this.ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      this.ctx.fillStyle = this.particleColor;
-      this.ctx.fill();
-    }
-
-    updateParticle(p) {
-      p.x += p.dx;
-      p.y += p.dy;
-
-      // Bounce off edges
-      if (p.x < 0 || p.x > this.width) p.dx *= -1;
-      if (p.y < 0 || p.y > this.height) p.dy *= -1;
-    }
-
-    animate() {
-      this.ctx.clearRect(0, 0, this.width, this.height);
-      for (let p of this.particles) {
-        this.drawParticle(p);
-        this.updateParticle(p);
-      }
-      this.animationFrameId = requestAnimationFrame(this.animate);
-    }
+  // Função para exibir mensagens na modal
+  function displayMessage(message, isSuccess) {
+    modalFormMessage.textContent = message;
+    modalFormMessage.className = isSuccess ? 'mt-3 text-center text-success' : 'mt-3 text-center text-danger';
+    modalFormMessage.style.display = 'block';
   }
 
-  // Initialize ParticleBackground for each relevant section
-  new ParticleBackground('sobreBgCanvas', 60, 'rgba(100, 255, 218, 0.2)'); // Existing 'Sobre' section
-  new ParticleBackground('formacaoBgCanvas', 60, 'rgba(100, 255, 218, 0.2)');
-  new ParticleBackground('skillsBgCanvas', 60, 'rgba(100, 255, 218, 0.2)');
-  new ParticleBackground('experienciasBgCanvas', 60, 'rgba(100, 255, 218, 0.2)');
-  new ParticleBackground('servicosBgCanvas', 60, 'rgba(100, 255, 218, 0.2)');
-  new ParticleBackground('portfolioBgCanvas', 60, 'rgba(100, 255, 218, 0.2)');
-  new ParticleBackground('clientesBgCanvas', 60, 'rgba(100, 255, 218, 0.2)');
-
-
-  // Efeito de rolagem suave para links de navegação
-  document.querySelectorAll('a.nav-link[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
-  });
-
-  // Fecha o menu hamburguer após clicar em um item (apenas para dispositivos móveis)
-  const navbarCollapse = document.getElementById('navbarNav');
-  if (navbarCollapse) {
-    const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
-    document.querySelectorAll('#navbarNav .nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        if (navbarCollapse.classList.contains('show')) {
-          bsCollapse.hide();
-        }
-      });
-    });
-  }
-
-  // Ativação do AOS (Animate On Scroll)
-  AOS.init({
-    duration: 1200, // Duração da animação em ms
-    once: true,     // Animar apenas uma vez ao rolar para baixo
-    mirror: false,  // Se os elementos devem animar de volta ao rolar para cima
-  });
-
-  // Lógica para o formulário de contato dentro da modal
-  const contactFormModal = document.getElementById('contactFormModal');
-  const formMessageModal = document.getElementById('formMessageModal');
-
+  // Event listener para o envio do formulário principal
   if (contactFormModal) {
-    const sendWhatsappModalBtn = document.getElementById('sendWhatsappModal');
-    const sendEmailModalBtn = document.getElementById('sendEmailModal');
+    contactFormModal.addEventListener('submit', function (e) {
+      e.preventDefault(); // Previne o envio padrão do formulário
 
-    // Function to display messages (success/error)
-    function displayMessage(message, isSuccess) {
-      formMessageModal.textContent = message;
-      formMessageModal.style.color = isSuccess ? '#28a745' : '#dc3545'; // Green for success, red for error
-      formMessageModal.style.display = 'block';
-      setTimeout(() => {
-        formMessageModal.style.display = 'none';
-      }, 5000); // Hide message after 5 seconds
-    }
+      // Exibe a modal de opções de contato
+      const contactOptionsModal = new bootstrap.Modal(document.getElementById('contactOptionsModal'));
+      contactOptionsModal.show();
+      modalFormMessage.style.display = 'none'; // Limpa mensagens anteriores ao abrir a modal
+    });
+  }
 
-    // Function to get form data
-    function getFormData() {
-      const nome = document.getElementById('modalNome').value;
-      const email = document.getElementById('modalEmail').value;
-      const telefone = document.getElementById('modalTelefone').value;
-      const mensagem = document.getElementById('modalMensagem').value;
-      return { nome, email, telefone, mensagem };
-    }
+  // Lógica para enviar por WhatsApp
+  if (sendWhatsappModalBtn) {
+    sendWhatsappModalBtn.addEventListener('click', () => {
+      const data = getFormData();
+      const whatsappMessage = encodeURIComponent(`Olá Mariane,\n\nMeu nome é ${data.nome}.\nMeu e-mail é ${data.email}.\n${data.telefone ? `Meu telefone é ${data.telefone}.\n` : ''}\n${data.mensagem}\n\nAtenciosamente,\n${data.nome}`);
+      const whatsappUrl = `https://wa.me/5541997649731?text=${whatsappMessage}`;
+      window.open(whatsappUrl, '_blank'); // Abre em nova aba
+      displayMessage('Mensagem para WhatsApp gerada! Por favor, envie-a.', true);
+      contactFormModal.reset(); // Limpa o formulário
 
-    // WhatsApp send logic
-    if (sendWhatsappModalBtn) {
-      sendWhatsappModalBtn.addEventListener('click', () => {
-        const data = getFormData();
-        // Removed form validation as per user request
-        const whatsappMessage = `Olá, meu nome é ${data.nome}. Meu e-mail é ${data.email}. ${data.telefone ? `Meu telefone é ${data.telefone}.` : ''}\n\n${data.mensagem}\n\n*Solicitação de Orçamento*`;
-        const whatsappUrl = `https://wa.me/5541999999999?text=${encodeURIComponent(whatsappMessage)}`;
-        window.open(whatsappUrl, '_blank');
-        displayMessage('Mensagem para WhatsApp gerada! Por favor, envie-a.', true);
-        contactFormModal.reset();
-        // Optionally close modal after sending
-        const contactModal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
-        if (contactModal) contactModal.hide();
-      });
-    }
+      // Fecha a modal após o envio
+      const contactModal = bootstrap.Modal.getInstance(document.getElementById('contactOptionsModal')); // Corrigido o ID
+      if (contactModal) contactModal.hide();
+    });
+  }
 
-    // Email send logic
-    if (sendEmailModalBtn) {
-      sendEmailModalBtn.addEventListener('click', () => {
-        const data = getFormData();
-        // Removed form validation as per user request
-        const subject = encodeURIComponent('Solicitação de Orçamento - Portfólio');
-        const body = encodeURIComponent(`Olá Mariane,\n\nMeu nome é ${data.nome}.\nMeu e-mail é ${data.email}.\n${data.telefone ? `Meu telefone é ${data.telefone}.\n` : ''}\n${data.mensagem}\n\nAtenciosamente,\n${data.nome}`);
-        const mailtoUrl = `mailto:marinanideveloper@gmail.com?subject=${subject}&body=${body}`;
-        window.location.href = mailtoUrl;
-        displayMessage('E-mail gerado! Por favor, envie-o pelo seu cliente de e-mail.', true);
-        contactFormModal.reset();
-        // Optionally close modal after sending
-        const contactModal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
-        if (contactModal) contactModal.hide();
-      });
-    }
+  // Lógica para enviar por Email
+  if (sendEmailModalBtn) {
+    sendEmailModalBtn.addEventListener('click', () => {
+      const data = getFormData();
+      const subject = encodeURIComponent('Solicitação de Orçamento - Portfólio');
+      const body = encodeURIComponent(`Olá Mariane,\n\nMeu nome é ${data.nome}.\nMeu e-mail é ${data.email}.\n${data.telefone ? `Meu telefone é ${data.telefone}.\n` : ''}\n${data.mensagem}\n\nAtenciosamente,\n${data.nome}`);
+      const mailtoUrl = `mailto:marinanideveloper@gmail.com?subject=${subject}&body=${body}`;
+      window.location.href = mailtoUrl; // Redireciona para o cliente de e-mail
+      displayMessage('E-mail gerado! Por favor, envie-o pelo seu cliente de e-mail.', true);
+      contactFormModal.reset(); // Limpa o formulário
+
+      // Fecha a modal após o envio
+      const contactModal = bootstrap.Modal.getInstance(document.getElementById('contactOptionsModal')); // Corrigido o ID
+      if (contactModal) contactModal.hide();
+    });
   }
 
   // Removida toda a lógica do carrossel manual para a seção de clientes,
   // pois agora ela usa um layout de grade estático.
 
+  // === Lógica para o efeito de cascata binária no canvas ===
+  function initBinaryWaterfall() {
+    const canvas = document.querySelector('.jarvis-matrix-canvas');
+    if (!canvas) return; // Sai se o canvas não for encontrado
+
+    const ctx = canvas.getContext('2d');
+
+    // Função para redimensionar o canvas
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    // Redimensiona o canvas inicialmente e em cada redimensionamento da janela
+    resizeCanvas();
+    window.addEventListener('resize', debounce(resizeCanvas, 250)); // Usando debounce da utilities.js
+
+    const characters = '01'; // Caracteres binários
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+
+    // Array para armazenar a posição Y de cada coluna
+    const drops = [];
+    for (let i = 0; i < columns; i++) {
+      drops[i] = 1; // Começa cada coluna no topo
+    }
+
+    // Função principal de desenho
+    function draw() {
+      // Fundo semi-transparente para o efeito de "rastro"
+      ctx.fillStyle = 'rgba(10, 25, 47, 0.05)'; // Cor primária com transparência
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Estilo do texto
+      ctx.fillStyle = '#00e6e6'; // Cor neon (var(--destaque))
+      ctx.font = `${fontSize}px monospace`;
+
+      // Desenha cada "gota" (coluna de caracteres)
+      for (let i = 0; i < drops.length; i++) {
+        const text = characters.charAt(Math.floor(Math.random() * characters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        // Reinicia a "gota" no topo se ela cair abaixo da tela
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0; // Volta para o topo
+        }
+
+        // Incrementa a posição Y da gota
+        drops[i]++;
+      }
+    }
+
+    // Inicia a animação
+    setInterval(draw, 53); // Aproximadamente 30 FPS
+  }
+
+  // Chama a função para iniciar o efeito de cascata binária
+  initBinaryWaterfall();
+
 });
 
 // Função debounce para otimizar o evento de redimensionamento
+// (Esta função já existe em utilities.js, mas é mantida aqui para garantir
+// que custom.js seja autocontido se utilities.js for carregado depois,
+// embora o ideal seja usar a de utilities.js se ela for carregada primeiro.
+// Para este caso, vamos assumir que utilities.js é carregado primeiro ou que
+// a função debounce é definida globalmente ou em um escopo acessível.)
+// Se você já tem debounce em utilities.js e ele é carregado antes, pode remover esta.
 function debounce(func, delay) {
   let timeout;
   return function() {

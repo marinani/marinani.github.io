@@ -26,39 +26,15 @@
   justify-content: space-between;
   text-align: left;
   /* Removido flex-basis e margin-right específicos para carrossel,
-     agora o Bootstrap col e g-4 gerenciam o layout e espaçamento. */
-  width: 100%; /* Garante que o card ocupe a largura total da coluna */
+     agora o Bootstrap controla isso com as classes de coluna e g-4 */
 }
 
 .clientes-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 0 25px rgba(100,255,218,0.6); /* Brilho mais intenso no hover */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4), 0 0 20px rgba(100,255,218,0.5);
 }
 
-/* Linhas decorativas removidas para um visual mais limpo */
-.clientes-card .tiles,
-.clientes-card .line {
-  display: none; /* Remove elementos decorativos */
-  pointer-events: none;
-}
-.clientes-card .tiles .tile {
-  position: absolute;
-  background-color: var(--card-tile-color, rgba(16,185,129,0.05));
-  opacity: 0.7;
-  border-radius: 4px;
-}
-.clientes-card .line {
-  position: absolute;
-  background-color: var(--card-line-color, #2A2B2C);
-  opacity: 0.2;
-  border-radius: 2px;
-}
-.clientes-card .line-1 { top: 18%; left: 10%; width: 80%; height: 2px; }
-.clientes-card .line-2 { top: 50%; left: 10%; width: 80%; height: 2px; }
-.clientes-card .line-3 { top: 82%; left: 10%; width: 80%; height: 2px; }
-
-
-/* Estilos do cabeçalho do card de cliente */
+/* Estilo do cabeçalho do card (avatar e info) */
 .clientes-card .card-header {
   display: flex;
   align-items: center;
@@ -84,11 +60,17 @@
   font-weight: 600;
   color: var(--destaque);
   margin-bottom: 0.2em;
+  white-space: nowrap; /* Impede que o nome quebre a linha */
+  overflow: hidden; /* Oculta o texto que excede a largura */
+  text-overflow: ellipsis; /* Adiciona reticências (...) se o texto for muito longo */
 }
 
 .clientes-card .client-title {
   font-size: 0.9em;
   color: #a3b2cc;
+  white-space: nowrap; /* Impede que o título quebre a linha */
+  overflow: hidden; /* Oculta o texto que excede a largura */
+  text-overflow: ellipsis; /* Adiciona reticências (...) se o texto for muito longo */
 }
 
 /* Estilo do texto do depoimento */
@@ -97,36 +79,66 @@
   color: var(--texto-escuro);
   line-height: 1.6;
   margin-bottom: 1.5em;
-  flex-grow: 1; /* Permite que o texto ocupe o espaço disponível */
+  flex-grow: 1; /* Permite que o texto ocupe o espaço restante */
+  font-style: italic; /* Define o estilo da fonte para itálico */
 }
 
-/* Estilo das estrelas de avaliação */
-.clientes-card .rating {
-  color: #FFD700; /* Cor dourada para as estrelas */
-  font-size: 1.1em;
-  margin-top: auto; /* Empurra a avaliação para o final do card */
-}
-
+/* Estilo das estrelas de avaliação (se aplicável) */
 .clientes-card .rating .fas {
-  margin-right: 2px;
+  color: #ffc107; /* Cor amarela para estrelas */
+  margin-right: 0.2em;
 }
 
-/* Media queries para responsividade dos cards de clientes */
-@media (max-width: 992px) {
-  .clientes-card {
-    padding: 1.5em;
-  }
-}
-
+/* Responsividade */
 @media (max-width: 768px) {
   .clientes-card {
-    padding: 1.2em;
-    min-height: 250px;
+    padding: 1.5em; /* Reduz o padding em telas menores */
+    min-height: auto; /* Remove altura mínima fixa em mobile para se ajustar ao conteúdo */
+  }
+
+  .clientes-card .client-avatar {
+    width: 50px;
+    height: 50px;
+    margin-right: 0.8em;
+  }
+
+  .clientes-card .client-name {
+    font-size: 1em;
+  }
+
+  .clientes-card .client-title {
+    font-size: 0.8em;
+  }
+
+  .clientes-card .testimonial-text {
+    font-size: 0.9em;
+    margin-bottom: 1em;
   }
 }
 
-@media (max-width: 480px) {
-  .clientes-card {
-    margin-right: 0; /* Garante que não haja margem extra em telas muito pequenas */
+/* Novo wrapper para o grid customizado */
+.clientes-grid-wrapper {
+  display: grid;
+  /* 3 colunas em telas maiores, mínimo de 280px por card, preenche o espaço disponível */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem; /* Espaçamento entre os cards */
+  justify-items: center; /* Centraliza os itens dentro de suas áreas de grid */
+  padding: 1rem; /* Adiciona um pouco de padding ao redor do grid */
+}
+
+/* Ajusta os cards para ocuparem a largura total de sua célula de grid */
+.clientes-grid-wrapper .clientes-card {
+  width: 100%;
+  max-width: 380px; /* Opcional: limita a largura máxima de cards individuais */
+}
+
+/* Responsividade para telas menores para o novo grid */
+@media (max-width: 767.98px) {
+  .clientes-grid-wrapper {
+    grid-template-columns: 1fr; /* Uma única coluna em telas pequenas */
+  }
+  .clientes-grid-wrapper .clientes-card {
+    max-width: 90%; /* Ajusta a largura máxima para uma única coluna em telas pequenas */
+    margin: 0 auto; /* Centraliza o card */
   }
 }
