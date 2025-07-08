@@ -15,8 +15,74 @@
   <link rel="stylesheet" href="assets/css/clientes-cards.css" />
   <!-- Usando Font Awesome para todos os ícones para consistência -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+  <style>
+    /* Efeito neon para os títulos das seções */
+    h2.text-info {
+      text-shadow: 0 0 5px rgba(13, 202, 240, 0.8),
+                   0 0 10px rgba(13, 202, 240, 0.6);
+    }
+
+    /* Estilo para o botão do acordeão em mobile */
+    @media (max-width: 991.98px) {
+      /* Garante que o texto da habilidade seja exibido em mobile */
+      .skill-item-content span {
+        display: inline !important;
+      }
+
+      .accordion-button {
+        background-color: var(--secundaria) !important;
+        color: var(--destaque) !important;
+        font-weight: 700;
+        border-radius: 16px !important;
+        padding: 1.5rem;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        border: 1px solid rgba(0,230,230,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem; /* Espaçamento entre os botões */
+      }
+
+      .accordion-button:not(.collapsed) {
+        background-color: var(--primaria) !important;
+        color: var(--destaque-hover) !important;
+        box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 0 20px rgba(0,230,230,0.4);
+        border-color: var(--destaque);
+      }
+
+      .accordion-button::after {
+        filter: brightness(0) invert(1); /* Ícone branco para contraste */
+      }
+
+      .accordion-item {
+        background-color: transparent !important;
+        border: none !important;
+        margin-bottom: 1.5rem; /* Espaçamento entre os itens do acordeão */
+      }
+
+      .accordion-body {
+        background-color: var(--secundaria);
+        border-radius: 16px;
+        padding: 1.5rem;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        border: 1px solid rgba(0,230,230,0.1);
+      }
+
+      /* Ajuste para o padding das seções quando minimizadas */
+      section {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+      }
+    }
+  </style>
 </head>
 <body data-theme="light">
+  <!-- Elementos para o efeito de estrelas em todo o fundo da página -->
+  <div class="stars stars-small"></div>
+  <div class="stars stars-medium"></div>
+  <div class="stars stars-large"></div>
 
   <nav class="navbar navbar-expand-lg bg-primaria navbar-dark fixed-top">
     <div class="container">
@@ -69,7 +135,7 @@
     </div>
   </nav>
 
-  <main>
+  <main class="position-relative z-2"> <!-- Adicionado z-index para garantir que o conteúdo principal fique acima das estrelas -->
     <section id="inicio" class="hero jarvis-hero">
        <canvas class="jarvis-matrix-canvas"></canvas>
       <div class="container hero-content-wrapper">
@@ -100,10 +166,114 @@
       </div>
     </section>
 
-    <section id="sobre" class="py-5">
+    <!-- Seção Sobre Mim -->
+    <div class="accordion d-lg-none" id="accordionAbout">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingAbout">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAbout" aria-expanded="false" aria-controls="collapseAbout">
+            Sobre Mim
+          </button>
+        </h2>
+        <div id="collapseAbout" class="accordion-collapse collapse" aria-labelledby="headingAbout" data-bs-parent="#accordionAbout">
+          <div class="accordion-body">
+            <section id="sobre" class="py-5">
+              <canvas id="sobreBgCanvas" class="card-section-bg-canvas"></canvas> <!-- Canvas para o efeito de partículas -->
+              <div class="container">
+                <h2 class="text-center mb-5 text-info" data-aos="fade-up">Sobre Mim</h2>
+                <div class="sobre-card-wrapper">
+                  <div class="sobre-card" data-aos="zoom-in" data-aos-delay="200">
+                    <!-- Conteúdo principal da seção Sobre Mim -->
+                    <div class="row align-items-start"> <!-- Usando row para alinhar imagem e texto -->
+                      <div class="col-md-4 d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
+                        <!-- Imagem de perfil -->
+                        <img src="assets/src/images/perfil.jpeg" alt="Mariane Ribeiro" class="img-fluid about-profile-img">
+                      </div>
+                      <div class="col-md-8">
+                        <!-- Texto inicial -->
+                        <h4 class="mt-3 mt-md-0">Desenvolvedora Back-end .NET com Foco em Resultados</h4>
+                        <p class="sobre-info">
+                          Desenvolvedora Back-end .NET com mais de 10 anos de experiência no desenvolvimento de
+                          sistemas web, APIs REST e SOAP, e gestão de banco de dados. Forte atuação em arquitetura
+                          de software, aplicação de princípios SOLID, Clean Code, DDD e padrões de projeto.
+                          Experiência em mensageria com RabbitMQ, CI/CD, experiência em Azure DevOps, Azure
+                          Services, e metodologias ágeis (Scrum). Proativa, colaborativa e orientada a resultados, com
+                          participação ativa na concepção, evolução e entrega de soluções escaláveis e seguras.
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- Meus Princípios -->
+                    <div class="sobre-detalhes mt-4">
+                      <h5 class="mb-3">Meus Princípios</h5>
+                      <div class="row g-3"> <!-- Usando grid do Bootstrap para os cards de princípios -->
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                          <div class="principle-card">
+                            <i class="fas fa-check-circle text-info me-2"></i> <!-- Ícone para Qualidade (Font Awesome) -->
+                            <div>
+                              <h6>Qualidade</h6>
+                              <p>Compromisso com código limpo, testável e manutenível.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                          <div class="principle-card">
+                            <i class="fas fa-lightbulb text-info me-2"></i> <!-- Ícone para Inovação (Font Awesome) -->
+                            <div>
+                              <h6>Inovação</h6>
+                              <p>Curiosidade em novas tecnologias e metodologias para entregar o melhor.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                          <div class="principle-card">
+                            <i class="fas fa-users text-info me-2"></i> <!-- Ícone para Colaboração (Font Awesome) -->
+                            <div>
+                              <h6>Colaboração</h6>
+                              <p>Acredito que os melhores resultados vêm do trabalho em equipe e comunicação transparente.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                          <div class="principle-card">
+                            <i class="fas fa-award text-info me-2"></i> <!-- Ícone para Entrega de Valor (Font Awesome) -->
+                            <div>
+                              <h6>Entrega de Valor</h6>
+                              <p>Foco em gerar impacto real e soluções que não apenas funcionem, mas que também prosperem e evoluam junto com as demandas do mercado.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                          <div class="principle-card">
+                            <i class="fas fa-book text-info me-2"></i> <!-- Ícone para Aprendizado Contínuo (Font Awesome) -->
+                            <div>
+                              <h6>Aprendizado Contínuo</h6>
+                              <p>O mundo da tecnologia muda rapidamente, e estou sempre me atualizando.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                          <div class="principle-card">
+                            <i class="fas fa-tools text-info me-2"></i> <!-- Ícone para Resolução de Problemas (Font Awesome) -->
+                            <div>
+                              <h6>Resolução de Problemas</h6>
+                              <p>Visão analítica para identificar desafios e dedicação em construir soluções eficazes e duradouras.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section id="sobre" class="py-5 d-none d-lg-block">
       <canvas id="sobreBgCanvas" class="card-section-bg-canvas"></canvas> <!-- Canvas para o efeito de partículas -->
       <div class="container">
-        <h2 class="text-center mb-5" data-aos="fade-up">Sobre Mim</h2>
+        <h2 class="text-center mb-5 text-info" data-aos="fade-up">Sobre Mim</h2>
         <div class="sobre-card-wrapper">
           <div class="sobre-card" data-aos="zoom-in" data-aos-delay="200">
             <!-- Conteúdo principal da seção Sobre Mim -->
@@ -114,12 +284,14 @@
               </div>
               <div class="col-md-8">
                 <!-- Texto inicial -->
-                <h4 class="mt-3 mt-md-0">Desenvolvedora Full Stack com Foco em Resultados</h4>
+                <h4 class="mt-3 mt-md-0">Desenvolvedora Back-end .NET com Foco em Resultados</h4>
                 <p class="sobre-info">
-                  Sou uma desenvolvedora Full Stack apaixonada por criar soluções robustas e eficientes. Com mais de 9 anos de experiência em sistemas web e APIs, utilizando tecnologias como C# .NET, SQL Server, JavaScript, Bootstrap, CI/CD, DevOps, RabbitMQ, Jenkins e HangFire, minha jornada na programação começou com o desejo de transformar ideias complexas em aplicações funcionais e intuitivas.
-                </p>
-                <p class="sobre-info">
-                  Busco constantemente aprimorar minhas habilidades e aplicar as melhores práticas de desenvolvimento para entregar produtos de alta qualidade. Sou proativa, colaborativa e sempre em busca de novos desafios.
+                  Desenvolvedora Back-end .NET com mais de 10 anos de experiência no desenvolvimento de
+                  sistemas web, APIs REST e SOAP, e gestão de banco de dados. Forte atuação em arquitetura
+                  de software, aplicação de princípios SOLID, Clean Code, DDD e padrões de projeto.
+                  Experiência em mensageria com RabbitMQ, CI/CD, experiência em Azure DevOps, Azure
+                  Services, e metodologias ágeis (Scrum). Proativa, colaborativa e orientada a resultados, com
+                  participação ativa na concepção, evolução e entrega de soluções escaláveis e seguras.
                 </p>
               </div>
             </div>
@@ -190,31 +362,114 @@
     </section>
 
     <!-- Seção Formação Acadêmica -->
-    <section id="formacao" class="py-5">
+    <div class="accordion d-lg-none" id="accordionFormacao">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFormacao">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFormacao" aria-expanded="false" aria-controls="collapseFormacao">
+            Formação Acadêmica
+          </button>
+        </h2>
+        <div id="collapseFormacao" class="accordion-collapse collapse" aria-labelledby="headingFormacao" data-bs-parent="#accordionFormacao">
+          <div class="accordion-body">
+            <section id="formacao" class="py-5">
+              <canvas id="formacaoBgCanvas" class="card-section-bg-canvas"></canvas>
+              <div class="container">
+                <h2 class="text-center mb-5 text-info" data-aos="fade-up">Formação Acadêmica</h2>
+
+                <h4 class="text-center mb-4" data-aos="fade-up">Cursos e Graduações</h4>
+                <div class="row g-4 justify-content-center">
+                  <!-- Pós-graduação em Engenharia DevOps – Faculdade Focus -->
+                  <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+                      <div class="exp-card">
+                          <div class="exp-card-header">
+                            <div class="exp-logo-wrap">
+                              <img src="assets/src/images/empresas/focus-faculdade.png" alt="Logo Faculdade Focus" class="exp-logo">
+                            </div>
+                            <div class="exp-info">
+                              <h3>Pós-graduação em Engenharia DevOps</h3>
+                              <h4>Faculdade Focus</h4>
+                              <p class="exp-period">Jan/2025 – Mai/2025</p>
+                            </div>
+                          </div>
+                          <ul>
+                            <li>Especialização em práticas DevOps e SRE.</li>
+                            <li>Automação de infraestrutura e deployment.</li>
+                            <li>Monitoramento e observabilidade de sistemas.</li>
+                            <li>Containerização e orquestração.</li>
+                            <li></li>
+                          </ul>
+                          <div class="exp-badges">
+                            <span class="badge">DevOps</span>
+                            <span class="badge">CI/CD</span>
+                            <span class="badge">Docker</span>
+                            <span class="badge">Kubernetes</span>
+                            <span class="badge">Terraform</span>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Graduação em Análise e Desenvolvimento de Sistemas – Uniasselvi -->
+                  <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="exp-card">
+                      <div class="exp-card-header">
+                        <div class="exp-logo-wrap">
+                          <img src="assets/src/images/empresas/uniasselvi-logo.png" alt="Logo Uniasselvi" class="exp-logo">
+                        </div>
+                        <div class="exp-info">
+                          <h3>Graduação em Análise e Desenvolvimento de Sistemas</h3>
+                          <h4>Uniasselvi</h4>
+                          <p class="exp-period">Dez/2024 – Concluído</p>
+                        </div>
+                      </div>
+                      <ul>
+                        <li>Fundamentos de programação e algoritmos.</li>
+                        <li>Desenvolvimento web e mobile.</li>
+                        <li>Banco de dados e modelagem.</li>
+                        <li>Engenharia de software e metodologias ágeis.</li>
+                        <li></li>
+                      </ul>
+                      <div class="exp-badges">
+                        <span class="badge">Algoritmos</span>
+                        <span class="badge">Desenvolvimento Web</span>
+                        <span class="badge">Banco de Dados</span>
+                        <span class="badge">Agile</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Removidas as certificações para manter apenas o que foi fornecido na formação acadêmica -->
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section id="formacao" class="py-5 d-none d-lg-block">
       <canvas id="formacaoBgCanvas" class="card-section-bg-canvas"></canvas>
       <div class="container">
         <h2 class="text-center mb-5 text-info" data-aos="fade-up">Formação Acadêmica</h2>
 
-        <h4 class="text-center mb-4 text-info" data-aos="fade-up">Cursos e Graduações</h4>
+        <h4 class="text-center mb-4" data-aos="fade-up">Cursos e Graduações</h4>
         <div class="row g-4 justify-content-center">
-          <!-- Pós-graduação, Engenharia DevOps -->
+          <!-- Pós-graduação em Engenharia DevOps – Faculdade Focus -->
           <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
               <div class="exp-card">
                   <div class="exp-card-header">
                     <div class="exp-logo-wrap">
-                      <img src="https://placehold.co/60x60/0a192f/64ffda?text=FO" alt="Logo Faculdade Focus" class="exp-logo">
+                      <img src="assets/src/images/empresas/focus-faculdade.png" alt="Logo Faculdade Focus" class="exp-logo">
                     </div>
                     <div class="exp-info">
-                      <h3>Pós-graduação, Engenharia DevOps</h3>
+                      <h3>Pós-graduação em Engenharia DevOps</h3>
                       <h4>Faculdade Focus</h4>
-                      <p class="exp-period">Jan 2025 — Jul 2025</p>
+                      <p class="exp-period">Jan/2025 – Mai/2025</p>
                     </div>
                   </div>
                   <ul>
-                    <li>Especialização em práticas DevOps e SRE</li>
-                    <li>Automação de infraestrutura e deployment</li>
-                    <li>Monitoramento e observabilidade de sistemas</li>
-                    <li>Containerização e orquestração</li>
+                    <li>Especialização em práticas DevOps e SRE.</li>
+                    <li>Automação de infraestrutura e deployment.</li>
+                    <li>Monitoramento e observabilidade de sistemas.</li>
+                    <li>Containerização e orquestração.</li>
+                    <li></li>
                   </ul>
                   <div class="exp-badges">
                     <span class="badge">DevOps</span>
@@ -225,24 +480,25 @@
                   </div>
               </div>
           </div>
-          <!-- Graduação, Análise e Desenvolvimento de Sistemas -->
+          <!-- Graduação em Análise e Desenvolvimento de Sistemas – Uniasselvi -->
           <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
             <div class="exp-card">
               <div class="exp-card-header">
                 <div class="exp-logo-wrap">
-                  <img src="https://placehold.co/60x60/0a192f/64ffda?text=UA" alt="Logo Uniasselvi" class="exp-logo">
+                  <img src="assets/src/images/empresas/uniasselvi-logo.png" alt="Logo Uniasselvi" class="exp-logo">
                 </div>
                 <div class="exp-info">
-                  <h3>Graduação, Análise e Desenvolvimento de Sistemas</h3>
-                  <h4>Uniasselvi - Leonardo da Vinci</h4>
-                  <p class="exp-period">Jan 2024 — Dez 2024</p>
+                  <h3>Graduação em Análise e Desenvolvimento de Sistemas</h3>
+                  <h4>Uniasselvi</h4>
+                  <p class="exp-period">Dez/2024 – Concluído</p>
                 </div>
               </div>
               <ul>
-                <li>Fundamentos de programação e algoritmos</li>
-                <li>Desenvolvimento web e mobile</li>
-                <li>Banco de dados e modelagem</li>
-                <li>Engenharia de software e metodologias ágeis</li>
+                <li>Fundamentos de programação e algoritmos.</li>
+                <li>Desenvolvimento web e mobile.</li>
+                <li>Banco de dados e modelagem.</li>
+                <li>Engenharia de software e metodologias ágeis.</li>
+                <li></li>
               </ul>
               <div class="exp-badges">
                 <span class="badge">Algoritmos</span>
@@ -252,243 +508,365 @@
               </div>
             </div>
           </div>
-          <!-- Curso de Desenvolvimento Web Completo - Udemy -->
-          <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
-            <div class="exp-card">
-              <div class="exp-card-header">
-                <div class="exp-logo-wrap">
-                  <img src="https://placehold.co/60x60/0a192f/64ffda?text=UD" alt="Logo Udemy" class="exp-logo">
-                </div>
-                <div class="exp-info">
-                  <h3>Curso de Desenvolvimento Web Completo</h3>
-                  <h4>Udemy</h4>
-                  <p class="exp-period">Jan 2023 — Mar 2023</p>
-                </div>
-              </div>
-              <ul>
-                <li>HTML5, CSS3, JavaScript</li>
-                <li>Node.js, Express.js, MongoDB</li>
-                <li>Desenvolvimento responsivo</li>
-                <li>APIs RESTful</li>
-              </ul>
-              <div class="exp-badges">
-                <span class="badge">HTML</span>
-                <span class="badge">CSS</span>
-                <span class="badge">JavaScript</span>
-                <span class="badge">Node.js</span>
-              </div>
-            </div>
-          </div>
         </div>
 
-        <h4 class="text-center mb-4 mt-5 text-info" data-aos="fade-up">Certificações</h4>
-        <div class="row g-4 justify-content-center">
-          <!-- Microsoft Certified: Azure Developer Associate -->
-          <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-            <div class="exp-card">
-              <div class="exp-card-header">
-                <div class="exp-logo-wrap">
-                  <img src="https://placehold.co/60x60/0a192f/64ffda?text=MS" alt="Logo Microsoft" class="exp-logo">
-                </div>
-                <div class="exp-info">
-                  <h3>Microsoft Certified: Azure Developer Associate</h3>
-                  <h4>Microsoft</h4>
-                  <p class="exp-period">Abr 2024</p>
-                </div>
-              </div>
-              <ul>
-                <li>Desenvolvimento de soluções no Azure</li>
-                <li>Implementação de serviços de computação</li>
-                <li>Monitoramento e otimização de soluções Azure</li>
-              </ul>
-              <div class="exp-badges">
-                <span class="badge">Azure</span>
-                <span class="badge">Cloud</span>
-                <span class="badge">DevOps</span>
-              </div>
-            </div>
-          </div>
-          <!-- AWS Certified Solutions Architect – Associate -->
-          <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
-            <div class="exp-card">
-              <div class="exp-card-header">
-                <div class="exp-logo-wrap">
-                  <img src="https://placehold.co/60x60/0a192f/64ffda?text=AWS" alt="Logo AWS" class="exp-logo">
-                </div>
-                <div class="exp-info">
-                  <h3>AWS Certified Solutions Architect – Associate</h3>
-                  <h4>Amazon Web Services (AWS)</h4>
-                  <p class="exp-period">Mar 2023</p>
-                </div>
-              </div>
-              <ul>
-                <li>Design de arquiteturas escaláveis e resilientes na AWS</li>
-                <li>Implementação de sistemas distribuídos</li>
-                <li>Segurança e gerenciamento de custos na nuvem</li>
-              </ul>
-              <div class="exp-badges">
-                <span class="badge">AWS</span>
-                <span class="badge">Cloud Computing</span>
-                <span class="badge">Arquitetura</span>
-              </div>
-            </div>
-          </div>
-          <!-- Professional Scrum Master™ I (PSM I) -->
-          <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
-            <div class="exp-card">
-              <div class="exp-card-header">
-                <div class="exp-logo-wrap">
-                  <img src="https://placehold.co/60x60/0a192f/64ffda?text=SM" alt="Logo Scrum.org" class="exp-logo">
-                </div>
-                <div class="exp-info">
-                  <h3>Professional Scrum Master™ I (PSM I)</h3>
-                  <h4>Scrum.org</h4>
-                  <p class="exp-period">Fev 2022</p>
-                </div>
-              </div>
-              <ul>
-                <li>Compreensão profunda do framework Scrum</li>
-                <li>Facilitação de eventos Scrum</li>
-                <li>Remoção de impedimentos para a equipe</li>
-              </ul>
-              <div class="exp-badges">
-                <span class="badge">Scrum</span>
-                <span class="badge">Agile</span>
-                <span class="badge">Gestão de Projetos</span>
-              </div>
-            </div>
-          </div>
-          <!-- Google IT Support Professional Certificate -->
-          <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="400">
-            <div class="exp-card">
-              <div class="exp-card-header">
-                <div class="exp-logo-wrap">
-                  <img src="https://placehold.co/60x60/0a192f/64ffda?text=GO" alt="Logo Google" class="exp-logo">
-                </div>
-                <div class="exp-info">
-                  <h3>Google IT Support Professional Certificate</h3>
-                  <h4>Google</h4>
-                  <p class="exp-period">Jan 2021</p>
-                </div>
-              </div>
-              <ul>
-                <li>Fundamentos de TI</li>
-                <li>Redes de computadores</li>
-                <li>Sistemas operacionais</li>
-              </ul>
-              <div class="exp-badges">
-                <span class="badge">TI</span>
-                <span class="badge">Suporte</span>
-                <span class="badge">Redes</span>
-              </div>
-            </div>
-          </div>
-          <!-- Oracle Certified Associate, Java SE 8 Programmer -->
-          <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="500">
-            <div class="exp-card">
-              <div class="exp-card-header">
-                <div class="exp-logo-wrap">
-                  <img src="https://placehold.co/60x60/0a192f/64ffda?text=OR" alt="Logo Oracle" class="exp-logo">
-                </div>
-                <div class="exp-info">
-                  <h3>Oracle Certified Associate, Java SE 8 Programmer</h3>
-                  <h4>Oracle</h4>
-                  <p class="exp-period">Dez 2020</p>
-                </div>
-              </div>
-              <ul>
-                <li>Fundamentos da linguagem Java</li>
-                <li>Programação orientada a objetos</li>
-                <li>Tratamento de exceções e APIs Java</li>
-              </ul>
-              <div class="exp-badges">
-                <span class="badge">Java</span>
-                <span class="badge">Programação</span>
-                <span class="badge">Oracle</span>
-              </div>
-            </div>
-          </div>
-          <!-- CCNA Routing and Switching -->
-          <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="600">
-            <div class="exp-card">
-              <div class="exp-card-header">
-                <div class="exp-logo-wrap">
-                  <img src="https://placehold.co/60x60/0a192f/64ffda?text=CIS" alt="Logo Cisco" class="exp-logo">
-                </div>
-                <div class="exp-info">
-                  <h3>CCNA Routing and Switching</h3>
-                  <h4>Cisco Networking Academy</h4>
-                  <p class="exp-period">Set 2019</p>
-                </div>
-              </div>
-              <ul>
-                <li>Configuração de roteadores e switches</li>
-                <li>Protocolos de roteamento</li>
-                <li>Segurança de rede</li>
-              </ul>
-              <div class="exp-badges">
-                <span class="badge">Redes</span>
-                <span class="badge">Cisco</span>
-                <span class="badge">Infraestrutura</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- Removidas as certificações para manter apenas o que foi fornecido na formação acadêmica -->
       </div>
     </section>
 
     <!-- Seção Habilidades -->
-    <section id="skills" class="py-5">
+    <div class="accordion d-lg-none" id="accordionSkills">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingSkills">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSkills" aria-expanded="false" aria-controls="collapseSkills">
+            Habilidades e Ferramentas
+          </button>
+        </h2>
+        <div id="collapseSkills" class="accordion-collapse collapse" aria-labelledby="headingSkills" data-bs-parent="#accordionSkills">
+          <div class="accordion-body">
+            <section id="skills" class="py-5">
+              <canvas id="skillsBgCanvas" class="card-section-bg-canvas"></canvas>
+              <div class="container">
+                <h2 class="text-center mb-5 text-info" data-aos="fade-up">Habilidades e Ferramentas</h2>
+                <div class="row g-4 justify-content-center">
+                  <!-- Único Card para todas as habilidades, ajustado para ser mais largo -->
+                  <div class="col-12 col-lg-10" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="skill-category-card">
+                      <!-- Linguagens e Frameworks -->
+                      <h5 class="mb-3"><i class="fas fa-code me-2"></i> Linguagens & Frameworks</h5>
+                      <div class="row mb-4">
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fas fa-hashtag skill-icon"></i> <span>C#</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fas fa-dot-circle skill-icon"></i> <span>.NET Framework</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fas fa-dot-circle skill-icon"></i> <span>.NET Core</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fas fa-file-code skill-icon"></i> <span>VB.NET</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fab fa-html5 skill-icon"></i> <span>HTML5</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fab fa-css3-alt skill-icon"></i> <span>CSS</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fab fa-bootstrap skill-icon"></i> <span>Bootstrap</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fab fa-js-square skill-icon"></i> <span>JavaScript</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fab fa-node-js skill-icon"></i> <span>NodeJs</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fab fa-angular skill-icon"></i> <span>Angular</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fab fa-python skill-icon"></i> <span>Python (Noções)</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Testes e Boas Práticas -->
+                      <h5 class="mb-3"><i class="fas fa-check-double me-2"></i> Testes & Boas Práticas</h5>
+                      <div class="row mb-4">
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fas fa-flask skill-icon"></i> <span>XUnit</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fas fa-cogs skill-icon"></i> <span>SOLID</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fas fa-broom skill-icon"></i> <span>Clean Code</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fas fa-sitemap skill-icon"></i> <span>Design Patterns</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fas fa-cubes skill-icon"></i> <span>DDD</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- APIs e Mensageria -->
+                      <h5 class="mb-3"><i class="fas fa-plug me-2"></i> APIs & Mensageria</h5>
+                      <div class="row mb-4">
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fas fa-exchange-alt skill-icon"></i> <span>RESTFul</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fas fa-envelope-open-text skill-icon"></i> <span>SOAP</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fas fa-comments skill-icon"></i> <span>RabbitMQ</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- DevOps e Banco de Dados -->
+                      <h5 class="mb-3"><i class="fas fa-tools me-2"></i> DevOps & Banco de Dados</h5>
+                      <div class="row">
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fab fa-git-alt skill-icon"></i> <span>Git</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fas fa-cogs skill-icon"></i> <span>CI/CD</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fab fa-gitlab skill-icon"></i> <span>GitLab CI/CD</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fab fa-jenkins skill-icon"></i> <span>Jenkins</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fas fa-cloud skill-icon"></i> <span>Azure DevOps / Azure Services</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fab fa-github-alt skill-icon"></i> <span>GitHub Actions</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fas fa-database skill-icon"></i> <span>SQL Server</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fas fa-database skill-icon"></i> <span>PostgreSQL</span>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                          <div class="skill-item-content">
+                            <i class="fas fa-project-diagram skill-icon"></i> <span>Metodologias Ágeis (Scrum)</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section id="skills" class="py-5 d-none d-lg-block">
       <canvas id="skillsBgCanvas" class="card-section-bg-canvas"></canvas>
       <div class="container">
-        <h2 class="text-center mb-5" data-aos="fade-up">Habilidades e Ferramentas</h2>
+        <h2 class="text-center mb-5 text-info" data-aos="fade-up">Habilidades e Ferramentas</h2>
         <div class="row g-4 justify-content-center">
-          <!-- Linguagens -->
-          <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+          <!-- Único Card para todas as habilidades, ajustado para ser mais largo -->
+          <div class="col-12 col-lg-10" data-aos="zoom-in" data-aos-delay="100">
             <div class="skill-category-card">
-              <h5><i class="fas fa-code me-2"></i> Linguagens</h5>
-              <ul class="skill-list">
-                <li><i class="fab fa-js-square skill-icon"></i> JavaScript</li>
-                <li><i class="fab fa-python skill-icon"></i> Python</li>
-                <li><i class="fab fa-java skill-icon"></i> Java</li>
-                <li><i class="fab fa-html5 skill-icon"></i> HTML5</li>
-              </ul>
-            </div>
-          </div>
-          <!-- Frameworks -->
-          <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
-            <div class="skill-category-card">
-              <h5><i class="fas fa-layer-group me-2"></i> Frameworks</h5>
-              <ul class="skill-list">
-                <li><i class="fab fa-react skill-icon"></i> React</li>
-                <li><i class="fab fa-node-js skill-icon"></i> Node.js</li>
-                <li><i class="fab fa-angular skill-icon"></i> Angular</li>
-                <li><i class="fab fa-vuejs skill-icon"></i> Vue.js</li>
-              </ul>
-            </div>
-          </div>
-          <!-- Ferramentas -->
-          <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
-            <div class="skill-category-card">
-              <h5><i class="fas fa-tools me-2"></i> Ferramentas</h5>
-              <ul class="skill-list">
-                <li><i class="fab fa-git-alt skill-icon"></i> Git</li>
-                <li><i class="fab fa-docker skill-icon"></i> Docker</li>
-                <li><i class="fab fa-aws skill-icon"></i> AWS</li>
-                <li><i class="fas fa-database skill-icon"></i> MongoDB</li>
-              </ul>
-            </div>
-          </div>
-          <!-- Soft Skills -->
-          <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
-            <div class="skill-category-card">
-              <h5><i class="fas fa-lightbulb me-2"></i> Soft Skills</h5>
-              <ul class="skill-list">
-                <li><i class="fas fa-handshake skill-icon"></i> Liderança</li>
-                <li><i class="fas fa-brain skill-icon"></i> Inovação</li>
-                <li><i class="fas fa-comments skill-icon"></i> Comunicação</li>
-                <li><i class="fas fa-sync-alt skill-icon"></i> Adaptabilidade</li>
-              </ul>
+              <!-- Linguagens e Frameworks -->
+              <h5 class="mb-3"><i class="fas fa-code me-2"></i> Linguagens & Frameworks</h5>
+              <div class="row mb-4">
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fas fa-hashtag skill-icon"></i> <span>C#</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fas fa-dot-circle skill-icon"></i> <span>.NET Framework</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fas fa-dot-circle skill-icon"></i> <span>.NET Core</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fas fa-file-code skill-icon"></i> <span>VB.NET</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fab fa-html5 skill-icon"></i> <span>HTML5</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fab fa-css3-alt skill-icon"></i> <span>CSS</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fab fa-bootstrap skill-icon"></i> <span>Bootstrap</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fab fa-js-square skill-icon"></i> <span>JavaScript</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fab fa-node-js skill-icon"></i> <span>NodeJs</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fab fa-angular skill-icon"></i> <span>Angular</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fab fa-python skill-icon"></i> <span>Python (Noções)</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Testes e Boas Práticas -->
+              <h5 class="mb-3"><i class="fas fa-check-double me-2"></i> Testes & Boas Práticas</h5>
+              <div class="row mb-4">
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fas fa-flask skill-icon"></i> <span>XUnit</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fas fa-cogs skill-icon"></i> <span>SOLID</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fas fa-broom skill-icon"></i> <span>Clean Code</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fas fa-sitemap skill-icon"></i> <span>Design Patterns</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fas fa-cubes skill-icon"></i> <span>DDD</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- APIs e Mensageria -->
+              <h5 class="mb-3"><i class="fas fa-plug me-2"></i> APIs & Mensageria</h5>
+              <div class="row mb-4">
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fas fa-exchange-alt skill-icon"></i> <span>RESTFul</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fas fa-envelope-open-text skill-icon"></i> <span>SOAP</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fas fa-comments skill-icon"></i> <span>RabbitMQ</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- DevOps e Banco de Dados -->
+              <h5 class="mb-3"><i class="fas fa-tools me-2"></i> DevOps & Banco de Dados</h5>
+              <div class="row">
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fab fa-git-alt skill-icon"></i> <span>Git</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fas fa-cogs skill-icon"></i> <span>CI/CD</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fab fa-gitlab skill-icon"></i> <span>GitLab CI/CD</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fab fa-jenkins skill-icon"></i> <span>Jenkins</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fas fa-cloud skill-icon"></i> <span>Azure DevOps / Azure Services</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fab fa-github-alt skill-icon"></i> <span>GitHub Actions</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fas fa-database skill-icon"></i> <span>SQL Server</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fas fa-database skill-icon"></i> <span>PostgreSQL</span>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                  <div class="skill-item-content">
+                    <i class="fas fa-project-diagram skill-icon"></i> <span>Metodologias Ágeis (Scrum)</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -496,131 +874,343 @@
     </section>
 
     <!-- Seção Experiências Profissionais -->
-    <section id="experiencias" class="py-5">
+    <div class="accordion d-lg-none" id="accordionExperiencias">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingExperiencias">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExperiencias" aria-expanded="false" aria-controls="collapseExperiencias">
+            Minhas Experiências
+          </button>
+        </h2>
+        <div id="collapseExperiencias" class="accordion-collapse collapse" aria-labelledby="headingExperiencias" data-bs-parent="#accordionExperiencias">
+          <div class="accordion-body">
+            <section id="experiencias" class="py-5">
+              <canvas id="experienciasBgCanvas" class="card-section-bg-canvas"></canvas>
+              <div class="container">
+                <h2 class="text-center mb-5 text-info" data-aos="fade-up">Minhas Experiências</h2>
+                <div class="row g-4 justify-content-center">
+                  <!-- Engenheiro de Software DevOps .Net - Pw Mídia -->
+                  <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="exp-card">
+                      <div class="exp-card-header">
+                        <div class="exp-logo-wrap">
+                          <img src="assets/src/images/empresas/pw.jpeg" alt="Logo Pw Mídia" class="exp-logo">
+                        </div>
+                        <div class="exp-info">
+                          <h3>Engenheiro de Software DevOps .Net</h3>
+                          <h4>Pw Mídia</h4>
+                          <p class="exp-period">Abril/2021 – Atual</p>
+                        </div>
+                      </div>
+                      <ul>
+                        <li>Desenvolvimento e manutenção de sistemas web e APIs em .NET 9.</li>
+                        <li>Integração de serviços REST.</li>
+                        <li>Implantação de pipelines CI/CD com GitHub Actions e Azure DevOps.</li>
+                        <li>Integrar práticas de segurança no ciclo de vida do software.</li>
+                        <li>Aplicação de boas práticas de arquitetura, SOLID e Clean Code.</li>
+                      </ul>
+                      <div class="exp-badges">
+                        <span class="badge">C#</span>
+                        <span class="badge">.NET 9</span>
+                        <span class="badge">REST APIs</span>
+                        <span class="badge">GitHub Actions</span>
+                        <span class="badge">Azure DevOps</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Desenvolvedora Back-end .NET - Instituto das Cidades Inteligentes (ICI) -->
+                  <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="exp-card">
+                      <div class="exp-card-header">
+                        <div class="exp-logo-wrap">
+                          <img src="https://media.licdn.com/dms/image/v2/D4D0BAQFoTzG2hNwsFw/company-logo_200_200/B4DZWBSz0zGcAg-/0/1741630947061/icicuritiba_logo?e=1757548800&v=beta&t=7swBRYXyHzMzL3D-z4eri6cIt3YOStMtjzR1dtNZQDU" alt="Logo ICI" class="exp-logo">
+                        </div>
+                        <div class="exp-info">
+                          <h3>Desenvolvedora Back-end .NET</h3>
+                          <h4>Instituto das Cidades Inteligentes (ICI)</h4>
+                          <p class="exp-period">Mar/2021 – Jul/2025</p>
+                        </div>
+                      </div>
+                      <ul>
+                        <li>Desenvolvimento e manutenção de sistemas web e APIs em .NET 6+ e EF Core.</li>
+                        <li>Integração de serviços REST e SOAP.</li>
+                        <li>Implantação de pipelines CI/CD com GitLab e Jenkins.</li>
+                        <li>Utilização de RabbitMQ para mensageria em projetos internos.</li>
+                        <li>Participação ativa em cerimônias ágeis (daily, planning, review).</li>
+                        <li>Aplicação de boas práticas de arquitetura, SOLID e Clean Code.</li>
+                      </ul>
+                      <div class="exp-badges">
+                        <span class="badge">C#</span>
+                        <span class="badge">.NET 6+</span>
+                        <span class="badge">EF Core</span>
+                        <span class="badge">RabbitMQ</span>
+                        <span class="badge">CI/CD</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Desenvolvedora Back-end .NET - VEXPRO BUSINESS IT – Grupo SPRO -->
+                  <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="exp-card">
+                      <div class="exp-card-header">
+                        <div class="exp-logo-wrap">
+                          <img src="assets/src/images/empresas/vexpro.png" alt="Logo VEXPRO" class="exp-logo">
+                        </div>
+                        <div class="exp-info">
+                          <h3>Desenvolvedora Back-end .NET</h3>
+                          <h4>VEXPRO BUSINESS IT – Grupo SPRO</h4>
+                          <p class="exp-period">Ago/2020 – Mar/2021</p>
+                        </div>
+                      </div>
+                      <ul>
+                        <li>Desenvolvimento de APIs .NET Core.</li>
+                        <li>Integração contínua com Azure DevOps.</li>
+                        <li>Desenvolvimento de testes unitários com XUnit e Moq.</li>
+                        <li>Participação em squads ágeis.</li>
+                      </ul>
+                      <div class="exp-badges">
+                        <span class="badge">C#</span>
+                        <span class="badge">.NET Core</span>
+                        <span class="badge">Azure DevOps</span>
+                        <span class="badge">XUnit</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Desenvolvedora Back-end .NET - DBM Contact Center -->
+                  <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="exp-card">
+                      <div class="exp-card-header">
+                        <div class="exp-logo-wrap">
+                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb9LjvYhvkLtxr-_WlMTjP2mfOpGkB0Ctxkj_oUfu0jtVdxrPzRgmkmTUr-Eo2yBRTpa0&usqp=CAU" alt="Logo DBM" class="exp-logo">
+                        </div>
+                        <div class="exp-info">
+                          <h3>Desenvolvedora Back-end .NET</h3>
+                          <h4>DBM Contact Center</h4>
+                          <p class="exp-period">Set/2019 – Jul/2020</p>
+                        </div>
+                      </div>
+                      <ul>
+                        <li>Desenvolvimento de sistemas e APIs REST.</li>
+                        <li>Gestão de banco de dados SQL Server.</li>
+                        <li>Automação de processos via scripts e integrações.</li>
+                      </ul>
+                      <div class="exp-badges">
+                        <span class="badge">C#</span>
+                        <span class="badge">.NET</span>
+                        <span class="badge">REST APIs</span>
+                        <span class="badge">SQL Server</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Desenvolvedora Back-end .NET - Editora Positivo / Aprende Brasil -->
+                  <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="exp-card">
+                      <div class="exp-card-header">
+                        <div class="exp-logo-wrap">
+                          <img src="https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-original-577x577/s3/032017/untitled-1_127.png?itok=54WRLLQd" alt="Logo Editora Positivo" class="exp-logo">
+                        </div>
+                        <div class="exp-info">
+                          <h3>Desenvolvedora Back-end .NET</h3>
+                          <h4>Editora Positivo / Aprende Brasil</h4>
+                          <p class="exp-period">Abr/2018 – Set/2019</p>
+                        </div>
+                      </div>
+                      <ul>
+                        <li>Desenvolvimento e manutenção de sistemas internos com .NET.</li>
+                        <li>Integrações REST/SOAP.</li>
+                        <li>Suporte a banco de dados.</li>
+                      </ul>
+                      <div class="exp-badges">
+                        <span class="badge">C#</span>
+                        <span class="badge">.NET</span>
+                        <span class="badge">REST/SOAP</span>
+                        <span class="badge">SQL Server</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Programadora .NET - Stefanini IT Solutions S.A. -->
+                  <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="exp-card">
+                      <div class="exp-card-header">
+                        <div class="exp-logo-wrap">
+                          <img src="assets/src/images/empresas/stefanini-squareLogo-1691684101747.webp" alt="Logo Stefanini" class="exp-logo">
+                        </div>
+                        <div class="exp-info">
+                          <h3>Programadora .NET</h3>
+                          <h4>Stefanini IT Solutions S.A.</h4>
+                          <p class="exp-period">Mai/2016 – Abr/2018</p>
+                        </div>
+                      </div>
+                      <ul>
+                        <li>Desenvolvimento de sistemas .NET e manutenção de aplicações legadas.</li>
+                        <li>Participação em projetos de integração de serviços e APIs.</li>
+                        <li>Gestão de banco de dados SQL Server.</li>
+                      </ul>
+                      <div class="exp-badges">
+                        <span class="badge">C#</span>
+                        <span class="badge">.NET</span>
+                        <span class="badge">APIs</span>
+                        <span class="badge">SQL Server</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Estagiária .NET - Stefanini IT Solutions S.A. -->
+                  <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="700">
+                    <div class="exp-card">
+                      <div class="exp-card-header">
+                        <div class="exp-logo-wrap">
+                          <img src="assets/src/images/empresas/stefanini-squareLogo-1691684101747.webp" alt="Logo Stefanini" class="exp-logo">
+                        </div>
+                        <div class="exp-info">
+                          <h3>Estagiária .NET</h3>
+                          <h4>Stefanini IT Solutions S.A.</h4>
+                          <p class="exp-period">Mai/2015 – Mai/2016</p>
+                        </div>
+                      </div>
+                      <ul>
+                        <li>Desenvolvimento e manutenção de aplicações .NET e banco de dados.</li>
+                        <li>Participação em integrações e suporte técnico.</li>
+                      </ul>
+                      <div class="exp-badges">
+                        <span class="badge">C#</span>
+                        <span class="badge">.NET</span>
+                        <span class="badge">SQL Server</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section id="experiencias" class="py-5 d-none d-lg-block">
       <canvas id="experienciasBgCanvas" class="card-section-bg-canvas"></canvas>
       <div class="container">
-        <h2 class="text-center mb-5" data-aos="fade-up">Minhas Experiências</h2>
+        <h2 class="text-center mb-5 text-info" data-aos="fade-up">Minhas Experiências</h2>
         <div class="row g-4 justify-content-center">
-          <!-- Engenheira de Software .Net - Pw Métricas (Grupo Pw) -->
+          <!-- Engenheiro de Software DevOps .Net - Pw Mídia -->
           <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
             <div class="exp-card">
               <div class="exp-card-header">
                 <div class="exp-logo-wrap">
-                  <img src="https://placehold.co/60x60/0a192f/64ffda?text=PW" alt="Logo Pw Métricas" class="exp-logo">
+                  <img src="assets/src/images/empresas/pw.jpeg" alt="Logo Pw Mídia" class="exp-logo">
                 </div>
                 <div class="exp-info">
-                  <h3>Engenheira de Software .Net</h3>
-                  <h4>Pw Métricas (Grupo Pw)</h4>
-                  <p class="exp-period">Abr 2025 — Atual</p>
+                  <h3>Engenheiro de Software DevOps .Net</h3>
+                  <h4>Pw Mídia</h4>
+                  <p class="exp-period">Abril/2021 – Atual</p>
                 </div>
               </div>
               <ul>
-                <li>Desenvolvimento e manutenção nos sistemas com .Net Core 9.</li>
-                <li>Integrações com RESTful APIs.</li>
-                <li>Implementação com CI/CD pipelines com GitHub Actions and Azure Services.</li>
-                <li>Aplicação de boas práticas arquiteturais, SOLID e Clean Code.</li>
+                <li>Desenvolvimento e manutenção de sistemas web e APIs em .NET 9.</li>
+                <li>Integração de serviços REST.</li>
+                <li>Implantação de pipelines CI/CD com GitHub Actions e Azure DevOps.</li>
+                <li>Integrar práticas de segurança no ciclo de vida do software.</li>
+                <li>Aplicação de boas práticas de arquitetura, SOLID e Clean Code.</li>
               </ul>
               <div class="exp-badges">
                 <span class="badge">C#</span>
                 <span class="badge">.NET 9</span>
-                <span class="badge">Sql Server</span>
-                <span class="badge">JavaScript</span>
-                <span class="badge">Azure Services</span>
+                <span class="badge">REST APIs</span>
+                <span class="badge">GitHub Actions</span>
+                <span class="badge">Azure DevOps</span>
               </div>
             </div>
           </div>
-          <!-- Engenheira de Software .NET Core - ICI -->
+          <!-- Desenvolvedora Back-end .NET - Instituto das Cidades Inteligentes (ICI) -->
           <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
             <div class="exp-card">
               <div class="exp-card-header">
                 <div class="exp-logo-wrap">
-                  <img src="https://placehold.co/60x60/0a192f/64ffda?text=ICI" alt="Logo ICI" class="exp-logo">
+                  <img src="https://media.licdn.com/dms/image/v2/D4D0BAQFoTzG2hNwsFw/company-logo_200_200/B4DZWBSz0zGcAg-/0/1741630947061/icicuritiba_logo?e=1757548800&v=beta&t=7swBRYXyHzMzL3D-z4eri6cIt3YOStMtjzR1dtNZQDU" alt="Logo ICI" class="exp-logo">
                 </div>
                 <div class="exp-info">
-                  <h3>Engenheira de Software .NET Core</h3>
+                  <h3>Desenvolvedora Back-end .NET</h3>
                   <h4>Instituto das Cidades Inteligentes (ICI)</h4>
-                  <p class="exp-period">Mar 2021 — Atual</p>
+                  <p class="exp-period">Mar/2021 – Jul/2025</p>
                 </div>
               </div>
               <ul>
-                <li>Desenvolvimento e manutenção de sistemas web e APIs em .NET 7+ e EF Core.</li>
+                <li>Desenvolvimento e manutenção de sistemas web e APIs em .NET 6+ e EF Core.</li>
                 <li>Integração de serviços REST e SOAP.</li>
-                <li>Uso de RabbitMQ para mensageria em projetos internos.</li>
-                <li>Implementação de pipelines CI/CD com GitLab e Jenkins.</li>
+                <li>Implantação de pipelines CI/CD com GitLab e Jenkins.</li>
+                <li>Utilização de RabbitMQ para mensageria em projetos internos.</li>
                 <li>Participação ativa em cerimônias ágeis (daily, planning, review).</li>
-                <li>Aplicação de boas práticas arquiteturais, SOLID e Clean Code.</li>
+                <li>Aplicação de boas práticas de arquitetura, SOLID e Clean Code.</li>
               </ul>
               <div class="exp-badges">
                 <span class="badge">C#</span>
-                <span class="badge">.NET 8</span>
-                <span class="badge">JavaScript</span>
-                <span class="badge">GitLab</span>
-                <span class="badge">HangFire</span>
+                <span class="badge">.NET 6+</span>
+                <span class="badge">EF Core</span>
                 <span class="badge">RabbitMQ</span>
+                <span class="badge">CI/CD</span>
               </div>
             </div>
           </div>
-          <!-- Desenvolvedor Back-end .NET Core - VEXPRO -->
+          <!-- Desenvolvedora Back-end .NET - VEXPRO BUSINESS IT – Grupo SPRO -->
           <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
             <div class="exp-card">
               <div class="exp-card-header">
                 <div class="exp-logo-wrap">
-                  <img src="https://placehold.co/60x60/0a192f/64ffda?text=VX" alt="Logo VEXPRO" class="exp-logo">
+                  <img src="assets/src/images/empresas/vexpro.png" alt="Logo VEXPRO" class="exp-logo">
                 </div>
                 <div class="exp-info">
-                  <h3>Desenvolvedor Back-end .NET Core</h3>
+                  <h3>Desenvolvedora Back-end .NET</h3>
                   <h4>VEXPRO BUSINESS IT – Grupo SPRO</h4>
-                  <p class="exp-period">Ago 2020 — Mar 2021</p>
+                  <p class="exp-period">Ago/2020 – Mar/2021</p>
                 </div>
               </div>
               <ul>
                 <li>Desenvolvimento de APIs .NET Core.</li>
                 <li>Integração contínua com Azure DevOps.</li>
+                <li>Desenvolvimento de testes unitários com XUnit e Moq.</li>
                 <li>Participação em squads ágeis.</li>
               </ul>
               <div class="exp-badges">
                 <span class="badge">C#</span>
                 <span class="badge">.NET Core</span>
                 <span class="badge">Azure DevOps</span>
+                <span class="badge">XUnit</span>
               </div>
             </div>
           </div>
-          <!-- Desenvolvedor Back-end .NET - DBM Contact Center -->
+          <!-- Desenvolvedora Back-end .NET - DBM Contact Center -->
           <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="400">
             <div class="exp-card">
               <div class="exp-card-header">
                 <div class="exp-logo-wrap">
-                  <img src="https://placehold.co/60x60/0a192f/64ffda?text=DBM" alt="Logo DBM" class="exp-logo">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb9LjvYhvkLtxr-_WlMTjP2mfOpGkB0Ctxkj_oUfu0jtVdxrPzRgmkmTUr-Eo2yBRTpa0&usqp=CAU" alt="Logo DBM" class="exp-logo">
                 </div>
                 <div class="exp-info">
-                  <h3>Desenvolvedor Back-end .NET</h3>
+                  <h3>Desenvolvedora Back-end .NET</h3>
                   <h4>DBM Contact Center</h4>
-                  <p class="exp-period">Set 2019 — Jul 2020</p>
+                  <p class="exp-period">Set/2019 – Jul/2020</p>
                 </div>
               </div>
               <ul>
-                <li>Desenvolvimento de sistemas e manutenção de sistemas ASP.NET.</li>
-                <li>Gerenciamento de banco de dados SQL Server.</li>
+                <li>Desenvolvimento de sistemas e APIs REST.</li>
+                <li>Gestão de banco de dados SQL Server.</li>
                 <li>Automação de processos via scripts e integrações.</li>
               </ul>
               <div class="exp-badges">
                 <span class="badge">C#</span>
                 <span class="badge">.NET</span>
+                <span class="badge">REST APIs</span>
                 <span class="badge">SQL Server</span>
               </div>
             </div>
           </div>
-          <!-- Back-end .NET Developer - Editora Positivo / Aprende Brasil -->
+          <!-- Desenvolvedora Back-end .NET - Editora Positivo / Aprende Brasil -->
           <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="500">
             <div class="exp-card">
               <div class="exp-card-header">
                 <div class="exp-logo-wrap">
-                  <img src="https://placehold.co/60x60/0a192f/64ffda?text=POS" alt="Logo Editora Positivo" class="exp-logo">
+                  <img src="https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-original-577x577/s3/032017/untitled-1_127.png?itok=54WRLLQd" alt="Logo Editora Positivo" class="exp-logo">
                 </div>
                 <div class="exp-info">
-                  <h3>Back-end .NET Developer</h3>
+                  <h3>Desenvolvedora Back-end .NET</h3>
                   <h4>Editora Positivo / Aprende Brasil</h4>
-                  <p class="exp-period">Abr 2018 — Set 2019</p>
+                  <p class="exp-period">Abr/2018 – Set/2019</p>
                 </div>
               </div>
               <ul>
@@ -630,57 +1220,58 @@
               </ul>
               <div class="exp-badges">
                 <span class="badge">C#</span>
-                <span class="badge">Asp.Net/Vb.Net</span>
+                <span class="badge">.NET</span>
+                <span class="badge">REST/SOAP</span>
                 <span class="badge">SQL Server</span>
               </div>
             </div>
           </div>
-          <!-- Desenvolvedora .NET Junior - Stefanini -->
+          <!-- Programadora .NET - Stefanini IT Solutions S.A. -->
           <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="600">
             <div class="exp-card">
               <div class="exp-card-header">
                 <div class="exp-logo-wrap">
-                  <img src="https://placehold.co/60x60/0a192f/64ffda?text=STF" alt="Logo Stefanini" class="exp-logo">
+                  <img src="assets/src/images/empresas/stefanini-squareLogo-1691684101747.webp" alt="Logo Stefanini" class="exp-logo">
                 </div>
                 <div class="exp-info">
-                  <h3>Desenvolvedora .NET Junior</h3>
+                  <h3>Programadora .NET</h3>
                   <h4>Stefanini IT Solutions S.A.</h4>
-                  <p class="exp-period">Mai 2016 — Abr 2018</p>
+                  <p class="exp-period">Mai/2016 – Abr/2018</p>
                 </div>
               </div>
               <ul>
                 <li>Desenvolvimento de sistemas .NET e manutenção de aplicações legadas.</li>
-                <li>Participação em projetos de integração de serviços.</li>
-                <li>Gerenciamento de banco de dados SQL Server.</li>
+                <li>Participação em projetos de integração de serviços e APIs.</li>
+                <li>Gestão de banco de dados SQL Server.</li>
               </ul>
               <div class="exp-badges">
                 <span class="badge">C#</span>
-                <span class="badge">Asp.Net/Vb.Net</span>
+                <span class="badge">.NET</span>
+                <span class="badge">APIs</span>
                 <span class="badge">SQL Server</span>
               </div>
             </div>
           </div>
-          <!-- Estagiária - Stefanini -->
+          <!-- Estagiária .NET - Stefanini IT Solutions S.A. -->
           <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="700">
             <div class="exp-card">
               <div class="exp-card-header">
                 <div class="exp-logo-wrap">
-                  <img src="https://placehold.co/60x60/0a192f/64ffda?text=STF" alt="Logo Stefanini" class="exp-logo">
+                  <img src="assets/src/images/empresas/stefanini-squareLogo-1691684101747.webp" alt="Logo Stefanini" class="exp-logo">
                 </div>
                 <div class="exp-info">
-                  <h3>Estagiária</h3>
+                  <h3>Estagiária .NET</h3>
                   <h4>Stefanini IT Solutions S.A.</h4>
-                  <p class="exp-period">Mai 2015 — Mai 2016</p>
+                  <p class="exp-period">Mai/2015 – Mai/2016</p>
                 </div>
               </div>
               <ul>
-                <li>Desenvolvimento e manutenção de aplicações e bancos de dados .NET.</li>
+                <li>Desenvolvimento e manutenção de aplicações .NET e banco de dados.</li>
                 <li>Participação em integrações e suporte técnico.</li>
-                <li>Gerenciamento de banco de dados SQL Server.</li>
               </ul>
               <div class="exp-badges">
                 <span class="badge">C#</span>
-                <span class="badge">Asp.Net/Vb.Net</span>
+                <span class="badge">.NET</span>
                 <span class="badge">SQL Server</span>
               </div>
             </div>
@@ -689,10 +1280,65 @@
       </div>
     </section>
 
-    
-
     <!-- Seção Serviços -->
-    <section id="servicos" class="py-5">
+    <div class="accordion d-lg-none" id="accordionServicos">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingServicos">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseServicos" aria-expanded="false" aria-controls="collapseServicos">
+            Meus Serviços
+          </button>
+        </h2>
+        <div id="collapseServicos" class="accordion-collapse collapse" aria-labelledby="headingServicos" data-bs-parent="#accordionServicos">
+          <div class="accordion-body">
+            <section id="servicos" class="py-5">
+              <canvas id="servicosBgCanvas" class="card-section-bg-canvas"></canvas>
+              <div class="container">
+                <h2 class="text-center mb-5 text-info" data-aos="fade-up">Meus Serviços</h2>
+                <div class="row g-4 justify-content-center">
+                  <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                      <h5><i class="fas fa-pencil-ruler service-icon"></i> Prototipagem & Escopo</h5>
+                      <p>Transformo ideias em requisitos claros e protótipos interativos.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                      <h5><i class="fas fa-laptop-code service-icon"></i> Desenvolvimento de Software</h5>
+                      <p>Construção de aplicações web e backend robustas, escaláveis e de alta performance.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                      <h5><i class="fas fa-sync-alt service-icon"></i> Entrega Contínua (CI/CD)</h5>
+                      <p>Implemento pipelines de CI/CD para automatizar o ciclo de vida do software.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card">
+                      <h5><i class="fas fa-exchange-alt service-icon"></i> Integrações de Sistemas</h5>
+                      <p>Conecto diferentes sistemas e APIs, criando fluxos de dados eficientes.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-card">
+                      <h5><i class="fas fa-cloud-upload-alt service-icon"></i> Operações & DevOps</h5>
+                      <p>Otimizo a infraestrutura, automatizo processos de deployment e monitoramento.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-card">
+                      <h5><i class="fas fa-comments service-icon"></i> Consultoria Técnica</h5>
+                      <p>Ofereço orientação estratégica e técnica para equipes de desenvolvimento.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section id="servicos" class="py-5 d-none d-lg-block">
       <canvas id="servicosBgCanvas" class="card-section-bg-canvas"></canvas>
       <div class="container">
         <h2 class="text-center mb-5 text-info" data-aos="fade-up">Meus Serviços</h2>
@@ -738,7 +1384,229 @@
     </section>
 
     <!-- Seção Portfólio -->
-    <section id="portfolio" class="py-5 bg-primaria">
+    <div class="accordion d-lg-none" id="accordionPortfolio">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingPortfolio">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePortfolio" aria-expanded="false" aria-controls="collapsePortfolio">
+            Portfólio
+          </button>
+        </h2>
+        <div id="collapsePortfolio" class="accordion-collapse collapse" aria-labelledby="headingPortfolio" data-bs-parent="#accordionPortfolio">
+          <div class="accordion-body">
+            <section id="portfolio" class="py-5 bg-primaria">
+              <canvas id="portfolioBgCanvas" class="card-section-bg-canvas"></canvas>
+              <div class="container">
+                <h2 class="text-center mb-5 text-info" data-aos="fade-up">Portfólio</h2>
+                <div class="row g-4 justify-content-center portfolio-cards-container">
+                  <!-- Pw Métricas -->
+                  <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="portfolio-card">
+                      <div class="portfolio-image">
+                        <img src="https://placehold.co/400x200/0a192f/64ffda?text=Pw+Metricas" alt="Pw Métricas">
+                        <div class="portfolio-overlay">
+                          <h5>Pw Métricas</h5>
+                          <a href="#" class="btn btn-primary">Ver Projeto</a>
+                        </div>
+                      </div>
+                      <div class="portfolio-content">
+                        <h5>Pw Métricas - Sistema de Métricas de Vendas</h5>
+                        <div class="portfolio-tech">
+                          <span class="tech-icon"><i class="fas fa-hashtag"></i> C#</span>
+                          <span class="tech-icon"><i class="fas fa-dot-circle"></i> .NET 9</span>
+                          <span class="tech-icon"><i class="fas fa-database"></i> SQL Server</span>
+                          <span class="tech-icon html">HTML5</span>
+                          <span class="tech-icon css">SASS</span>
+                          <span class="tech-icon js">JavaScript/jQuery</span>
+                        </div>
+                        <div class="portfolio-meta">
+                          <span class="project-date">2024</span> | <span class="attribute-text">Back-end & Front-end</span>
+                        </div>
+                       </div>
+                    </div>
+                  </div>
+                  <!-- Landing Page Ame Atacadista -->
+                  <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="portfolio-card">
+                      <div class="portfolio-image">
+                        <img src="https://placehold.co/400x200/0a192f/64ffda?text=AME+Atacadista" alt="Landing Page Ame Atacadista">
+                        <div class="portfolio-overlay">
+                          <h5>Landing Page Ame Atacadista</h5>
+                          <a href="#" class="btn btn-primary">Ver Projeto</a>
+                        </div>
+                      </div>
+                      <div class="portfolio-content">
+                        <h5>Landing Page Ame Atacadista</h5>
+                        <div class="portfolio-tech">
+                          <span class="tech-icon html">HTML5</span>
+                          <span class="tech-icon css">CSS</span>
+                          <span class="tech-icon css">Bootstrap 5</span>
+                          <span class="tech-icon js">JavaScript</span>
+                        </div>
+                        <div class="portfolio-meta">
+                          <span class="project-date">2023</span> | <span class="attribute-text">Web Design</span>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <!-- PW Midia - Financial CRM -->
+                  <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="portfolio-card">
+                      <div class="portfolio-image">
+                        <img src="https://placehold.co/400x200/0a192f/64ffda?text=PW+Midia" alt="PW Midia - Financial CRM">
+                        <div class="portfolio-overlay">
+                          <h5>PW Midia - Financial CRM</h5>
+                          <a href="#" class="btn btn-primary">Ver Projeto</a>
+                        </div>
+                      </div>
+                      <div class="portfolio-content">
+                        <h5>PW Midia - Sistema de Controle Financeiro</h5>
+                        <div class="portfolio-tech">
+                          <span class="tech-icon"><i class="fas fa-hashtag"></i> C#</span>
+                          <span class="tech-icon"><i class="fas fa-dot-circle"></i> .NET</span>
+                          <span class="tech-icon css">CSS</span>
+                          <span class="tech-icon css">SASS</span>
+                          <span class="tech-icon html">HTML5</span>
+                          <span class="tech-icon js">JavaScript</span>
+                          <span class="tech-icon"><i class="fas fa-database"></i> SQL</span>
+                        </div>
+                        <div class="portfolio-meta">
+                          <span class="project-date">2022</span> | <span class="attribute-text">Back-end & Front-end</span>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <!-- FTP Cloning API Service -->
+                  <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="portfolio-card">
+                      <div class="portfolio-image">
+                        <img src="https://placehold.co/400x200/0a192f/64ffda?text=FTP+API" alt="FTP Cloning API Service">
+                        <div class="portfolio-overlay">
+                          <h5>FTP Cloning API Service</h5>
+                          <a href="#" class="btn btn-primary">Ver Projeto</a>
+                        </div>
+                      </div>
+                      <div class="portfolio-content">
+                        <h5>Serviço de Clonagem de FTP via API</h5>
+                        <div class="portfolio-tech">
+                          <span class="tech-icon"><i class="fas fa-hashtag"></i> C#</span>
+                          <span class="tech-icon"><i class="fas fa-dot-circle"></i> .NET 7</span>
+                          <span class="tech-icon"><i class="fas fa-calendar-alt"></i> HangFire</span>
+                          <span class="tech-icon">FTP</span>
+                        </div>
+                        <div class="portfolio-meta">
+                          <span class="project-date">2021</span> | <span class="attribute-text">Back-end</span>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <!-- E-commerce Moderno (mantido do original) -->
+                  <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="500">
+                    <div class="portfolio-card">
+                      <div class="portfolio-image">
+                        <img src="https://placehold.co/400x200/0a192f/64ffda?text=E-commerce+Moderno" alt="E-commerce Moderno">
+                        <div class="portfolio-overlay">
+                          <h5>E-commerce Moderno</h5>
+                          <a href="#" class="btn btn-primary">Ver Projeto</a>
+                        </div>
+                      </div>
+                      <div class="portfolio-content">
+                        <h5>E-commerce Moderno</h5>
+                        <div class="portfolio-tech">
+                          <span class="tech-icon react">React</span>
+                          <span class="tech-icon js">JS</span>
+                          <span class="tech-icon html">HTML</span>
+                          <span class="tech-icon css">CSS</span>
+                        </div>
+                        <div class="portfolio-meta">
+                          <span class="project-date">2023</span> | <span class="attribute-text">Web Design</span>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Sistema de Gestão (mantido do original) -->
+                  <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="600">
+                    <div class="portfolio-card">
+                      <div class="portfolio-image">
+                        <img src="https://placehold.co/400x200/0a192f/64ffda?text=Sistema+de+Gestão" alt="Sistema de Gestão">
+                        <div class="portfolio-overlay">
+                          <h5>Sistema de Gestão</h5>
+                          <a href="#" class="btn btn-primary">Ver Projeto</a>
+                        </div>
+                      </div>
+                      <div class="portfolio-content">
+                        <h5>Sistema de Gestão</h5>
+                        <div class="portfolio-tech">
+                          <span class="tech-icon"><i class="fas fa-file-code"></i> .NET</span>
+                          <span class="tech-icon react">React</span>
+                          <span class="tech-icon"><i class="fas fa-database"></i> SQL</span>
+                        </div>
+                        <div class="portfolio-meta">
+                          <span class="project-date">2022</span> | <span class="attribute-text">Back-end</span>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Aplicativo Mobile (mantido do original) -->
+                  <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="700">
+                    <div class="portfolio-card">
+                      <div class="portfolio-image">
+                        <img src="https://placehold.co/400x200/0a192f/64ffda?text=Aplicativo+Mobile" alt="Aplicativo Mobile">
+                        <div class="portfolio-overlay">
+                          <h5>Aplicativo Mobile</h5>
+                          <a href="#" class="btn btn-primary">Ver Projeto</a>
+                        </div>
+                      </div>
+                      <div class="portfolio-content">
+                        <h5>Aplicativo Mobile</h5>
+                        <div class="portfolio-tech">
+                          <span class="tech-icon react">React Native</span>
+                          <span class="tech-icon js">JS</span>
+                          <span class="tech-icon"><i class="fas fa-fire"></i> Firebase</span>
+                        </div>
+                        <div class="portfolio-meta">
+                          <span class="project-date">2021</span> | <span class="attribute-text">Mobile</span>
+                        </div>
+                       
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Website Institucional (mantido do original) -->
+                  <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="800">
+                    <div class="portfolio-card">
+                      <div class="portfolio-image">
+                        <img src="https://placehold.co/400x200/0a192f/64ffda?text=Website+Institucional" alt="Website Institucional">
+                        <div class="portfolio-overlay">
+                          <h5>Website Institucional</h5>
+                          <a href="#" class="btn btn-primary">Ver Projeto</a>
+                        </div>
+                      </div>
+                      <div class="portfolio-content">
+                        <h5>Website Institucional</h5>
+                        <div class="portfolio-tech">
+                          <span class="tech-icon html">HTML</span>
+                          <span class="tech-icon css">CSS</span>
+                          <span class="tech-icon js">JS</span>
+                        </div>
+                        <div class="portfolio-meta">
+                          <span class="project-date">2020</span> | <span class="attribute-text">Web Design</span>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section id="portfolio" class="py-5 bg-primaria d-none d-lg-block">
       <canvas id="portfolioBgCanvas" class="card-section-bg-canvas"></canvas>
       <div class="container">
         <h2 class="text-center mb-5 text-info" data-aos="fade-up">Portfólio</h2>
@@ -949,72 +1817,253 @@
     </section>
 
     <!-- Seção Clientes -->
-    <section id="clientes" class="py-5">
+    <div class="accordion d-lg-none" id="accordionClientes">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingClientes">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseClientes" aria-expanded="false" aria-controls="collapseClientes">
+            Feedbacks
+          </button>
+        </h2>
+        <div id="collapseClientes" class="accordion-collapse collapse" aria-labelledby="headingClientes" data-bs-parent="#accordionClientes">
+          <div class="accordion-body">
+            <section id="clientes" class="py-5">
+              <canvas id="clientesBgCanvas" class="card-section-bg-canvas"></canvas>
+              <div class="container">
+                <h2 class="text-center mb-5 text-info" data-aos="fade-up">Feedbacks</h2>
+                <div class="clientes-grid-wrapper"> <!-- Novo wrapper para o grid customizado -->
+                  <div class="clientes-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card-header">
+                      <img src="assets/src/images/testemunhas/dyego-pw.jpeg" alt="Dyego P." class="client-avatar">
+                      <div class="client-info">
+                        <div class="client-details">
+                          <div class="client-name">Dyego P.</div>
+                          <div class="client-title">CEO | Fundador - PW mídia e PW métricas</div>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="testimonial-text">"Demonstrou profissionalismo e entregou muito mais que foi falado, provou que sabe o que faz."</p>
+                    <div class="card-footer-social">
+                      <a href="https://www.linkedin.com/in/dyego-p-553570180/" target="_blank" aria-label="LinkedIn de Dyego P."><i class="fab fa-linkedin"></i></a>
+                      <a href="https://www.instagram.com/eudyegopessoa/" target="_blank" aria-label="Instagram de Dyego P."><i class="fab fa-instagram"></i></a>
+                    </div>
+                  </div>  
+                  <div class="clientes-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card-header">
+                      <img src="assets/src/images/testemunhas/Thaciane.jpeg" alt="Thaciane Polli" class="client-avatar">
+                      <div class="client-info">
+                        <div class="client-details">
+                          <div class="client-name">Thaciane Polli</div>
+                          <div class="client-title">Analista de Negócios</div>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="testimonial-text">"Você é uma excelente profissional e além do mais um ser humano incrivel."</p>
+                    <div class="card-footer-social">
+                      <a href="https://www.linkedin.com/in/thaciane-polli-ba976020/" target="_blank" aria-label="LinkedIn de Thaciane Polli"><i class="fab fa-linkedin"></i></a>
+                      <a href="https://www.instagram.com/thaciane.polli/" target="_blank" aria-label="Instagram de Thaciane Polli"><i class="fab fa-instagram"></i></a>
+                    </div>
+                  </div>
+                  <div class="clientes-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card-header">
+                      <img src="assets/src/images/testemunhas/Jaqueline.jpeg" alt="Jaqueline Mara Silva" class="client-avatar">
+                      <div class="client-info">
+                        <div class="client-details">
+                          <div class="client-name">Jaqueline M. Silva</div>
+                          <div class="client-title">Gerente de Projetos</div>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="testimonial-text">"Recomendo a Mari. Excelente profissional. Atuamos juntas em um dos projetos."</p>
+                    <div class="card-footer-social">
+                      <a href="https://www.linkedin.com/in/jaquelinemarascrummaster/" target="_blank" aria-label="LinkedIn de Jaqueline Mara Silva"><i class="fab fa-linkedin"></i></a>
+                      <a href="https://www.instagram.com/jacke_mara/" target="_blank" aria-label="Instagram de Jaqueline Mara Silva"><i class="fab fa-instagram"></i></a>
+                    </div>
+                  </div>
+                  <div class="clientes-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="card-header">
+                      <img src="assets/src/images/testemunhas/janaina.jpeg" alt="Janaina Iedowski" class="client-avatar">
+                      <div class="client-info">
+                        <div class="client-details">
+                          <div class="client-name">Janaina Iedowski</div>
+                          <div class="client-title">Coordenadora de Projetos</div>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="testimonial-text">"Muito bom ter trabalhado contigo Mari! A empresa que tiver o prazer de te contatar será uma empresa de sorte!!!"</p>
+                    <div class="card-footer-social">
+                      <a href="https://www.linkedin.com/in/janaiedowski/" target="_blank" aria-label="LinkedIn de Janaina Iedowski"><i class="fab fa-linkedin"></i></a>
+                      <a href="https://www.instagram.com/janainaiedowski/" target="_blank" aria-label="Instagram de Janaina Iedowski"><i class="fab fa-instagram"></i></a>
+                    </div>
+                  </div>
+                  <div class="clientes-card" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="card-header">
+                      <img src="assets/src/images/testemunhas/Ana.jpeg" alt="Ana Onório" class="client-avatar">
+                      <div class="client-info">
+                        <div class="client-details">
+                          <div class="client-name">Ana Onório</div>
+                          <div class="client-title">Análise de Sistemas</div>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="testimonial-text">"Excelente desenvolvedora! Recomendo de olhos fechados!"</p>
+                    <div class="card-footer-social">
+                      <a href="https://www.linkedin.com/in/anacsonorio/" target="_blank" aria-label="LinkedIn de Ana Onório"><i class="fab fa-linkedin"></i></a>
+                      <a href="https://www.instagram.com/anacsonorio/" target="_blank" aria-label="Instagram de Ana Onório"><i class="fab fa-instagram"></i></a>
+                    </div>
+                  </div>
+                   </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section id="clientes" class="py-5 d-none d-lg-block">
       <canvas id="clientesBgCanvas" class="card-section-bg-canvas"></canvas>
       <div class="container">
         <h2 class="text-center mb-5 text-info" data-aos="fade-up">Feedbacks</h2>
         <div class="clientes-grid-wrapper"> <!-- Novo wrapper para o grid customizado -->
-          <div class="clientes-card" data-aos="zoom-in" data-aos-delay="500">
+          <div class="clientes-card" data-aos="zoom-in" data-aos-delay="100">
             <div class="card-header">
-              <img src="assets/src/images/testemunhas/dyego-pw.jpeg" alt="Diego Pessoa" class="client-avatar">
+              <img src="assets/src/images/testemunhas/dyego-pw.jpeg" alt="Dyego P." class="client-avatar">
               <div class="client-info">
-                <div class="client-name">Diego Pessoa</div>
-                <div class="client-title">CEO PW Mídia</div>
+                <div class="client-details">
+                  <div class="client-name">Dyego P.</div>
+                  <div class="client-title">CEO | Fundador - PW mídia e PW métricas</div>
+                </div>
               </div>
             </div>
-            <p class="testimonial-text">"Demonstrou profissionalismo e entregou muito mais que foi falado,
-provou que sabe o que faz."</p>
+            <p class="testimonial-text">"Demonstrou profissionalismo e entregou muito mais que foi falado, provou que sabe o que faz."</p>
+            <div class="card-footer-social">
+              <a href="https://www.linkedin.com/in/dyego-p-553570180/" target="_blank" aria-label="LinkedIn de Dyego P."><i class="fab fa-linkedin"></i></a>
+              <a href="https://www.instagram.com/eudyegopessoa/" target="_blank" aria-label="Instagram de Dyego P."><i class="fab fa-instagram"></i></a>
+            </div>
           </div>  
-          <div class="clientes-card" data-aos="zoom-in" data-aos-delay="100">
-                <div class="card-header">
-                    <img src="assets/src/images/testemunhas/Thaciane.jpeg" alt="Thaciane Polli" class="client-avatar">
-                    <div class="client-info">
-                        <div class="client-name">Thaciane Polli</div>
-                        <div class="client-title">Analista de Negócios</div>
-                    </div>
+          <div class="clientes-card" data-aos="zoom-in" data-aos-delay="200">
+            <div class="card-header">
+              <img src="assets/src/images/testemunhas/Thaciane.jpeg" alt="Thaciane Polli" class="client-avatar">
+              <div class="client-info">
+                <div class="client-details">
+                  <div class="client-name">Thaciane Polli</div>
+                  <div class="client-title">Analista de Negócios</div>
                 </div>
-                <p class="testimonial-text">"Você é uma excelente profissional e além do mais um ser humano incrivel."</p>
+              </div>
             </div>
-            <div class="clientes-card" data-aos="zoom-in" data-aos-delay="200">
-                <div class="card-header">
-                    <img src="assets/src/images/testemunhas/Jaqueline.jpeg" alt="Jaqueline Mara Silva" class="client-avatar">
-                    <div class="client-info">
-                        <div class="client-name">Jaqueline Mara Silva</div>
-                        <div class="client-title">Gerente de Projetos</div>
-                    </div>
+            <p class="testimonial-text">"Você é uma excelente profissional e além do mais um ser humano incrivel."</p>
+            <div class="card-footer-social">
+              <a href="https://www.linkedin.com/in/thaciane-polli-ba976020/" target="_blank" aria-label="LinkedIn de Thaciane Polli"><i class="fab fa-linkedin"></i></a>
+              <a href="https://www.instagram.com/thaciane.polli/" target="_blank" aria-label="Instagram de Thaciane Polli"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="clientes-card" data-aos="zoom-in" data-aos-delay="300">
+            <div class="card-header">
+              <img src="assets/src/images/testemunhas/Jaqueline.jpeg" alt="Jaqueline Mara Silva" class="client-avatar">
+              <div class="client-info">
+                <div class="client-details">
+                  <div class="client-name">Jaqueline M. Silva</div>
+                  <div class="client-title">Gerente de Projetos</div>
                 </div>
-                <p class="testimonial-text">"Recomendo a Mari. Excelente profissional. Atuamos juntas em um dos projetos."</p>
+              </div>
             </div>
-            <div class="clientes-card" data-aos="zoom-in" data-aos-delay="300">
-                <div class="card-header">
-                    <img src="assets/src/images/testemunhas/janaina.jpeg" alt="Janaina Iedowski" class="client-avatar">
-                    <div class="client-info">
-                        <div class="client-name">Janaina Iedowski</div>
-                        <div class="client-title">Coordenadora de Projetos | Scrum Master</div>
-                    </div>
+            <p class="testimonial-text">"Recomendo a Mari. Excelente profissional. Atuamos juntas em um dos projetos."</p>
+            <div class="card-footer-social">
+              <a href="https://www.linkedin.com/in/jaquelinemarascrummaster/" target="_blank" aria-label="LinkedIn de Jaqueline Mara Silva"><i class="fab fa-linkedin"></i></a>
+              <a href="https://www.instagram.com/jacke_mara/" target="_blank" aria-label="Instagram de Jaqueline Mara Silva"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="clientes-card" data-aos="zoom-in" data-aos-delay="400">
+            <div class="card-header">
+              <img src="assets/src/images/testemunhas/janaina.jpeg" alt="Janaina Iedowski" class="client-avatar">
+              <div class="client-info">
+                <div class="client-details">
+                  <div class="client-name">Janaina Iedowski</div>
+                  <div class="client-title">Coordenadora de Projetos</div>
                 </div>
-                <p class="testimonial-text">"Muito bom ter trabalhado contigo Mari! A empresa que tiver o prazer de te contatar será uma empresa de sorte!!!"</p>
+              </div>
             </div>
-            <div class="clientes-card" data-aos="zoom-in" data-aos-delay="400">
-                <div class="card-header">
-                    <img src="assets/src/images/testemunhas/Ana.jpeg" alt="Ana Onório" class="client-avatar">
-                    <div class="client-info">
-                        <div class="client-name">Ana Onório</div>
-                        <div class="client-title">Analista de Sistemas</div>
-                    </div>
+            <p class="testimonial-text">"Muito bom ter trabalhado contigo Mari! A empresa que tiver o prazer de te contatar será uma empresa de sorte!!!"</p>
+            <div class="card-footer-social">
+              <a href="https://www.linkedin.com/in/janaiedowski/" target="_blank" aria-label="LinkedIn de Janaina Iedowski"><i class="fab fa-linkedin"></i></a>
+              <a href="https://www.instagram.com/janainaiedowski/" target="_blank" aria-label="Instagram de Janaina Iedowski"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="clientes-card" data-aos="zoom-in" data-aos-delay="500">
+            <div class="card-header">
+              <img src="assets/src/images/testemunhas/Ana.jpeg" alt="Ana Onório" class="client-avatar">
+              <div class="client-info">
+                <div class="client-details">
+                  <div class="client-name">Ana Onório</div>
+                  <div class="client-title">Análise de Sistemas</div>
                 </div>
-                <p class="testimonial-text">"Excelente desenvolvedora! Recomendo de olhos fechados!"</p>
+              </div>
             </div>
+            <p class="testimonial-text">"Excelente desenvolvedora! Recomendo de olhos fechados!"</p>
+            <div class="card-footer-social">
+              <a href="https://www.linkedin.com/in/anacsonorio/" target="_blank" aria-label="LinkedIn de Ana Onório"><i class="fab fa-linkedin"></i></a>
+              <a href="https://www.instagram.com/anacsonorio/" target="_blank" aria-label="Instagram de Ana Onório"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
            </div>
       </div>
     </section>
 
        <!-- Seção Contato -->
-    <section id="contato" class="py-5">
-      <canvas id="contactCanvas" class="card-section-bg-canvas"></canvas>
+    <div class="accordion d-lg-none" id="accordionContato">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingContato">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseContato" aria-expanded="false" aria-controls="collapseContato">
+            Entre em Contato
+          </button>
+        </h2>
+        <div id="collapseContato" class="accordion-collapse collapse" aria-labelledby="headingContato" data-bs-parent="#accordionContato">
+          <div class="accordion-body">
+            <section id="contato" class="py-5">
+              <!-- Removidos os elementos de estrelas daqui, agora estão no body -->
+              <div class="container position-relative z-2">
+                <h2 class="text-center mb-5 text-info" data-aos="fade-up">Entre em Contato</h2>
+                <div class="row justify-content-center align-items-center"> <!-- Adicionado align-items-center para alinhar o robô e o formulário verticalmente -->
+                  <div class="col-lg-4 d-flex justify-content-center mb-4 mb-lg-0" data-aos="fade-right" data-aos-delay="100">
+                    <img src="assets/src/images/robo-semfundo.png" alt="Robô Estilizado" class="img-fluid contact-robot-img">
+                  </div>
+                  <div class="col-lg-8">
+                    <form id="contactForm" class="contact-form p-4 rounded shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                      <div class="mb-3">
+                        <label for="nome" class="form-label">Nome Completo</label>
+                        <input type="text" class="form-control" id="nome" name="nome" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="telefone" class="form-label">Telefone (Opcional)</label>
+                        <input type="tel" class="form-control" id="telefone" name="telefone">
+                      </div>
+                      <div class="mb-3">
+                        <label for="mensagem" class="form-label">Sua Mensagem</label>
+                        <textarea class="form-control" id="mensagem" name="mensagem" rows="5" required></textarea>
+                      </div>
+                      <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-info btn-lg" id="submitContactForm">Enviar Mensagem</button>
+                      </div>
+                      <div id="formMessage" class="mt-3 text-center" style="display: none;"></div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section id="contato" class="py-5 d-none d-lg-block">
+      <!-- Removidos os elementos de estrelas daqui, agora estão no body -->
       <div class="container position-relative z-2">
-        <h2 class="text-center mb-5" data-aos="fade-up">Entre em Contato</h2>
-        <div class="row justify-content-center">
+        <h2 class="text-center mb-5 text-info" data-aos="fade-up">Entre em Contato</h2>
+        <div class="row justify-content-center align-items-center"> <!-- Adicionado align-items-center para alinhar o robô e o formulário verticalmente -->
+          <div class="col-lg-4 d-flex justify-content-center mb-4 mb-lg-0" data-aos="fade-right" data-aos-delay="100">
+            <img src="assets/src/images/robo-semfundo.png" alt="Robô Estilizado" class="img-fluid contact-robot-img">
+          </div>
           <div class="col-lg-8">
             <form id="contactForm" class="contact-form p-4 rounded shadow-lg" data-aos="fade-up" data-aos-delay="200">
               <div class="mb-3">
@@ -1071,7 +2120,7 @@ provou que sabe o que faz."</p>
   <!-- Footer -->
   <footer class="bg-primaria text-center py-4">
     <div class="container">
-      <p class="mb-0 text-muted">&copy; 2024 Mariane Ribeiro. Todos os direitos reservados.</p>
+      <p class="mb-0 text-muted">&copy; 2025 Mariane Ribeiro. Todos os direitos reservados.</p>
       <div class="social-icons mt-2">
         <a href="https://www.linkedin.com/in/mariane-ribeirop-dev/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin fs-4 mx-2"></i></a>
         <a href="https://github.com/Mariane-Ribeiro" target="_blank" aria-label="GitHub"><i class="fab fa-github fs-4 mx-2"></i></a>
@@ -1081,6 +2130,11 @@ provou que sabe o que faz."</p>
       </div>
     </div>
   </footer>
+
+  <!-- Botão Voltar ao Topo -->
+  <a href="#inicio" id="backToTopBtn" class="back-to-top-btn" title="Voltar ao topo">
+    <i class="fas fa-arrow-up"></i>
+  </a>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

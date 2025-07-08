@@ -52,7 +52,8 @@
 }
 
 .clientes-card .client-info {
-  text-align: left;
+  flex-grow: 1;
+  /* Removido overflow: hidden; para permitir que o texto quebre a linha */
 }
 
 .clientes-card .client-name {
@@ -60,17 +61,17 @@
   font-weight: 600;
   color: var(--destaque);
   margin-bottom: 0.2em;
-  white-space: nowrap; /* Impede que o nome quebre a linha */
-  overflow: hidden; /* Oculta o texto que excede a largura */
-  text-overflow: ellipsis; /* Adiciona reticências (...) se o texto for muito longo */
+  white-space: normal; /* Garante que o nome quebre a linha se for muito longo */
+  overflow: visible; /* Garante que o texto não seja cortado */
+  text-overflow: clip; /* Garante que não haja reticências */
 }
 
 .clientes-card .client-title {
   font-size: 0.9em;
   color: #a3b2cc;
-  white-space: nowrap; /* Impede que o título quebre a linha */
-  overflow: hidden; /* Oculta o texto que excede a largura */
-  text-overflow: ellipsis; /* Adiciona reticências (...) se o texto for muito longo */
+  white-space: normal; /* Garante que o título quebre a linha se for muito longo */
+  overflow: visible; /* Garante que o texto não seja cortado */
+  text-overflow: clip; /* Garante que não haja reticências */
 }
 
 /* Estilo do texto do depoimento */
@@ -88,6 +89,27 @@
   color: #ffc107; /* Cor amarela para estrelas */
   margin-right: 0.2em;
 }
+
+/* Novo estilo para o rodapé social do card */
+.clientes-card .card-footer-social {
+  display: flex;
+  justify-content: flex-end; /* Alinha os ícones à direita */
+  gap: 1em; /* Espaçamento entre os ícones */
+  padding-top: 1em; /* Espaçamento acima dos ícones */
+  border-top: 1px solid rgba(0,230,230,0.1); /* Linha separadora sutil */
+}
+
+.clientes-card .card-footer-social a {
+  color: #8892b0; /* Cor padrão dos ícones */
+  font-size: 1.4em; /* Tamanho dos ícones */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.clientes-card .card-footer-social a:hover {
+  color: var(--destaque); /* Cor de destaque no hover */
+  transform: translateY(-3px); /* Efeito de elevação no hover */
+}
+
 
 /* Responsividade */
 @media (max-width: 768px) {
@@ -113,6 +135,10 @@
   .clientes-card .testimonial-text {
     font-size: 0.9em;
     margin-bottom: 1em;
+  }
+
+  .clientes-card .card-footer-social {
+    justify-content: center; /* Centraliza os ícones em telas menores */
   }
 }
 

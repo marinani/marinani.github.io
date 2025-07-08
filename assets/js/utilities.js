@@ -110,6 +110,29 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', onScrollSpy, { passive: true });
     onScrollSpy(); // Chama uma vez ao carregar para definir a seção inicial
 
+    // === BACK TO TOP BUTTON ===
+    const backToTopBtn = document.getElementById('backToTopBtn');
+
+    if (backToTopBtn) {
+        // Mostra/oculta o botão com base na rolagem
+        const toggleBackToTopButton = () => {
+            if (window.scrollY > 300) { // Mostra após 300px de rolagem
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        };
+
+        window.addEventListener('scroll', toggleBackToTopButton);
+        toggleBackToTopButton(); // Verifica o estado inicial ao carregar
+
+        // Rolagem suave para o topo ao clicar
+        backToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
     // Ajustar alturas novamente após a rolagem, para garantir que as posições estejam corretas após qualquer ajuste dinâmico do layout
     // Adicionado um pequeno atraso para garantir que o layout esteja estável
     setTimeout(adjustCardHeights, 100);
