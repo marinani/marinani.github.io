@@ -58,6 +58,67 @@ a:hover, .btn-link:hover {
     margin-right: 10px; /* Adiciona espaço entre logo e título */
 }
 
+/* Efeito neon para os títulos das seções */
+    h2.text-info {
+      text-shadow: 0 0 5px rgba(13, 202, 240, 0.8),
+                   0 0 10px rgba(13, 202, 240, 0.6);
+    }
+
+    /* Estilo para o botão do acordeão em mobile */
+    @media (max-width: 991.98px) {
+      /* Garante que o texto da habilidade seja exibido em mobile */
+      .skill-item-content span {
+        display: inline !important;
+      }
+
+      .accordion-button {
+        background-color: var(--secundaria) !important;
+        color: var(--destaque) !important;
+        font-weight: 700;
+        border-radius: 16px !important;
+        padding: 1.5rem;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        border: 1px solid rgba(0,230,230,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem; /* Espaçamento entre os botões */
+      }
+
+      .accordion-button:not(.collapsed) {
+        background-color: var(--primaria) !important;
+        color: var(--destaque-hover) !important;
+        box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 0 20px rgba(0,230,230,0.4);
+        border-color: var(--destaque);
+      }
+
+      .accordion-button::after {
+        filter: brightness(0) invert(1); /* Ícone branco para contraste */
+      }
+
+      .accordion-item {
+        background-color: transparent !important;
+        border: none !important;
+        margin-bottom: 1.5rem; /* Espaçamento entre os itens do acordeão */
+      }
+
+      .accordion-body {
+        background-color: var(--secundaria);
+        border-radius: 16px;
+        padding: 1.5rem;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        border: 1px solid rgba(0,230,230,0.1);
+      }
+
+      /* Ajuste para o padding das seções quando minimizadas */
+      section {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+      }
+    }
+    
 /* Estilo do texto "MARINANI DEVELOPER" na navbar */
 .navbar-brand .navbar-text {
   font-family: 'Share Tech Mono', monospace; /* Fonte tecnológica/robotizada */
@@ -1582,4 +1643,18 @@ a:hover, .btn-link:hover {
 @keyframes animStar {
   from { transform: translateY(-100vh); } /* Começa fora da tela, acima */
   to { transform: translateY(100vh); } /* Termina fora da tela, abaixo */
+}
+
+/* Ajuste de contraste para telas menores */
+@media (max-width: 768px) {
+  /* Aumenta o contraste de textos secundários para melhor legibilidade */
+  .text-muted,
+  .principle-card p,
+  .portfolio-meta,
+  .tag,
+  .clientes-card .client-title,
+  .clientes-card .card-footer-social a {
+    color: var(--texto-escuro) !important; /* Cor de texto principal para maior contraste */
+    opacity: 0.85; /* Leve opacidade para diferenciar do texto primário */
+  }
 }
